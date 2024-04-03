@@ -1,0 +1,74 @@
+grammar willburden.hale.Hale with org.eclipse.xtext.common.Terminals
+
+generate hale "http://www.hale.willburden/Hale"
+
+/*************************************************************
+ * Top-level
+ ************************************************************/
+
+Hale:
+	{Hale} (statements+=Statement)*
+;
+
+Statement:
+	(Print | Binding | Assignment | Expression) ';'
+;
+
+Print:
+	'print' value=Expression
+;
+
+/*************************************************************
+ * Bindings
+ ************************************************************/
+
+Binding:
+	'let' (mutable?='mut')? name=ID '=' value=Expression
+;
+
+BindingReference:
+	binding=[Binding]
+;
+
+Assignment:
+	binding=[Binding] '=' value=Expression
+;
+
+/*************************************************************
+ * Expressions
+ ************************************************************/
+
+// Binary operations are left-associative
+// When mixing operators, explicit precedence with parentheses is required
+
+Expression:
+	TerminalExpression (
+		({Multiplication.left=current} '*' right=TerminalExpression)+ |
+		({Division.left=current} '/' right=TerminalExpression)+ |
+		({Subtraction.left=current} '-' right=TerminalExpression)+ |
+		({Addition.left=current} '+' right=TerminalExpression)+
+	)?
+;
+
+TerminalExpression returns Expression:
+	'(' Expression ')' |
+	BindingReference |
+	Literal
+;
+
+/*************************************************************
+ * Literals
+ ************************************************************/
+
+Literal:
+	IntLiteral |
+	StringLiteral
+;
+
+IntLiteral:
+	value=INT
+;
+
+StringLiteral:
+	value=STRING
+;
