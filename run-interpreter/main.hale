@@ -1,0 +1,4 @@
+print "Hello world!";
+print (3 + 4) * 2;
+
+"test123" / 3;
