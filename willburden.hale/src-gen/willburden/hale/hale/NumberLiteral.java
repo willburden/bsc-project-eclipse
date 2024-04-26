@@ -6,21 +6,21 @@ package willburden.hale.hale;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Int Literal</b></em>'.
+ * A representation of the model object '<em><b>Number Literal</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link willburden.hale.hale.IntLiteral#getValue <em>Value</em>}</li>
+ *   <li>{@link willburden.hale.hale.NumberLiteral#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see willburden.hale.hale.HalePackage#getIntLiteral()
+ * @see willburden.hale.hale.HalePackage#getNumberLiteral()
  * @model
  * @generated
  */
-public interface IntLiteral extends Literal
+public interface NumberLiteral extends Literal
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -28,14 +28,14 @@ public interface IntLiteral extends Literal
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(int)
-   * @see willburden.hale.hale.HalePackage#getIntLiteral_Value()
+   * @see willburden.hale.hale.HalePackage#getNumberLiteral_Value()
    * @model
    * @generated
    */
   int getValue();
 
   /**
-   * Sets the value of the '{@link willburden.hale.hale.IntLiteral#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link willburden.hale.hale.NumberLiteral#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -44,4 +44,4 @@ public interface IntLiteral extends Literal
    */
   void setValue(int value);
 
-} // IntLiteral
+} // NumberLiteral

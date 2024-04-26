@@ -216,65 +216,390 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Expression");
+		private final RuleCall cExpression7ParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		///*************************************************************
+		// * Expressions
+		// ************************************************************/
+		//// Start with expressions of lowest precedence.
+		//Expression returns Expression:
+		//    Expression7
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Expression7
+		public RuleCall getExpression7ParserRuleCall() { return cExpression7ParserRuleCall; }
+	}
+	public class Expression7Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Expression7");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cTerminalExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cExpression6ParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Action cLogicalAndLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Keyword cAndKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cRightExpression6ParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Action cLogicalOrLeftAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
+		private final Keyword cOrKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cRightExpression6ParserRuleCall_1_1_2_0 = (RuleCall)cRightAssignment_1_1_2.eContents().get(0);
+		
+		//Expression7 returns Expression:
+		//    Expression6 (
+		//        ({LogicalAnd.left=current} 'and' right=Expression6) |
+		//        ({LogicalOr.left=current} 'or' right=Expression6)
+		//    )*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Expression6 (
+		//    ({LogicalAnd.left=current} 'and' right=Expression6) |
+		//    ({LogicalOr.left=current} 'or' right=Expression6)
+		//)*
+		public Group getGroup() { return cGroup; }
+		
+		//Expression6
+		public RuleCall getExpression6ParserRuleCall_0() { return cExpression6ParserRuleCall_0; }
+		
+		//(
+		//       ({LogicalAnd.left=current} 'and' right=Expression6) |
+		//       ({LogicalOr.left=current} 'or' right=Expression6)
+		//   )*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//({LogicalAnd.left=current} 'and' right=Expression6)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//{LogicalAnd.left=current}
+		public Action getLogicalAndLeftAction_1_0_0() { return cLogicalAndLeftAction_1_0_0; }
+		
+		//'and'
+		public Keyword getAndKeyword_1_0_1() { return cAndKeyword_1_0_1; }
+		
+		//right=Expression6
+		public Assignment getRightAssignment_1_0_2() { return cRightAssignment_1_0_2; }
+		
+		//Expression6
+		public RuleCall getRightExpression6ParserRuleCall_1_0_2_0() { return cRightExpression6ParserRuleCall_1_0_2_0; }
+		
+		//({LogicalOr.left=current} 'or' right=Expression6)
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//{LogicalOr.left=current}
+		public Action getLogicalOrLeftAction_1_1_0() { return cLogicalOrLeftAction_1_1_0; }
+		
+		//'or'
+		public Keyword getOrKeyword_1_1_1() { return cOrKeyword_1_1_1; }
+		
+		//right=Expression6
+		public Assignment getRightAssignment_1_1_2() { return cRightAssignment_1_1_2; }
+		
+		//Expression6
+		public RuleCall getRightExpression6ParserRuleCall_1_1_2_0() { return cRightExpression6ParserRuleCall_1_1_2_0; }
+	}
+	public class Expression6Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Expression6");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cExpression5ParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Action cEqualityLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Keyword cEqualsSignEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cRightExpression5ParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Action cInequalityLeftAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
+		private final Keyword cExclamationMarkEqualsSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cRightExpression5ParserRuleCall_1_1_2_0 = (RuleCall)cRightAssignment_1_1_2.eContents().get(0);
+		
+		//Expression6 returns Expression:
+		//    Expression5 (
+		//        ({Equality.left=current} '==' right=Expression5) |
+		//        ({Inequality.left=current} '!=' right=Expression5)
+		//    )*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Expression5 (
+		//    ({Equality.left=current} '==' right=Expression5) |
+		//    ({Inequality.left=current} '!=' right=Expression5)
+		//)*
+		public Group getGroup() { return cGroup; }
+		
+		//Expression5
+		public RuleCall getExpression5ParserRuleCall_0() { return cExpression5ParserRuleCall_0; }
+		
+		//(
+		//       ({Equality.left=current} '==' right=Expression5) |
+		//       ({Inequality.left=current} '!=' right=Expression5)
+		//   )*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//({Equality.left=current} '==' right=Expression5)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//{Equality.left=current}
+		public Action getEqualityLeftAction_1_0_0() { return cEqualityLeftAction_1_0_0; }
+		
+		//'=='
+		public Keyword getEqualsSignEqualsSignKeyword_1_0_1() { return cEqualsSignEqualsSignKeyword_1_0_1; }
+		
+		//right=Expression5
+		public Assignment getRightAssignment_1_0_2() { return cRightAssignment_1_0_2; }
+		
+		//Expression5
+		public RuleCall getRightExpression5ParserRuleCall_1_0_2_0() { return cRightExpression5ParserRuleCall_1_0_2_0; }
+		
+		//({Inequality.left=current} '!=' right=Expression5)
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//{Inequality.left=current}
+		public Action getInequalityLeftAction_1_1_0() { return cInequalityLeftAction_1_1_0; }
+		
+		//'!='
+		public Keyword getExclamationMarkEqualsSignKeyword_1_1_1() { return cExclamationMarkEqualsSignKeyword_1_1_1; }
+		
+		//right=Expression5
+		public Assignment getRightAssignment_1_1_2() { return cRightAssignment_1_1_2; }
+		
+		//Expression5
+		public RuleCall getRightExpression5ParserRuleCall_1_1_2_0() { return cRightExpression5ParserRuleCall_1_1_2_0; }
+	}
+	public class Expression5Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Expression5");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cExpression4ParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Action cLessThanOrEqualLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Keyword cLessThanSignEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cRightExpression4ParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Action cLessThanLeftAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cRightExpression4ParserRuleCall_1_1_2_0 = (RuleCall)cRightAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Action cGreaterThanOrEqualLeftAction_1_2_0 = (Action)cGroup_1_2.eContents().get(0);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cRightAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cRightExpression4ParserRuleCall_1_2_2_0 = (RuleCall)cRightAssignment_1_2_2.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
+		private final Action cGreaterThanLeftAction_1_3_0 = (Action)cGroup_1_3.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
+		private final Assignment cRightAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final RuleCall cRightExpression4ParserRuleCall_1_3_2_0 = (RuleCall)cRightAssignment_1_3_2.eContents().get(0);
+		
+		//Expression5 returns Expression:
+		//    Expression4 (
+		//        ({LessThanOrEqual.left=current} '<=' right=Expression4) |
+		//        ({LessThan.left=current} '<' right=Expression4) |
+		//        ({GreaterThanOrEqual.left=current} '>=' right=Expression4) |
+		//        ({GreaterThan.left=current} '>' right=Expression4)
+		//    )*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Expression4 (
+		//    ({LessThanOrEqual.left=current} '<=' right=Expression4) |
+		//    ({LessThan.left=current} '<' right=Expression4) |
+		//    ({GreaterThanOrEqual.left=current} '>=' right=Expression4) |
+		//    ({GreaterThan.left=current} '>' right=Expression4)
+		//)*
+		public Group getGroup() { return cGroup; }
+		
+		//Expression4
+		public RuleCall getExpression4ParserRuleCall_0() { return cExpression4ParserRuleCall_0; }
+		
+		//(
+		//       ({LessThanOrEqual.left=current} '<=' right=Expression4) |
+		//       ({LessThan.left=current} '<' right=Expression4) |
+		//       ({GreaterThanOrEqual.left=current} '>=' right=Expression4) |
+		//       ({GreaterThan.left=current} '>' right=Expression4)
+		//   )*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//({LessThanOrEqual.left=current} '<=' right=Expression4)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//{LessThanOrEqual.left=current}
+		public Action getLessThanOrEqualLeftAction_1_0_0() { return cLessThanOrEqualLeftAction_1_0_0; }
+		
+		//'<='
+		public Keyword getLessThanSignEqualsSignKeyword_1_0_1() { return cLessThanSignEqualsSignKeyword_1_0_1; }
+		
+		//right=Expression4
+		public Assignment getRightAssignment_1_0_2() { return cRightAssignment_1_0_2; }
+		
+		//Expression4
+		public RuleCall getRightExpression4ParserRuleCall_1_0_2_0() { return cRightExpression4ParserRuleCall_1_0_2_0; }
+		
+		//({LessThan.left=current} '<' right=Expression4)
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//{LessThan.left=current}
+		public Action getLessThanLeftAction_1_1_0() { return cLessThanLeftAction_1_1_0; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_1_1_1() { return cLessThanSignKeyword_1_1_1; }
+		
+		//right=Expression4
+		public Assignment getRightAssignment_1_1_2() { return cRightAssignment_1_1_2; }
+		
+		//Expression4
+		public RuleCall getRightExpression4ParserRuleCall_1_1_2_0() { return cRightExpression4ParserRuleCall_1_1_2_0; }
+		
+		//({GreaterThanOrEqual.left=current} '>=' right=Expression4)
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//{GreaterThanOrEqual.left=current}
+		public Action getGreaterThanOrEqualLeftAction_1_2_0() { return cGreaterThanOrEqualLeftAction_1_2_0; }
+		
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_1_2_1() { return cGreaterThanSignEqualsSignKeyword_1_2_1; }
+		
+		//right=Expression4
+		public Assignment getRightAssignment_1_2_2() { return cRightAssignment_1_2_2; }
+		
+		//Expression4
+		public RuleCall getRightExpression4ParserRuleCall_1_2_2_0() { return cRightExpression4ParserRuleCall_1_2_2_0; }
+		
+		//({GreaterThan.left=current} '>' right=Expression4)
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
+		//{GreaterThan.left=current}
+		public Action getGreaterThanLeftAction_1_3_0() { return cGreaterThanLeftAction_1_3_0; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_1_3_1() { return cGreaterThanSignKeyword_1_3_1; }
+		
+		//right=Expression4
+		public Assignment getRightAssignment_1_3_2() { return cRightAssignment_1_3_2; }
+		
+		//Expression4
+		public RuleCall getRightExpression4ParserRuleCall_1_3_2_0() { return cRightExpression4ParserRuleCall_1_3_2_0; }
+	}
+	public class Expression4Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Expression4");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cExpression3ParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Action cAdditionLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Keyword cPlusSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cRightExpression3ParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Action cSubtractionLeftAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cRightExpression3ParserRuleCall_1_1_2_0 = (RuleCall)cRightAssignment_1_1_2.eContents().get(0);
+		
+		//Expression4 returns Expression:
+		//    Expression3 (
+		//        ({Addition.left=current} '+' right=Expression3) |
+		//        ({Subtraction.left=current} '-' right=Expression3)
+		//    )*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Expression3 (
+		//    ({Addition.left=current} '+' right=Expression3) |
+		//    ({Subtraction.left=current} '-' right=Expression3)
+		//)*
+		public Group getGroup() { return cGroup; }
+		
+		//Expression3
+		public RuleCall getExpression3ParserRuleCall_0() { return cExpression3ParserRuleCall_0; }
+		
+		//(
+		//       ({Addition.left=current} '+' right=Expression3) |
+		//       ({Subtraction.left=current} '-' right=Expression3)
+		//   )*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//({Addition.left=current} '+' right=Expression3)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//{Addition.left=current}
+		public Action getAdditionLeftAction_1_0_0() { return cAdditionLeftAction_1_0_0; }
+		
+		//'+'
+		public Keyword getPlusSignKeyword_1_0_1() { return cPlusSignKeyword_1_0_1; }
+		
+		//right=Expression3
+		public Assignment getRightAssignment_1_0_2() { return cRightAssignment_1_0_2; }
+		
+		//Expression3
+		public RuleCall getRightExpression3ParserRuleCall_1_0_2_0() { return cRightExpression3ParserRuleCall_1_0_2_0; }
+		
+		//({Subtraction.left=current} '-' right=Expression3)
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//{Subtraction.left=current}
+		public Action getSubtractionLeftAction_1_1_0() { return cSubtractionLeftAction_1_1_0; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_1_1_1() { return cHyphenMinusKeyword_1_1_1; }
+		
+		//right=Expression3
+		public Assignment getRightAssignment_1_1_2() { return cRightAssignment_1_1_2; }
+		
+		//Expression3
+		public RuleCall getRightExpression3ParserRuleCall_1_1_2_0() { return cRightExpression3ParserRuleCall_1_1_2_0; }
+	}
+	public class Expression3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Expression3");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cExpression2ParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Action cMultiplicationLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
 		private final Keyword cAsteriskKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
 		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cRightTerminalExpressionParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
+		private final RuleCall cRightExpression2ParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Action cDivisionLeftAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
 		private final Keyword cSolidusKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
 		private final Assignment cRightAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cRightTerminalExpressionParserRuleCall_1_1_2_0 = (RuleCall)cRightAssignment_1_1_2.eContents().get(0);
+		private final RuleCall cRightExpression2ParserRuleCall_1_1_2_0 = (RuleCall)cRightAssignment_1_1_2.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
-		private final Action cSubtractionLeftAction_1_2_0 = (Action)cGroup_1_2.eContents().get(0);
-		private final Keyword cHyphenMinusKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Action cRemainderLeftAction_1_2_0 = (Action)cGroup_1_2.eContents().get(0);
+		private final Keyword cPercentSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
 		private final Assignment cRightAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cRightTerminalExpressionParserRuleCall_1_2_2_0 = (RuleCall)cRightAssignment_1_2_2.eContents().get(0);
-		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
-		private final Action cAdditionLeftAction_1_3_0 = (Action)cGroup_1_3.eContents().get(0);
-		private final Keyword cPlusSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
-		private final Assignment cRightAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
-		private final RuleCall cRightTerminalExpressionParserRuleCall_1_3_2_0 = (RuleCall)cRightAssignment_1_3_2.eContents().get(0);
+		private final RuleCall cRightExpression2ParserRuleCall_1_2_2_0 = (RuleCall)cRightAssignment_1_2_2.eContents().get(0);
 		
-		///*************************************************************
-		// * Expressions
-		// ************************************************************/
-		//// Binary operations are left-associative
-		//// When mixing operators, explicit precedence with parentheses is required
-		//Expression:
-		//    TerminalExpression (
-		//        ({Multiplication.left=current} '*' right=TerminalExpression)+ |
-		//        ({Division.left=current} '/' right=TerminalExpression)+ |
-		//        ({Subtraction.left=current} '-' right=TerminalExpression)+ |
-		//        ({Addition.left=current} '+' right=TerminalExpression)+
-		//    )?
+		//Expression3 returns Expression:
+		//    Expression2 (
+		//        ({Multiplication.left=current} '*' right=Expression2) |
+		//        ({Division.left=current} '/' right=Expression2) |
+		//        ({Remainder.left=current} '%' right=Expression2)
+		//    )*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TerminalExpression (
-		//    ({Multiplication.left=current} '*' right=TerminalExpression)+ |
-		//    ({Division.left=current} '/' right=TerminalExpression)+ |
-		//    ({Subtraction.left=current} '-' right=TerminalExpression)+ |
-		//    ({Addition.left=current} '+' right=TerminalExpression)+
-		//)?
+		//Expression2 (
+		//    ({Multiplication.left=current} '*' right=Expression2) |
+		//    ({Division.left=current} '/' right=Expression2) |
+		//    ({Remainder.left=current} '%' right=Expression2)
+		//)*
 		public Group getGroup() { return cGroup; }
 		
-		//TerminalExpression
-		public RuleCall getTerminalExpressionParserRuleCall_0() { return cTerminalExpressionParserRuleCall_0; }
+		//Expression2
+		public RuleCall getExpression2ParserRuleCall_0() { return cExpression2ParserRuleCall_0; }
 		
 		//(
-		//       ({Multiplication.left=current} '*' right=TerminalExpression)+ |
-		//       ({Division.left=current} '/' right=TerminalExpression)+ |
-		//       ({Subtraction.left=current} '-' right=TerminalExpression)+ |
-		//       ({Addition.left=current} '+' right=TerminalExpression)+
-		//   )?
+		//       ({Multiplication.left=current} '*' right=Expression2) |
+		//       ({Division.left=current} '/' right=Expression2) |
+		//       ({Remainder.left=current} '%' right=Expression2)
+		//   )*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//({Multiplication.left=current} '*' right=TerminalExpression)+
+		//({Multiplication.left=current} '*' right=Expression2)
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//{Multiplication.left=current}
@@ -283,13 +608,13 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'*'
 		public Keyword getAsteriskKeyword_1_0_1() { return cAsteriskKeyword_1_0_1; }
 		
-		//right=TerminalExpression
+		//right=Expression2
 		public Assignment getRightAssignment_1_0_2() { return cRightAssignment_1_0_2; }
 		
-		//TerminalExpression
-		public RuleCall getRightTerminalExpressionParserRuleCall_1_0_2_0() { return cRightTerminalExpressionParserRuleCall_1_0_2_0; }
+		//Expression2
+		public RuleCall getRightExpression2ParserRuleCall_1_0_2_0() { return cRightExpression2ParserRuleCall_1_0_2_0; }
 		
-		//({Division.left=current} '/' right=TerminalExpression)+
+		//({Division.left=current} '/' right=Expression2)
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//{Division.left=current}
@@ -298,113 +623,194 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'/'
 		public Keyword getSolidusKeyword_1_1_1() { return cSolidusKeyword_1_1_1; }
 		
-		//right=TerminalExpression
+		//right=Expression2
 		public Assignment getRightAssignment_1_1_2() { return cRightAssignment_1_1_2; }
 		
-		//TerminalExpression
-		public RuleCall getRightTerminalExpressionParserRuleCall_1_1_2_0() { return cRightTerminalExpressionParserRuleCall_1_1_2_0; }
+		//Expression2
+		public RuleCall getRightExpression2ParserRuleCall_1_1_2_0() { return cRightExpression2ParserRuleCall_1_1_2_0; }
 		
-		//({Subtraction.left=current} '-' right=TerminalExpression)+
+		//({Remainder.left=current} '%' right=Expression2)
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
-		//{Subtraction.left=current}
-		public Action getSubtractionLeftAction_1_2_0() { return cSubtractionLeftAction_1_2_0; }
+		//{Remainder.left=current}
+		public Action getRemainderLeftAction_1_2_0() { return cRemainderLeftAction_1_2_0; }
 		
-		//'-'
-		public Keyword getHyphenMinusKeyword_1_2_1() { return cHyphenMinusKeyword_1_2_1; }
+		//'%'
+		public Keyword getPercentSignKeyword_1_2_1() { return cPercentSignKeyword_1_2_1; }
 		
-		//right=TerminalExpression
+		//right=Expression2
 		public Assignment getRightAssignment_1_2_2() { return cRightAssignment_1_2_2; }
 		
-		//TerminalExpression
-		public RuleCall getRightTerminalExpressionParserRuleCall_1_2_2_0() { return cRightTerminalExpressionParserRuleCall_1_2_2_0; }
-		
-		//({Addition.left=current} '+' right=TerminalExpression)+
-		public Group getGroup_1_3() { return cGroup_1_3; }
-		
-		//{Addition.left=current}
-		public Action getAdditionLeftAction_1_3_0() { return cAdditionLeftAction_1_3_0; }
-		
-		//'+'
-		public Keyword getPlusSignKeyword_1_3_1() { return cPlusSignKeyword_1_3_1; }
-		
-		//right=TerminalExpression
-		public Assignment getRightAssignment_1_3_2() { return cRightAssignment_1_3_2; }
-		
-		//TerminalExpression
-		public RuleCall getRightTerminalExpressionParserRuleCall_1_3_2_0() { return cRightTerminalExpressionParserRuleCall_1_3_2_0; }
+		//Expression2
+		public RuleCall getRightExpression2ParserRuleCall_1_2_2_0() { return cRightExpression2ParserRuleCall_1_2_2_0; }
 	}
-	public class TerminalExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.TerminalExpression");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final RuleCall cBindingReferenceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+	public class Expression2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Expression2");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cExpression1ParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cExponentiationLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cAsteriskAsteriskKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightExpression1ParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//TerminalExpression returns Expression:
-		//    '(' Expression ')' |
-		//    BindingReference |
-		//    Literal
+		//Expression2 returns Expression:
+		//    Expression1 ({Exponentiation.left=current} '**' right=Expression1)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' Expression ')' |
-		//BindingReference |
-		//Literal
+		//Expression1 ({Exponentiation.left=current} '**' right=Expression1)*
+		public Group getGroup() { return cGroup; }
+		
+		//Expression1
+		public RuleCall getExpression1ParserRuleCall_0() { return cExpression1ParserRuleCall_0; }
+		
+		//({Exponentiation.left=current} '**' right=Expression1)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{Exponentiation.left=current}
+		public Action getExponentiationLeftAction_1_0() { return cExponentiationLeftAction_1_0; }
+		
+		//'**'
+		public Keyword getAsteriskAsteriskKeyword_1_1() { return cAsteriskAsteriskKeyword_1_1; }
+		
+		//right=Expression1
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+		
+		//Expression1
+		public RuleCall getRightExpression1ParserRuleCall_1_2_0() { return cRightExpression1ParserRuleCall_1_2_0; }
+	}
+	public class Expression1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Expression1");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cUnaryNegationAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cInnerAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cInnerExpression1ParserRuleCall_0_2_0 = (RuleCall)cInnerAssignment_0_2.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cLogicalNotAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cNotKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cInnerAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cInnerExpression1ParserRuleCall_1_2_0 = (RuleCall)cInnerAssignment_1_2.eContents().get(0);
+		private final RuleCall cPrimaryParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//Expression1 returns Expression:
+		//    ({UnaryNegation} '-' inner=Expression1) |
+		//    ({LogicalNot} 'not' inner=Expression1) |
+		//    Primary
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//({UnaryNegation} '-' inner=Expression1) |
+		//({LogicalNot} 'not' inner=Expression1) |
+		//Primary
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'(' Expression ')'
+		//({UnaryNegation} '-' inner=Expression1)
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_0_0() { return cLeftParenthesisKeyword_0_0; }
+		//{UnaryNegation}
+		public Action getUnaryNegationAction_0_0() { return cUnaryNegationAction_0_0; }
 		
-		//Expression
-		public RuleCall getExpressionParserRuleCall_0_1() { return cExpressionParserRuleCall_0_1; }
+		//'-'
+		public Keyword getHyphenMinusKeyword_0_1() { return cHyphenMinusKeyword_0_1; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_0_2() { return cRightParenthesisKeyword_0_2; }
+		//inner=Expression1
+		public Assignment getInnerAssignment_0_2() { return cInnerAssignment_0_2; }
+		
+		//Expression1
+		public RuleCall getInnerExpression1ParserRuleCall_0_2_0() { return cInnerExpression1ParserRuleCall_0_2_0; }
+		
+		//({LogicalNot} 'not' inner=Expression1)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{LogicalNot}
+		public Action getLogicalNotAction_1_0() { return cLogicalNotAction_1_0; }
+		
+		//'not'
+		public Keyword getNotKeyword_1_1() { return cNotKeyword_1_1; }
+		
+		//inner=Expression1
+		public Assignment getInnerAssignment_1_2() { return cInnerAssignment_1_2; }
+		
+		//Expression1
+		public RuleCall getInnerExpression1ParserRuleCall_1_2_0() { return cInnerExpression1ParserRuleCall_1_2_0; }
+		
+		//Primary
+		public RuleCall getPrimaryParserRuleCall_2() { return cPrimaryParserRuleCall_2; }
+	}
+	public class PrimaryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Primary");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBindingReferenceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final RuleCall cExpressionParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		
+		//Primary returns Expression:
+		//    Literal |
+		//    BindingReference |
+		//    '(' Expression ')'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Literal |
+		//BindingReference |
+		//'(' Expression ')'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Literal
+		public RuleCall getLiteralParserRuleCall_0() { return cLiteralParserRuleCall_0; }
 		
 		//BindingReference
 		public RuleCall getBindingReferenceParserRuleCall_1() { return cBindingReferenceParserRuleCall_1; }
 		
-		//Literal
-		public RuleCall getLiteralParserRuleCall_2() { return cLiteralParserRuleCall_2; }
+		//'(' Expression ')'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//Expression
+		public RuleCall getExpressionParserRuleCall_2_1() { return cExpressionParserRuleCall_2_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 	}
 	public class LiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Literal");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cIntLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cNumberLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cStringLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		///*************************************************************
 		// * Literals
 		// ************************************************************/
 		//Literal:
-		//    IntLiteral |
+		//    NumberLiteral |
 		//    StringLiteral
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//IntLiteral |
+		//NumberLiteral |
 		//StringLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//IntLiteral
-		public RuleCall getIntLiteralParserRuleCall_0() { return cIntLiteralParserRuleCall_0; }
+		//NumberLiteral
+		public RuleCall getNumberLiteralParserRuleCall_0() { return cNumberLiteralParserRuleCall_0; }
 		
 		//StringLiteral
 		public RuleCall getStringLiteralParserRuleCall_1() { return cStringLiteralParserRuleCall_1; }
 	}
-	public class IntLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.IntLiteral");
+	public class NumberLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.NumberLiteral");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cValueINTTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//IntLiteral:
+		//NumberLiteral:
 		//    value=INT
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -440,9 +846,16 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final BindingReferenceElements pBindingReference;
 	private final AssignmentElements pAssignment;
 	private final ExpressionElements pExpression;
-	private final TerminalExpressionElements pTerminalExpression;
+	private final Expression7Elements pExpression7;
+	private final Expression6Elements pExpression6;
+	private final Expression5Elements pExpression5;
+	private final Expression4Elements pExpression4;
+	private final Expression3Elements pExpression3;
+	private final Expression2Elements pExpression2;
+	private final Expression1Elements pExpression1;
+	private final PrimaryElements pPrimary;
 	private final LiteralElements pLiteral;
-	private final IntLiteralElements pIntLiteral;
+	private final NumberLiteralElements pNumberLiteral;
 	private final StringLiteralElements pStringLiteral;
 	
 	private final Grammar grammar;
@@ -461,9 +874,16 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pBindingReference = new BindingReferenceElements();
 		this.pAssignment = new AssignmentElements();
 		this.pExpression = new ExpressionElements();
-		this.pTerminalExpression = new TerminalExpressionElements();
+		this.pExpression7 = new Expression7Elements();
+		this.pExpression6 = new Expression6Elements();
+		this.pExpression5 = new Expression5Elements();
+		this.pExpression4 = new Expression4Elements();
+		this.pExpression3 = new Expression3Elements();
+		this.pExpression2 = new Expression2Elements();
+		this.pExpression1 = new Expression1Elements();
+		this.pPrimary = new PrimaryElements();
 		this.pLiteral = new LiteralElements();
-		this.pIntLiteral = new IntLiteralElements();
+		this.pNumberLiteral = new NumberLiteralElements();
 		this.pStringLiteral = new StringLiteralElements();
 	}
 	
@@ -569,15 +989,9 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	///*************************************************************
 	// * Expressions
 	// ************************************************************/
-	//// Binary operations are left-associative
-	//// When mixing operators, explicit precedence with parentheses is required
-	//Expression:
-	//    TerminalExpression (
-	//        ({Multiplication.left=current} '*' right=TerminalExpression)+ |
-	//        ({Division.left=current} '/' right=TerminalExpression)+ |
-	//        ({Subtraction.left=current} '-' right=TerminalExpression)+ |
-	//        ({Addition.left=current} '+' right=TerminalExpression)+
-	//    )?
+	//// Start with expressions of lowest precedence.
+	//Expression returns Expression:
+	//    Expression7
 	//;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
@@ -587,24 +1001,121 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getExpressionAccess().getRule();
 	}
 	
-	//TerminalExpression returns Expression:
-	//    '(' Expression ')' |
-	//    BindingReference |
-	//    Literal
+	//Expression7 returns Expression:
+	//    Expression6 (
+	//        ({LogicalAnd.left=current} 'and' right=Expression6) |
+	//        ({LogicalOr.left=current} 'or' right=Expression6)
+	//    )*
 	//;
-	public TerminalExpressionElements getTerminalExpressionAccess() {
-		return pTerminalExpression;
+	public Expression7Elements getExpression7Access() {
+		return pExpression7;
 	}
 	
-	public ParserRule getTerminalExpressionRule() {
-		return getTerminalExpressionAccess().getRule();
+	public ParserRule getExpression7Rule() {
+		return getExpression7Access().getRule();
+	}
+	
+	//Expression6 returns Expression:
+	//    Expression5 (
+	//        ({Equality.left=current} '==' right=Expression5) |
+	//        ({Inequality.left=current} '!=' right=Expression5)
+	//    )*
+	//;
+	public Expression6Elements getExpression6Access() {
+		return pExpression6;
+	}
+	
+	public ParserRule getExpression6Rule() {
+		return getExpression6Access().getRule();
+	}
+	
+	//Expression5 returns Expression:
+	//    Expression4 (
+	//        ({LessThanOrEqual.left=current} '<=' right=Expression4) |
+	//        ({LessThan.left=current} '<' right=Expression4) |
+	//        ({GreaterThanOrEqual.left=current} '>=' right=Expression4) |
+	//        ({GreaterThan.left=current} '>' right=Expression4)
+	//    )*
+	//;
+	public Expression5Elements getExpression5Access() {
+		return pExpression5;
+	}
+	
+	public ParserRule getExpression5Rule() {
+		return getExpression5Access().getRule();
+	}
+	
+	//Expression4 returns Expression:
+	//    Expression3 (
+	//        ({Addition.left=current} '+' right=Expression3) |
+	//        ({Subtraction.left=current} '-' right=Expression3)
+	//    )*
+	//;
+	public Expression4Elements getExpression4Access() {
+		return pExpression4;
+	}
+	
+	public ParserRule getExpression4Rule() {
+		return getExpression4Access().getRule();
+	}
+	
+	//Expression3 returns Expression:
+	//    Expression2 (
+	//        ({Multiplication.left=current} '*' right=Expression2) |
+	//        ({Division.left=current} '/' right=Expression2) |
+	//        ({Remainder.left=current} '%' right=Expression2)
+	//    )*
+	//;
+	public Expression3Elements getExpression3Access() {
+		return pExpression3;
+	}
+	
+	public ParserRule getExpression3Rule() {
+		return getExpression3Access().getRule();
+	}
+	
+	//Expression2 returns Expression:
+	//    Expression1 ({Exponentiation.left=current} '**' right=Expression1)*
+	//;
+	public Expression2Elements getExpression2Access() {
+		return pExpression2;
+	}
+	
+	public ParserRule getExpression2Rule() {
+		return getExpression2Access().getRule();
+	}
+	
+	//Expression1 returns Expression:
+	//    ({UnaryNegation} '-' inner=Expression1) |
+	//    ({LogicalNot} 'not' inner=Expression1) |
+	//    Primary
+	//;
+	public Expression1Elements getExpression1Access() {
+		return pExpression1;
+	}
+	
+	public ParserRule getExpression1Rule() {
+		return getExpression1Access().getRule();
+	}
+	
+	//Primary returns Expression:
+	//    Literal |
+	//    BindingReference |
+	//    '(' Expression ')'
+	//;
+	public PrimaryElements getPrimaryAccess() {
+		return pPrimary;
+	}
+	
+	public ParserRule getPrimaryRule() {
+		return getPrimaryAccess().getRule();
 	}
 	
 	///*************************************************************
 	// * Literals
 	// ************************************************************/
 	//Literal:
-	//    IntLiteral |
+	//    NumberLiteral |
 	//    StringLiteral
 	//;
 	public LiteralElements getLiteralAccess() {
@@ -615,15 +1126,15 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getLiteralAccess().getRule();
 	}
 	
-	//IntLiteral:
+	//NumberLiteral:
 	//    value=INT
 	//;
-	public IntLiteralElements getIntLiteralAccess() {
-		return pIntLiteral;
+	public NumberLiteralElements getNumberLiteralAccess() {
+		return pNumberLiteral;
 	}
 	
-	public ParserRule getIntLiteralRule() {
-		return getIntLiteralAccess().getRule();
+	public ParserRule getNumberLiteralRule() {
+		return getNumberLiteralAccess().getRule();
 	}
 	
 	//StringLiteral:

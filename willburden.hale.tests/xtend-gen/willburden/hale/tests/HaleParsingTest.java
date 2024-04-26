@@ -19,8 +19,8 @@ import willburden.hale.hale.BindingReference;
 import willburden.hale.hale.Division;
 import willburden.hale.hale.Expression;
 import willburden.hale.hale.Hale;
-import willburden.hale.hale.IntLiteral;
 import willburden.hale.hale.Multiplication;
+import willburden.hale.hale.NumberLiteral;
 import willburden.hale.hale.Print;
 import willburden.hale.hale.Statement;
 import willburden.hale.hale.StringLiteral;
@@ -39,13 +39,13 @@ public class HaleParsingTest {
   private ValidationTestHelper _validationTestHelper;
 
   @Test
-  public void testParsingIntLiteral() {
+  public void testParsingNumberLiteral() {
     try {
       final Hale model = this._parseHelper.parse("0;");
       this._validationTestHelper.assertNoIssues(model);
       Assertions.assertEquals(1, ((Object[])Conversions.unwrapArray(model.getStatements(), Object.class)).length);
       Statement _head = IterableExtensions.<Statement>head(model.getStatements());
-      final IntLiteral literal = ((IntLiteral) _head);
+      final NumberLiteral literal = ((NumberLiteral) _head);
       Assertions.assertEquals(0, literal.getValue());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -111,14 +111,14 @@ public class HaleParsingTest {
       this._validationTestHelper.assertNoIssues(model);
       Assertions.assertEquals(5, ((Object[])Conversions.unwrapArray(model.getStatements(), Object.class)).length);
       Statement _get = model.getStatements().get(0);
-      final IntLiteral expr0 = ((IntLiteral) _get);
+      final NumberLiteral expr0 = ((NumberLiteral) _get);
       Assertions.assertEquals(0, expr0.getValue());
       Statement _get_1 = model.getStatements().get(1);
       final Division expr1 = ((Division) _get_1);
       Expression _left = expr1.getLeft();
-      Assertions.assertEquals(5, ((IntLiteral) _left).getValue());
+      Assertions.assertEquals(5, ((NumberLiteral) _left).getValue());
       Expression _right = expr1.getRight();
-      Assertions.assertEquals(2, ((IntLiteral) _right).getValue());
+      Assertions.assertEquals(2, ((NumberLiteral) _right).getValue());
       Statement _get_2 = model.getStatements().get(2);
       final Addition expr2 = ((Addition) _get_2);
       Expression _left_1 = expr2.getLeft();
@@ -130,21 +130,21 @@ public class HaleParsingTest {
       Expression _left_2 = expr3.getLeft();
       final Subtraction expr3Left = ((Subtraction) _left_2);
       Expression _left_3 = expr3Left.getLeft();
-      Assertions.assertEquals(1, ((IntLiteral) _left_3).getValue());
+      Assertions.assertEquals(1, ((NumberLiteral) _left_3).getValue());
       Expression _right_2 = expr3Left.getRight();
-      Assertions.assertEquals(2, ((IntLiteral) _right_2).getValue());
+      Assertions.assertEquals(2, ((NumberLiteral) _right_2).getValue());
       Expression _right_3 = expr3.getRight();
-      Assertions.assertEquals(3, ((IntLiteral) _right_3).getValue());
+      Assertions.assertEquals(3, ((NumberLiteral) _right_3).getValue());
       Statement _get_4 = model.getStatements().get(4);
       final Subtraction expr4 = ((Subtraction) _get_4);
       Expression _right_4 = expr4.getRight();
       final Multiplication expr4Right = ((Multiplication) _right_4);
       Expression _left_4 = expr4.getLeft();
-      Assertions.assertEquals(1, ((IntLiteral) _left_4).getValue());
+      Assertions.assertEquals(1, ((NumberLiteral) _left_4).getValue());
       Expression _left_5 = expr4Right.getLeft();
-      Assertions.assertEquals(2, ((IntLiteral) _left_5).getValue());
+      Assertions.assertEquals(2, ((NumberLiteral) _left_5).getValue());
       Expression _right_5 = expr4Right.getRight();
-      Assertions.assertEquals(3, ((IntLiteral) _right_5).getValue());
+      Assertions.assertEquals(3, ((NumberLiteral) _right_5).getValue());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -166,13 +166,13 @@ public class HaleParsingTest {
       Expression _left_1 = group1.getLeft();
       final Addition group2 = ((Addition) _left_1);
       Expression _left_2 = group2.getLeft();
-      Assertions.assertEquals(1, ((IntLiteral) _left_2).getValue());
+      Assertions.assertEquals(1, ((NumberLiteral) _left_2).getValue());
       Expression _right = group2.getRight();
-      Assertions.assertEquals(2, ((IntLiteral) _right).getValue());
+      Assertions.assertEquals(2, ((NumberLiteral) _right).getValue());
       Expression _right_1 = group1.getRight();
-      Assertions.assertEquals(3, ((IntLiteral) _right_1).getValue());
+      Assertions.assertEquals(3, ((NumberLiteral) _right_1).getValue());
       Expression _right_2 = group0.getRight();
-      Assertions.assertEquals(4, ((IntLiteral) _right_2).getValue());
+      Assertions.assertEquals(4, ((NumberLiteral) _right_2).getValue());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -12,7 +12,7 @@ import willburden.hale.hale.Binding
 import willburden.hale.hale.BindingReference
 import willburden.hale.hale.Division
 import willburden.hale.hale.Hale
-import willburden.hale.hale.IntLiteral
+import willburden.hale.hale.NumberLiteral
 import willburden.hale.hale.Multiplication
 import willburden.hale.hale.Print
 import willburden.hale.hale.StringLiteral
@@ -28,13 +28,13 @@ class HaleParsingTest {
 	@Inject extension ValidationTestHelper
 	
 	@Test
-	def void testParsingIntLiteral() {
+	def void testParsingNumberLiteral() {
 		val model = "0;".parse
 		
 		model.assertNoIssues();
 		assertEquals(1, model.statements.length)
 
-		val literal = model.statements.head as IntLiteral
+		val literal = model.statements.head as NumberLiteral
 		assertEquals(0, literal.value)
 	}
 	
@@ -83,12 +83,12 @@ class HaleParsingTest {
 		model.assertNoIssues();
 		assertEquals(5, model.statements.length)
 		
-		val expr0 = model.statements.get(0) as IntLiteral
+		val expr0 = model.statements.get(0) as NumberLiteral
 		assertEquals(0, expr0.value)
 		
 		val expr1 = model.statements.get(1) as Division
-		assertEquals(5, (expr1.left as IntLiteral).value)
-		assertEquals(2, (expr1.right as IntLiteral).value)
+		assertEquals(5, (expr1.left as NumberLiteral).value)
+		assertEquals(2, (expr1.right as NumberLiteral).value)
 		
 		val expr2 = model.statements.get(2) as Addition
 		assertEquals("hello ", (expr2.left as StringLiteral).value)
@@ -96,15 +96,15 @@ class HaleParsingTest {
 		
 		val expr3 = model.statements.get(3) as Multiplication
 		val expr3Left = expr3.left as Subtraction
-		assertEquals(1, (expr3Left.left as IntLiteral).value)
-		assertEquals(2, (expr3Left.right as IntLiteral).value)
-		assertEquals(3, (expr3.right as IntLiteral).value)
+		assertEquals(1, (expr3Left.left as NumberLiteral).value)
+		assertEquals(2, (expr3Left.right as NumberLiteral).value)
+		assertEquals(3, (expr3.right as NumberLiteral).value)
 		
 		val expr4 = model.statements.get(4) as Subtraction
 		val expr4Right = expr4.right as Multiplication
-		assertEquals(1, (expr4.left as IntLiteral).value)
-		assertEquals(2, (expr4Right.left as IntLiteral).value)
-		assertEquals(3, (expr4Right.right as IntLiteral).value)
+		assertEquals(1, (expr4.left as NumberLiteral).value)
+		assertEquals(2, (expr4Right.left as NumberLiteral).value)
+		assertEquals(3, (expr4Right.right as NumberLiteral).value)
 	}
 	
 	@Test
@@ -120,10 +120,10 @@ class HaleParsingTest {
 		val group1 = group0.left as Addition
 		val group2 = group1.left as Addition
 		
-		assertEquals(1, (group2.left as IntLiteral).value)
-		assertEquals(2, (group2.right as IntLiteral).value)
-		assertEquals(3, (group1.right as IntLiteral).value)
-		assertEquals(4, (group0.right as IntLiteral).value)
+		assertEquals(1, (group2.left as NumberLiteral).value)
+		assertEquals(2, (group2.right as NumberLiteral).value)
+		assertEquals(3, (group1.right as NumberLiteral).value)
+		assertEquals(4, (group0.right as NumberLiteral).value)
 	}
 	
 	@Test

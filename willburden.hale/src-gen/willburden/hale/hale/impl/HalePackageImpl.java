@@ -15,17 +15,29 @@ import willburden.hale.hale.Assignment;
 import willburden.hale.hale.Binding;
 import willburden.hale.hale.BindingReference;
 import willburden.hale.hale.Division;
+import willburden.hale.hale.Equality;
+import willburden.hale.hale.Exponentiation;
 import willburden.hale.hale.Expression;
+import willburden.hale.hale.GreaterThan;
+import willburden.hale.hale.GreaterThanOrEqual;
 import willburden.hale.hale.Hale;
 import willburden.hale.hale.HaleFactory;
 import willburden.hale.hale.HalePackage;
-import willburden.hale.hale.IntLiteral;
+import willburden.hale.hale.Inequality;
+import willburden.hale.hale.LessThan;
+import willburden.hale.hale.LessThanOrEqual;
 import willburden.hale.hale.Literal;
+import willburden.hale.hale.LogicalAnd;
+import willburden.hale.hale.LogicalNot;
+import willburden.hale.hale.LogicalOr;
 import willburden.hale.hale.Multiplication;
+import willburden.hale.hale.NumberLiteral;
 import willburden.hale.hale.Print;
+import willburden.hale.hale.Remainder;
 import willburden.hale.hale.Statement;
 import willburden.hale.hale.StringLiteral;
 import willburden.hale.hale.Subtraction;
+import willburden.hale.hale.UnaryNegation;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,7 +108,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass intLiteralEClass = null;
+  private EClass numberLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -104,6 +116,76 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   private EClass stringLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass logicalAndEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass logicalOrEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass equalityEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inequalityEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass lessThanOrEqualEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass lessThanEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass greaterThanOrEqualEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass greaterThanEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass additionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass subtractionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -124,14 +206,28 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass subtractionEClass = null;
+  private EClass remainderEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass additionEClass = null;
+  private EClass exponentiationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unaryNegationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass logicalNotEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -377,9 +473,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EClass getIntLiteral()
+  public EClass getNumberLiteral()
   {
-    return intLiteralEClass;
+    return numberLiteralEClass;
   }
 
   /**
@@ -388,9 +484,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EAttribute getIntLiteral_Value()
+  public EAttribute getNumberLiteral_Value()
   {
-    return (EAttribute)intLiteralEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)numberLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -413,6 +509,336 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
   public EAttribute getStringLiteral_Value()
   {
     return (EAttribute)stringLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLogicalAnd()
+  {
+    return logicalAndEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLogicalAnd_Left()
+  {
+    return (EReference)logicalAndEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLogicalAnd_Right()
+  {
+    return (EReference)logicalAndEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLogicalOr()
+  {
+    return logicalOrEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLogicalOr_Left()
+  {
+    return (EReference)logicalOrEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLogicalOr_Right()
+  {
+    return (EReference)logicalOrEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEquality()
+  {
+    return equalityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEquality_Left()
+  {
+    return (EReference)equalityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEquality_Right()
+  {
+    return (EReference)equalityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getInequality()
+  {
+    return inequalityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInequality_Left()
+  {
+    return (EReference)inequalityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInequality_Right()
+  {
+    return (EReference)inequalityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLessThanOrEqual()
+  {
+    return lessThanOrEqualEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLessThanOrEqual_Left()
+  {
+    return (EReference)lessThanOrEqualEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLessThanOrEqual_Right()
+  {
+    return (EReference)lessThanOrEqualEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLessThan()
+  {
+    return lessThanEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLessThan_Left()
+  {
+    return (EReference)lessThanEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLessThan_Right()
+  {
+    return (EReference)lessThanEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getGreaterThanOrEqual()
+  {
+    return greaterThanOrEqualEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGreaterThanOrEqual_Left()
+  {
+    return (EReference)greaterThanOrEqualEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGreaterThanOrEqual_Right()
+  {
+    return (EReference)greaterThanOrEqualEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getGreaterThan()
+  {
+    return greaterThanEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGreaterThan_Left()
+  {
+    return (EReference)greaterThanEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGreaterThan_Right()
+  {
+    return (EReference)greaterThanEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAddition()
+  {
+    return additionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddition_Left()
+  {
+    return (EReference)additionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddition_Right()
+  {
+    return (EReference)additionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSubtraction()
+  {
+    return subtractionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubtraction_Left()
+  {
+    return (EReference)subtractionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubtraction_Right()
+  {
+    return (EReference)subtractionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -487,9 +913,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EClass getSubtraction()
+  public EClass getRemainder()
   {
-    return subtractionEClass;
+    return remainderEClass;
   }
 
   /**
@@ -498,9 +924,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getSubtraction_Left()
+  public EReference getRemainder_Left()
   {
-    return (EReference)subtractionEClass.getEStructuralFeatures().get(0);
+    return (EReference)remainderEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -509,9 +935,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getSubtraction_Right()
+  public EReference getRemainder_Right()
   {
-    return (EReference)subtractionEClass.getEStructuralFeatures().get(1);
+    return (EReference)remainderEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -520,9 +946,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EClass getAddition()
+  public EClass getExponentiation()
   {
-    return additionEClass;
+    return exponentiationEClass;
   }
 
   /**
@@ -531,9 +957,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getAddition_Left()
+  public EReference getExponentiation_Left()
   {
-    return (EReference)additionEClass.getEStructuralFeatures().get(0);
+    return (EReference)exponentiationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -542,9 +968,53 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getAddition_Right()
+  public EReference getExponentiation_Right()
   {
-    return (EReference)additionEClass.getEStructuralFeatures().get(1);
+    return (EReference)exponentiationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUnaryNegation()
+  {
+    return unaryNegationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUnaryNegation_Inner()
+  {
+    return (EReference)unaryNegationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLogicalNot()
+  {
+    return logicalNotEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLogicalNot_Inner()
+  {
+    return (EReference)logicalNotEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -602,11 +1072,51 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
 
     literalEClass = createEClass(LITERAL);
 
-    intLiteralEClass = createEClass(INT_LITERAL);
-    createEAttribute(intLiteralEClass, INT_LITERAL__VALUE);
+    numberLiteralEClass = createEClass(NUMBER_LITERAL);
+    createEAttribute(numberLiteralEClass, NUMBER_LITERAL__VALUE);
 
     stringLiteralEClass = createEClass(STRING_LITERAL);
     createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
+
+    logicalAndEClass = createEClass(LOGICAL_AND);
+    createEReference(logicalAndEClass, LOGICAL_AND__LEFT);
+    createEReference(logicalAndEClass, LOGICAL_AND__RIGHT);
+
+    logicalOrEClass = createEClass(LOGICAL_OR);
+    createEReference(logicalOrEClass, LOGICAL_OR__LEFT);
+    createEReference(logicalOrEClass, LOGICAL_OR__RIGHT);
+
+    equalityEClass = createEClass(EQUALITY);
+    createEReference(equalityEClass, EQUALITY__LEFT);
+    createEReference(equalityEClass, EQUALITY__RIGHT);
+
+    inequalityEClass = createEClass(INEQUALITY);
+    createEReference(inequalityEClass, INEQUALITY__LEFT);
+    createEReference(inequalityEClass, INEQUALITY__RIGHT);
+
+    lessThanOrEqualEClass = createEClass(LESS_THAN_OR_EQUAL);
+    createEReference(lessThanOrEqualEClass, LESS_THAN_OR_EQUAL__LEFT);
+    createEReference(lessThanOrEqualEClass, LESS_THAN_OR_EQUAL__RIGHT);
+
+    lessThanEClass = createEClass(LESS_THAN);
+    createEReference(lessThanEClass, LESS_THAN__LEFT);
+    createEReference(lessThanEClass, LESS_THAN__RIGHT);
+
+    greaterThanOrEqualEClass = createEClass(GREATER_THAN_OR_EQUAL);
+    createEReference(greaterThanOrEqualEClass, GREATER_THAN_OR_EQUAL__LEFT);
+    createEReference(greaterThanOrEqualEClass, GREATER_THAN_OR_EQUAL__RIGHT);
+
+    greaterThanEClass = createEClass(GREATER_THAN);
+    createEReference(greaterThanEClass, GREATER_THAN__LEFT);
+    createEReference(greaterThanEClass, GREATER_THAN__RIGHT);
+
+    additionEClass = createEClass(ADDITION);
+    createEReference(additionEClass, ADDITION__LEFT);
+    createEReference(additionEClass, ADDITION__RIGHT);
+
+    subtractionEClass = createEClass(SUBTRACTION);
+    createEReference(subtractionEClass, SUBTRACTION__LEFT);
+    createEReference(subtractionEClass, SUBTRACTION__RIGHT);
 
     multiplicationEClass = createEClass(MULTIPLICATION);
     createEReference(multiplicationEClass, MULTIPLICATION__LEFT);
@@ -616,13 +1126,19 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     createEReference(divisionEClass, DIVISION__LEFT);
     createEReference(divisionEClass, DIVISION__RIGHT);
 
-    subtractionEClass = createEClass(SUBTRACTION);
-    createEReference(subtractionEClass, SUBTRACTION__LEFT);
-    createEReference(subtractionEClass, SUBTRACTION__RIGHT);
+    remainderEClass = createEClass(REMAINDER);
+    createEReference(remainderEClass, REMAINDER__LEFT);
+    createEReference(remainderEClass, REMAINDER__RIGHT);
 
-    additionEClass = createEClass(ADDITION);
-    createEReference(additionEClass, ADDITION__LEFT);
-    createEReference(additionEClass, ADDITION__RIGHT);
+    exponentiationEClass = createEClass(EXPONENTIATION);
+    createEReference(exponentiationEClass, EXPONENTIATION__LEFT);
+    createEReference(exponentiationEClass, EXPONENTIATION__RIGHT);
+
+    unaryNegationEClass = createEClass(UNARY_NEGATION);
+    createEReference(unaryNegationEClass, UNARY_NEGATION__INNER);
+
+    logicalNotEClass = createEClass(LOGICAL_NOT);
+    createEReference(logicalNotEClass, LOGICAL_NOT__INNER);
   }
 
   /**
@@ -660,12 +1176,24 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     assignmentEClass.getESuperTypes().add(this.getStatement());
     expressionEClass.getESuperTypes().add(this.getStatement());
     literalEClass.getESuperTypes().add(this.getExpression());
-    intLiteralEClass.getESuperTypes().add(this.getLiteral());
+    numberLiteralEClass.getESuperTypes().add(this.getLiteral());
     stringLiteralEClass.getESuperTypes().add(this.getLiteral());
+    logicalAndEClass.getESuperTypes().add(this.getExpression());
+    logicalOrEClass.getESuperTypes().add(this.getExpression());
+    equalityEClass.getESuperTypes().add(this.getExpression());
+    inequalityEClass.getESuperTypes().add(this.getExpression());
+    lessThanOrEqualEClass.getESuperTypes().add(this.getExpression());
+    lessThanEClass.getESuperTypes().add(this.getExpression());
+    greaterThanOrEqualEClass.getESuperTypes().add(this.getExpression());
+    greaterThanEClass.getESuperTypes().add(this.getExpression());
+    additionEClass.getESuperTypes().add(this.getExpression());
+    subtractionEClass.getESuperTypes().add(this.getExpression());
     multiplicationEClass.getESuperTypes().add(this.getExpression());
     divisionEClass.getESuperTypes().add(this.getExpression());
-    subtractionEClass.getESuperTypes().add(this.getExpression());
-    additionEClass.getESuperTypes().add(this.getExpression());
+    remainderEClass.getESuperTypes().add(this.getExpression());
+    exponentiationEClass.getESuperTypes().add(this.getExpression());
+    unaryNegationEClass.getESuperTypes().add(this.getExpression());
+    logicalNotEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(haleEClass, Hale.class, "Hale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -692,11 +1220,51 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
 
     initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(intLiteralEClass, IntLiteral.class, "IntLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(numberLiteralEClass, NumberLiteral.class, "NumberLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNumberLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(logicalAndEClass, LogicalAnd.class, "LogicalAnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLogicalAnd_Left(), this.getExpression(), null, "left", null, 0, 1, LogicalAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLogicalAnd_Right(), this.getExpression(), null, "right", null, 0, 1, LogicalAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(logicalOrEClass, LogicalOr.class, "LogicalOr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLogicalOr_Left(), this.getExpression(), null, "left", null, 0, 1, LogicalOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLogicalOr_Right(), this.getExpression(), null, "right", null, 0, 1, LogicalOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(equalityEClass, Equality.class, "Equality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEquality_Left(), this.getExpression(), null, "left", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEquality_Right(), this.getExpression(), null, "right", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(inequalityEClass, Inequality.class, "Inequality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInequality_Left(), this.getExpression(), null, "left", null, 0, 1, Inequality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInequality_Right(), this.getExpression(), null, "right", null, 0, 1, Inequality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(lessThanOrEqualEClass, LessThanOrEqual.class, "LessThanOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLessThanOrEqual_Left(), this.getExpression(), null, "left", null, 0, 1, LessThanOrEqual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLessThanOrEqual_Right(), this.getExpression(), null, "right", null, 0, 1, LessThanOrEqual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(lessThanEClass, LessThan.class, "LessThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLessThan_Left(), this.getExpression(), null, "left", null, 0, 1, LessThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLessThan_Right(), this.getExpression(), null, "right", null, 0, 1, LessThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(greaterThanOrEqualEClass, GreaterThanOrEqual.class, "GreaterThanOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGreaterThanOrEqual_Left(), this.getExpression(), null, "left", null, 0, 1, GreaterThanOrEqual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGreaterThanOrEqual_Right(), this.getExpression(), null, "right", null, 0, 1, GreaterThanOrEqual.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(greaterThanEClass, GreaterThan.class, "GreaterThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGreaterThan_Left(), this.getExpression(), null, "left", null, 0, 1, GreaterThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGreaterThan_Right(), this.getExpression(), null, "right", null, 0, 1, GreaterThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(additionEClass, Addition.class, "Addition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAddition_Left(), this.getExpression(), null, "left", null, 0, 1, Addition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddition_Right(), this.getExpression(), null, "right", null, 0, 1, Addition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(subtractionEClass, Subtraction.class, "Subtraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSubtraction_Left(), this.getExpression(), null, "left", null, 0, 1, Subtraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubtraction_Right(), this.getExpression(), null, "right", null, 0, 1, Subtraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multiplicationEClass, Multiplication.class, "Multiplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMultiplication_Left(), this.getExpression(), null, "left", null, 0, 1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -706,13 +1274,19 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     initEReference(getDivision_Left(), this.getExpression(), null, "left", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDivision_Right(), this.getExpression(), null, "right", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(subtractionEClass, Subtraction.class, "Subtraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSubtraction_Left(), this.getExpression(), null, "left", null, 0, 1, Subtraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSubtraction_Right(), this.getExpression(), null, "right", null, 0, 1, Subtraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(remainderEClass, Remainder.class, "Remainder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRemainder_Left(), this.getExpression(), null, "left", null, 0, 1, Remainder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRemainder_Right(), this.getExpression(), null, "right", null, 0, 1, Remainder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(additionEClass, Addition.class, "Addition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAddition_Left(), this.getExpression(), null, "left", null, 0, 1, Addition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAddition_Right(), this.getExpression(), null, "right", null, 0, 1, Addition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(exponentiationEClass, Exponentiation.class, "Exponentiation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExponentiation_Left(), this.getExpression(), null, "left", null, 0, 1, Exponentiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExponentiation_Right(), this.getExpression(), null, "right", null, 0, 1, Exponentiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unaryNegationEClass, UnaryNegation.class, "UnaryNegation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUnaryNegation_Inner(), this.getExpression(), null, "inner", null, 0, 1, UnaryNegation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(logicalNotEClass, LogicalNot.class, "LogicalNot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLogicalNot_Inner(), this.getExpression(), null, "inner", null, 0, 1, LogicalNot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

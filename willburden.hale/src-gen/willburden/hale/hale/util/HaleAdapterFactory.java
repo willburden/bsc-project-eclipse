@@ -116,14 +116,64 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
         return createLiteralAdapter();
       }
       @Override
-      public Adapter caseIntLiteral(IntLiteral object)
+      public Adapter caseNumberLiteral(NumberLiteral object)
       {
-        return createIntLiteralAdapter();
+        return createNumberLiteralAdapter();
       }
       @Override
       public Adapter caseStringLiteral(StringLiteral object)
       {
         return createStringLiteralAdapter();
+      }
+      @Override
+      public Adapter caseLogicalAnd(LogicalAnd object)
+      {
+        return createLogicalAndAdapter();
+      }
+      @Override
+      public Adapter caseLogicalOr(LogicalOr object)
+      {
+        return createLogicalOrAdapter();
+      }
+      @Override
+      public Adapter caseEquality(Equality object)
+      {
+        return createEqualityAdapter();
+      }
+      @Override
+      public Adapter caseInequality(Inequality object)
+      {
+        return createInequalityAdapter();
+      }
+      @Override
+      public Adapter caseLessThanOrEqual(LessThanOrEqual object)
+      {
+        return createLessThanOrEqualAdapter();
+      }
+      @Override
+      public Adapter caseLessThan(LessThan object)
+      {
+        return createLessThanAdapter();
+      }
+      @Override
+      public Adapter caseGreaterThanOrEqual(GreaterThanOrEqual object)
+      {
+        return createGreaterThanOrEqualAdapter();
+      }
+      @Override
+      public Adapter caseGreaterThan(GreaterThan object)
+      {
+        return createGreaterThanAdapter();
+      }
+      @Override
+      public Adapter caseAddition(Addition object)
+      {
+        return createAdditionAdapter();
+      }
+      @Override
+      public Adapter caseSubtraction(Subtraction object)
+      {
+        return createSubtractionAdapter();
       }
       @Override
       public Adapter caseMultiplication(Multiplication object)
@@ -136,14 +186,24 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
         return createDivisionAdapter();
       }
       @Override
-      public Adapter caseSubtraction(Subtraction object)
+      public Adapter caseRemainder(Remainder object)
       {
-        return createSubtractionAdapter();
+        return createRemainderAdapter();
       }
       @Override
-      public Adapter caseAddition(Addition object)
+      public Adapter caseExponentiation(Exponentiation object)
       {
-        return createAdditionAdapter();
+        return createExponentiationAdapter();
+      }
+      @Override
+      public Adapter caseUnaryNegation(UnaryNegation object)
+      {
+        return createUnaryNegationAdapter();
+      }
+      @Override
+      public Adapter caseLogicalNot(LogicalNot object)
+      {
+        return createLogicalNotAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -288,16 +348,16 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.IntLiteral <em>Int Literal</em>}'.
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.NumberLiteral <em>Number Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see willburden.hale.hale.IntLiteral
+   * @see willburden.hale.hale.NumberLiteral
    * @generated
    */
-  public Adapter createIntLiteralAdapter()
+  public Adapter createNumberLiteralAdapter()
   {
     return null;
   }
@@ -313,6 +373,156 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStringLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.LogicalAnd <em>Logical And</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.LogicalAnd
+   * @generated
+   */
+  public Adapter createLogicalAndAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.LogicalOr <em>Logical Or</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.LogicalOr
+   * @generated
+   */
+  public Adapter createLogicalOrAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Equality <em>Equality</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Equality
+   * @generated
+   */
+  public Adapter createEqualityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Inequality <em>Inequality</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Inequality
+   * @generated
+   */
+  public Adapter createInequalityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.LessThanOrEqual <em>Less Than Or Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.LessThanOrEqual
+   * @generated
+   */
+  public Adapter createLessThanOrEqualAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.LessThan <em>Less Than</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.LessThan
+   * @generated
+   */
+  public Adapter createLessThanAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.GreaterThanOrEqual <em>Greater Than Or Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.GreaterThanOrEqual
+   * @generated
+   */
+  public Adapter createGreaterThanOrEqualAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.GreaterThan <em>Greater Than</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.GreaterThan
+   * @generated
+   */
+  public Adapter createGreaterThanAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Addition <em>Addition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Addition
+   * @generated
+   */
+  public Adapter createAdditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Subtraction <em>Subtraction</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Subtraction
+   * @generated
+   */
+  public Adapter createSubtractionAdapter()
   {
     return null;
   }
@@ -348,31 +558,61 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Subtraction <em>Subtraction</em>}'.
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Remainder <em>Remainder</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see willburden.hale.hale.Subtraction
+   * @see willburden.hale.hale.Remainder
    * @generated
    */
-  public Adapter createSubtractionAdapter()
+  public Adapter createRemainderAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Addition <em>Addition</em>}'.
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Exponentiation <em>Exponentiation</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see willburden.hale.hale.Addition
+   * @see willburden.hale.hale.Exponentiation
    * @generated
    */
-  public Adapter createAdditionAdapter()
+  public Adapter createExponentiationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.UnaryNegation <em>Unary Negation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.UnaryNegation
+   * @generated
+   */
+  public Adapter createUnaryNegationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.LogicalNot <em>Logical Not</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.LogicalNot
+   * @generated
+   */
+  public Adapter createLogicalNotAdapter()
   {
     return null;
   }

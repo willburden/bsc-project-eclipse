@@ -20,14 +20,14 @@ import willburden.hale.services.HaleGrammarAccess;
 public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected HaleGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_0_0_a;
-	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_0_0_p;
+	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_2_0_a;
+	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_2_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (HaleGrammarAccess) access;
-		match_TerminalExpression_LeftParenthesisKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_0_0());
-		match_TerminalExpression_LeftParenthesisKeyword_0_0_p = new TokenAlias(true, false, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_0_0());
+		match_Primary_LeftParenthesisKeyword_2_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_2_0());
+		match_Primary_LeftParenthesisKeyword_2_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_2_0());
 	}
 	
 	@Override
@@ -42,10 +42,10 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_TerminalExpression_LeftParenthesisKeyword_0_0_a.equals(syntax))
-				emit_TerminalExpression_LeftParenthesisKeyword_0_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_TerminalExpression_LeftParenthesisKeyword_0_0_p.equals(syntax))
-				emit_TerminalExpression_LeftParenthesisKeyword_0_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Primary_LeftParenthesisKeyword_2_0_a.equals(syntax))
+				emit_Primary_LeftParenthesisKeyword_2_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Primary_LeftParenthesisKeyword_2_0_p.equals(syntax))
+				emit_Primary_LeftParenthesisKeyword_2_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -56,17 +56,29 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '-' inner=Expression1
+	 *     (rule start) (ambiguity) 'not' inner=Expression1
 	 *     (rule start) (ambiguity) binding=[Binding|ID]
 	 *     (rule start) (ambiguity) value=INT
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) {Addition.left=}
 	 *     (rule start) (ambiguity) {Division.left=}
+	 *     (rule start) (ambiguity) {Equality.left=}
+	 *     (rule start) (ambiguity) {Exponentiation.left=}
+	 *     (rule start) (ambiguity) {GreaterThan.left=}
+	 *     (rule start) (ambiguity) {GreaterThanOrEqual.left=}
+	 *     (rule start) (ambiguity) {Inequality.left=}
+	 *     (rule start) (ambiguity) {LessThan.left=}
+	 *     (rule start) (ambiguity) {LessThanOrEqual.left=}
+	 *     (rule start) (ambiguity) {LogicalAnd.left=}
+	 *     (rule start) (ambiguity) {LogicalOr.left=}
 	 *     (rule start) (ambiguity) {Multiplication.left=}
+	 *     (rule start) (ambiguity) {Remainder.left=}
 	 *     (rule start) (ambiguity) {Subtraction.left=}
 	 
 	 * </pre>
 	 */
-	protected void emit_TerminalExpression_LeftParenthesisKeyword_0_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Primary_LeftParenthesisKeyword_2_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -76,14 +88,26 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '-' inner=Expression1
+	 *     (rule start) (ambiguity) 'not' inner=Expression1
 	 *     (rule start) (ambiguity) {Addition.left=}
 	 *     (rule start) (ambiguity) {Division.left=}
+	 *     (rule start) (ambiguity) {Equality.left=}
+	 *     (rule start) (ambiguity) {Exponentiation.left=}
+	 *     (rule start) (ambiguity) {GreaterThan.left=}
+	 *     (rule start) (ambiguity) {GreaterThanOrEqual.left=}
+	 *     (rule start) (ambiguity) {Inequality.left=}
+	 *     (rule start) (ambiguity) {LessThan.left=}
+	 *     (rule start) (ambiguity) {LessThanOrEqual.left=}
+	 *     (rule start) (ambiguity) {LogicalAnd.left=}
+	 *     (rule start) (ambiguity) {LogicalOr.left=}
 	 *     (rule start) (ambiguity) {Multiplication.left=}
+	 *     (rule start) (ambiguity) {Remainder.left=}
 	 *     (rule start) (ambiguity) {Subtraction.left=}
 	 
 	 * </pre>
 	 */
-	protected void emit_TerminalExpression_LeftParenthesisKeyword_0_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Primary_LeftParenthesisKeyword_2_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

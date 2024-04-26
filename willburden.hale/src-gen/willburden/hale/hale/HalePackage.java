@@ -282,14 +282,14 @@ public interface HalePackage extends EPackage
   int LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.IntLiteralImpl <em>Int Literal</em>}' class.
+   * The meta object id for the '{@link willburden.hale.hale.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.IntLiteralImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getIntLiteral()
+   * @see willburden.hale.hale.impl.NumberLiteralImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getNumberLiteral()
    * @generated
    */
-  int INT_LITERAL = 8;
+  int NUMBER_LITERAL = 8;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -298,16 +298,16 @@ public interface HalePackage extends EPackage
    * @generated
    * @ordered
    */
-  int INT_LITERAL__VALUE = LITERAL_FEATURE_COUNT + 0;
+  int NUMBER_LITERAL__VALUE = LITERAL_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Int Literal</em>' class.
+   * The number of structural features of the '<em>Number Literal</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INT_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
+  int NUMBER_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link willburden.hale.hale.impl.StringLiteralImpl <em>String Literal</em>}' class.
@@ -338,6 +338,376 @@ public interface HalePackage extends EPackage
   int STRING_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.LogicalAndImpl <em>Logical And</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.LogicalAndImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalAnd()
+   * @generated
+   */
+  int LOGICAL_AND = 10;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Logical And</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.LogicalOrImpl <em>Logical Or</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.LogicalOrImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalOr()
+   * @generated
+   */
+  int LOGICAL_OR = 11;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_OR__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_OR__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Logical Or</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_OR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.EqualityImpl <em>Equality</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.EqualityImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getEquality()
+   * @generated
+   */
+  int EQUALITY = 12;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUALITY__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUALITY__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Equality</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUALITY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.InequalityImpl <em>Inequality</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.InequalityImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getInequality()
+   * @generated
+   */
+  int INEQUALITY = 13;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INEQUALITY__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INEQUALITY__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Inequality</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INEQUALITY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.LessThanOrEqualImpl <em>Less Than Or Equal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.LessThanOrEqualImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getLessThanOrEqual()
+   * @generated
+   */
+  int LESS_THAN_OR_EQUAL = 14;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN_OR_EQUAL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN_OR_EQUAL__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Less Than Or Equal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN_OR_EQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.LessThanImpl <em>Less Than</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.LessThanImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getLessThan()
+   * @generated
+   */
+  int LESS_THAN = 15;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Less Than</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LESS_THAN_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.GreaterThanOrEqualImpl <em>Greater Than Or Equal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.GreaterThanOrEqualImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getGreaterThanOrEqual()
+   * @generated
+   */
+  int GREATER_THAN_OR_EQUAL = 16;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN_OR_EQUAL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN_OR_EQUAL__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Greater Than Or Equal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN_OR_EQUAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.GreaterThanImpl <em>Greater Than</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.GreaterThanImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getGreaterThan()
+   * @generated
+   */
+  int GREATER_THAN = 17;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Greater Than</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GREATER_THAN_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.AdditionImpl <em>Addition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.AdditionImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getAddition()
+   * @generated
+   */
+  int ADDITION = 18;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Addition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.SubtractionImpl <em>Subtraction</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.SubtractionImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getSubtraction()
+   * @generated
+   */
+  int SUBTRACTION = 19;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBTRACTION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBTRACTION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Subtraction</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBTRACTION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link willburden.hale.hale.impl.MultiplicationImpl <em>Multiplication</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -345,7 +715,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getMultiplication()
    * @generated
    */
-  int MULTIPLICATION = 10;
+  int MULTIPLICATION = 20;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -382,7 +752,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getDivision()
    * @generated
    */
-  int DIVISION = 11;
+  int DIVISION = 21;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -412,14 +782,14 @@ public interface HalePackage extends EPackage
   int DIVISION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.SubtractionImpl <em>Subtraction</em>}' class.
+   * The meta object id for the '{@link willburden.hale.hale.impl.RemainderImpl <em>Remainder</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.SubtractionImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getSubtraction()
+   * @see willburden.hale.hale.impl.RemainderImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getRemainder()
    * @generated
    */
-  int SUBTRACTION = 12;
+  int REMAINDER = 22;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -428,7 +798,7 @@ public interface HalePackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUBTRACTION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int REMAINDER__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -437,26 +807,26 @@ public interface HalePackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUBTRACTION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+  int REMAINDER__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Subtraction</em>' class.
+   * The number of structural features of the '<em>Remainder</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUBTRACTION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int REMAINDER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.AdditionImpl <em>Addition</em>}' class.
+   * The meta object id for the '{@link willburden.hale.hale.impl.ExponentiationImpl <em>Exponentiation</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.AdditionImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getAddition()
+   * @see willburden.hale.hale.impl.ExponentiationImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getExponentiation()
    * @generated
    */
-  int ADDITION = 13;
+  int EXPONENTIATION = 23;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -465,7 +835,7 @@ public interface HalePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADDITION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int EXPONENTIATION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -474,16 +844,72 @@ public interface HalePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADDITION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+  int EXPONENTIATION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Addition</em>' class.
+   * The number of structural features of the '<em>Exponentiation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADDITION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int EXPONENTIATION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.UnaryNegationImpl <em>Unary Negation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.UnaryNegationImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getUnaryNegation()
+   * @generated
+   */
+  int UNARY_NEGATION = 24;
+
+  /**
+   * The feature id for the '<em><b>Inner</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_NEGATION__INNER = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Unary Negation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_NEGATION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.LogicalNotImpl <em>Logical Not</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.LogicalNotImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalNot()
+   * @generated
+   */
+  int LOGICAL_NOT = 25;
+
+  /**
+   * The feature id for the '<em><b>Inner</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_NOT__INNER = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Logical Not</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_NOT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 
   /**
@@ -655,25 +1081,25 @@ public interface HalePackage extends EPackage
   EClass getLiteral();
 
   /**
-   * Returns the meta object for class '{@link willburden.hale.hale.IntLiteral <em>Int Literal</em>}'.
+   * Returns the meta object for class '{@link willburden.hale.hale.NumberLiteral <em>Number Literal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Int Literal</em>'.
-   * @see willburden.hale.hale.IntLiteral
+   * @return the meta object for class '<em>Number Literal</em>'.
+   * @see willburden.hale.hale.NumberLiteral
    * @generated
    */
-  EClass getIntLiteral();
+  EClass getNumberLiteral();
 
   /**
-   * Returns the meta object for the attribute '{@link willburden.hale.hale.IntLiteral#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link willburden.hale.hale.NumberLiteral#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see willburden.hale.hale.IntLiteral#getValue()
-   * @see #getIntLiteral()
+   * @see willburden.hale.hale.NumberLiteral#getValue()
+   * @see #getNumberLiteral()
    * @generated
    */
-  EAttribute getIntLiteral_Value();
+  EAttribute getNumberLiteral_Value();
 
   /**
    * Returns the meta object for class '{@link willburden.hale.hale.StringLiteral <em>String Literal</em>}'.
@@ -695,6 +1121,326 @@ public interface HalePackage extends EPackage
    * @generated
    */
   EAttribute getStringLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.LogicalAnd <em>Logical And</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logical And</em>'.
+   * @see willburden.hale.hale.LogicalAnd
+   * @generated
+   */
+  EClass getLogicalAnd();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LogicalAnd#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.LogicalAnd#getLeft()
+   * @see #getLogicalAnd()
+   * @generated
+   */
+  EReference getLogicalAnd_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LogicalAnd#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.LogicalAnd#getRight()
+   * @see #getLogicalAnd()
+   * @generated
+   */
+  EReference getLogicalAnd_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.LogicalOr <em>Logical Or</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logical Or</em>'.
+   * @see willburden.hale.hale.LogicalOr
+   * @generated
+   */
+  EClass getLogicalOr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LogicalOr#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.LogicalOr#getLeft()
+   * @see #getLogicalOr()
+   * @generated
+   */
+  EReference getLogicalOr_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LogicalOr#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.LogicalOr#getRight()
+   * @see #getLogicalOr()
+   * @generated
+   */
+  EReference getLogicalOr_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.Equality <em>Equality</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Equality</em>'.
+   * @see willburden.hale.hale.Equality
+   * @generated
+   */
+  EClass getEquality();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Equality#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.Equality#getLeft()
+   * @see #getEquality()
+   * @generated
+   */
+  EReference getEquality_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Equality#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.Equality#getRight()
+   * @see #getEquality()
+   * @generated
+   */
+  EReference getEquality_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.Inequality <em>Inequality</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Inequality</em>'.
+   * @see willburden.hale.hale.Inequality
+   * @generated
+   */
+  EClass getInequality();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Inequality#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.Inequality#getLeft()
+   * @see #getInequality()
+   * @generated
+   */
+  EReference getInequality_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Inequality#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.Inequality#getRight()
+   * @see #getInequality()
+   * @generated
+   */
+  EReference getInequality_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.LessThanOrEqual <em>Less Than Or Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Less Than Or Equal</em>'.
+   * @see willburden.hale.hale.LessThanOrEqual
+   * @generated
+   */
+  EClass getLessThanOrEqual();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LessThanOrEqual#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.LessThanOrEqual#getLeft()
+   * @see #getLessThanOrEqual()
+   * @generated
+   */
+  EReference getLessThanOrEqual_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LessThanOrEqual#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.LessThanOrEqual#getRight()
+   * @see #getLessThanOrEqual()
+   * @generated
+   */
+  EReference getLessThanOrEqual_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.LessThan <em>Less Than</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Less Than</em>'.
+   * @see willburden.hale.hale.LessThan
+   * @generated
+   */
+  EClass getLessThan();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LessThan#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.LessThan#getLeft()
+   * @see #getLessThan()
+   * @generated
+   */
+  EReference getLessThan_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LessThan#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.LessThan#getRight()
+   * @see #getLessThan()
+   * @generated
+   */
+  EReference getLessThan_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.GreaterThanOrEqual <em>Greater Than Or Equal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Greater Than Or Equal</em>'.
+   * @see willburden.hale.hale.GreaterThanOrEqual
+   * @generated
+   */
+  EClass getGreaterThanOrEqual();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.GreaterThanOrEqual#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.GreaterThanOrEqual#getLeft()
+   * @see #getGreaterThanOrEqual()
+   * @generated
+   */
+  EReference getGreaterThanOrEqual_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.GreaterThanOrEqual#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.GreaterThanOrEqual#getRight()
+   * @see #getGreaterThanOrEqual()
+   * @generated
+   */
+  EReference getGreaterThanOrEqual_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.GreaterThan <em>Greater Than</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Greater Than</em>'.
+   * @see willburden.hale.hale.GreaterThan
+   * @generated
+   */
+  EClass getGreaterThan();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.GreaterThan#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.GreaterThan#getLeft()
+   * @see #getGreaterThan()
+   * @generated
+   */
+  EReference getGreaterThan_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.GreaterThan#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.GreaterThan#getRight()
+   * @see #getGreaterThan()
+   * @generated
+   */
+  EReference getGreaterThan_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.Addition <em>Addition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Addition</em>'.
+   * @see willburden.hale.hale.Addition
+   * @generated
+   */
+  EClass getAddition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Addition#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.Addition#getLeft()
+   * @see #getAddition()
+   * @generated
+   */
+  EReference getAddition_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Addition#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.Addition#getRight()
+   * @see #getAddition()
+   * @generated
+   */
+  EReference getAddition_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.Subtraction <em>Subtraction</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Subtraction</em>'.
+   * @see willburden.hale.hale.Subtraction
+   * @generated
+   */
+  EClass getSubtraction();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Subtraction#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see willburden.hale.hale.Subtraction#getLeft()
+   * @see #getSubtraction()
+   * @generated
+   */
+  EReference getSubtraction_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Subtraction#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see willburden.hale.hale.Subtraction#getRight()
+   * @see #getSubtraction()
+   * @generated
+   */
+  EReference getSubtraction_Right();
 
   /**
    * Returns the meta object for class '{@link willburden.hale.hale.Multiplication <em>Multiplication</em>}'.
@@ -761,68 +1507,110 @@ public interface HalePackage extends EPackage
   EReference getDivision_Right();
 
   /**
-   * Returns the meta object for class '{@link willburden.hale.hale.Subtraction <em>Subtraction</em>}'.
+   * Returns the meta object for class '{@link willburden.hale.hale.Remainder <em>Remainder</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Subtraction</em>'.
-   * @see willburden.hale.hale.Subtraction
+   * @return the meta object for class '<em>Remainder</em>'.
+   * @see willburden.hale.hale.Remainder
    * @generated
    */
-  EClass getSubtraction();
+  EClass getRemainder();
 
   /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Subtraction#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Remainder#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see willburden.hale.hale.Subtraction#getLeft()
-   * @see #getSubtraction()
+   * @see willburden.hale.hale.Remainder#getLeft()
+   * @see #getRemainder()
    * @generated
    */
-  EReference getSubtraction_Left();
+  EReference getRemainder_Left();
 
   /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Subtraction#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Remainder#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see willburden.hale.hale.Subtraction#getRight()
-   * @see #getSubtraction()
+   * @see willburden.hale.hale.Remainder#getRight()
+   * @see #getRemainder()
    * @generated
    */
-  EReference getSubtraction_Right();
+  EReference getRemainder_Right();
 
   /**
-   * Returns the meta object for class '{@link willburden.hale.hale.Addition <em>Addition</em>}'.
+   * Returns the meta object for class '{@link willburden.hale.hale.Exponentiation <em>Exponentiation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Addition</em>'.
-   * @see willburden.hale.hale.Addition
+   * @return the meta object for class '<em>Exponentiation</em>'.
+   * @see willburden.hale.hale.Exponentiation
    * @generated
    */
-  EClass getAddition();
+  EClass getExponentiation();
 
   /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Addition#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Exponentiation#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see willburden.hale.hale.Addition#getLeft()
-   * @see #getAddition()
+   * @see willburden.hale.hale.Exponentiation#getLeft()
+   * @see #getExponentiation()
    * @generated
    */
-  EReference getAddition_Left();
+  EReference getExponentiation_Left();
 
   /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Addition#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Exponentiation#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see willburden.hale.hale.Addition#getRight()
-   * @see #getAddition()
+   * @see willburden.hale.hale.Exponentiation#getRight()
+   * @see #getExponentiation()
    * @generated
    */
-  EReference getAddition_Right();
+  EReference getExponentiation_Right();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.UnaryNegation <em>Unary Negation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unary Negation</em>'.
+   * @see willburden.hale.hale.UnaryNegation
+   * @generated
+   */
+  EClass getUnaryNegation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.UnaryNegation#getInner <em>Inner</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Inner</em>'.
+   * @see willburden.hale.hale.UnaryNegation#getInner()
+   * @see #getUnaryNegation()
+   * @generated
+   */
+  EReference getUnaryNegation_Inner();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.LogicalNot <em>Logical Not</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logical Not</em>'.
+   * @see willburden.hale.hale.LogicalNot
+   * @generated
+   */
+  EClass getLogicalNot();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LogicalNot#getInner <em>Inner</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Inner</em>'.
+   * @see willburden.hale.hale.LogicalNot#getInner()
+   * @see #getLogicalNot()
+   * @generated
+   */
+  EReference getLogicalNot_Inner();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -992,14 +1780,14 @@ public interface HalePackage extends EPackage
     EClass LITERAL = eINSTANCE.getLiteral();
 
     /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.IntLiteralImpl <em>Int Literal</em>}' class.
+     * The meta object literal for the '{@link willburden.hale.hale.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.IntLiteralImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getIntLiteral()
+     * @see willburden.hale.hale.impl.NumberLiteralImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getNumberLiteral()
      * @generated
      */
-    EClass INT_LITERAL = eINSTANCE.getIntLiteral();
+    EClass NUMBER_LITERAL = eINSTANCE.getNumberLiteral();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1007,7 +1795,7 @@ public interface HalePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute INT_LITERAL__VALUE = eINSTANCE.getIntLiteral_Value();
+    EAttribute NUMBER_LITERAL__VALUE = eINSTANCE.getNumberLiteral_Value();
 
     /**
      * The meta object literal for the '{@link willburden.hale.hale.impl.StringLiteralImpl <em>String Literal</em>}' class.
@@ -1026,6 +1814,266 @@ public interface HalePackage extends EPackage
      * @generated
      */
     EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.LogicalAndImpl <em>Logical And</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.LogicalAndImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalAnd()
+     * @generated
+     */
+    EClass LOGICAL_AND = eINSTANCE.getLogicalAnd();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_AND__LEFT = eINSTANCE.getLogicalAnd_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_AND__RIGHT = eINSTANCE.getLogicalAnd_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.LogicalOrImpl <em>Logical Or</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.LogicalOrImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalOr()
+     * @generated
+     */
+    EClass LOGICAL_OR = eINSTANCE.getLogicalOr();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_OR__LEFT = eINSTANCE.getLogicalOr_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_OR__RIGHT = eINSTANCE.getLogicalOr_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.EqualityImpl <em>Equality</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.EqualityImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getEquality()
+     * @generated
+     */
+    EClass EQUALITY = eINSTANCE.getEquality();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EQUALITY__LEFT = eINSTANCE.getEquality_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EQUALITY__RIGHT = eINSTANCE.getEquality_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.InequalityImpl <em>Inequality</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.InequalityImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getInequality()
+     * @generated
+     */
+    EClass INEQUALITY = eINSTANCE.getInequality();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INEQUALITY__LEFT = eINSTANCE.getInequality_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INEQUALITY__RIGHT = eINSTANCE.getInequality_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.LessThanOrEqualImpl <em>Less Than Or Equal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.LessThanOrEqualImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getLessThanOrEqual()
+     * @generated
+     */
+    EClass LESS_THAN_OR_EQUAL = eINSTANCE.getLessThanOrEqual();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LESS_THAN_OR_EQUAL__LEFT = eINSTANCE.getLessThanOrEqual_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LESS_THAN_OR_EQUAL__RIGHT = eINSTANCE.getLessThanOrEqual_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.LessThanImpl <em>Less Than</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.LessThanImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getLessThan()
+     * @generated
+     */
+    EClass LESS_THAN = eINSTANCE.getLessThan();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LESS_THAN__LEFT = eINSTANCE.getLessThan_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LESS_THAN__RIGHT = eINSTANCE.getLessThan_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.GreaterThanOrEqualImpl <em>Greater Than Or Equal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.GreaterThanOrEqualImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getGreaterThanOrEqual()
+     * @generated
+     */
+    EClass GREATER_THAN_OR_EQUAL = eINSTANCE.getGreaterThanOrEqual();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREATER_THAN_OR_EQUAL__LEFT = eINSTANCE.getGreaterThanOrEqual_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREATER_THAN_OR_EQUAL__RIGHT = eINSTANCE.getGreaterThanOrEqual_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.GreaterThanImpl <em>Greater Than</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.GreaterThanImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getGreaterThan()
+     * @generated
+     */
+    EClass GREATER_THAN = eINSTANCE.getGreaterThan();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREATER_THAN__LEFT = eINSTANCE.getGreaterThan_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GREATER_THAN__RIGHT = eINSTANCE.getGreaterThan_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.AdditionImpl <em>Addition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.AdditionImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getAddition()
+     * @generated
+     */
+    EClass ADDITION = eINSTANCE.getAddition();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADDITION__LEFT = eINSTANCE.getAddition_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADDITION__RIGHT = eINSTANCE.getAddition_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.SubtractionImpl <em>Subtraction</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.SubtractionImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getSubtraction()
+     * @generated
+     */
+    EClass SUBTRACTION = eINSTANCE.getSubtraction();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUBTRACTION__LEFT = eINSTANCE.getSubtraction_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUBTRACTION__RIGHT = eINSTANCE.getSubtraction_Right();
 
     /**
      * The meta object literal for the '{@link willburden.hale.hale.impl.MultiplicationImpl <em>Multiplication</em>}' class.
@@ -1080,14 +2128,14 @@ public interface HalePackage extends EPackage
     EReference DIVISION__RIGHT = eINSTANCE.getDivision_Right();
 
     /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.SubtractionImpl <em>Subtraction</em>}' class.
+     * The meta object literal for the '{@link willburden.hale.hale.impl.RemainderImpl <em>Remainder</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.SubtractionImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getSubtraction()
+     * @see willburden.hale.hale.impl.RemainderImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getRemainder()
      * @generated
      */
-    EClass SUBTRACTION = eINSTANCE.getSubtraction();
+    EClass REMAINDER = eINSTANCE.getRemainder();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1095,7 +2143,7 @@ public interface HalePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SUBTRACTION__LEFT = eINSTANCE.getSubtraction_Left();
+    EReference REMAINDER__LEFT = eINSTANCE.getRemainder_Left();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1103,17 +2151,17 @@ public interface HalePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SUBTRACTION__RIGHT = eINSTANCE.getSubtraction_Right();
+    EReference REMAINDER__RIGHT = eINSTANCE.getRemainder_Right();
 
     /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.AdditionImpl <em>Addition</em>}' class.
+     * The meta object literal for the '{@link willburden.hale.hale.impl.ExponentiationImpl <em>Exponentiation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.AdditionImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getAddition()
+     * @see willburden.hale.hale.impl.ExponentiationImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getExponentiation()
      * @generated
      */
-    EClass ADDITION = eINSTANCE.getAddition();
+    EClass EXPONENTIATION = eINSTANCE.getExponentiation();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1121,7 +2169,7 @@ public interface HalePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ADDITION__LEFT = eINSTANCE.getAddition_Left();
+    EReference EXPONENTIATION__LEFT = eINSTANCE.getExponentiation_Left();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1129,7 +2177,43 @@ public interface HalePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ADDITION__RIGHT = eINSTANCE.getAddition_Right();
+    EReference EXPONENTIATION__RIGHT = eINSTANCE.getExponentiation_Right();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.UnaryNegationImpl <em>Unary Negation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.UnaryNegationImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getUnaryNegation()
+     * @generated
+     */
+    EClass UNARY_NEGATION = eINSTANCE.getUnaryNegation();
+
+    /**
+     * The meta object literal for the '<em><b>Inner</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_NEGATION__INNER = eINSTANCE.getUnaryNegation_Inner();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.LogicalNotImpl <em>Logical Not</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.LogicalNotImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalNot()
+     * @generated
+     */
+    EClass LOGICAL_NOT = eINSTANCE.getLogicalNot();
+
+    /**
+     * The meta object literal for the '<em><b>Inner</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_NOT__INNER = eINSTANCE.getLogicalNot_Inner();
 
   }
 

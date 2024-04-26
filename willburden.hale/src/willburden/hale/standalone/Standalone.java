@@ -1,7 +1,5 @@
 package willburden.hale.standalone;
 
-import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
-
 import willburden.hale.standalone.Parser.ParseResult;
 
 public class Standalone {
@@ -18,7 +16,7 @@ public class Standalone {
 		
 		if (result.warnings().size() > 0) {
 			System.err.printf("Encountered %d warning(s) while parsing%n%n", result.warnings().size());
-			for (Diagnostic warning : result.warnings()) {
+			for (ParserDiagnostic warning : result.warnings()) {
 				printDiagnostic(warning);
 			}
 			
@@ -27,7 +25,7 @@ public class Standalone {
 		
 		if (result.errors().size() > 0) {
 			System.err.printf("Encountered %d error(s) while parsing%n%n", result.errors().size());
-			for (Diagnostic error : result.errors()) {
+			for (ParserDiagnostic error : result.errors()) {
 				printDiagnostic(error);
 			}
 			
@@ -36,14 +34,21 @@ public class Standalone {
 		}
 		
 		Interpreter interpreter = new Interpreter();
-		interpreter.execute(result.tree());
+		try {
+			interpreter.execute(result.tree());
+		} catch (InterpreterException e) {
+			System.err.printf("Encountered error while interpreting program%n%n");
+			System.err.println(e.getMessage());
+			System.err.printf("%nAborting due to error%n");
+			return;
+		}
 	}
 	
-	private static void printDiagnostic(Diagnostic diag) {
-		if (diag.getLocation() != null) {
-			System.err.printf("[%s:%s:%s] %s%n", diag.getLocation(), diag.getLine(), diag.getColumn(), diag.getMessage());
+	private static void printDiagnostic(ParserDiagnostic diag) {
+		if (diag.location() != null) {
+			System.err.printf("[%s:%s:%s] %s%n", diag.location(), diag.line(), diag.column(), diag.message());
 		} else {
-			System.err.printf("[%s:%s] %s%n", diag.getLine(), diag.getColumn(), diag.getMessage());
+			System.err.printf("[%s:%s] %s%n", diag.line(), diag.column(), diag.message());
 		}
 	}
 

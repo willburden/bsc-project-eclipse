@@ -19,13 +19,25 @@ import willburden.hale.hale.Assignment;
 import willburden.hale.hale.Binding;
 import willburden.hale.hale.BindingReference;
 import willburden.hale.hale.Division;
+import willburden.hale.hale.Equality;
+import willburden.hale.hale.Exponentiation;
+import willburden.hale.hale.GreaterThan;
+import willburden.hale.hale.GreaterThanOrEqual;
 import willburden.hale.hale.Hale;
 import willburden.hale.hale.HalePackage;
-import willburden.hale.hale.IntLiteral;
+import willburden.hale.hale.Inequality;
+import willburden.hale.hale.LessThan;
+import willburden.hale.hale.LessThanOrEqual;
+import willburden.hale.hale.LogicalAnd;
+import willburden.hale.hale.LogicalNot;
+import willburden.hale.hale.LogicalOr;
 import willburden.hale.hale.Multiplication;
+import willburden.hale.hale.NumberLiteral;
 import willburden.hale.hale.Print;
+import willburden.hale.hale.Remainder;
 import willburden.hale.hale.StringLiteral;
 import willburden.hale.hale.Subtraction;
+import willburden.hale.hale.UnaryNegation;
 import willburden.hale.services.HaleGrammarAccess;
 
 @SuppressWarnings("all")
@@ -43,7 +55,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (epackage == HalePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case HalePackage.ADDITION:
-				sequence_Expression(context, (Addition) semanticObject); 
+				sequence_Expression4(context, (Addition) semanticObject); 
 				return; 
 			case HalePackage.ASSIGNMENT:
 				sequence_Assignment(context, (Assignment) semanticObject); 
@@ -55,25 +67,61 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_BindingReference(context, (BindingReference) semanticObject); 
 				return; 
 			case HalePackage.DIVISION:
-				sequence_Expression(context, (Division) semanticObject); 
+				sequence_Expression3(context, (Division) semanticObject); 
+				return; 
+			case HalePackage.EQUALITY:
+				sequence_Expression6(context, (Equality) semanticObject); 
+				return; 
+			case HalePackage.EXPONENTIATION:
+				sequence_Expression2(context, (Exponentiation) semanticObject); 
+				return; 
+			case HalePackage.GREATER_THAN:
+				sequence_Expression5(context, (GreaterThan) semanticObject); 
+				return; 
+			case HalePackage.GREATER_THAN_OR_EQUAL:
+				sequence_Expression5(context, (GreaterThanOrEqual) semanticObject); 
 				return; 
 			case HalePackage.HALE:
 				sequence_Hale(context, (Hale) semanticObject); 
 				return; 
-			case HalePackage.INT_LITERAL:
-				sequence_IntLiteral(context, (IntLiteral) semanticObject); 
+			case HalePackage.INEQUALITY:
+				sequence_Expression6(context, (Inequality) semanticObject); 
+				return; 
+			case HalePackage.LESS_THAN:
+				sequence_Expression5(context, (LessThan) semanticObject); 
+				return; 
+			case HalePackage.LESS_THAN_OR_EQUAL:
+				sequence_Expression5(context, (LessThanOrEqual) semanticObject); 
+				return; 
+			case HalePackage.LOGICAL_AND:
+				sequence_Expression7(context, (LogicalAnd) semanticObject); 
+				return; 
+			case HalePackage.LOGICAL_NOT:
+				sequence_Expression1(context, (LogicalNot) semanticObject); 
+				return; 
+			case HalePackage.LOGICAL_OR:
+				sequence_Expression7(context, (LogicalOr) semanticObject); 
 				return; 
 			case HalePackage.MULTIPLICATION:
-				sequence_Expression(context, (Multiplication) semanticObject); 
+				sequence_Expression3(context, (Multiplication) semanticObject); 
+				return; 
+			case HalePackage.NUMBER_LITERAL:
+				sequence_NumberLiteral(context, (NumberLiteral) semanticObject); 
 				return; 
 			case HalePackage.PRINT:
 				sequence_Print(context, (Print) semanticObject); 
+				return; 
+			case HalePackage.REMAINDER:
+				sequence_Expression3(context, (Remainder) semanticObject); 
 				return; 
 			case HalePackage.STRING_LITERAL:
 				sequence_StringLiteral(context, (StringLiteral) semanticObject); 
 				return; 
 			case HalePackage.SUBTRACTION:
-				sequence_Expression(context, (Subtraction) semanticObject); 
+				sequence_Expression4(context, (Subtraction) semanticObject); 
+				return; 
+			case HalePackage.UNARY_NEGATION:
+				sequence_Expression1(context, (UnaryNegation) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -110,11 +158,28 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Statement returns BindingReference
 	 *     BindingReference returns BindingReference
 	 *     Expression returns BindingReference
-	 *     Expression.Multiplication_1_0_0 returns BindingReference
-	 *     Expression.Division_1_1_0 returns BindingReference
-	 *     Expression.Subtraction_1_2_0 returns BindingReference
-	 *     Expression.Addition_1_3_0 returns BindingReference
-	 *     TerminalExpression returns BindingReference
+	 *     Expression7 returns BindingReference
+	 *     Expression7.LogicalAnd_1_0_0 returns BindingReference
+	 *     Expression7.LogicalOr_1_1_0 returns BindingReference
+	 *     Expression6 returns BindingReference
+	 *     Expression6.Equality_1_0_0 returns BindingReference
+	 *     Expression6.Inequality_1_1_0 returns BindingReference
+	 *     Expression5 returns BindingReference
+	 *     Expression5.LessThanOrEqual_1_0_0 returns BindingReference
+	 *     Expression5.LessThan_1_1_0 returns BindingReference
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns BindingReference
+	 *     Expression5.GreaterThan_1_3_0 returns BindingReference
+	 *     Expression4 returns BindingReference
+	 *     Expression4.Addition_1_0_0 returns BindingReference
+	 *     Expression4.Subtraction_1_1_0 returns BindingReference
+	 *     Expression3 returns BindingReference
+	 *     Expression3.Multiplication_1_0_0 returns BindingReference
+	 *     Expression3.Division_1_1_0 returns BindingReference
+	 *     Expression3.Remainder_1_2_0 returns BindingReference
+	 *     Expression2 returns BindingReference
+	 *     Expression2.Exponentiation_1_0 returns BindingReference
+	 *     Expression1 returns BindingReference
+	 *     Primary returns BindingReference
 	 *
 	 * Constraint:
 	 *     binding=[Binding|ID]
@@ -149,28 +214,131 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Statement returns Addition
-	 *     Expression returns Addition
-	 *     Expression.Multiplication_1_0_0 returns Addition
-	 *     Expression.Division_1_1_0 returns Addition
-	 *     Expression.Subtraction_1_2_0 returns Addition
-	 *     Expression.Addition_1_3_0 returns Addition
-	 *     TerminalExpression returns Addition
+	 *     Statement returns LogicalNot
+	 *     Expression returns LogicalNot
+	 *     Expression7 returns LogicalNot
+	 *     Expression7.LogicalAnd_1_0_0 returns LogicalNot
+	 *     Expression7.LogicalOr_1_1_0 returns LogicalNot
+	 *     Expression6 returns LogicalNot
+	 *     Expression6.Equality_1_0_0 returns LogicalNot
+	 *     Expression6.Inequality_1_1_0 returns LogicalNot
+	 *     Expression5 returns LogicalNot
+	 *     Expression5.LessThanOrEqual_1_0_0 returns LogicalNot
+	 *     Expression5.LessThan_1_1_0 returns LogicalNot
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns LogicalNot
+	 *     Expression5.GreaterThan_1_3_0 returns LogicalNot
+	 *     Expression4 returns LogicalNot
+	 *     Expression4.Addition_1_0_0 returns LogicalNot
+	 *     Expression4.Subtraction_1_1_0 returns LogicalNot
+	 *     Expression3 returns LogicalNot
+	 *     Expression3.Multiplication_1_0_0 returns LogicalNot
+	 *     Expression3.Division_1_1_0 returns LogicalNot
+	 *     Expression3.Remainder_1_2_0 returns LogicalNot
+	 *     Expression2 returns LogicalNot
+	 *     Expression2.Exponentiation_1_0 returns LogicalNot
+	 *     Expression1 returns LogicalNot
+	 *     Primary returns LogicalNot
 	 *
 	 * Constraint:
-	 *     (left=Expression_Addition_1_3_0 right=TerminalExpression)
+	 *     inner=Expression1
 	 * </pre>
 	 */
-	protected void sequence_Expression(ISerializationContext context, Addition semanticObject) {
+	protected void sequence_Expression1(ISerializationContext context, LogicalNot semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.ADDITION__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.ADDITION__LEFT));
-			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.ADDITION__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.ADDITION__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.LOGICAL_NOT__INNER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.LOGICAL_NOT__INNER));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpressionAccess().getAdditionLeftAction_1_3_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExpressionAccess().getRightTerminalExpressionParserRuleCall_1_3_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getExpression1Access().getInnerExpression1ParserRuleCall_1_2_0(), semanticObject.getInner());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns UnaryNegation
+	 *     Expression returns UnaryNegation
+	 *     Expression7 returns UnaryNegation
+	 *     Expression7.LogicalAnd_1_0_0 returns UnaryNegation
+	 *     Expression7.LogicalOr_1_1_0 returns UnaryNegation
+	 *     Expression6 returns UnaryNegation
+	 *     Expression6.Equality_1_0_0 returns UnaryNegation
+	 *     Expression6.Inequality_1_1_0 returns UnaryNegation
+	 *     Expression5 returns UnaryNegation
+	 *     Expression5.LessThanOrEqual_1_0_0 returns UnaryNegation
+	 *     Expression5.LessThan_1_1_0 returns UnaryNegation
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns UnaryNegation
+	 *     Expression5.GreaterThan_1_3_0 returns UnaryNegation
+	 *     Expression4 returns UnaryNegation
+	 *     Expression4.Addition_1_0_0 returns UnaryNegation
+	 *     Expression4.Subtraction_1_1_0 returns UnaryNegation
+	 *     Expression3 returns UnaryNegation
+	 *     Expression3.Multiplication_1_0_0 returns UnaryNegation
+	 *     Expression3.Division_1_1_0 returns UnaryNegation
+	 *     Expression3.Remainder_1_2_0 returns UnaryNegation
+	 *     Expression2 returns UnaryNegation
+	 *     Expression2.Exponentiation_1_0 returns UnaryNegation
+	 *     Expression1 returns UnaryNegation
+	 *     Primary returns UnaryNegation
+	 *
+	 * Constraint:
+	 *     inner=Expression1
+	 * </pre>
+	 */
+	protected void sequence_Expression1(ISerializationContext context, UnaryNegation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.UNARY_NEGATION__INNER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.UNARY_NEGATION__INNER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression1Access().getInnerExpression1ParserRuleCall_0_2_0(), semanticObject.getInner());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns Exponentiation
+	 *     Expression returns Exponentiation
+	 *     Expression7 returns Exponentiation
+	 *     Expression7.LogicalAnd_1_0_0 returns Exponentiation
+	 *     Expression7.LogicalOr_1_1_0 returns Exponentiation
+	 *     Expression6 returns Exponentiation
+	 *     Expression6.Equality_1_0_0 returns Exponentiation
+	 *     Expression6.Inequality_1_1_0 returns Exponentiation
+	 *     Expression5 returns Exponentiation
+	 *     Expression5.LessThanOrEqual_1_0_0 returns Exponentiation
+	 *     Expression5.LessThan_1_1_0 returns Exponentiation
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns Exponentiation
+	 *     Expression5.GreaterThan_1_3_0 returns Exponentiation
+	 *     Expression4 returns Exponentiation
+	 *     Expression4.Addition_1_0_0 returns Exponentiation
+	 *     Expression4.Subtraction_1_1_0 returns Exponentiation
+	 *     Expression3 returns Exponentiation
+	 *     Expression3.Multiplication_1_0_0 returns Exponentiation
+	 *     Expression3.Division_1_1_0 returns Exponentiation
+	 *     Expression3.Remainder_1_2_0 returns Exponentiation
+	 *     Expression2 returns Exponentiation
+	 *     Expression2.Exponentiation_1_0 returns Exponentiation
+	 *     Expression1 returns Exponentiation
+	 *     Primary returns Exponentiation
+	 *
+	 * Constraint:
+	 *     (left=Expression2_Exponentiation_1_0 right=Expression1)
+	 * </pre>
+	 */
+	protected void sequence_Expression2(ISerializationContext context, Exponentiation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.EXPONENTIATION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.EXPONENTIATION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.EXPONENTIATION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.EXPONENTIATION__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression2Access().getExponentiationLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression2Access().getRightExpression1ParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -180,17 +348,34 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     Statement returns Division
 	 *     Expression returns Division
-	 *     Expression.Multiplication_1_0_0 returns Division
-	 *     Expression.Division_1_1_0 returns Division
-	 *     Expression.Subtraction_1_2_0 returns Division
-	 *     Expression.Addition_1_3_0 returns Division
-	 *     TerminalExpression returns Division
+	 *     Expression7 returns Division
+	 *     Expression7.LogicalAnd_1_0_0 returns Division
+	 *     Expression7.LogicalOr_1_1_0 returns Division
+	 *     Expression6 returns Division
+	 *     Expression6.Equality_1_0_0 returns Division
+	 *     Expression6.Inequality_1_1_0 returns Division
+	 *     Expression5 returns Division
+	 *     Expression5.LessThanOrEqual_1_0_0 returns Division
+	 *     Expression5.LessThan_1_1_0 returns Division
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns Division
+	 *     Expression5.GreaterThan_1_3_0 returns Division
+	 *     Expression4 returns Division
+	 *     Expression4.Addition_1_0_0 returns Division
+	 *     Expression4.Subtraction_1_1_0 returns Division
+	 *     Expression3 returns Division
+	 *     Expression3.Multiplication_1_0_0 returns Division
+	 *     Expression3.Division_1_1_0 returns Division
+	 *     Expression3.Remainder_1_2_0 returns Division
+	 *     Expression2 returns Division
+	 *     Expression2.Exponentiation_1_0 returns Division
+	 *     Expression1 returns Division
+	 *     Primary returns Division
 	 *
 	 * Constraint:
-	 *     (left=Expression_Division_1_1_0 right=TerminalExpression)
+	 *     (left=Expression3_Division_1_1_0 right=Expression2)
 	 * </pre>
 	 */
-	protected void sequence_Expression(ISerializationContext context, Division semanticObject) {
+	protected void sequence_Expression3(ISerializationContext context, Division semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.DIVISION__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.DIVISION__LEFT));
@@ -198,8 +383,8 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.DIVISION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpressionAccess().getDivisionLeftAction_1_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExpressionAccess().getRightTerminalExpressionParserRuleCall_1_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getExpression3Access().getDivisionLeftAction_1_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression3Access().getRightExpression2ParserRuleCall_1_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -209,17 +394,34 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     Statement returns Multiplication
 	 *     Expression returns Multiplication
-	 *     Expression.Multiplication_1_0_0 returns Multiplication
-	 *     Expression.Division_1_1_0 returns Multiplication
-	 *     Expression.Subtraction_1_2_0 returns Multiplication
-	 *     Expression.Addition_1_3_0 returns Multiplication
-	 *     TerminalExpression returns Multiplication
+	 *     Expression7 returns Multiplication
+	 *     Expression7.LogicalAnd_1_0_0 returns Multiplication
+	 *     Expression7.LogicalOr_1_1_0 returns Multiplication
+	 *     Expression6 returns Multiplication
+	 *     Expression6.Equality_1_0_0 returns Multiplication
+	 *     Expression6.Inequality_1_1_0 returns Multiplication
+	 *     Expression5 returns Multiplication
+	 *     Expression5.LessThanOrEqual_1_0_0 returns Multiplication
+	 *     Expression5.LessThan_1_1_0 returns Multiplication
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns Multiplication
+	 *     Expression5.GreaterThan_1_3_0 returns Multiplication
+	 *     Expression4 returns Multiplication
+	 *     Expression4.Addition_1_0_0 returns Multiplication
+	 *     Expression4.Subtraction_1_1_0 returns Multiplication
+	 *     Expression3 returns Multiplication
+	 *     Expression3.Multiplication_1_0_0 returns Multiplication
+	 *     Expression3.Division_1_1_0 returns Multiplication
+	 *     Expression3.Remainder_1_2_0 returns Multiplication
+	 *     Expression2 returns Multiplication
+	 *     Expression2.Exponentiation_1_0 returns Multiplication
+	 *     Expression1 returns Multiplication
+	 *     Primary returns Multiplication
 	 *
 	 * Constraint:
-	 *     (left=Expression_Multiplication_1_0_0 right=TerminalExpression)
+	 *     (left=Expression3_Multiplication_1_0_0 right=Expression2)
 	 * </pre>
 	 */
-	protected void sequence_Expression(ISerializationContext context, Multiplication semanticObject) {
+	protected void sequence_Expression3(ISerializationContext context, Multiplication semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.MULTIPLICATION__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.MULTIPLICATION__LEFT));
@@ -227,8 +429,100 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.MULTIPLICATION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpressionAccess().getMultiplicationLeftAction_1_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExpressionAccess().getRightTerminalExpressionParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getExpression3Access().getMultiplicationLeftAction_1_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression3Access().getRightExpression2ParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns Remainder
+	 *     Expression returns Remainder
+	 *     Expression7 returns Remainder
+	 *     Expression7.LogicalAnd_1_0_0 returns Remainder
+	 *     Expression7.LogicalOr_1_1_0 returns Remainder
+	 *     Expression6 returns Remainder
+	 *     Expression6.Equality_1_0_0 returns Remainder
+	 *     Expression6.Inequality_1_1_0 returns Remainder
+	 *     Expression5 returns Remainder
+	 *     Expression5.LessThanOrEqual_1_0_0 returns Remainder
+	 *     Expression5.LessThan_1_1_0 returns Remainder
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns Remainder
+	 *     Expression5.GreaterThan_1_3_0 returns Remainder
+	 *     Expression4 returns Remainder
+	 *     Expression4.Addition_1_0_0 returns Remainder
+	 *     Expression4.Subtraction_1_1_0 returns Remainder
+	 *     Expression3 returns Remainder
+	 *     Expression3.Multiplication_1_0_0 returns Remainder
+	 *     Expression3.Division_1_1_0 returns Remainder
+	 *     Expression3.Remainder_1_2_0 returns Remainder
+	 *     Expression2 returns Remainder
+	 *     Expression2.Exponentiation_1_0 returns Remainder
+	 *     Expression1 returns Remainder
+	 *     Primary returns Remainder
+	 *
+	 * Constraint:
+	 *     (left=Expression3_Remainder_1_2_0 right=Expression2)
+	 * </pre>
+	 */
+	protected void sequence_Expression3(ISerializationContext context, Remainder semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.REMAINDER__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.REMAINDER__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.REMAINDER__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.REMAINDER__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression3Access().getRemainderLeftAction_1_2_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression3Access().getRightExpression2ParserRuleCall_1_2_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns Addition
+	 *     Expression returns Addition
+	 *     Expression7 returns Addition
+	 *     Expression7.LogicalAnd_1_0_0 returns Addition
+	 *     Expression7.LogicalOr_1_1_0 returns Addition
+	 *     Expression6 returns Addition
+	 *     Expression6.Equality_1_0_0 returns Addition
+	 *     Expression6.Inequality_1_1_0 returns Addition
+	 *     Expression5 returns Addition
+	 *     Expression5.LessThanOrEqual_1_0_0 returns Addition
+	 *     Expression5.LessThan_1_1_0 returns Addition
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns Addition
+	 *     Expression5.GreaterThan_1_3_0 returns Addition
+	 *     Expression4 returns Addition
+	 *     Expression4.Addition_1_0_0 returns Addition
+	 *     Expression4.Subtraction_1_1_0 returns Addition
+	 *     Expression3 returns Addition
+	 *     Expression3.Multiplication_1_0_0 returns Addition
+	 *     Expression3.Division_1_1_0 returns Addition
+	 *     Expression3.Remainder_1_2_0 returns Addition
+	 *     Expression2 returns Addition
+	 *     Expression2.Exponentiation_1_0 returns Addition
+	 *     Expression1 returns Addition
+	 *     Primary returns Addition
+	 *
+	 * Constraint:
+	 *     (left=Expression4_Addition_1_0_0 right=Expression3)
+	 * </pre>
+	 */
+	protected void sequence_Expression4(ISerializationContext context, Addition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.ADDITION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.ADDITION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.ADDITION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.ADDITION__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression4Access().getAdditionLeftAction_1_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression4Access().getRightExpression3ParserRuleCall_1_0_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -238,17 +532,34 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     Statement returns Subtraction
 	 *     Expression returns Subtraction
-	 *     Expression.Multiplication_1_0_0 returns Subtraction
-	 *     Expression.Division_1_1_0 returns Subtraction
-	 *     Expression.Subtraction_1_2_0 returns Subtraction
-	 *     Expression.Addition_1_3_0 returns Subtraction
-	 *     TerminalExpression returns Subtraction
+	 *     Expression7 returns Subtraction
+	 *     Expression7.LogicalAnd_1_0_0 returns Subtraction
+	 *     Expression7.LogicalOr_1_1_0 returns Subtraction
+	 *     Expression6 returns Subtraction
+	 *     Expression6.Equality_1_0_0 returns Subtraction
+	 *     Expression6.Inequality_1_1_0 returns Subtraction
+	 *     Expression5 returns Subtraction
+	 *     Expression5.LessThanOrEqual_1_0_0 returns Subtraction
+	 *     Expression5.LessThan_1_1_0 returns Subtraction
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns Subtraction
+	 *     Expression5.GreaterThan_1_3_0 returns Subtraction
+	 *     Expression4 returns Subtraction
+	 *     Expression4.Addition_1_0_0 returns Subtraction
+	 *     Expression4.Subtraction_1_1_0 returns Subtraction
+	 *     Expression3 returns Subtraction
+	 *     Expression3.Multiplication_1_0_0 returns Subtraction
+	 *     Expression3.Division_1_1_0 returns Subtraction
+	 *     Expression3.Remainder_1_2_0 returns Subtraction
+	 *     Expression2 returns Subtraction
+	 *     Expression2.Exponentiation_1_0 returns Subtraction
+	 *     Expression1 returns Subtraction
+	 *     Primary returns Subtraction
 	 *
 	 * Constraint:
-	 *     (left=Expression_Subtraction_1_2_0 right=TerminalExpression)
+	 *     (left=Expression4_Subtraction_1_1_0 right=Expression3)
 	 * </pre>
 	 */
-	protected void sequence_Expression(ISerializationContext context, Subtraction semanticObject) {
+	protected void sequence_Expression4(ISerializationContext context, Subtraction semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.SUBTRACTION__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.SUBTRACTION__LEFT));
@@ -256,8 +567,376 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.SUBTRACTION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpressionAccess().getSubtractionLeftAction_1_2_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExpressionAccess().getRightTerminalExpressionParserRuleCall_1_2_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getExpression4Access().getSubtractionLeftAction_1_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression4Access().getRightExpression3ParserRuleCall_1_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns GreaterThan
+	 *     Expression returns GreaterThan
+	 *     Expression7 returns GreaterThan
+	 *     Expression7.LogicalAnd_1_0_0 returns GreaterThan
+	 *     Expression7.LogicalOr_1_1_0 returns GreaterThan
+	 *     Expression6 returns GreaterThan
+	 *     Expression6.Equality_1_0_0 returns GreaterThan
+	 *     Expression6.Inequality_1_1_0 returns GreaterThan
+	 *     Expression5 returns GreaterThan
+	 *     Expression5.LessThanOrEqual_1_0_0 returns GreaterThan
+	 *     Expression5.LessThan_1_1_0 returns GreaterThan
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns GreaterThan
+	 *     Expression5.GreaterThan_1_3_0 returns GreaterThan
+	 *     Expression4 returns GreaterThan
+	 *     Expression4.Addition_1_0_0 returns GreaterThan
+	 *     Expression4.Subtraction_1_1_0 returns GreaterThan
+	 *     Expression3 returns GreaterThan
+	 *     Expression3.Multiplication_1_0_0 returns GreaterThan
+	 *     Expression3.Division_1_1_0 returns GreaterThan
+	 *     Expression3.Remainder_1_2_0 returns GreaterThan
+	 *     Expression2 returns GreaterThan
+	 *     Expression2.Exponentiation_1_0 returns GreaterThan
+	 *     Expression1 returns GreaterThan
+	 *     Primary returns GreaterThan
+	 *
+	 * Constraint:
+	 *     (left=Expression5_GreaterThan_1_3_0 right=Expression4)
+	 * </pre>
+	 */
+	protected void sequence_Expression5(ISerializationContext context, GreaterThan semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.GREATER_THAN__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.GREATER_THAN__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.GREATER_THAN__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.GREATER_THAN__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression5Access().getGreaterThanLeftAction_1_3_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_3_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns GreaterThanOrEqual
+	 *     Expression returns GreaterThanOrEqual
+	 *     Expression7 returns GreaterThanOrEqual
+	 *     Expression7.LogicalAnd_1_0_0 returns GreaterThanOrEqual
+	 *     Expression7.LogicalOr_1_1_0 returns GreaterThanOrEqual
+	 *     Expression6 returns GreaterThanOrEqual
+	 *     Expression6.Equality_1_0_0 returns GreaterThanOrEqual
+	 *     Expression6.Inequality_1_1_0 returns GreaterThanOrEqual
+	 *     Expression5 returns GreaterThanOrEqual
+	 *     Expression5.LessThanOrEqual_1_0_0 returns GreaterThanOrEqual
+	 *     Expression5.LessThan_1_1_0 returns GreaterThanOrEqual
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns GreaterThanOrEqual
+	 *     Expression5.GreaterThan_1_3_0 returns GreaterThanOrEqual
+	 *     Expression4 returns GreaterThanOrEqual
+	 *     Expression4.Addition_1_0_0 returns GreaterThanOrEqual
+	 *     Expression4.Subtraction_1_1_0 returns GreaterThanOrEqual
+	 *     Expression3 returns GreaterThanOrEqual
+	 *     Expression3.Multiplication_1_0_0 returns GreaterThanOrEqual
+	 *     Expression3.Division_1_1_0 returns GreaterThanOrEqual
+	 *     Expression3.Remainder_1_2_0 returns GreaterThanOrEqual
+	 *     Expression2 returns GreaterThanOrEqual
+	 *     Expression2.Exponentiation_1_0 returns GreaterThanOrEqual
+	 *     Expression1 returns GreaterThanOrEqual
+	 *     Primary returns GreaterThanOrEqual
+	 *
+	 * Constraint:
+	 *     (left=Expression5_GreaterThanOrEqual_1_2_0 right=Expression4)
+	 * </pre>
+	 */
+	protected void sequence_Expression5(ISerializationContext context, GreaterThanOrEqual semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.GREATER_THAN_OR_EQUAL__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.GREATER_THAN_OR_EQUAL__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.GREATER_THAN_OR_EQUAL__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.GREATER_THAN_OR_EQUAL__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression5Access().getGreaterThanOrEqualLeftAction_1_2_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_2_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns LessThan
+	 *     Expression returns LessThan
+	 *     Expression7 returns LessThan
+	 *     Expression7.LogicalAnd_1_0_0 returns LessThan
+	 *     Expression7.LogicalOr_1_1_0 returns LessThan
+	 *     Expression6 returns LessThan
+	 *     Expression6.Equality_1_0_0 returns LessThan
+	 *     Expression6.Inequality_1_1_0 returns LessThan
+	 *     Expression5 returns LessThan
+	 *     Expression5.LessThanOrEqual_1_0_0 returns LessThan
+	 *     Expression5.LessThan_1_1_0 returns LessThan
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns LessThan
+	 *     Expression5.GreaterThan_1_3_0 returns LessThan
+	 *     Expression4 returns LessThan
+	 *     Expression4.Addition_1_0_0 returns LessThan
+	 *     Expression4.Subtraction_1_1_0 returns LessThan
+	 *     Expression3 returns LessThan
+	 *     Expression3.Multiplication_1_0_0 returns LessThan
+	 *     Expression3.Division_1_1_0 returns LessThan
+	 *     Expression3.Remainder_1_2_0 returns LessThan
+	 *     Expression2 returns LessThan
+	 *     Expression2.Exponentiation_1_0 returns LessThan
+	 *     Expression1 returns LessThan
+	 *     Primary returns LessThan
+	 *
+	 * Constraint:
+	 *     (left=Expression5_LessThan_1_1_0 right=Expression4)
+	 * </pre>
+	 */
+	protected void sequence_Expression5(ISerializationContext context, LessThan semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.LESS_THAN__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.LESS_THAN__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.LESS_THAN__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.LESS_THAN__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression5Access().getLessThanLeftAction_1_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns LessThanOrEqual
+	 *     Expression returns LessThanOrEqual
+	 *     Expression7 returns LessThanOrEqual
+	 *     Expression7.LogicalAnd_1_0_0 returns LessThanOrEqual
+	 *     Expression7.LogicalOr_1_1_0 returns LessThanOrEqual
+	 *     Expression6 returns LessThanOrEqual
+	 *     Expression6.Equality_1_0_0 returns LessThanOrEqual
+	 *     Expression6.Inequality_1_1_0 returns LessThanOrEqual
+	 *     Expression5 returns LessThanOrEqual
+	 *     Expression5.LessThanOrEqual_1_0_0 returns LessThanOrEqual
+	 *     Expression5.LessThan_1_1_0 returns LessThanOrEqual
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns LessThanOrEqual
+	 *     Expression5.GreaterThan_1_3_0 returns LessThanOrEqual
+	 *     Expression4 returns LessThanOrEqual
+	 *     Expression4.Addition_1_0_0 returns LessThanOrEqual
+	 *     Expression4.Subtraction_1_1_0 returns LessThanOrEqual
+	 *     Expression3 returns LessThanOrEqual
+	 *     Expression3.Multiplication_1_0_0 returns LessThanOrEqual
+	 *     Expression3.Division_1_1_0 returns LessThanOrEqual
+	 *     Expression3.Remainder_1_2_0 returns LessThanOrEqual
+	 *     Expression2 returns LessThanOrEqual
+	 *     Expression2.Exponentiation_1_0 returns LessThanOrEqual
+	 *     Expression1 returns LessThanOrEqual
+	 *     Primary returns LessThanOrEqual
+	 *
+	 * Constraint:
+	 *     (left=Expression5_LessThanOrEqual_1_0_0 right=Expression4)
+	 * </pre>
+	 */
+	protected void sequence_Expression5(ISerializationContext context, LessThanOrEqual semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.LESS_THAN_OR_EQUAL__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.LESS_THAN_OR_EQUAL__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.LESS_THAN_OR_EQUAL__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.LESS_THAN_OR_EQUAL__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression5Access().getLessThanOrEqualLeftAction_1_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns Equality
+	 *     Expression returns Equality
+	 *     Expression7 returns Equality
+	 *     Expression7.LogicalAnd_1_0_0 returns Equality
+	 *     Expression7.LogicalOr_1_1_0 returns Equality
+	 *     Expression6 returns Equality
+	 *     Expression6.Equality_1_0_0 returns Equality
+	 *     Expression6.Inequality_1_1_0 returns Equality
+	 *     Expression5 returns Equality
+	 *     Expression5.LessThanOrEqual_1_0_0 returns Equality
+	 *     Expression5.LessThan_1_1_0 returns Equality
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns Equality
+	 *     Expression5.GreaterThan_1_3_0 returns Equality
+	 *     Expression4 returns Equality
+	 *     Expression4.Addition_1_0_0 returns Equality
+	 *     Expression4.Subtraction_1_1_0 returns Equality
+	 *     Expression3 returns Equality
+	 *     Expression3.Multiplication_1_0_0 returns Equality
+	 *     Expression3.Division_1_1_0 returns Equality
+	 *     Expression3.Remainder_1_2_0 returns Equality
+	 *     Expression2 returns Equality
+	 *     Expression2.Exponentiation_1_0 returns Equality
+	 *     Expression1 returns Equality
+	 *     Primary returns Equality
+	 *
+	 * Constraint:
+	 *     (left=Expression6_Equality_1_0_0 right=Expression5)
+	 * </pre>
+	 */
+	protected void sequence_Expression6(ISerializationContext context, Equality semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.EQUALITY__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.EQUALITY__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.EQUALITY__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.EQUALITY__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression6Access().getEqualityLeftAction_1_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns Inequality
+	 *     Expression returns Inequality
+	 *     Expression7 returns Inequality
+	 *     Expression7.LogicalAnd_1_0_0 returns Inequality
+	 *     Expression7.LogicalOr_1_1_0 returns Inequality
+	 *     Expression6 returns Inequality
+	 *     Expression6.Equality_1_0_0 returns Inequality
+	 *     Expression6.Inequality_1_1_0 returns Inequality
+	 *     Expression5 returns Inequality
+	 *     Expression5.LessThanOrEqual_1_0_0 returns Inequality
+	 *     Expression5.LessThan_1_1_0 returns Inequality
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns Inequality
+	 *     Expression5.GreaterThan_1_3_0 returns Inequality
+	 *     Expression4 returns Inequality
+	 *     Expression4.Addition_1_0_0 returns Inequality
+	 *     Expression4.Subtraction_1_1_0 returns Inequality
+	 *     Expression3 returns Inequality
+	 *     Expression3.Multiplication_1_0_0 returns Inequality
+	 *     Expression3.Division_1_1_0 returns Inequality
+	 *     Expression3.Remainder_1_2_0 returns Inequality
+	 *     Expression2 returns Inequality
+	 *     Expression2.Exponentiation_1_0 returns Inequality
+	 *     Expression1 returns Inequality
+	 *     Primary returns Inequality
+	 *
+	 * Constraint:
+	 *     (left=Expression6_Inequality_1_1_0 right=Expression5)
+	 * </pre>
+	 */
+	protected void sequence_Expression6(ISerializationContext context, Inequality semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.INEQUALITY__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.INEQUALITY__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.INEQUALITY__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.INEQUALITY__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression6Access().getInequalityLeftAction_1_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns LogicalAnd
+	 *     Expression returns LogicalAnd
+	 *     Expression7 returns LogicalAnd
+	 *     Expression7.LogicalAnd_1_0_0 returns LogicalAnd
+	 *     Expression7.LogicalOr_1_1_0 returns LogicalAnd
+	 *     Expression6 returns LogicalAnd
+	 *     Expression6.Equality_1_0_0 returns LogicalAnd
+	 *     Expression6.Inequality_1_1_0 returns LogicalAnd
+	 *     Expression5 returns LogicalAnd
+	 *     Expression5.LessThanOrEqual_1_0_0 returns LogicalAnd
+	 *     Expression5.LessThan_1_1_0 returns LogicalAnd
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns LogicalAnd
+	 *     Expression5.GreaterThan_1_3_0 returns LogicalAnd
+	 *     Expression4 returns LogicalAnd
+	 *     Expression4.Addition_1_0_0 returns LogicalAnd
+	 *     Expression4.Subtraction_1_1_0 returns LogicalAnd
+	 *     Expression3 returns LogicalAnd
+	 *     Expression3.Multiplication_1_0_0 returns LogicalAnd
+	 *     Expression3.Division_1_1_0 returns LogicalAnd
+	 *     Expression3.Remainder_1_2_0 returns LogicalAnd
+	 *     Expression2 returns LogicalAnd
+	 *     Expression2.Exponentiation_1_0 returns LogicalAnd
+	 *     Expression1 returns LogicalAnd
+	 *     Primary returns LogicalAnd
+	 *
+	 * Constraint:
+	 *     (left=Expression7_LogicalAnd_1_0_0 right=Expression6)
+	 * </pre>
+	 */
+	protected void sequence_Expression7(ISerializationContext context, LogicalAnd semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.LOGICAL_AND__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.LOGICAL_AND__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.LOGICAL_AND__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.LOGICAL_AND__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression7Access().getLogicalAndLeftAction_1_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns LogicalOr
+	 *     Expression returns LogicalOr
+	 *     Expression7 returns LogicalOr
+	 *     Expression7.LogicalAnd_1_0_0 returns LogicalOr
+	 *     Expression7.LogicalOr_1_1_0 returns LogicalOr
+	 *     Expression6 returns LogicalOr
+	 *     Expression6.Equality_1_0_0 returns LogicalOr
+	 *     Expression6.Inequality_1_1_0 returns LogicalOr
+	 *     Expression5 returns LogicalOr
+	 *     Expression5.LessThanOrEqual_1_0_0 returns LogicalOr
+	 *     Expression5.LessThan_1_1_0 returns LogicalOr
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns LogicalOr
+	 *     Expression5.GreaterThan_1_3_0 returns LogicalOr
+	 *     Expression4 returns LogicalOr
+	 *     Expression4.Addition_1_0_0 returns LogicalOr
+	 *     Expression4.Subtraction_1_1_0 returns LogicalOr
+	 *     Expression3 returns LogicalOr
+	 *     Expression3.Multiplication_1_0_0 returns LogicalOr
+	 *     Expression3.Division_1_1_0 returns LogicalOr
+	 *     Expression3.Remainder_1_2_0 returns LogicalOr
+	 *     Expression2 returns LogicalOr
+	 *     Expression2.Exponentiation_1_0 returns LogicalOr
+	 *     Expression1 returns LogicalOr
+	 *     Primary returns LogicalOr
+	 *
+	 * Constraint:
+	 *     (left=Expression7_LogicalOr_1_1_0 right=Expression6)
+	 * </pre>
+	 */
+	protected void sequence_Expression7(ISerializationContext context, LogicalOr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.LOGICAL_OR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.LOGICAL_OR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.LOGICAL_OR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.LOGICAL_OR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpression7Access().getLogicalOrLeftAction_1_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -279,27 +958,44 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Statement returns IntLiteral
-	 *     Expression returns IntLiteral
-	 *     Expression.Multiplication_1_0_0 returns IntLiteral
-	 *     Expression.Division_1_1_0 returns IntLiteral
-	 *     Expression.Subtraction_1_2_0 returns IntLiteral
-	 *     Expression.Addition_1_3_0 returns IntLiteral
-	 *     TerminalExpression returns IntLiteral
-	 *     Literal returns IntLiteral
-	 *     IntLiteral returns IntLiteral
+	 *     Statement returns NumberLiteral
+	 *     Expression returns NumberLiteral
+	 *     Expression7 returns NumberLiteral
+	 *     Expression7.LogicalAnd_1_0_0 returns NumberLiteral
+	 *     Expression7.LogicalOr_1_1_0 returns NumberLiteral
+	 *     Expression6 returns NumberLiteral
+	 *     Expression6.Equality_1_0_0 returns NumberLiteral
+	 *     Expression6.Inequality_1_1_0 returns NumberLiteral
+	 *     Expression5 returns NumberLiteral
+	 *     Expression5.LessThanOrEqual_1_0_0 returns NumberLiteral
+	 *     Expression5.LessThan_1_1_0 returns NumberLiteral
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns NumberLiteral
+	 *     Expression5.GreaterThan_1_3_0 returns NumberLiteral
+	 *     Expression4 returns NumberLiteral
+	 *     Expression4.Addition_1_0_0 returns NumberLiteral
+	 *     Expression4.Subtraction_1_1_0 returns NumberLiteral
+	 *     Expression3 returns NumberLiteral
+	 *     Expression3.Multiplication_1_0_0 returns NumberLiteral
+	 *     Expression3.Division_1_1_0 returns NumberLiteral
+	 *     Expression3.Remainder_1_2_0 returns NumberLiteral
+	 *     Expression2 returns NumberLiteral
+	 *     Expression2.Exponentiation_1_0 returns NumberLiteral
+	 *     Expression1 returns NumberLiteral
+	 *     Primary returns NumberLiteral
+	 *     Literal returns NumberLiteral
+	 *     NumberLiteral returns NumberLiteral
 	 *
 	 * Constraint:
 	 *     value=INT
 	 * </pre>
 	 */
-	protected void sequence_IntLiteral(ISerializationContext context, IntLiteral semanticObject) {
+	protected void sequence_NumberLiteral(ISerializationContext context, NumberLiteral semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.INT_LITERAL__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.INT_LITERAL__VALUE));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.NUMBER_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.NUMBER_LITERAL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getNumberLiteralAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -330,11 +1026,28 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     Statement returns StringLiteral
 	 *     Expression returns StringLiteral
-	 *     Expression.Multiplication_1_0_0 returns StringLiteral
-	 *     Expression.Division_1_1_0 returns StringLiteral
-	 *     Expression.Subtraction_1_2_0 returns StringLiteral
-	 *     Expression.Addition_1_3_0 returns StringLiteral
-	 *     TerminalExpression returns StringLiteral
+	 *     Expression7 returns StringLiteral
+	 *     Expression7.LogicalAnd_1_0_0 returns StringLiteral
+	 *     Expression7.LogicalOr_1_1_0 returns StringLiteral
+	 *     Expression6 returns StringLiteral
+	 *     Expression6.Equality_1_0_0 returns StringLiteral
+	 *     Expression6.Inequality_1_1_0 returns StringLiteral
+	 *     Expression5 returns StringLiteral
+	 *     Expression5.LessThanOrEqual_1_0_0 returns StringLiteral
+	 *     Expression5.LessThan_1_1_0 returns StringLiteral
+	 *     Expression5.GreaterThanOrEqual_1_2_0 returns StringLiteral
+	 *     Expression5.GreaterThan_1_3_0 returns StringLiteral
+	 *     Expression4 returns StringLiteral
+	 *     Expression4.Addition_1_0_0 returns StringLiteral
+	 *     Expression4.Subtraction_1_1_0 returns StringLiteral
+	 *     Expression3 returns StringLiteral
+	 *     Expression3.Multiplication_1_0_0 returns StringLiteral
+	 *     Expression3.Division_1_1_0 returns StringLiteral
+	 *     Expression3.Remainder_1_2_0 returns StringLiteral
+	 *     Expression2 returns StringLiteral
+	 *     Expression2.Exponentiation_1_0 returns StringLiteral
+	 *     Expression1 returns StringLiteral
+	 *     Primary returns StringLiteral
 	 *     Literal returns StringLiteral
 	 *     StringLiteral returns StringLiteral
 	 *

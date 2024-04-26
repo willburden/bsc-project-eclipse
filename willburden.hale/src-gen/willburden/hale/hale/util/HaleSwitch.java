@@ -137,13 +137,13 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case HalePackage.INT_LITERAL:
+      case HalePackage.NUMBER_LITERAL:
       {
-        IntLiteral intLiteral = (IntLiteral)theEObject;
-        T result = caseIntLiteral(intLiteral);
-        if (result == null) result = caseLiteral(intLiteral);
-        if (result == null) result = caseExpression(intLiteral);
-        if (result == null) result = caseStatement(intLiteral);
+        NumberLiteral numberLiteral = (NumberLiteral)theEObject;
+        T result = caseNumberLiteral(numberLiteral);
+        if (result == null) result = caseLiteral(numberLiteral);
+        if (result == null) result = caseExpression(numberLiteral);
+        if (result == null) result = caseStatement(numberLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -154,6 +154,96 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = caseLiteral(stringLiteral);
         if (result == null) result = caseExpression(stringLiteral);
         if (result == null) result = caseStatement(stringLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.LOGICAL_AND:
+      {
+        LogicalAnd logicalAnd = (LogicalAnd)theEObject;
+        T result = caseLogicalAnd(logicalAnd);
+        if (result == null) result = caseExpression(logicalAnd);
+        if (result == null) result = caseStatement(logicalAnd);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.LOGICAL_OR:
+      {
+        LogicalOr logicalOr = (LogicalOr)theEObject;
+        T result = caseLogicalOr(logicalOr);
+        if (result == null) result = caseExpression(logicalOr);
+        if (result == null) result = caseStatement(logicalOr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.EQUALITY:
+      {
+        Equality equality = (Equality)theEObject;
+        T result = caseEquality(equality);
+        if (result == null) result = caseExpression(equality);
+        if (result == null) result = caseStatement(equality);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.INEQUALITY:
+      {
+        Inequality inequality = (Inequality)theEObject;
+        T result = caseInequality(inequality);
+        if (result == null) result = caseExpression(inequality);
+        if (result == null) result = caseStatement(inequality);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.LESS_THAN_OR_EQUAL:
+      {
+        LessThanOrEqual lessThanOrEqual = (LessThanOrEqual)theEObject;
+        T result = caseLessThanOrEqual(lessThanOrEqual);
+        if (result == null) result = caseExpression(lessThanOrEqual);
+        if (result == null) result = caseStatement(lessThanOrEqual);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.LESS_THAN:
+      {
+        LessThan lessThan = (LessThan)theEObject;
+        T result = caseLessThan(lessThan);
+        if (result == null) result = caseExpression(lessThan);
+        if (result == null) result = caseStatement(lessThan);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.GREATER_THAN_OR_EQUAL:
+      {
+        GreaterThanOrEqual greaterThanOrEqual = (GreaterThanOrEqual)theEObject;
+        T result = caseGreaterThanOrEqual(greaterThanOrEqual);
+        if (result == null) result = caseExpression(greaterThanOrEqual);
+        if (result == null) result = caseStatement(greaterThanOrEqual);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.GREATER_THAN:
+      {
+        GreaterThan greaterThan = (GreaterThan)theEObject;
+        T result = caseGreaterThan(greaterThan);
+        if (result == null) result = caseExpression(greaterThan);
+        if (result == null) result = caseStatement(greaterThan);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.ADDITION:
+      {
+        Addition addition = (Addition)theEObject;
+        T result = caseAddition(addition);
+        if (result == null) result = caseExpression(addition);
+        if (result == null) result = caseStatement(addition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.SUBTRACTION:
+      {
+        Subtraction subtraction = (Subtraction)theEObject;
+        T result = caseSubtraction(subtraction);
+        if (result == null) result = caseExpression(subtraction);
+        if (result == null) result = caseStatement(subtraction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -175,21 +265,39 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case HalePackage.SUBTRACTION:
+      case HalePackage.REMAINDER:
       {
-        Subtraction subtraction = (Subtraction)theEObject;
-        T result = caseSubtraction(subtraction);
-        if (result == null) result = caseExpression(subtraction);
-        if (result == null) result = caseStatement(subtraction);
+        Remainder remainder = (Remainder)theEObject;
+        T result = caseRemainder(remainder);
+        if (result == null) result = caseExpression(remainder);
+        if (result == null) result = caseStatement(remainder);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case HalePackage.ADDITION:
+      case HalePackage.EXPONENTIATION:
       {
-        Addition addition = (Addition)theEObject;
-        T result = caseAddition(addition);
-        if (result == null) result = caseExpression(addition);
-        if (result == null) result = caseStatement(addition);
+        Exponentiation exponentiation = (Exponentiation)theEObject;
+        T result = caseExponentiation(exponentiation);
+        if (result == null) result = caseExpression(exponentiation);
+        if (result == null) result = caseStatement(exponentiation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.UNARY_NEGATION:
+      {
+        UnaryNegation unaryNegation = (UnaryNegation)theEObject;
+        T result = caseUnaryNegation(unaryNegation);
+        if (result == null) result = caseExpression(unaryNegation);
+        if (result == null) result = caseStatement(unaryNegation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.LOGICAL_NOT:
+      {
+        LogicalNot logicalNot = (LogicalNot)theEObject;
+        T result = caseLogicalNot(logicalNot);
+        if (result == null) result = caseExpression(logicalNot);
+        if (result == null) result = caseStatement(logicalNot);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -326,17 +434,17 @@ public class HaleSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Int Literal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Number Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Int Literal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Number Literal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseIntLiteral(IntLiteral object)
+  public T caseNumberLiteral(NumberLiteral object)
   {
     return null;
   }
@@ -353,6 +461,166 @@ public class HaleSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStringLiteral(StringLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logical And</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logical And</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicalAnd(LogicalAnd object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logical Or</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logical Or</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicalOr(LogicalOr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Equality</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Equality</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEquality(Equality object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Inequality</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inequality</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInequality(Inequality object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Less Than Or Equal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Less Than Or Equal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLessThanOrEqual(LessThanOrEqual object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Less Than</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Less Than</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLessThan(LessThan object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Greater Than Or Equal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Greater Than Or Equal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGreaterThanOrEqual(GreaterThanOrEqual object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Greater Than</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Greater Than</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGreaterThan(GreaterThan object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Addition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Addition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAddition(Addition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Subtraction</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Subtraction</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubtraction(Subtraction object)
   {
     return null;
   }
@@ -390,33 +658,65 @@ public class HaleSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Subtraction</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Remainder</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Subtraction</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Remainder</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSubtraction(Subtraction object)
+  public T caseRemainder(Remainder object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Addition</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Exponentiation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Addition</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Exponentiation</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAddition(Addition object)
+  public T caseExponentiation(Exponentiation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unary Negation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unary Negation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnaryNegation(UnaryNegation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logical Not</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logical Not</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicalNot(LogicalNot object)
   {
     return null;
   }

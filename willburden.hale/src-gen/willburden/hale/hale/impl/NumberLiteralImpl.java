@@ -10,22 +10,22 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import willburden.hale.hale.HalePackage;
-import willburden.hale.hale.IntLiteral;
+import willburden.hale.hale.NumberLiteral;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Int Literal</b></em>'.
+ * An implementation of the model object '<em><b>Number Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link willburden.hale.hale.impl.IntLiteralImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link willburden.hale.hale.impl.NumberLiteralImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IntLiteralImpl extends LiteralImpl implements IntLiteral
+public class NumberLiteralImpl extends LiteralImpl implements NumberLiteral
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -52,7 +52,7 @@ public class IntLiteralImpl extends LiteralImpl implements IntLiteral
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IntLiteralImpl()
+  protected NumberLiteralImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class IntLiteralImpl extends LiteralImpl implements IntLiteral
   @Override
   protected EClass eStaticClass()
   {
-    return HalePackage.Literals.INT_LITERAL;
+    return HalePackage.Literals.NUMBER_LITERAL;
   }
 
   /**
@@ -90,7 +90,7 @@ public class IntLiteralImpl extends LiteralImpl implements IntLiteral
     int oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.INT_LITERAL__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.NUMBER_LITERAL__VALUE, oldValue, value));
   }
 
   /**
@@ -103,7 +103,7 @@ public class IntLiteralImpl extends LiteralImpl implements IntLiteral
   {
     switch (featureID)
     {
-      case HalePackage.INT_LITERAL__VALUE:
+      case HalePackage.NUMBER_LITERAL__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class IntLiteralImpl extends LiteralImpl implements IntLiteral
   {
     switch (featureID)
     {
-      case HalePackage.INT_LITERAL__VALUE:
+      case HalePackage.NUMBER_LITERAL__VALUE:
         setValue((Integer)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class IntLiteralImpl extends LiteralImpl implements IntLiteral
   {
     switch (featureID)
     {
-      case HalePackage.INT_LITERAL__VALUE:
+      case HalePackage.NUMBER_LITERAL__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class IntLiteralImpl extends LiteralImpl implements IntLiteral
   {
     switch (featureID)
     {
-      case HalePackage.INT_LITERAL__VALUE:
+      case HalePackage.NUMBER_LITERAL__VALUE:
         return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -176,4 +176,4 @@ public class IntLiteralImpl extends LiteralImpl implements IntLiteral
     return result.toString();
   }
 
-} //IntLiteralImpl
+} //NumberLiteralImpl

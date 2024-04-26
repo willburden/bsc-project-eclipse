@@ -73,12 +73,24 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
       case HalePackage.ASSIGNMENT: return createAssignment();
       case HalePackage.EXPRESSION: return createExpression();
       case HalePackage.LITERAL: return createLiteral();
-      case HalePackage.INT_LITERAL: return createIntLiteral();
+      case HalePackage.NUMBER_LITERAL: return createNumberLiteral();
       case HalePackage.STRING_LITERAL: return createStringLiteral();
+      case HalePackage.LOGICAL_AND: return createLogicalAnd();
+      case HalePackage.LOGICAL_OR: return createLogicalOr();
+      case HalePackage.EQUALITY: return createEquality();
+      case HalePackage.INEQUALITY: return createInequality();
+      case HalePackage.LESS_THAN_OR_EQUAL: return createLessThanOrEqual();
+      case HalePackage.LESS_THAN: return createLessThan();
+      case HalePackage.GREATER_THAN_OR_EQUAL: return createGreaterThanOrEqual();
+      case HalePackage.GREATER_THAN: return createGreaterThan();
+      case HalePackage.ADDITION: return createAddition();
+      case HalePackage.SUBTRACTION: return createSubtraction();
       case HalePackage.MULTIPLICATION: return createMultiplication();
       case HalePackage.DIVISION: return createDivision();
-      case HalePackage.SUBTRACTION: return createSubtraction();
-      case HalePackage.ADDITION: return createAddition();
+      case HalePackage.REMAINDER: return createRemainder();
+      case HalePackage.EXPONENTIATION: return createExponentiation();
+      case HalePackage.UNARY_NEGATION: return createUnaryNegation();
+      case HalePackage.LOGICAL_NOT: return createLogicalNot();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -186,10 +198,10 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
-  public IntLiteral createIntLiteral()
+  public NumberLiteral createNumberLiteral()
   {
-    IntLiteralImpl intLiteral = new IntLiteralImpl();
-    return intLiteral;
+    NumberLiteralImpl numberLiteral = new NumberLiteralImpl();
+    return numberLiteral;
   }
 
   /**
@@ -202,6 +214,126 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
   {
     StringLiteralImpl stringLiteral = new StringLiteralImpl();
     return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogicalAnd createLogicalAnd()
+  {
+    LogicalAndImpl logicalAnd = new LogicalAndImpl();
+    return logicalAnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogicalOr createLogicalOr()
+  {
+    LogicalOrImpl logicalOr = new LogicalOrImpl();
+    return logicalOr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Equality createEquality()
+  {
+    EqualityImpl equality = new EqualityImpl();
+    return equality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Inequality createInequality()
+  {
+    InequalityImpl inequality = new InequalityImpl();
+    return inequality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LessThanOrEqual createLessThanOrEqual()
+  {
+    LessThanOrEqualImpl lessThanOrEqual = new LessThanOrEqualImpl();
+    return lessThanOrEqual;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LessThan createLessThan()
+  {
+    LessThanImpl lessThan = new LessThanImpl();
+    return lessThan;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GreaterThanOrEqual createGreaterThanOrEqual()
+  {
+    GreaterThanOrEqualImpl greaterThanOrEqual = new GreaterThanOrEqualImpl();
+    return greaterThanOrEqual;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GreaterThan createGreaterThan()
+  {
+    GreaterThanImpl greaterThan = new GreaterThanImpl();
+    return greaterThan;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Addition createAddition()
+  {
+    AdditionImpl addition = new AdditionImpl();
+    return addition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Subtraction createSubtraction()
+  {
+    SubtractionImpl subtraction = new SubtractionImpl();
+    return subtraction;
   }
 
   /**
@@ -234,10 +366,10 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
-  public Subtraction createSubtraction()
+  public Remainder createRemainder()
   {
-    SubtractionImpl subtraction = new SubtractionImpl();
-    return subtraction;
+    RemainderImpl remainder = new RemainderImpl();
+    return remainder;
   }
 
   /**
@@ -246,10 +378,34 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
-  public Addition createAddition()
+  public Exponentiation createExponentiation()
   {
-    AdditionImpl addition = new AdditionImpl();
-    return addition;
+    ExponentiationImpl exponentiation = new ExponentiationImpl();
+    return exponentiation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UnaryNegation createUnaryNegation()
+  {
+    UnaryNegationImpl unaryNegation = new UnaryNegationImpl();
+    return unaryNegation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogicalNot createLogicalNot()
+  {
+    LogicalNotImpl logicalNot = new LogicalNotImpl();
+    return logicalNot;
   }
 
   /**

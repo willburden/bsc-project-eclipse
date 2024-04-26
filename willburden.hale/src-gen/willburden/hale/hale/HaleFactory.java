@@ -96,13 +96,13 @@ public interface HaleFactory extends EFactory
   Literal createLiteral();
 
   /**
-   * Returns a new object of class '<em>Int Literal</em>'.
+   * Returns a new object of class '<em>Number Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Int Literal</em>'.
+   * @return a new object of class '<em>Number Literal</em>'.
    * @generated
    */
-  IntLiteral createIntLiteral();
+  NumberLiteral createNumberLiteral();
 
   /**
    * Returns a new object of class '<em>String Literal</em>'.
@@ -112,6 +112,96 @@ public interface HaleFactory extends EFactory
    * @generated
    */
   StringLiteral createStringLiteral();
+
+  /**
+   * Returns a new object of class '<em>Logical And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logical And</em>'.
+   * @generated
+   */
+  LogicalAnd createLogicalAnd();
+
+  /**
+   * Returns a new object of class '<em>Logical Or</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logical Or</em>'.
+   * @generated
+   */
+  LogicalOr createLogicalOr();
+
+  /**
+   * Returns a new object of class '<em>Equality</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Equality</em>'.
+   * @generated
+   */
+  Equality createEquality();
+
+  /**
+   * Returns a new object of class '<em>Inequality</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inequality</em>'.
+   * @generated
+   */
+  Inequality createInequality();
+
+  /**
+   * Returns a new object of class '<em>Less Than Or Equal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Less Than Or Equal</em>'.
+   * @generated
+   */
+  LessThanOrEqual createLessThanOrEqual();
+
+  /**
+   * Returns a new object of class '<em>Less Than</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Less Than</em>'.
+   * @generated
+   */
+  LessThan createLessThan();
+
+  /**
+   * Returns a new object of class '<em>Greater Than Or Equal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Greater Than Or Equal</em>'.
+   * @generated
+   */
+  GreaterThanOrEqual createGreaterThanOrEqual();
+
+  /**
+   * Returns a new object of class '<em>Greater Than</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Greater Than</em>'.
+   * @generated
+   */
+  GreaterThan createGreaterThan();
+
+  /**
+   * Returns a new object of class '<em>Addition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Addition</em>'.
+   * @generated
+   */
+  Addition createAddition();
+
+  /**
+   * Returns a new object of class '<em>Subtraction</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Subtraction</em>'.
+   * @generated
+   */
+  Subtraction createSubtraction();
 
   /**
    * Returns a new object of class '<em>Multiplication</em>'.
@@ -132,22 +222,40 @@ public interface HaleFactory extends EFactory
   Division createDivision();
 
   /**
-   * Returns a new object of class '<em>Subtraction</em>'.
+   * Returns a new object of class '<em>Remainder</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Subtraction</em>'.
+   * @return a new object of class '<em>Remainder</em>'.
    * @generated
    */
-  Subtraction createSubtraction();
+  Remainder createRemainder();
 
   /**
-   * Returns a new object of class '<em>Addition</em>'.
+   * Returns a new object of class '<em>Exponentiation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Addition</em>'.
+   * @return a new object of class '<em>Exponentiation</em>'.
    * @generated
    */
-  Addition createAddition();
+  Exponentiation createExponentiation();
+
+  /**
+   * Returns a new object of class '<em>Unary Negation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Negation</em>'.
+   * @generated
+   */
+  UnaryNegation createUnaryNegation();
+
+  /**
+   * Returns a new object of class '<em>Logical Not</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logical Not</em>'.
+   * @generated
+   */
+  LogicalNot createLogicalNot();
 
   /**
    * Returns the package supported by this factory.

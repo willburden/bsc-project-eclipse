@@ -27,11 +27,51 @@
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//Expression"/>
     <genClasses ecoreClass="Hale.ecore#//Literal"/>
-    <genClasses ecoreClass="Hale.ecore#//IntLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//IntLiteral/value"/>
+    <genClasses ecoreClass="Hale.ecore#//NumberLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//NumberLiteral/value"/>
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//StringLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//LogicalAnd">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LogicalAnd/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LogicalAnd/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//LogicalOr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LogicalOr/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LogicalOr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//Equality">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Equality/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Equality/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//Inequality">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Inequality/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Inequality/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//LessThanOrEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LessThanOrEqual/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LessThanOrEqual/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//LessThan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LessThan/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LessThan/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//GreaterThanOrEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//GreaterThanOrEqual/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//GreaterThanOrEqual/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//GreaterThan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//GreaterThan/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//GreaterThan/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//Addition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Addition/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Addition/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//Subtraction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Subtraction/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Subtraction/right"/>
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//Multiplication">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Multiplication/left"/>
@@ -41,13 +81,19 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Division/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Division/right"/>
     </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//Subtraction">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Subtraction/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Subtraction/right"/>
+    <genClasses ecoreClass="Hale.ecore#//Remainder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Remainder/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Remainder/right"/>
     </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//Addition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Addition/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Addition/right"/>
+    <genClasses ecoreClass="Hale.ecore#//Exponentiation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Exponentiation/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Exponentiation/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//UnaryNegation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//UnaryNegation/inner"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//LogicalNot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LogicalNot/inner"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

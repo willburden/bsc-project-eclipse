@@ -11,7 +11,7 @@ Hale:
 ;
 
 Statement:
-	(Print | Binding | Assignment | Expression) ';'
+	(Expression | Print | Binding | Assignment) ';'
 ;
 
 Print:
@@ -38,22 +38,63 @@ Assignment:
  * Expressions
  ************************************************************/
 
-// Binary operations are left-associative
-// When mixing operators, explicit precedence with parentheses is required
-
-Expression:
-	TerminalExpression (
-		({Multiplication.left=current} '*' right=TerminalExpression)+ |
-		({Division.left=current} '/' right=TerminalExpression)+ |
-		({Subtraction.left=current} '-' right=TerminalExpression)+ |
-		({Addition.left=current} '+' right=TerminalExpression)+
-	)?
+// Start with expressions of lowest precedence.
+Expression returns Expression:
+	Expression7
 ;
 
-TerminalExpression returns Expression:
-	'(' Expression ')' |
+Expression7 returns Expression:
+	Expression6 (
+		({LogicalAnd.left=current} 'and' right=Expression6) |
+		({LogicalOr.left=current} 'or' right=Expression6)
+	)*
+;
+
+Expression6 returns Expression:
+	Expression5 (
+		({Equality.left=current} '==' right=Expression5) |
+		({Inequality.left=current} '!=' right=Expression5)
+	)*
+;
+
+Expression5 returns Expression:
+	Expression4 (
+		({LessThanOrEqual.left=current} '<=' right=Expression4) |
+		({LessThan.left=current} '<' right=Expression4) |
+		({GreaterThanOrEqual.left=current} '>=' right=Expression4) |
+		({GreaterThan.left=current} '>' right=Expression4)
+	)*
+;
+
+Expression4 returns Expression:
+	Expression3 (
+		({Addition.left=current} '+' right=Expression3) |
+		({Subtraction.left=current} '-' right=Expression3)
+	)*
+;
+
+Expression3 returns Expression:
+	Expression2 (
+		({Multiplication.left=current} '*' right=Expression2) |
+		({Division.left=current} '/' right=Expression2) |
+		({Remainder.left=current} '%' right=Expression2)		
+	)*
+;
+
+Expression2 returns Expression:
+	Expression1 ({Exponentiation.left=current} '**' right=Expression1)*
+;
+
+Expression1 returns Expression:
+	({UnaryNegation} '-' inner=Expression1) |
+	({LogicalNot} 'not' inner=Expression1) |
+	Primary
+;
+
+Primary returns Expression:
+	Literal |
 	BindingReference |
-	Literal
+	'(' Expression ')'
 ;
 
 /*************************************************************
@@ -61,11 +102,11 @@ TerminalExpression returns Expression:
  ************************************************************/
 
 Literal:
-	IntLiteral |
+	NumberLiteral |
 	StringLiteral
 ;
 
-IntLiteral:
+NumberLiteral:
 	value=INT
 ;
 
