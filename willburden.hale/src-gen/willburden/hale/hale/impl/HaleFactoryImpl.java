@@ -66,15 +66,18 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
     switch (eClass.getClassifierID())
     {
       case HalePackage.HALE: return createHale();
+      case HalePackage.BLOCK: return createBlock();
       case HalePackage.STATEMENT: return createStatement();
-      case HalePackage.PRINT: return createPrint();
-      case HalePackage.BINDING: return createBinding();
-      case HalePackage.BINDING_REFERENCE: return createBindingReference();
-      case HalePackage.ASSIGNMENT: return createAssignment();
       case HalePackage.EXPRESSION: return createExpression();
       case HalePackage.LITERAL: return createLiteral();
       case HalePackage.NUMBER_LITERAL: return createNumberLiteral();
       case HalePackage.STRING_LITERAL: return createStringLiteral();
+      case HalePackage.BINDING: return createBinding();
+      case HalePackage.BINDING_REFERENCE: return createBindingReference();
+      case HalePackage.ASSIGNMENT: return createAssignment();
+      case HalePackage.PRINT: return createPrint();
+      case HalePackage.IF: return createIf();
+      case HalePackage.EMPTY_STATEMENT: return createEmptyStatement();
       case HalePackage.LOGICAL_AND: return createLogicalAnd();
       case HalePackage.LOGICAL_OR: return createLogicalOr();
       case HalePackage.EQUALITY: return createEquality();
@@ -114,58 +117,22 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
+  public Block createBlock()
+  {
+    BlockImpl block = new BlockImpl();
+    return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Statement createStatement()
   {
     StatementImpl statement = new StatementImpl();
     return statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Print createPrint()
-  {
-    PrintImpl print = new PrintImpl();
-    return print;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Binding createBinding()
-  {
-    BindingImpl binding = new BindingImpl();
-    return binding;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public BindingReference createBindingReference()
-  {
-    BindingReferenceImpl bindingReference = new BindingReferenceImpl();
-    return bindingReference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Assignment createAssignment()
-  {
-    AssignmentImpl assignment = new AssignmentImpl();
-    return assignment;
   }
 
   /**
@@ -214,6 +181,78 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
   {
     StringLiteralImpl stringLiteral = new StringLiteralImpl();
     return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Binding createBinding()
+  {
+    BindingImpl binding = new BindingImpl();
+    return binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BindingReference createBindingReference()
+  {
+    BindingReferenceImpl bindingReference = new BindingReferenceImpl();
+    return bindingReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Assignment createAssignment()
+  {
+    AssignmentImpl assignment = new AssignmentImpl();
+    return assignment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Print createPrint()
+  {
+    PrintImpl print = new PrintImpl();
+    return print;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public If createIf()
+  {
+    IfImpl if_ = new IfImpl();
+    return if_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EmptyStatement createEmptyStatement()
+  {
+    EmptyStatementImpl emptyStatement = new EmptyStatementImpl();
+    return emptyStatement;
   }
 
   /**

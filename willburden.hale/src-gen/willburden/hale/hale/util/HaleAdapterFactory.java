@@ -81,29 +81,14 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
         return createHaleAdapter();
       }
       @Override
+      public Adapter caseBlock(Block object)
+      {
+        return createBlockAdapter();
+      }
+      @Override
       public Adapter caseStatement(Statement object)
       {
         return createStatementAdapter();
-      }
-      @Override
-      public Adapter casePrint(Print object)
-      {
-        return createPrintAdapter();
-      }
-      @Override
-      public Adapter caseBinding(Binding object)
-      {
-        return createBindingAdapter();
-      }
-      @Override
-      public Adapter caseBindingReference(BindingReference object)
-      {
-        return createBindingReferenceAdapter();
-      }
-      @Override
-      public Adapter caseAssignment(Assignment object)
-      {
-        return createAssignmentAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -124,6 +109,36 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
       public Adapter caseStringLiteral(StringLiteral object)
       {
         return createStringLiteralAdapter();
+      }
+      @Override
+      public Adapter caseBinding(Binding object)
+      {
+        return createBindingAdapter();
+      }
+      @Override
+      public Adapter caseBindingReference(BindingReference object)
+      {
+        return createBindingReferenceAdapter();
+      }
+      @Override
+      public Adapter caseAssignment(Assignment object)
+      {
+        return createAssignmentAdapter();
+      }
+      @Override
+      public Adapter casePrint(Print object)
+      {
+        return createPrintAdapter();
+      }
+      @Override
+      public Adapter caseIf(If object)
+      {
+        return createIfAdapter();
+      }
+      @Override
+      public Adapter caseEmptyStatement(EmptyStatement object)
+      {
+        return createEmptyStatementAdapter();
       }
       @Override
       public Adapter caseLogicalAnd(LogicalAnd object)
@@ -243,6 +258,21 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Block
+   * @generated
+   */
+  public Adapter createBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link willburden.hale.hale.Statement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -253,66 +283,6 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Print <em>Print</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.Print
-   * @generated
-   */
-  public Adapter createPrintAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Binding <em>Binding</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.Binding
-   * @generated
-   */
-  public Adapter createBindingAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.BindingReference <em>Binding Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.BindingReference
-   * @generated
-   */
-  public Adapter createBindingReferenceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Assignment <em>Assignment</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.Assignment
-   * @generated
-   */
-  public Adapter createAssignmentAdapter()
   {
     return null;
   }
@@ -373,6 +343,96 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStringLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Binding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Binding
+   * @generated
+   */
+  public Adapter createBindingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.BindingReference <em>Binding Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.BindingReference
+   * @generated
+   */
+  public Adapter createBindingReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Assignment <em>Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Assignment
+   * @generated
+   */
+  public Adapter createAssignmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Print <em>Print</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Print
+   * @generated
+   */
+  public Adapter createPrintAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.If <em>If</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.If
+   * @generated
+   */
+  public Adapter createIfAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.EmptyStatement <em>Empty Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.EmptyStatement
+   * @generated
+   */
+  public Adapter createEmptyStatementAdapter()
   {
     return null;
   }

@@ -1,7 +1,17 @@
-let mut total = 0;
+if 5 == 5 {
+	print "Yes!";
+}
 
-total = total + 6;
-total = total + 3;
-total = total ** 2;
+if 5 == 0 {
+	print "No!";
+} else {
+	print "Double yes!";
+}
 
-print (total);
+if 5 != 5 {
+	print "No no. 2!";
+} elseif "hello" == "hello" {
+	print "Triple yes!!";
+} else {
+	print "No no. 3!";
+}

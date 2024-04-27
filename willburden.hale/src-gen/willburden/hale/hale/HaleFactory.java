@@ -33,6 +33,15 @@ public interface HaleFactory extends EFactory
   Hale createHale();
 
   /**
+   * Returns a new object of class '<em>Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block</em>'.
+   * @generated
+   */
+  Block createBlock();
+
+  /**
    * Returns a new object of class '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -40,42 +49,6 @@ public interface HaleFactory extends EFactory
    * @generated
    */
   Statement createStatement();
-
-  /**
-   * Returns a new object of class '<em>Print</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Print</em>'.
-   * @generated
-   */
-  Print createPrint();
-
-  /**
-   * Returns a new object of class '<em>Binding</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Binding</em>'.
-   * @generated
-   */
-  Binding createBinding();
-
-  /**
-   * Returns a new object of class '<em>Binding Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Binding Reference</em>'.
-   * @generated
-   */
-  BindingReference createBindingReference();
-
-  /**
-   * Returns a new object of class '<em>Assignment</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assignment</em>'.
-   * @generated
-   */
-  Assignment createAssignment();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.
@@ -112,6 +85,60 @@ public interface HaleFactory extends EFactory
    * @generated
    */
   StringLiteral createStringLiteral();
+
+  /**
+   * Returns a new object of class '<em>Binding</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binding</em>'.
+   * @generated
+   */
+  Binding createBinding();
+
+  /**
+   * Returns a new object of class '<em>Binding Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binding Reference</em>'.
+   * @generated
+   */
+  BindingReference createBindingReference();
+
+  /**
+   * Returns a new object of class '<em>Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assignment</em>'.
+   * @generated
+   */
+  Assignment createAssignment();
+
+  /**
+   * Returns a new object of class '<em>Print</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Print</em>'.
+   * @generated
+   */
+  Print createPrint();
+
+  /**
+   * Returns a new object of class '<em>If</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If</em>'.
+   * @generated
+   */
+  If createIf();
+
+  /**
+   * Returns a new object of class '<em>Empty Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Empty Statement</em>'.
+   * @generated
+   */
+  EmptyStatement createEmptyStatement();
 
   /**
    * Returns a new object of class '<em>Logical And</em>'.

@@ -3,8 +3,6 @@
  */
 package willburden.hale.hale;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link willburden.hale.hale.Hale#getStatements <em>Statements</em>}</li>
+ *   <li>{@link willburden.hale.hale.Hale#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @see willburden.hale.hale.HalePackage#getHale()
@@ -26,15 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface Hale extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-   * The list contents are of type {@link willburden.hale.hale.Statement}.
+   * Returns the value of the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statements</em>' containment reference list.
-   * @see willburden.hale.hale.HalePackage#getHale_Statements()
+   * @return the value of the '<em>Block</em>' containment reference.
+   * @see #setBlock(Block)
+   * @see willburden.hale.hale.HalePackage#getHale_Block()
    * @model containment="true"
    * @generated
    */
-  EList<Statement> getStatements();
+  Block getBlock();
+
+  /**
+   * Sets the value of the '{@link willburden.hale.hale.Hale#getBlock <em>Block</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Block</em>' containment reference.
+   * @see #getBlock()
+   * @generated
+   */
+  void setBlock(Block value);
 
 } // Hale

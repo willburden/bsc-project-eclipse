@@ -38,7 +38,21 @@ public class Standalone {
 			interpreter.execute(result.tree());
 		} catch (InterpreterException e) {
 			System.err.printf("Encountered error while interpreting program%n%n");
-			System.err.println(e.getMessage());
+			
+			if (e.getMessage() != null) {
+				System.err.println(e.getMessage());
+			}
+			
+			Throwable cause = e.getCause();
+			while (cause != null) {
+				if (cause.getMessage() != null) {
+					System.err.println("\nCaused by:");
+					System.err.println(cause.getMessage());
+				}
+				
+				cause = cause.getCause();
+			}
+			
 			System.err.printf("%nAborting due to error%n");
 			return;
 		}

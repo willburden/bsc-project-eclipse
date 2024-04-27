@@ -3,23 +3,18 @@
  */
 package willburden.hale.hale.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
+import willburden.hale.hale.Block;
 import willburden.hale.hale.Hale;
 import willburden.hale.hale.HalePackage;
-import willburden.hale.hale.Statement;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +24,7 @@ import willburden.hale.hale.Statement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link willburden.hale.hale.impl.HaleImpl#getStatements <em>Statements</em>}</li>
+ *   <li>{@link willburden.hale.hale.impl.HaleImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +32,14 @@ import willburden.hale.hale.Statement;
 public class HaleImpl extends MinimalEObjectImpl.Container implements Hale
 {
   /**
-   * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
+   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatements()
+   * @see #getBlock()
    * @generated
    * @ordered
    */
-  protected EList<Statement> statements;
+  protected Block block;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +68,48 @@ public class HaleImpl extends MinimalEObjectImpl.Container implements Hale
    * @generated
    */
   @Override
-  public EList<Statement> getStatements()
+  public Block getBlock()
   {
-    if (statements == null)
+    return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBlock(Block newBlock, NotificationChain msgs)
+  {
+    Block oldBlock = block;
+    block = newBlock;
+    if (eNotificationRequired())
     {
-      statements = new EObjectContainmentEList<Statement>(Statement.class, this, HalePackage.HALE__STATEMENTS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.HALE__BLOCK, oldBlock, newBlock);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return statements;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBlock(Block newBlock)
+  {
+    if (newBlock != block)
+    {
+      NotificationChain msgs = null;
+      if (block != null)
+        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.HALE__BLOCK, null, msgs);
+      if (newBlock != null)
+        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.HALE__BLOCK, null, msgs);
+      msgs = basicSetBlock(newBlock, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.HALE__BLOCK, newBlock, newBlock));
   }
 
   /**
@@ -92,8 +122,8 @@ public class HaleImpl extends MinimalEObjectImpl.Container implements Hale
   {
     switch (featureID)
     {
-      case HalePackage.HALE__STATEMENTS:
-        return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
+      case HalePackage.HALE__BLOCK:
+        return basicSetBlock(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +138,8 @@ public class HaleImpl extends MinimalEObjectImpl.Container implements Hale
   {
     switch (featureID)
     {
-      case HalePackage.HALE__STATEMENTS:
-        return getStatements();
+      case HalePackage.HALE__BLOCK:
+        return getBlock();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,15 +149,13 @@ public class HaleImpl extends MinimalEObjectImpl.Container implements Hale
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case HalePackage.HALE__STATEMENTS:
-        getStatements().clear();
-        getStatements().addAll((Collection<? extends Statement>)newValue);
+      case HalePackage.HALE__BLOCK:
+        setBlock((Block)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +171,8 @@ public class HaleImpl extends MinimalEObjectImpl.Container implements Hale
   {
     switch (featureID)
     {
-      case HalePackage.HALE__STATEMENTS:
-        getStatements().clear();
+      case HalePackage.HALE__BLOCK:
+        setBlock((Block)null);
         return;
     }
     super.eUnset(featureID);
@@ -160,8 +188,8 @@ public class HaleImpl extends MinimalEObjectImpl.Container implements Hale
   {
     switch (featureID)
     {
-      case HalePackage.HALE__STATEMENTS:
-        return statements != null && !statements.isEmpty();
+      case HalePackage.HALE__BLOCK:
+        return block != null;
     }
     return super.eIsSet(featureID);
   }

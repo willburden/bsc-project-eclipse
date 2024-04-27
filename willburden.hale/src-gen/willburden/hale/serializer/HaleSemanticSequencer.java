@@ -18,13 +18,16 @@ import willburden.hale.hale.Addition;
 import willburden.hale.hale.Assignment;
 import willburden.hale.hale.Binding;
 import willburden.hale.hale.BindingReference;
+import willburden.hale.hale.Block;
 import willburden.hale.hale.Division;
+import willburden.hale.hale.EmptyStatement;
 import willburden.hale.hale.Equality;
 import willburden.hale.hale.Exponentiation;
 import willburden.hale.hale.GreaterThan;
 import willburden.hale.hale.GreaterThanOrEqual;
 import willburden.hale.hale.Hale;
 import willburden.hale.hale.HalePackage;
+import willburden.hale.hale.If;
 import willburden.hale.hale.Inequality;
 import willburden.hale.hale.LessThan;
 import willburden.hale.hale.LessThanOrEqual;
@@ -66,8 +69,14 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case HalePackage.BINDING_REFERENCE:
 				sequence_BindingReference(context, (BindingReference) semanticObject); 
 				return; 
+			case HalePackage.BLOCK:
+				sequence_Block(context, (Block) semanticObject); 
+				return; 
 			case HalePackage.DIVISION:
 				sequence_Expression3(context, (Division) semanticObject); 
+				return; 
+			case HalePackage.EMPTY_STATEMENT:
+				sequence_Statement(context, (EmptyStatement) semanticObject); 
 				return; 
 			case HalePackage.EQUALITY:
 				sequence_Expression6(context, (Equality) semanticObject); 
@@ -83,6 +92,9 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case HalePackage.HALE:
 				sequence_Hale(context, (Hale) semanticObject); 
+				return; 
+			case HalePackage.IF:
+				sequence_If(context, (If) semanticObject); 
 				return; 
 			case HalePackage.INEQUALITY:
 				sequence_Expression6(context, (Inequality) semanticObject); 
@@ -156,7 +168,6 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Statement returns BindingReference
-	 *     BindingReference returns BindingReference
 	 *     Expression returns BindingReference
 	 *     Expression7 returns BindingReference
 	 *     Expression7.LogicalAnd_1_0_0 returns BindingReference
@@ -180,6 +191,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression2.Exponentiation_1_0 returns BindingReference
 	 *     Expression1 returns BindingReference
 	 *     Primary returns BindingReference
+	 *     BindingReference returns BindingReference
 	 *
 	 * Constraint:
 	 *     binding=[Binding|ID]
@@ -207,6 +219,21 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_Binding(ISerializationContext context, Binding semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Block returns Block
+	 *     BracedBlock returns Block
+	 *
+	 * Constraint:
+	 *     statements+=Statement*
+	 * </pre>
+	 */
+	protected void sequence_Block(ISerializationContext context, Block semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -947,10 +974,31 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Hale returns Hale
 	 *
 	 * Constraint:
-	 *     statements+=Statement*
+	 *     block=Block
 	 * </pre>
 	 */
 	protected void sequence_Hale(ISerializationContext context, Hale semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.HALE__BLOCK) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.HALE__BLOCK));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getHaleAccess().getBlockBlockParserRuleCall_1_0(), semanticObject.getBlock());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns If
+	 *     If returns If
+	 *
+	 * Constraint:
+	 *     (conditions+=Expression ifBlocks+=BracedBlock (conditions+=Expression ifBlocks+=BracedBlock)* elseBlock=BracedBlock?)
+	 * </pre>
+	 */
+	protected void sequence_If(ISerializationContext context, If semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1018,6 +1066,20 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPrintAccess().getValueExpressionParserRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns EmptyStatement
+	 *
+	 * Constraint:
+	 *     {EmptyStatement}
+	 * </pre>
+	 */
+	protected void sequence_Statement(ISerializationContext context, EmptyStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

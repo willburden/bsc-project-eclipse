@@ -7,6 +7,7 @@ import willburden.hale.hale.Addition;
 import willburden.hale.hale.Assignment;
 import willburden.hale.hale.Binding;
 import willburden.hale.hale.BindingReference;
+import willburden.hale.hale.Block;
 import willburden.hale.hale.Division;
 import willburden.hale.hale.Equality;
 import willburden.hale.hale.Exponentiation;
@@ -14,6 +15,7 @@ import willburden.hale.hale.Expression;
 import willburden.hale.hale.GreaterThan;
 import willburden.hale.hale.GreaterThanOrEqual;
 import willburden.hale.hale.Hale;
+import willburden.hale.hale.If;
 import willburden.hale.hale.Inequality;
 import willburden.hale.hale.LessThan;
 import willburden.hale.hale.LessThanOrEqual;
@@ -40,71 +42,110 @@ import willburden.hale.standalone.runtime.HaleValue;
  */
 public class Interpreter {
 	private Map<String, HaleValue> bindings;
-	
+
 	public Interpreter() {
 		bindings = new HashMap<>();
 	}
-	
-	public void execute(Hale tree) throws InterpreterException {
-		for (Statement statement : tree.getStatements()) {
+
+	public void execute(Hale program) throws InterpreterException {
+		execBlock(program.getBlock());
+	}
+
+	private void execBlock(Block block) throws InterpreterException {
+		for (Statement statement : block.getStatements()) {
 			execStatement(statement);
 		}
 	}
-	
+
 	private void execStatement(Statement statement) throws InterpreterException {
-		if (statement instanceof Print print) {
+		if (statement instanceof If ifStmt) {
+			execIfStatement(ifStmt);
+		} else if (statement instanceof Print print) {
 			execPrintStatement(print);
 		} else if (statement instanceof Binding binding) {
 			execBindingStatement(binding);
-		} else if (statement instanceof Expression expression) {
-			execExpressionStatement(expression);
 		} else if (statement instanceof Assignment assignment) {
 			execAssignmentStatement(assignment);
+		} else if (statement instanceof Expression expression) {
+			execExpressionStatement(expression);
 		} else {
 			throw new InterpreterException("Unsupported statement class: " + statement.getClass().toString());
 		}
 	}
-	
-	private void execPrintStatement(Print print) throws InterpreterException {
-		System.out.println(evalExpression(print.getValue()).toString());
+
+	private void execIfStatement(If ifStmt) throws InterpreterException {
+		for (int i = 0; i < ifStmt.getIfBlocks().size(); i++) {
+			if (evalCondition(ifStmt.getConditions().get(i))) {
+				execBlock(ifStmt.getIfBlocks().get(i));
+				return;
+			}
+		}
+		
+		// If we reach this point, no 'if' or 'elseif' block was executed.
+		
+		if (ifStmt.getElseBlock() != null) {
+			execBlock(ifStmt.getElseBlock());
+		}
 	}
 	
+	private boolean evalCondition(Expression expression) throws InterpreterException {
+		HaleValue conditionValue = evalExpression(expression);
+
+		HaleBoolean condition;
+		try {
+			condition = (HaleBoolean) checkType(conditionValue, HaleType.BOOLEAN);
+		} catch (WrongTypeException e) {
+			throw new InterpreterException("Value in condition position is of the wrong type", e);
+		}
+		
+		return condition.value();
+	}
+
+	private void execPrintStatement(Print print) throws InterpreterException {
+		HaleValue value = evalExpression(print.getValue());
+
+		if (value instanceof HaleString string) {
+			System.out.println(string.value());
+		} else {
+			System.out.println(value.toString());
+		}
+	}
+
 	private void execBindingStatement(Binding binding) throws InterpreterException {
 		if (bindings.containsKey(binding.getName())) {
 			throw new InterpreterException("Binding '" + binding.getName() + "' already exists");
 		}
-		
+
 		bindings.put(binding.getName(), evalExpression(binding.getValue()));
 	}
-	
+
 	private void execAssignmentStatement(Assignment assignment) throws InterpreterException {
 		String name = assignment.getBinding().getName();
-		
+
 		if (!bindings.containsKey(name)) {
 			throw new InterpreterException("Cannot assign to binding '" + name + "' that doesn't exist");
 		}
-		
-		// Don't need to check if the binding is mutable, since that is statically checked for by a
+
+		// Don't need to check if the binding is mutable, since that is statically
+		// checked for by a
 		// validation rule.
-		
+
 		HaleValue value = evalExpression(assignment.getValue());
 		HaleType type = bindings.get(name).getType();
-		
+
 		if (value.getType() != type) {
-			throw new InterpreterException(
-				"Attempted to assign a value of the wrong type to binding '" + name + "'\n" +
-				"\tBinding is of type '" + type.toString() + "'\n" +
-				"\tAttempted to assign value '" + value.toString() + "' of type '" + value.getType().toString() + "'"
-			);
+			throw new InterpreterException("Attempted to assign a value of the wrong type to binding '" + name + "'\n"
+					+ "\tBinding is of type '" + type.toString() + "'\n" + "\tAttempted to assign value "
+					+ value.toString() + " of type '" + value.getType().toString() + "'");
 		}
-		
+
 		bindings.put(name, value);
 	}
-	
+
 	private void execExpressionStatement(Expression expression) throws InterpreterException {
 		evalExpression(expression);
 	}
-	
+
 	private HaleValue evalExpression(Expression expression) throws InterpreterException {
 		if (expression instanceof Literal literal) {
 			return evalLiteral(literal);
@@ -156,134 +197,138 @@ public class Interpreter {
 			throw new InterpreterException("Unsupported literal class: " + literal.getClass().toString());
 		}
 	}
-	
+
 	private HaleValue evalBindingReference(BindingReference bindingReference) throws InterpreterException {
 		String name = bindingReference.getBinding().getName();
-		
+
 		if (!bindings.containsKey(name)) {
 			throw new InterpreterException("Binding '" + name + "' is used before it is declared");
 		}
-		
+
 		return bindings.get(name);
 	}
 
 	private HaleBoolean evalLogicalAnd(LogicalAnd operator) throws InterpreterException {
-		 HaleBoolean left = (HaleBoolean) evalExpressionToType(operator.getLeft(), HaleType.BOOLEAN);
-		 HaleBoolean right = (HaleBoolean) evalExpressionToType(operator.getRight(), HaleType.BOOLEAN);
-		
+		HaleBoolean left = (HaleBoolean) evalExpressionToType(operator.getLeft(), HaleType.BOOLEAN);
+		HaleBoolean right = (HaleBoolean) evalExpressionToType(operator.getRight(), HaleType.BOOLEAN);
+
 		return new HaleBoolean(left.value() && right.value());
 	}
-	
+
 	private HaleBoolean evalLogicalOr(LogicalOr operator) throws InterpreterException {
-		 HaleBoolean left = (HaleBoolean) evalExpressionToType(operator.getLeft(), HaleType.BOOLEAN);
-		 HaleBoolean right = (HaleBoolean) evalExpressionToType(operator.getRight(), HaleType.BOOLEAN);
-		
+		HaleBoolean left = (HaleBoolean) evalExpressionToType(operator.getLeft(), HaleType.BOOLEAN);
+		HaleBoolean right = (HaleBoolean) evalExpressionToType(operator.getRight(), HaleType.BOOLEAN);
+
 		return new HaleBoolean(left.value() || right.value());
 	}
-	
+
 	private HaleBoolean evalEquality(Equality operator) throws InterpreterException {
-		 HaleValue left = evalExpression(operator.getLeft());
-		 HaleValue right = evalExpression(operator.getRight());
-		
-		return new HaleBoolean(left == right);
+		HaleValue left = evalExpression(operator.getLeft());
+		HaleValue right = evalExpression(operator.getRight());
+
+		return new HaleBoolean(left.valueEquals(right));
 	}
-	
+
 	private HaleBoolean evalInequality(Inequality operator) throws InterpreterException {
-		 HaleValue left = evalExpression(operator.getLeft());
-		 HaleValue right = evalExpression(operator.getRight());
-		
-		return new HaleBoolean(left != right);
+		HaleValue left = evalExpression(operator.getLeft());
+		HaleValue right = evalExpression(operator.getRight());
+
+		return new HaleBoolean(!left.valueEquals(right));
 	}
-	
+
 	private HaleBoolean evalLessThanOrEqual(LessThanOrEqual operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleBoolean(left.value() <= right.value());
 	}
-	
+
 	private HaleBoolean evalLessThan(LessThan operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleBoolean(left.value() < right.value());
 	}
-	
+
 	private HaleBoolean evalGreaterThanOrEqual(GreaterThanOrEqual operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleBoolean(left.value() >= right.value());
 	}
-	
+
 	private HaleBoolean evalGreaterThan(GreaterThan operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleBoolean(left.value() > right.value());
 	}
-	
+
 	private HaleNumber evalAddition(Addition operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleNumber(left.value() + right.value());
 	}
-	
+
 	private HaleNumber evalSubtraction(Subtraction operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleNumber(left.value() - right.value());
 	}
-	
+
 	private HaleNumber evalMultiplication(Multiplication operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleNumber(left.value() * right.value());
 	}
-	
+
 	private HaleNumber evalDivision(Division operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleNumber(left.value() / right.value());
 	}
-	
+
 	private HaleNumber evalRemainder(Remainder operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleNumber(left.value() % right.value());
 	}
-	
+
 	private HaleNumber evalExponentiation(Exponentiation operator) throws InterpreterException {
-		 HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
-		 HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
-		
+		HaleNumber left = (HaleNumber) evalExpressionToType(operator.getLeft(), HaleType.NUMBER);
+		HaleNumber right = (HaleNumber) evalExpressionToType(operator.getRight(), HaleType.NUMBER);
+
 		return new HaleNumber(Math.pow(left.value(), right.value()));
 	}
-	
+
 	private HaleNumber evalUnaryNegation(UnaryNegation operator) throws InterpreterException {
-		 HaleNumber inner = (HaleNumber) evalExpressionToType(operator.getInner(), HaleType.NUMBER);
-		
+		HaleNumber inner = (HaleNumber) evalExpressionToType(operator.getInner(), HaleType.NUMBER);
+
 		return new HaleNumber(-inner.value());
 	}
-	
+
 	private HaleBoolean evalLogicalNot(LogicalNot operator) throws InterpreterException {
-		 HaleBoolean inner = (HaleBoolean) evalExpressionToType(operator.getInner(), HaleType.BOOLEAN);
-		
+		HaleBoolean inner = (HaleBoolean) evalExpressionToType(operator.getInner(), HaleType.BOOLEAN);
+
 		return new HaleBoolean(!inner.value());
 	}
-	
+
 	private HaleValue evalExpressionToType(Expression expression, HaleType type) throws InterpreterException {
 		HaleValue value = evalExpression(expression);
-		
+
+		return checkType(value, type);
+	}
+
+	private HaleValue checkType(HaleValue value, HaleType type) throws WrongTypeException {
 		if (value.getType() != type) {
-			throw new InterpreterException("Type error: expected " + type.toString() + ", got " + value.getType().toString());
+			throw new WrongTypeException(value, type);
 		}
-		
+
 		return value;
 	}
 }

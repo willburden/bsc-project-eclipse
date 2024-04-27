@@ -68,13 +68,13 @@ public interface HalePackage extends EPackage
   int HALE = 0;
 
   /**
-   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HALE__STATEMENTS = 0;
+  int HALE__BLOCK = 0;
 
   /**
    * The number of structural features of the '<em>Hale</em>' class.
@@ -86,6 +86,34 @@ public interface HalePackage extends EPackage
   int HALE_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.BlockImpl <em>Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.BlockImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getBlock()
+   * @generated
+   */
+  int BLOCK = 1;
+
+  /**
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__STATEMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link willburden.hale.hale.impl.StatementImpl <em>Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,7 +121,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 1;
+  int STATEMENT = 2;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -105,32 +133,98 @@ public interface HalePackage extends EPackage
   int STATEMENT_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.PrintImpl <em>Print</em>}' class.
+   * The meta object id for the '{@link willburden.hale.hale.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.PrintImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getPrint()
+   * @see willburden.hale.hale.impl.ExpressionImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getExpression()
    * @generated
    */
-  int PRINT = 2;
+  int EXPRESSION = 3;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * The number of structural features of the '<em>Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRINT__VALUE = STATEMENT_FEATURE_COUNT + 0;
+  int EXPRESSION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Print</em>' class.
+   * The meta object id for the '{@link willburden.hale.hale.impl.LiteralImpl <em>Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.LiteralImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getLiteral()
+   * @generated
+   */
+  int LITERAL = 4;
+
+  /**
+   * The number of structural features of the '<em>Literal</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRINT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.NumberLiteralImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getNumberLiteral()
+   * @generated
+   */
+  int NUMBER_LITERAL = 5;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_LITERAL__VALUE = LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Number Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.StringLiteralImpl <em>String Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.StringLiteralImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getStringLiteral()
+   * @generated
+   */
+  int STRING_LITERAL = 6;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL__VALUE = LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link willburden.hale.hale.impl.BindingImpl <em>Binding</em>}' class.
@@ -140,7 +234,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getBinding()
    * @generated
    */
-  int BINDING = 3;
+  int BINDING = 7;
 
   /**
    * The feature id for the '<em><b>Mutable</b></em>' attribute.
@@ -179,25 +273,6 @@ public interface HalePackage extends EPackage
   int BINDING_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.ExpressionImpl <em>Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.ExpressionImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getExpression()
-   * @generated
-   */
-  int EXPRESSION = 6;
-
-  /**
-   * The number of structural features of the '<em>Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The meta object id for the '{@link willburden.hale.hale.impl.BindingReferenceImpl <em>Binding Reference</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -205,7 +280,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getBindingReference()
    * @generated
    */
-  int BINDING_REFERENCE = 4;
+  int BINDING_REFERENCE = 8;
 
   /**
    * The feature id for the '<em><b>Binding</b></em>' reference.
@@ -233,7 +308,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 5;
+  int ASSIGNMENT = 9;
 
   /**
    * The feature id for the '<em><b>Binding</b></em>' reference.
@@ -263,79 +338,97 @@ public interface HalePackage extends EPackage
   int ASSIGNMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.LiteralImpl <em>Literal</em>}' class.
+   * The meta object id for the '{@link willburden.hale.hale.impl.PrintImpl <em>Print</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.LiteralImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getLiteral()
+   * @see willburden.hale.hale.impl.PrintImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getPrint()
    * @generated
    */
-  int LITERAL = 7;
+  int PRINT = 10;
 
   /**
-   * The number of structural features of the '<em>Literal</em>' class.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int PRINT__VALUE = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.NumberLiteralImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getNumberLiteral()
-   * @generated
-   */
-  int NUMBER_LITERAL = 8;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The number of structural features of the '<em>Print</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NUMBER_LITERAL__VALUE = LITERAL_FEATURE_COUNT + 0;
+  int PRINT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Number Literal</em>' class.
+   * The meta object id for the '{@link willburden.hale.hale.impl.IfImpl <em>If</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.IfImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getIf()
+   * @generated
+   */
+  int IF = 11;
+
+  /**
+   * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NUMBER_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
+  int IF__CONDITIONS = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.StringLiteralImpl <em>String Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.StringLiteralImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getStringLiteral()
-   * @generated
-   */
-  int STRING_LITERAL = 9;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>If Blocks</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_LITERAL__VALUE = LITERAL_FEATURE_COUNT + 0;
+  int IF__IF_BLOCKS = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>String Literal</em>' class.
+   * The feature id for the '<em><b>Else Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
+  int IF__ELSE_BLOCK = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>If</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.EmptyStatementImpl <em>Empty Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.EmptyStatementImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getEmptyStatement()
+   * @generated
+   */
+  int EMPTY_STATEMENT = 12;
+
+  /**
+   * The number of structural features of the '<em>Empty Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMPTY_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link willburden.hale.hale.impl.LogicalAndImpl <em>Logical And</em>}' class.
@@ -345,7 +438,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalAnd()
    * @generated
    */
-  int LOGICAL_AND = 10;
+  int LOGICAL_AND = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -382,7 +475,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalOr()
    * @generated
    */
-  int LOGICAL_OR = 11;
+  int LOGICAL_OR = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -419,7 +512,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getEquality()
    * @generated
    */
-  int EQUALITY = 12;
+  int EQUALITY = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -456,7 +549,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getInequality()
    * @generated
    */
-  int INEQUALITY = 13;
+  int INEQUALITY = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -493,7 +586,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLessThanOrEqual()
    * @generated
    */
-  int LESS_THAN_OR_EQUAL = 14;
+  int LESS_THAN_OR_EQUAL = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -530,7 +623,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLessThan()
    * @generated
    */
-  int LESS_THAN = 15;
+  int LESS_THAN = 18;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -567,7 +660,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getGreaterThanOrEqual()
    * @generated
    */
-  int GREATER_THAN_OR_EQUAL = 16;
+  int GREATER_THAN_OR_EQUAL = 19;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -604,7 +697,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getGreaterThan()
    * @generated
    */
-  int GREATER_THAN = 17;
+  int GREATER_THAN = 20;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -641,7 +734,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getAddition()
    * @generated
    */
-  int ADDITION = 18;
+  int ADDITION = 21;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -678,7 +771,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getSubtraction()
    * @generated
    */
-  int SUBTRACTION = 19;
+  int SUBTRACTION = 22;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -715,7 +808,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getMultiplication()
    * @generated
    */
-  int MULTIPLICATION = 20;
+  int MULTIPLICATION = 23;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -752,7 +845,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getDivision()
    * @generated
    */
-  int DIVISION = 21;
+  int DIVISION = 24;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -789,7 +882,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getRemainder()
    * @generated
    */
-  int REMAINDER = 22;
+  int REMAINDER = 25;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -826,7 +919,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getExponentiation()
    * @generated
    */
-  int EXPONENTIATION = 23;
+  int EXPONENTIATION = 26;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -863,7 +956,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getUnaryNegation()
    * @generated
    */
-  int UNARY_NEGATION = 24;
+  int UNARY_NEGATION = 27;
 
   /**
    * The feature id for the '<em><b>Inner</b></em>' containment reference.
@@ -891,7 +984,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalNot()
    * @generated
    */
-  int LOGICAL_NOT = 25;
+  int LOGICAL_NOT = 28;
 
   /**
    * The feature id for the '<em><b>Inner</b></em>' containment reference.
@@ -923,15 +1016,36 @@ public interface HalePackage extends EPackage
   EClass getHale();
 
   /**
-   * Returns the meta object for the containment reference list '{@link willburden.hale.hale.Hale#getStatements <em>Statements</em>}'.
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Hale#getBlock <em>Block</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Statements</em>'.
-   * @see willburden.hale.hale.Hale#getStatements()
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see willburden.hale.hale.Hale#getBlock()
    * @see #getHale()
    * @generated
    */
-  EReference getHale_Statements();
+  EReference getHale_Block();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Block</em>'.
+   * @see willburden.hale.hale.Block
+   * @generated
+   */
+  EClass getBlock();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link willburden.hale.hale.Block#getStatements <em>Statements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statements</em>'.
+   * @see willburden.hale.hale.Block#getStatements()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_Statements();
 
   /**
    * Returns the meta object for class '{@link willburden.hale.hale.Statement <em>Statement</em>}'.
@@ -944,25 +1058,66 @@ public interface HalePackage extends EPackage
   EClass getStatement();
 
   /**
-   * Returns the meta object for class '{@link willburden.hale.hale.Print <em>Print</em>}'.
+   * Returns the meta object for class '{@link willburden.hale.hale.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Print</em>'.
-   * @see willburden.hale.hale.Print
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see willburden.hale.hale.Expression
    * @generated
    */
-  EClass getPrint();
+  EClass getExpression();
 
   /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Print#getValue <em>Value</em>}'.
+   * Returns the meta object for class '{@link willburden.hale.hale.Literal <em>Literal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see willburden.hale.hale.Print#getValue()
-   * @see #getPrint()
+   * @return the meta object for class '<em>Literal</em>'.
+   * @see willburden.hale.hale.Literal
    * @generated
    */
-  EReference getPrint_Value();
+  EClass getLiteral();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.NumberLiteral <em>Number Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Number Literal</em>'.
+   * @see willburden.hale.hale.NumberLiteral
+   * @generated
+   */
+  EClass getNumberLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link willburden.hale.hale.NumberLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see willburden.hale.hale.NumberLiteral#getValue()
+   * @see #getNumberLiteral()
+   * @generated
+   */
+  EAttribute getNumberLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Literal</em>'.
+   * @see willburden.hale.hale.StringLiteral
+   * @generated
+   */
+  EClass getStringLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link willburden.hale.hale.StringLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see willburden.hale.hale.StringLiteral#getValue()
+   * @see #getStringLiteral()
+   * @generated
+   */
+  EAttribute getStringLiteral_Value();
 
   /**
    * Returns the meta object for class '{@link willburden.hale.hale.Binding <em>Binding</em>}'.
@@ -1061,66 +1216,78 @@ public interface HalePackage extends EPackage
   EReference getAssignment_Value();
 
   /**
-   * Returns the meta object for class '{@link willburden.hale.hale.Expression <em>Expression</em>}'.
+   * Returns the meta object for class '{@link willburden.hale.hale.Print <em>Print</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expression</em>'.
-   * @see willburden.hale.hale.Expression
+   * @return the meta object for class '<em>Print</em>'.
+   * @see willburden.hale.hale.Print
    * @generated
    */
-  EClass getExpression();
+  EClass getPrint();
 
   /**
-   * Returns the meta object for class '{@link willburden.hale.hale.Literal <em>Literal</em>}'.
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Print#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Literal</em>'.
-   * @see willburden.hale.hale.Literal
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see willburden.hale.hale.Print#getValue()
+   * @see #getPrint()
    * @generated
    */
-  EClass getLiteral();
+  EReference getPrint_Value();
 
   /**
-   * Returns the meta object for class '{@link willburden.hale.hale.NumberLiteral <em>Number Literal</em>}'.
+   * Returns the meta object for class '{@link willburden.hale.hale.If <em>If</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Number Literal</em>'.
-   * @see willburden.hale.hale.NumberLiteral
+   * @return the meta object for class '<em>If</em>'.
+   * @see willburden.hale.hale.If
    * @generated
    */
-  EClass getNumberLiteral();
+  EClass getIf();
 
   /**
-   * Returns the meta object for the attribute '{@link willburden.hale.hale.NumberLiteral#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference list '{@link willburden.hale.hale.If#getConditions <em>Conditions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see willburden.hale.hale.NumberLiteral#getValue()
-   * @see #getNumberLiteral()
+   * @return the meta object for the containment reference list '<em>Conditions</em>'.
+   * @see willburden.hale.hale.If#getConditions()
+   * @see #getIf()
    * @generated
    */
-  EAttribute getNumberLiteral_Value();
+  EReference getIf_Conditions();
 
   /**
-   * Returns the meta object for class '{@link willburden.hale.hale.StringLiteral <em>String Literal</em>}'.
+   * Returns the meta object for the containment reference list '{@link willburden.hale.hale.If#getIfBlocks <em>If Blocks</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>String Literal</em>'.
-   * @see willburden.hale.hale.StringLiteral
+   * @return the meta object for the containment reference list '<em>If Blocks</em>'.
+   * @see willburden.hale.hale.If#getIfBlocks()
+   * @see #getIf()
    * @generated
    */
-  EClass getStringLiteral();
+  EReference getIf_IfBlocks();
 
   /**
-   * Returns the meta object for the attribute '{@link willburden.hale.hale.StringLiteral#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.If#getElseBlock <em>Else Block</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see willburden.hale.hale.StringLiteral#getValue()
-   * @see #getStringLiteral()
+   * @return the meta object for the containment reference '<em>Else Block</em>'.
+   * @see willburden.hale.hale.If#getElseBlock()
+   * @see #getIf()
    * @generated
    */
-  EAttribute getStringLiteral_Value();
+  EReference getIf_ElseBlock();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.EmptyStatement <em>Empty Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Empty Statement</em>'.
+   * @see willburden.hale.hale.EmptyStatement
+   * @generated
+   */
+  EClass getEmptyStatement();
 
   /**
    * Returns the meta object for class '{@link willburden.hale.hale.LogicalAnd <em>Logical And</em>}'.
@@ -1646,12 +1813,30 @@ public interface HalePackage extends EPackage
     EClass HALE = eINSTANCE.getHale();
 
     /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HALE__BLOCK = eINSTANCE.getHale_Block();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.BlockImpl <em>Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.BlockImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getBlock()
+     * @generated
+     */
+    EClass BLOCK = eINSTANCE.getBlock();
+
+    /**
      * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference HALE__STATEMENTS = eINSTANCE.getHale_Statements();
+    EReference BLOCK__STATEMENTS = eINSTANCE.getBlock_Statements();
 
     /**
      * The meta object literal for the '{@link willburden.hale.hale.impl.StatementImpl <em>Statement</em>}' class.
@@ -1664,22 +1849,60 @@ public interface HalePackage extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.PrintImpl <em>Print</em>}' class.
+     * The meta object literal for the '{@link willburden.hale.hale.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.PrintImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getPrint()
+     * @see willburden.hale.hale.impl.ExpressionImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getExpression()
      * @generated
      */
-    EClass PRINT = eINSTANCE.getPrint();
+    EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * The meta object literal for the '{@link willburden.hale.hale.impl.LiteralImpl <em>Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.LiteralImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getLiteral()
+     * @generated
+     */
+    EClass LITERAL = eINSTANCE.getLiteral();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.NumberLiteralImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getNumberLiteral()
+     * @generated
+     */
+    EClass NUMBER_LITERAL = eINSTANCE.getNumberLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PRINT__VALUE = eINSTANCE.getPrint_Value();
+    EAttribute NUMBER_LITERAL__VALUE = eINSTANCE.getNumberLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.StringLiteralImpl <em>String Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.StringLiteralImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getStringLiteral()
+     * @generated
+     */
+    EClass STRING_LITERAL = eINSTANCE.getStringLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
 
     /**
      * The meta object literal for the '{@link willburden.hale.hale.impl.BindingImpl <em>Binding</em>}' class.
@@ -1760,60 +1983,66 @@ public interface HalePackage extends EPackage
     EReference ASSIGNMENT__VALUE = eINSTANCE.getAssignment_Value();
 
     /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.ExpressionImpl <em>Expression</em>}' class.
+     * The meta object literal for the '{@link willburden.hale.hale.impl.PrintImpl <em>Print</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.ExpressionImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getExpression()
+     * @see willburden.hale.hale.impl.PrintImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getPrint()
      * @generated
      */
-    EClass EXPRESSION = eINSTANCE.getExpression();
+    EClass PRINT = eINSTANCE.getPrint();
 
     /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.LiteralImpl <em>Literal</em>}' class.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.LiteralImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getLiteral()
      * @generated
      */
-    EClass LITERAL = eINSTANCE.getLiteral();
+    EReference PRINT__VALUE = eINSTANCE.getPrint_Value();
 
     /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.NumberLiteralImpl <em>Number Literal</em>}' class.
+     * The meta object literal for the '{@link willburden.hale.hale.impl.IfImpl <em>If</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.NumberLiteralImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getNumberLiteral()
+     * @see willburden.hale.hale.impl.IfImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getIf()
      * @generated
      */
-    EClass NUMBER_LITERAL = eINSTANCE.getNumberLiteral();
+    EClass IF = eINSTANCE.getIf();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute NUMBER_LITERAL__VALUE = eINSTANCE.getNumberLiteral_Value();
+    EReference IF__CONDITIONS = eINSTANCE.getIf_Conditions();
 
     /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.StringLiteralImpl <em>String Literal</em>}' class.
+     * The meta object literal for the '<em><b>If Blocks</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.StringLiteralImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getStringLiteral()
      * @generated
      */
-    EClass STRING_LITERAL = eINSTANCE.getStringLiteral();
+    EReference IF__IF_BLOCKS = eINSTANCE.getIf_IfBlocks();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Else Block</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
+    EReference IF__ELSE_BLOCK = eINSTANCE.getIf_ElseBlock();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.EmptyStatementImpl <em>Empty Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.EmptyStatementImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getEmptyStatement()
+     * @generated
+     */
+    EClass EMPTY_STATEMENT = eINSTANCE.getEmptyStatement();
 
     /**
      * The meta object literal for the '{@link willburden.hale.hale.impl.LogicalAndImpl <em>Logical And</em>}' class.

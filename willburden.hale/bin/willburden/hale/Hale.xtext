@@ -7,31 +7,23 @@ generate hale "http://www.hale.willburden/Hale"
  ************************************************************/
 
 Hale:
-	{Hale} (statements+=Statement)*
+	{Hale} block=Block
+;
+
+Block:
+	{Block}
+	(statements+=Statement)*
 ;
 
 Statement:
-	(Expression | Print | Binding | Assignment) ';'
-;
-
-Print:
-	'print' value=Expression
-;
-
-/*************************************************************
- * Bindings
- ************************************************************/
-
-Binding:
-	'let' (mutable?='mut')? name=ID '=' value=Expression
-;
-
-BindingReference:
-	binding=[Binding]
-;
-
-Assignment:
-	binding=[Binding] '=' value=Expression
+	{EmptyStatement} ';' |
+	((
+		Expression |
+		Binding |
+		Assignment |
+		Print
+	) ';') |
+	If
 ;
 
 /*************************************************************
@@ -112,4 +104,42 @@ NumberLiteral:
 
 StringLiteral:
 	value=STRING
+;
+
+/*************************************************************
+ * Bindings
+ ************************************************************/
+
+Binding:
+	'let' (mutable?='mut')? name=ID '=' value=Expression
+;
+
+BindingReference:
+	binding=[Binding]
+;
+
+Assignment:
+	binding=[Binding] '=' value=Expression
+;
+
+/*************************************************************
+ * Input/Output
+ ************************************************************/
+
+Print:
+	'print' value=Expression
+;
+
+/*************************************************************
+ * Control flow
+ ************************************************************/
+
+If:
+	'if' conditions+=Expression ifBlocks+=BracedBlock
+	('elseif' conditions+=Expression ifBlocks+=BracedBlock)*
+	('else' elseBlock=BracedBlock)?
+;
+
+BracedBlock returns Block:
+	'{' Block '}'
 ;
