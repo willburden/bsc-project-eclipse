@@ -77,7 +77,7 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
       case HalePackage.ASSIGNMENT: return createAssignment();
       case HalePackage.PRINT: return createPrint();
       case HalePackage.IF: return createIf();
-      case HalePackage.EMPTY_STATEMENT: return createEmptyStatement();
+      case HalePackage.WHILE: return createWhile();
       case HalePackage.LOGICAL_AND: return createLogicalAnd();
       case HalePackage.LOGICAL_OR: return createLogicalOr();
       case HalePackage.EQUALITY: return createEquality();
@@ -249,10 +249,10 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
-  public EmptyStatement createEmptyStatement()
+  public While createWhile()
   {
-    EmptyStatementImpl emptyStatement = new EmptyStatementImpl();
-    return emptyStatement;
+    WhileImpl while_ = new WhileImpl();
+    return while_;
   }
 
   /**

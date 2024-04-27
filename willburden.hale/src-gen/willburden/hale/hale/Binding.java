@@ -15,7 +15,7 @@ package willburden.hale.hale;
  * <ul>
  *   <li>{@link willburden.hale.hale.Binding#isMutable <em>Mutable</em>}</li>
  *   <li>{@link willburden.hale.hale.Binding#getName <em>Name</em>}</li>
- *   <li>{@link willburden.hale.hale.Binding#getValue <em>Value</em>}</li>
+ *   <li>{@link willburden.hale.hale.Binding#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @see willburden.hale.hale.HalePackage#getBinding()
@@ -69,25 +69,25 @@ public interface Binding extends Statement
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Value</b></em>' containment reference.
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' containment reference.
-   * @see #setValue(Expression)
-   * @see willburden.hale.hale.HalePackage#getBinding_Value()
+   * @return the value of the '<em>Expression</em>' containment reference.
+   * @see #setExpression(Expression)
+   * @see willburden.hale.hale.HalePackage#getBinding_Expression()
    * @model containment="true"
    * @generated
    */
-  Expression getValue();
+  Expression getExpression();
 
   /**
-   * Sets the value of the '{@link willburden.hale.hale.Binding#getValue <em>Value</em>}' containment reference.
+   * Sets the value of the '{@link willburden.hale.hale.Binding#getExpression <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' containment reference.
-   * @see #getValue()
+   * @param value the new value of the '<em>Expression</em>' containment reference.
+   * @see #getExpression()
    * @generated
    */
-  void setValue(Expression value);
+  void setExpression(Expression value);
 
 } // Binding

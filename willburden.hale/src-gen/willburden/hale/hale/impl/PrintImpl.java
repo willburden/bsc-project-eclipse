@@ -23,7 +23,7 @@ import willburden.hale.hale.Print;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link willburden.hale.hale.impl.PrintImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link willburden.hale.hale.impl.PrintImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,14 +31,14 @@ import willburden.hale.hale.Print;
 public class PrintImpl extends StatementImpl implements Print
 {
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getExpression()
    * @generated
    * @ordered
    */
-  protected Expression value;
+  protected Expression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,9 +67,9 @@ public class PrintImpl extends StatementImpl implements Print
    * @generated
    */
   @Override
-  public Expression getValue()
+  public Expression getExpression()
   {
-    return value;
+    return expression;
   }
 
   /**
@@ -77,13 +77,13 @@ public class PrintImpl extends StatementImpl implements Print
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(Expression newValue, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    Expression oldValue = value;
-    value = newValue;
+    Expression oldExpression = expression;
+    expression = newExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.PRINT__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.PRINT__EXPRESSION, oldExpression, newExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -95,20 +95,20 @@ public class PrintImpl extends StatementImpl implements Print
    * @generated
    */
   @Override
-  public void setValue(Expression newValue)
+  public void setExpression(Expression newExpression)
   {
-    if (newValue != value)
+    if (newExpression != expression)
     {
       NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.PRINT__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.PRINT__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.PRINT__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.PRINT__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.PRINT__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.PRINT__EXPRESSION, newExpression, newExpression));
   }
 
   /**
@@ -121,8 +121,8 @@ public class PrintImpl extends StatementImpl implements Print
   {
     switch (featureID)
     {
-      case HalePackage.PRINT__VALUE:
-        return basicSetValue(null, msgs);
+      case HalePackage.PRINT__EXPRESSION:
+        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,8 +137,8 @@ public class PrintImpl extends StatementImpl implements Print
   {
     switch (featureID)
     {
-      case HalePackage.PRINT__VALUE:
-        return getValue();
+      case HalePackage.PRINT__EXPRESSION:
+        return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,8 +153,8 @@ public class PrintImpl extends StatementImpl implements Print
   {
     switch (featureID)
     {
-      case HalePackage.PRINT__VALUE:
-        setValue((Expression)newValue);
+      case HalePackage.PRINT__EXPRESSION:
+        setExpression((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +170,8 @@ public class PrintImpl extends StatementImpl implements Print
   {
     switch (featureID)
     {
-      case HalePackage.PRINT__VALUE:
-        setValue((Expression)null);
+      case HalePackage.PRINT__EXPRESSION:
+        setExpression((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,8 +187,8 @@ public class PrintImpl extends StatementImpl implements Print
   {
     switch (featureID)
     {
-      case HalePackage.PRINT__VALUE:
-        return value != null;
+      case HalePackage.PRINT__EXPRESSION:
+        return expression != null;
     }
     return super.eIsSet(featureID);
   }

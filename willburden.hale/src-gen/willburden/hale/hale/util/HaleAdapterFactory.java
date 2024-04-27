@@ -136,9 +136,9 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
         return createIfAdapter();
       }
       @Override
-      public Adapter caseEmptyStatement(EmptyStatement object)
+      public Adapter caseWhile(While object)
       {
-        return createEmptyStatementAdapter();
+        return createWhileAdapter();
       }
       @Override
       public Adapter caseLogicalAnd(LogicalAnd object)
@@ -423,16 +423,16 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.EmptyStatement <em>Empty Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.While <em>While</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see willburden.hale.hale.EmptyStatement
+   * @see willburden.hale.hale.While
    * @generated
    */
-  public Adapter createEmptyStatementAdapter()
+  public Adapter createWhileAdapter()
   {
     return null;
   }

@@ -16,7 +16,6 @@ import willburden.hale.hale.Binding;
 import willburden.hale.hale.BindingReference;
 import willburden.hale.hale.Block;
 import willburden.hale.hale.Division;
-import willburden.hale.hale.EmptyStatement;
 import willburden.hale.hale.Equality;
 import willburden.hale.hale.Exponentiation;
 import willburden.hale.hale.Expression;
@@ -41,6 +40,7 @@ import willburden.hale.hale.Statement;
 import willburden.hale.hale.StringLiteral;
 import willburden.hale.hale.Subtraction;
 import willburden.hale.hale.UnaryNegation;
+import willburden.hale.hale.While;
 
 /**
  * <!-- begin-user-doc -->
@@ -139,7 +139,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass emptyStatementEClass = null;
+  private EClass whileEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -475,7 +475,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getBinding_Value()
+  public EReference getBinding_Expression()
   {
     return (EReference)bindingEClass.getEStructuralFeatures().get(2);
   }
@@ -530,7 +530,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getAssignment_Value()
+  public EReference getAssignment_Expression()
   {
     return (EReference)assignmentEClass.getEStructuralFeatures().get(1);
   }
@@ -552,7 +552,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getPrint_Value()
+  public EReference getPrint_Expression()
   {
     return (EReference)printEClass.getEStructuralFeatures().get(0);
   }
@@ -607,9 +607,31 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EClass getEmptyStatement()
+  public EClass getWhile()
   {
-    return emptyStatementEClass;
+    return whileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getWhile_Condition()
+  {
+    return (EReference)whileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getWhile_Block()
+  {
+    return (EReference)whileEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1170,24 +1192,26 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     bindingEClass = createEClass(BINDING);
     createEAttribute(bindingEClass, BINDING__MUTABLE);
     createEAttribute(bindingEClass, BINDING__NAME);
-    createEReference(bindingEClass, BINDING__VALUE);
+    createEReference(bindingEClass, BINDING__EXPRESSION);
 
     bindingReferenceEClass = createEClass(BINDING_REFERENCE);
     createEReference(bindingReferenceEClass, BINDING_REFERENCE__BINDING);
 
     assignmentEClass = createEClass(ASSIGNMENT);
     createEReference(assignmentEClass, ASSIGNMENT__BINDING);
-    createEReference(assignmentEClass, ASSIGNMENT__VALUE);
+    createEReference(assignmentEClass, ASSIGNMENT__EXPRESSION);
 
     printEClass = createEClass(PRINT);
-    createEReference(printEClass, PRINT__VALUE);
+    createEReference(printEClass, PRINT__EXPRESSION);
 
     ifEClass = createEClass(IF);
     createEReference(ifEClass, IF__CONDITIONS);
     createEReference(ifEClass, IF__IF_BLOCKS);
     createEReference(ifEClass, IF__ELSE_BLOCK);
 
-    emptyStatementEClass = createEClass(EMPTY_STATEMENT);
+    whileEClass = createEClass(WHILE);
+    createEReference(whileEClass, WHILE__CONDITION);
+    createEReference(whileEClass, WHILE__BLOCK);
 
     logicalAndEClass = createEClass(LOGICAL_AND);
     createEReference(logicalAndEClass, LOGICAL_AND__LEFT);
@@ -1281,6 +1305,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    blockEClass.getESuperTypes().add(this.getStatement());
     expressionEClass.getESuperTypes().add(this.getStatement());
     literalEClass.getESuperTypes().add(this.getExpression());
     numberLiteralEClass.getESuperTypes().add(this.getLiteral());
@@ -1290,7 +1315,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     assignmentEClass.getESuperTypes().add(this.getStatement());
     printEClass.getESuperTypes().add(this.getStatement());
     ifEClass.getESuperTypes().add(this.getStatement());
-    emptyStatementEClass.getESuperTypes().add(this.getStatement());
+    whileEClass.getESuperTypes().add(this.getStatement());
     logicalAndEClass.getESuperTypes().add(this.getExpression());
     logicalOrEClass.getESuperTypes().add(this.getExpression());
     equalityEClass.getESuperTypes().add(this.getExpression());
@@ -1322,7 +1347,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(numberLiteralEClass, NumberLiteral.class, "NumberLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNumberLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNumberLiteral_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1330,24 +1355,26 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBinding_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBinding_Name(), ecorePackage.getEString(), "name", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBinding_Value(), this.getExpression(), null, "value", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinding_Expression(), this.getExpression(), null, "expression", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingReferenceEClass, BindingReference.class, "BindingReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBindingReference_Binding(), this.getBinding(), null, "binding", null, 0, 1, BindingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assignmentEClass, Assignment.class, "Assignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssignment_Binding(), this.getBinding(), null, "binding", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssignment_Value(), this.getExpression(), null, "value", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssignment_Expression(), this.getExpression(), null, "expression", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(printEClass, Print.class, "Print", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPrint_Value(), this.getExpression(), null, "value", null, 0, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrint_Expression(), this.getExpression(), null, "expression", null, 0, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIf_Conditions(), this.getExpression(), null, "conditions", null, 0, -1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIf_IfBlocks(), this.getBlock(), null, "ifBlocks", null, 0, -1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIf_ElseBlock(), this.getBlock(), null, "elseBlock", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(emptyStatementEClass, EmptyStatement.class, "EmptyStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getWhile_Condition(), this.getExpression(), null, "condition", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhile_Block(), this.getBlock(), null, "block", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicalAndEClass, LogicalAnd.class, "LogicalAnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLogicalAnd_Left(), this.getExpression(), null, "left", null, 0, 1, LogicalAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

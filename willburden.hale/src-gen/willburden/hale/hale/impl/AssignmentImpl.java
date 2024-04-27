@@ -25,7 +25,7 @@ import willburden.hale.hale.HalePackage;
  * </p>
  * <ul>
  *   <li>{@link willburden.hale.hale.impl.AssignmentImpl#getBinding <em>Binding</em>}</li>
- *   <li>{@link willburden.hale.hale.impl.AssignmentImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link willburden.hale.hale.impl.AssignmentImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,14 +43,14 @@ public class AssignmentImpl extends StatementImpl implements Assignment
   protected Binding binding;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getExpression()
    * @generated
    * @ordered
    */
-  protected Expression value;
+  protected Expression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -124,9 +124,9 @@ public class AssignmentImpl extends StatementImpl implements Assignment
    * @generated
    */
   @Override
-  public Expression getValue()
+  public Expression getExpression()
   {
-    return value;
+    return expression;
   }
 
   /**
@@ -134,13 +134,13 @@ public class AssignmentImpl extends StatementImpl implements Assignment
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(Expression newValue, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    Expression oldValue = value;
-    value = newValue;
+    Expression oldExpression = expression;
+    expression = newExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.ASSIGNMENT__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.ASSIGNMENT__EXPRESSION, oldExpression, newExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -152,20 +152,20 @@ public class AssignmentImpl extends StatementImpl implements Assignment
    * @generated
    */
   @Override
-  public void setValue(Expression newValue)
+  public void setExpression(Expression newExpression)
   {
-    if (newValue != value)
+    if (newExpression != expression)
     {
       NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.ASSIGNMENT__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.ASSIGNMENT__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.ASSIGNMENT__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.ASSIGNMENT__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.ASSIGNMENT__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.ASSIGNMENT__EXPRESSION, newExpression, newExpression));
   }
 
   /**
@@ -178,8 +178,8 @@ public class AssignmentImpl extends StatementImpl implements Assignment
   {
     switch (featureID)
     {
-      case HalePackage.ASSIGNMENT__VALUE:
-        return basicSetValue(null, msgs);
+      case HalePackage.ASSIGNMENT__EXPRESSION:
+        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,8 +197,8 @@ public class AssignmentImpl extends StatementImpl implements Assignment
       case HalePackage.ASSIGNMENT__BINDING:
         if (resolve) return getBinding();
         return basicGetBinding();
-      case HalePackage.ASSIGNMENT__VALUE:
-        return getValue();
+      case HalePackage.ASSIGNMENT__EXPRESSION:
+        return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -216,8 +216,8 @@ public class AssignmentImpl extends StatementImpl implements Assignment
       case HalePackage.ASSIGNMENT__BINDING:
         setBinding((Binding)newValue);
         return;
-      case HalePackage.ASSIGNMENT__VALUE:
-        setValue((Expression)newValue);
+      case HalePackage.ASSIGNMENT__EXPRESSION:
+        setExpression((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -236,8 +236,8 @@ public class AssignmentImpl extends StatementImpl implements Assignment
       case HalePackage.ASSIGNMENT__BINDING:
         setBinding((Binding)null);
         return;
-      case HalePackage.ASSIGNMENT__VALUE:
-        setValue((Expression)null);
+      case HalePackage.ASSIGNMENT__EXPRESSION:
+        setExpression((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -255,8 +255,8 @@ public class AssignmentImpl extends StatementImpl implements Assignment
     {
       case HalePackage.ASSIGNMENT__BINDING:
         return binding != null;
-      case HalePackage.ASSIGNMENT__VALUE:
-        return value != null;
+      case HalePackage.ASSIGNMENT__EXPRESSION:
+        return expression != null;
     }
     return super.eIsSet(featureID);
   }

@@ -132,13 +132,13 @@ public interface HaleFactory extends EFactory
   If createIf();
 
   /**
-   * Returns a new object of class '<em>Empty Statement</em>'.
+   * Returns a new object of class '<em>While</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Empty Statement</em>'.
+   * @return a new object of class '<em>While</em>'.
    * @generated
    */
-  EmptyStatement createEmptyStatement();
+  While createWhile();
 
   /**
    * Returns a new object of class '<em>Logical And</em>'.

@@ -31,8 +31,9 @@ public class HaleParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, HaleGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getBlockAccess().getAlternatives_1(), "rule__Block__Alternatives_1");
 			builder.put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
-			builder.put(grammarAccess.getStatementAccess().getAlternatives_1_0(), "rule__Statement__Alternatives_1_0");
+			builder.put(grammarAccess.getStatementAccess().getAlternatives_3_0(), "rule__Statement__Alternatives_3_0");
 			builder.put(grammarAccess.getExpression7Access().getAlternatives_1(), "rule__Expression7__Alternatives_1");
 			builder.put(grammarAccess.getExpression6Access().getAlternatives_1(), "rule__Expression6__Alternatives_1");
 			builder.put(grammarAccess.getExpression5Access().getAlternatives_1(), "rule__Expression5__Alternatives_1");
@@ -43,8 +44,8 @@ public class HaleParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLiteralAccess().getAlternatives(), "rule__Literal__Alternatives");
 			builder.put(grammarAccess.getHaleAccess().getGroup(), "rule__Hale__Group__0");
 			builder.put(grammarAccess.getBlockAccess().getGroup(), "rule__Block__Group__0");
-			builder.put(grammarAccess.getStatementAccess().getGroup_0(), "rule__Statement__Group_0__0");
-			builder.put(grammarAccess.getStatementAccess().getGroup_1(), "rule__Statement__Group_1__0");
+			builder.put(grammarAccess.getStatementAccess().getGroup_3(), "rule__Statement__Group_3__0");
+			builder.put(grammarAccess.getBracedBlockAccess().getGroup(), "rule__BracedBlock__Group__0");
 			builder.put(grammarAccess.getExpression7Access().getGroup(), "rule__Expression7__Group__0");
 			builder.put(grammarAccess.getExpression7Access().getGroup_1_0(), "rule__Expression7__Group_1_0__0");
 			builder.put(grammarAccess.getExpression7Access().getGroup_1_1(), "rule__Expression7__Group_1_1__0");
@@ -74,9 +75,9 @@ public class HaleParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIfAccess().getGroup(), "rule__If__Group__0");
 			builder.put(grammarAccess.getIfAccess().getGroup_3(), "rule__If__Group_3__0");
 			builder.put(grammarAccess.getIfAccess().getGroup_4(), "rule__If__Group_4__0");
-			builder.put(grammarAccess.getBracedBlockAccess().getGroup(), "rule__BracedBlock__Group__0");
+			builder.put(grammarAccess.getWhileAccess().getGroup(), "rule__While__Group__0");
 			builder.put(grammarAccess.getHaleAccess().getBlockAssignment_1(), "rule__Hale__BlockAssignment_1");
-			builder.put(grammarAccess.getBlockAccess().getStatementsAssignment_1(), "rule__Block__StatementsAssignment_1");
+			builder.put(grammarAccess.getBlockAccess().getStatementsAssignment_1_0(), "rule__Block__StatementsAssignment_1_0");
 			builder.put(grammarAccess.getExpression7Access().getRightAssignment_1_0_2(), "rule__Expression7__RightAssignment_1_0_2");
 			builder.put(grammarAccess.getExpression7Access().getRightAssignment_1_1_2(), "rule__Expression7__RightAssignment_1_1_2");
 			builder.put(grammarAccess.getExpression6Access().getRightAssignment_1_0_2(), "rule__Expression6__RightAssignment_1_0_2");
@@ -97,16 +98,18 @@ public class HaleParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getStringLiteralAccess().getValueAssignment(), "rule__StringLiteral__ValueAssignment");
 			builder.put(grammarAccess.getBindingAccess().getMutableAssignment_1(), "rule__Binding__MutableAssignment_1");
 			builder.put(grammarAccess.getBindingAccess().getNameAssignment_2(), "rule__Binding__NameAssignment_2");
-			builder.put(grammarAccess.getBindingAccess().getValueAssignment_4(), "rule__Binding__ValueAssignment_4");
+			builder.put(grammarAccess.getBindingAccess().getExpressionAssignment_4(), "rule__Binding__ExpressionAssignment_4");
 			builder.put(grammarAccess.getBindingReferenceAccess().getBindingAssignment(), "rule__BindingReference__BindingAssignment");
 			builder.put(grammarAccess.getAssignmentAccess().getBindingAssignment_0(), "rule__Assignment__BindingAssignment_0");
-			builder.put(grammarAccess.getAssignmentAccess().getValueAssignment_2(), "rule__Assignment__ValueAssignment_2");
-			builder.put(grammarAccess.getPrintAccess().getValueAssignment_1(), "rule__Print__ValueAssignment_1");
+			builder.put(grammarAccess.getAssignmentAccess().getExpressionAssignment_2(), "rule__Assignment__ExpressionAssignment_2");
+			builder.put(grammarAccess.getPrintAccess().getExpressionAssignment_1(), "rule__Print__ExpressionAssignment_1");
 			builder.put(grammarAccess.getIfAccess().getConditionsAssignment_1(), "rule__If__ConditionsAssignment_1");
 			builder.put(grammarAccess.getIfAccess().getIfBlocksAssignment_2(), "rule__If__IfBlocksAssignment_2");
 			builder.put(grammarAccess.getIfAccess().getConditionsAssignment_3_1(), "rule__If__ConditionsAssignment_3_1");
 			builder.put(grammarAccess.getIfAccess().getIfBlocksAssignment_3_2(), "rule__If__IfBlocksAssignment_3_2");
 			builder.put(grammarAccess.getIfAccess().getElseBlockAssignment_4_1(), "rule__If__ElseBlockAssignment_4_1");
+			builder.put(grammarAccess.getWhileAccess().getConditionAssignment_1(), "rule__While__ConditionAssignment_1");
+			builder.put(grammarAccess.getWhileAccess().getBlockAssignment_2(), "rule__While__BlockAssignment_2");
 		}
 	}
 	

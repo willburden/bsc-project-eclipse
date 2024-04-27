@@ -24,24 +24,27 @@
     <genClasses ecoreClass="Hale.ecore#//Binding">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//Binding/mutable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//Binding/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Binding/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Binding/expression"/>
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//BindingReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hale.ecore#//BindingReference/binding"/>
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//Assignment">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hale.ecore#//Assignment/binding"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Assignment/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Assignment/expression"/>
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//Print">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Print/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Print/expression"/>
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//If">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//If/conditions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//If/ifBlocks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//If/elseBlock"/>
     </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//EmptyStatement"/>
+    <genClasses ecoreClass="Hale.ecore#//While">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//While/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//While/block"/>
+    </genClasses>
     <genClasses ecoreClass="Hale.ecore#//LogicalAnd">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LogicalAnd/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LogicalAnd/right"/>

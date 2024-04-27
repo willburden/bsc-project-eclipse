@@ -20,12 +20,14 @@ import willburden.hale.services.HaleGrammarAccess;
 public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected HaleGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Block_SemicolonKeyword_1_1_a;
 	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_2_0_a;
 	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_2_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (HaleGrammarAccess) access;
+		match_Block_SemicolonKeyword_1_1_a = new TokenAlias(true, true, grammarAccess.getBlockAccess().getSemicolonKeyword_1_1());
 		match_Primary_LeftParenthesisKeyword_2_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_2_0());
 		match_Primary_LeftParenthesisKeyword_2_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_2_0());
 	}
@@ -42,7 +44,9 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Primary_LeftParenthesisKeyword_2_0_a.equals(syntax))
+			if (match_Block_SemicolonKeyword_1_1_a.equals(syntax))
+				emit_Block_SemicolonKeyword_1_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Primary_LeftParenthesisKeyword_2_0_a.equals(syntax))
 				emit_Primary_LeftParenthesisKeyword_2_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Primary_LeftParenthesisKeyword_2_0_p.equals(syntax))
 				emit_Primary_LeftParenthesisKeyword_2_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -53,13 +57,33 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
+	 *     ';'*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '{' (ambiguity) '}' (rule start)
+	 *     (rule start) '{' (ambiguity) statements+=Statement
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) statements+=Statement
+	 *     statements+=Statement (ambiguity) '}' (rule end)
+	 *     statements+=Statement (ambiguity) (rule end)
+	 *     statements+=Statement (ambiguity) statements+=Statement
+	 
+	 * </pre>
+	 */
+	protected void emit_Block_SemicolonKeyword_1_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '-' inner=Expression1
 	 *     (rule start) (ambiguity) 'not' inner=Expression1
 	 *     (rule start) (ambiguity) binding=[Binding|ID]
-	 *     (rule start) (ambiguity) value=INT
+	 *     (rule start) (ambiguity) value=DOUBLE
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) {Addition.left=}
 	 *     (rule start) (ambiguity) {Division.left=}

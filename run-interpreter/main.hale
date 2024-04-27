@@ -1,17 +1,25 @@
-if 5 == 5 {
-	print "Yes!";
+let a = "A1";
+{
+	let mut a = "A2";
+	print a;
+	a = "A3";
+	print a;
+	
+	a = 0;
+	
+	let mut a = 0;
+	while a < 10 {
+		a = a + 1;
+		print a;
+	}
+	
 }
+print a;
 
-if 5 == 0 {
-	print "No!";
-} else {
-	print "Double yes!";
-}
+print 5 / 2;
+print 1 / 3;
+print 135913 ** 2 - (1 / 3);
 
-if 5 != 5 {
-	print "No no. 2!";
-} elseif "hello" == "hello" {
-	print "Triple yes!!";
-} else {
-	print "No no. 3!";
-}
+print 35.064;
+
+print 5 - (1 / 3) == 6 - (4 / 3) - 0.006;

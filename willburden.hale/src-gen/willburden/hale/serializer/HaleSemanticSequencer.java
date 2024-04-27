@@ -20,7 +20,6 @@ import willburden.hale.hale.Binding;
 import willburden.hale.hale.BindingReference;
 import willburden.hale.hale.Block;
 import willburden.hale.hale.Division;
-import willburden.hale.hale.EmptyStatement;
 import willburden.hale.hale.Equality;
 import willburden.hale.hale.Exponentiation;
 import willburden.hale.hale.GreaterThan;
@@ -41,6 +40,7 @@ import willburden.hale.hale.Remainder;
 import willburden.hale.hale.StringLiteral;
 import willburden.hale.hale.Subtraction;
 import willburden.hale.hale.UnaryNegation;
+import willburden.hale.hale.While;
 import willburden.hale.services.HaleGrammarAccess;
 
 @SuppressWarnings("all")
@@ -74,9 +74,6 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case HalePackage.DIVISION:
 				sequence_Expression3(context, (Division) semanticObject); 
-				return; 
-			case HalePackage.EMPTY_STATEMENT:
-				sequence_Statement(context, (EmptyStatement) semanticObject); 
 				return; 
 			case HalePackage.EQUALITY:
 				sequence_Expression6(context, (Equality) semanticObject); 
@@ -135,6 +132,9 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case HalePackage.UNARY_NEGATION:
 				sequence_Expression1(context, (UnaryNegation) semanticObject); 
 				return; 
+			case HalePackage.WHILE:
+				sequence_While(context, (While) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -147,19 +147,19 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Assignment returns Assignment
 	 *
 	 * Constraint:
-	 *     (binding=[Binding|ID] value=Expression)
+	 *     (binding=[Binding|ID] expression=Expression)
 	 * </pre>
 	 */
 	protected void sequence_Assignment(ISerializationContext context, Assignment semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.ASSIGNMENT__BINDING) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.ASSIGNMENT__BINDING));
-			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.ASSIGNMENT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.ASSIGNMENT__VALUE));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.ASSIGNMENT__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.ASSIGNMENT__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAssignmentAccess().getBindingBindingIDTerminalRuleCall_0_0_1(), semanticObject.eGet(HalePackage.Literals.ASSIGNMENT__BINDING, false));
-		feeder.accept(grammarAccess.getAssignmentAccess().getValueExpressionParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -215,7 +215,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Binding returns Binding
 	 *
 	 * Constraint:
-	 *     (mutable?='mut'? name=ID value=Expression)
+	 *     (mutable?='mut'? name=ID expression=Expression)
 	 * </pre>
 	 */
 	protected void sequence_Binding(ISerializationContext context, Binding semanticObject) {
@@ -227,6 +227,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Block returns Block
+	 *     Statement returns Block
 	 *     BracedBlock returns Block
 	 *
 	 * Constraint:
@@ -1034,7 +1035,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     NumberLiteral returns NumberLiteral
 	 *
 	 * Constraint:
-	 *     value=INT
+	 *     value=DOUBLE
 	 * </pre>
 	 */
 	protected void sequence_NumberLiteral(ISerializationContext context, NumberLiteral semanticObject) {
@@ -1043,7 +1044,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.NUMBER_LITERAL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNumberLiteralAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getNumberLiteralAccess().getValueDOUBLETerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1055,31 +1056,17 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Print returns Print
 	 *
 	 * Constraint:
-	 *     value=Expression
+	 *     expression=Expression
 	 * </pre>
 	 */
 	protected void sequence_Print(ISerializationContext context, Print semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.PRINT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.PRINT__VALUE));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.PRINT__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.PRINT__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrintAccess().getValueExpressionParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getPrintAccess().getExpressionExpressionParserRuleCall_1_0(), semanticObject.getExpression());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Statement returns EmptyStatement
-	 *
-	 * Constraint:
-	 *     {EmptyStatement}
-	 * </pre>
-	 */
-	protected void sequence_Statement(ISerializationContext context, EmptyStatement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1124,6 +1111,30 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Statement returns While
+	 *     While returns While
+	 *
+	 * Constraint:
+	 *     (condition=Expression block=BracedBlock)
+	 * </pre>
+	 */
+	protected void sequence_While(ISerializationContext context, While semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.WHILE__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.WHILE__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.WHILE__BLOCK) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.WHILE__BLOCK));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getWhileAccess().getConditionExpressionParserRuleCall_1_0(), semanticObject.getCondition());
+		feeder.accept(grammarAccess.getWhileAccess().getBlockBracedBlockParserRuleCall_2_0(), semanticObject.getBlock());
 		feeder.finish();
 	}
 	

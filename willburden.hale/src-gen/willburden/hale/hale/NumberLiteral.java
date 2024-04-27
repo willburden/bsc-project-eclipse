@@ -27,12 +27,12 @@ public interface NumberLiteral extends Literal
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(int)
+   * @see #setValue(double)
    * @see willburden.hale.hale.HalePackage#getNumberLiteral_Value()
    * @model
    * @generated
    */
-  int getValue();
+  double getValue();
 
   /**
    * Sets the value of the '{@link willburden.hale.hale.NumberLiteral#getValue <em>Value</em>}' attribute.
@@ -42,6 +42,6 @@ public interface NumberLiteral extends Literal
    * @see #getValue()
    * @generated
    */
-  void setValue(int value);
+  void setValue(double value);
 
 } // NumberLiteral

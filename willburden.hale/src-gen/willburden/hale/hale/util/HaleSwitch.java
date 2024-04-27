@@ -84,6 +84,7 @@ public class HaleSwitch<T> extends Switch<T>
       {
         Block block = (Block)theEObject;
         T result = caseBlock(block);
+        if (result == null) result = caseStatement(block);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -172,11 +173,11 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case HalePackage.EMPTY_STATEMENT:
+      case HalePackage.WHILE:
       {
-        EmptyStatement emptyStatement = (EmptyStatement)theEObject;
-        T result = caseEmptyStatement(emptyStatement);
-        if (result == null) result = caseStatement(emptyStatement);
+        While while_ = (While)theEObject;
+        T result = caseWhile(while_);
+        if (result == null) result = caseStatement(while_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -521,17 +522,17 @@ public class HaleSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Empty Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>While</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Empty Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>While</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEmptyStatement(EmptyStatement object)
+  public T caseWhile(While object)
   {
     return null;
   }

@@ -3,6 +3,19 @@
  */
 package willburden.hale.scoping;
 
+import java.util.List;
+import java.util.stream.Stream;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+
+import willburden.hale.hale.Binding;
+import willburden.hale.hale.Block;
+import willburden.hale.hale.Statement;
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +24,28 @@ package willburden.hale.scoping;
  * on how and when to use it.
  */
 public class HaleScopeProvider extends AbstractHaleScopeProvider {
-
+	
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		if (reference.getEReferenceType().getInstanceClass() == Binding.class) {
+			return getBindingReferenceScope(context);
+		}
+		return super.getScope(context, reference);
+	}
+	
+	private IScope getBindingReferenceScope(EObject context) {
+		// Create a scope containing all of the statements that occur earlier in the closest containing code Block.
+		
+		Block containingBlock = EcoreUtil2.getContainerOfType(context.eContainer(), Block.class);
+		if (containingBlock == null) {
+			return IScope.NULLSCOPE;
+		}
+		
+		List<Statement> candidates = containingBlock.getStatements().stream()
+			.takeWhile(statement -> !EcoreUtil.isAncestor(statement, context))
+			.toList();
+		
+		return Scopes.scopeFor(candidates, getBindingReferenceScope(containingBlock));
+	}
+	
 }

@@ -35,7 +35,7 @@ public class NumberLiteralImpl extends LiteralImpl implements NumberLiteral
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
+  protected static final double VALUE_EDEFAULT = 0.0;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -45,7 +45,7 @@ public class NumberLiteralImpl extends LiteralImpl implements NumberLiteral
    * @generated
    * @ordered
    */
-  protected int value = VALUE_EDEFAULT;
+  protected double value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class NumberLiteralImpl extends LiteralImpl implements NumberLiteral
    * @generated
    */
   @Override
-  public int getValue()
+  public double getValue()
   {
     return value;
   }
@@ -85,9 +85,9 @@ public class NumberLiteralImpl extends LiteralImpl implements NumberLiteral
    * @generated
    */
   @Override
-  public void setValue(int newValue)
+  public void setValue(double newValue)
   {
-    int oldValue = value;
+    double oldValue = value;
     value = newValue;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.NUMBER_LITERAL__VALUE, oldValue, value));
@@ -120,7 +120,7 @@ public class NumberLiteralImpl extends LiteralImpl implements NumberLiteral
     switch (featureID)
     {
       case HalePackage.NUMBER_LITERAL__VALUE:
-        setValue((Integer)newValue);
+        setValue((Double)newValue);
         return;
     }
     super.eSet(featureID, newValue);
