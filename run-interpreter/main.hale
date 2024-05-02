@@ -6,7 +6,7 @@ function checked_div(dividend: Number, divisor: Number): Number ? String {
 	return dividend / divisor;
 }
 
-function input_number(prompt: String, errorMessage: String ? Void): Number {
+function input_number(prompt: String): Number {
 	while true {
 		print prompt;
 		
@@ -14,14 +14,15 @@ function input_number(prompt: String, errorMessage: String ? Void): Number {
 			return number;
 		}
 		
-		print errorMessage;
+		print "Couldn't parse number";
 	}
 }
 
-function null(): Void ? Void {
-	throw void;
-}
+let dividend = input_number("Enter dividend");
+let divisor = input_number("Enter divisor");
 
-let parseError = "That is not a number";
-let dividend = input_number("Enter dividend", parseError);
-let divisor = input_number("Enter divisor", parseError);
+if let quotient = checked_div(dividend, divisor) {
+	print dividend . " / " . divisor . " = " . quotient;
+} else let error {
+	print "Error: " . error;
+}

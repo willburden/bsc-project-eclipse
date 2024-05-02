@@ -309,7 +309,7 @@ public interface HalePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINDING__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int BINDING__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Binding</em>' class.
@@ -318,7 +318,62 @@ public interface HalePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINDING_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int BINDING_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.LetBindingImpl <em>Let Binding</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.LetBindingImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getLetBinding()
+   * @generated
+   */
+  int LET_BINDING = 11;
+
+  /**
+   * The feature id for the '<em><b>Mutable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__MUTABLE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__BINDING = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__TYPE = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__EXPRESSION = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Let Binding</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link willburden.hale.hale.impl.BindingReferenceImpl <em>Binding Reference</em>}' class.
@@ -328,7 +383,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getBindingReference()
    * @generated
    */
-  int BINDING_REFERENCE = 11;
+  int BINDING_REFERENCE = 12;
 
   /**
    * The feature id for the '<em><b>Binding</b></em>' reference.
@@ -356,7 +411,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 12;
+  int ASSIGNMENT = 13;
 
   /**
    * The feature id for the '<em><b>Binding</b></em>' reference.
@@ -393,7 +448,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getInput()
    * @generated
    */
-  int INPUT = 13;
+  int INPUT = 14;
 
   /**
    * The number of structural features of the '<em>Input</em>' class.
@@ -412,7 +467,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getPrint()
    * @generated
    */
-  int PRINT = 14;
+  int PRINT = 15;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -440,7 +495,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getIf()
    * @generated
    */
-  int IF = 15;
+  int IF = 16;
 
   /**
    * The number of structural features of the '<em>If</em>' class.
@@ -452,6 +507,134 @@ public interface HalePackage extends EPackage
   int IF_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.IfLetImpl <em>If Let</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.IfLetImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getIfLet()
+   * @generated
+   */
+  int IF_LET = 17;
+
+  /**
+   * The feature id for the '<em><b>Mutable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_LET__MUTABLE = IF_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_LET__BINDING = IF_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_LET__TYPE = IF_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_LET__EXPRESSION = IF_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>If Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_LET__IF_BLOCK = IF_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Else Let</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_LET__ELSE_LET = IF_FEATURE_COUNT + 5;
+
+  /**
+   * The number of structural features of the '<em>If Let</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_LET_FEATURE_COUNT = IF_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.ElseLetImpl <em>Else Let</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.ElseLetImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getElseLet()
+   * @generated
+   */
+  int ELSE_LET = 18;
+
+  /**
+   * The feature id for the '<em><b>Mutable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_LET__MUTABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_LET__BINDING = 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_LET__TYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Else Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_LET__ELSE_BLOCK = 3;
+
+  /**
+   * The number of structural features of the '<em>Else Let</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_LET_FEATURE_COUNT = 4;
+
+  /**
    * The meta object id for the '{@link willburden.hale.hale.impl.IfConditionsImpl <em>If Conditions</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -459,7 +642,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getIfConditions()
    * @generated
    */
-  int IF_CONDITIONS = 16;
+  int IF_CONDITIONS = 19;
 
   /**
    * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
@@ -505,7 +688,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getWhile()
    * @generated
    */
-  int WHILE = 17;
+  int WHILE = 20;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -542,7 +725,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getBreak()
    * @generated
    */
-  int BREAK = 18;
+  int BREAK = 21;
 
   /**
    * The number of structural features of the '<em>Break</em>' class.
@@ -554,6 +737,107 @@ public interface HalePackage extends EPackage
   int BREAK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.FunctionImpl <em>Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.FunctionImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getFunction()
+   * @generated
+   */
+  int FUNCTION = 22;
+
+  /**
+   * The feature id for the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__BINDING = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__PARAMETERS = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__RETURN_TYPE = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__BODY = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link willburden.hale.hale.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see willburden.hale.hale.impl.ParameterImpl
+   * @see willburden.hale.hale.impl.HalePackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 23;
+
+  /**
+   * The feature id for the '<em><b>Mutable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__MUTABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__BINDING = 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__TYPE = 2;
+
+  /**
+   * The number of structural features of the '<em>Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link willburden.hale.hale.impl.ReturnImpl <em>Return</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -561,7 +845,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getReturn()
    * @generated
    */
-  int RETURN = 19;
+  int RETURN = 24;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -589,7 +873,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getThrow()
    * @generated
    */
-  int THROW = 20;
+  int THROW = 25;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -617,7 +901,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getConcatenation()
    * @generated
    */
-  int CONCATENATION = 21;
+  int CONCATENATION = 26;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -654,7 +938,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalAnd()
    * @generated
    */
-  int LOGICAL_AND = 22;
+  int LOGICAL_AND = 27;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -691,7 +975,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalOr()
    * @generated
    */
-  int LOGICAL_OR = 23;
+  int LOGICAL_OR = 28;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -728,7 +1012,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getEquality()
    * @generated
    */
-  int EQUALITY = 24;
+  int EQUALITY = 29;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -765,7 +1049,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getInequality()
    * @generated
    */
-  int INEQUALITY = 25;
+  int INEQUALITY = 30;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -802,7 +1086,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLessThanOrEqual()
    * @generated
    */
-  int LESS_THAN_OR_EQUAL = 26;
+  int LESS_THAN_OR_EQUAL = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -839,7 +1123,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLessThan()
    * @generated
    */
-  int LESS_THAN = 27;
+  int LESS_THAN = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -876,7 +1160,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getGreaterThanOrEqual()
    * @generated
    */
-  int GREATER_THAN_OR_EQUAL = 28;
+  int GREATER_THAN_OR_EQUAL = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -913,7 +1197,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getGreaterThan()
    * @generated
    */
-  int GREATER_THAN = 29;
+  int GREATER_THAN = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -950,7 +1234,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getAddition()
    * @generated
    */
-  int ADDITION = 30;
+  int ADDITION = 35;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -987,7 +1271,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getSubtraction()
    * @generated
    */
-  int SUBTRACTION = 31;
+  int SUBTRACTION = 36;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1024,7 +1308,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getMultiplication()
    * @generated
    */
-  int MULTIPLICATION = 32;
+  int MULTIPLICATION = 37;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1061,7 +1345,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getDivision()
    * @generated
    */
-  int DIVISION = 33;
+  int DIVISION = 38;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1098,7 +1382,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getRemainder()
    * @generated
    */
-  int REMAINDER = 34;
+  int REMAINDER = 39;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1135,7 +1419,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getExponentiation()
    * @generated
    */
-  int EXPONENTIATION = 35;
+  int EXPONENTIATION = 40;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1172,7 +1456,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getConversion()
    * @generated
    */
-  int CONVERSION = 36;
+  int CONVERSION = 41;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1209,7 +1493,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getUnaryNegation()
    * @generated
    */
-  int UNARY_NEGATION = 37;
+  int UNARY_NEGATION = 42;
 
   /**
    * The feature id for the '<em><b>Inner</b></em>' containment reference.
@@ -1237,7 +1521,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getLogicalNot()
    * @generated
    */
-  int LOGICAL_NOT = 38;
+  int LOGICAL_NOT = 43;
 
   /**
    * The feature id for the '<em><b>Inner</b></em>' containment reference.
@@ -1265,7 +1549,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getApplication()
    * @generated
    */
-  int APPLICATION = 39;
+  int APPLICATION = 44;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1302,7 +1586,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getFunctionType()
    * @generated
    */
-  int FUNCTION_TYPE = 40;
+  int FUNCTION_TYPE = 45;
 
   /**
    * The feature id for the '<em><b>Param Types</b></em>' containment reference list.
@@ -1339,7 +1623,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getEitherType()
    * @generated
    */
-  int EITHER_TYPE = 41;
+  int EITHER_TYPE = 46;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1376,7 +1660,7 @@ public interface HalePackage extends EPackage
    * @see willburden.hale.hale.impl.HalePackageImpl#getPrimitiveType()
    * @generated
    */
-  int PRIMITIVE_TYPE = 42;
+  int PRIMITIVE_TYPE = 47;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1395,272 +1679,6 @@ public interface HalePackage extends EPackage
    * @ordered
    */
   int PRIMITIVE_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.LetBindingImpl <em>Let Binding</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.LetBindingImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getLetBinding()
-   * @generated
-   */
-  int LET_BINDING = 43;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_BINDING__NAME = BINDING__NAME;
-
-  /**
-   * The feature id for the '<em><b>Mutable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_BINDING__MUTABLE = BINDING_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_BINDING__TYPE = BINDING_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_BINDING__EXPRESSION = BINDING_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Let Binding</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.IfLetImpl <em>If Let</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.IfLetImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getIfLet()
-   * @generated
-   */
-  int IF_LET = 44;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_LET__NAME = BINDING__NAME;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_LET__TYPE = BINDING_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_LET__EXPRESSION = BINDING_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>If Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_LET__IF_BLOCK = BINDING_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Else Let</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_LET__ELSE_LET = BINDING_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>If Let</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_LET_FEATURE_COUNT = BINDING_FEATURE_COUNT + 4;
-
-  /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.ElseLetImpl <em>Else Let</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.ElseLetImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getElseLet()
-   * @generated
-   */
-  int ELSE_LET = 45;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELSE_LET__NAME = BINDING__NAME;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELSE_LET__TYPE = BINDING_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Else Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELSE_LET__ELSE_BLOCK = BINDING_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Else Let</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELSE_LET_FEATURE_COUNT = BINDING_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.FunctionImpl <em>Function</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.FunctionImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getFunction()
-   * @generated
-   */
-  int FUNCTION = 46;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__NAME = BINDING__NAME;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__PARAMETERS = BINDING_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Return Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__RETURN_TYPE = BINDING_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Body</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__BODY = BINDING_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Function</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_FEATURE_COUNT = BINDING_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link willburden.hale.hale.impl.ParameterImpl <em>Parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see willburden.hale.hale.impl.ParameterImpl
-   * @see willburden.hale.hale.impl.HalePackageImpl#getParameter()
-   * @generated
-   */
-  int PARAMETER = 47;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__NAME = BINDING__NAME;
-
-  /**
-   * The feature id for the '<em><b>Mutable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__MUTABLE = BINDING_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__TYPE = BINDING_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Parameter</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_FEATURE_COUNT = BINDING_FEATURE_COUNT + 2;
 
 
   /**
@@ -1840,6 +1858,60 @@ public interface HalePackage extends EPackage
   EAttribute getBinding_Name();
 
   /**
+   * Returns the meta object for class '{@link willburden.hale.hale.LetBinding <em>Let Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Let Binding</em>'.
+   * @see willburden.hale.hale.LetBinding
+   * @generated
+   */
+  EClass getLetBinding();
+
+  /**
+   * Returns the meta object for the attribute '{@link willburden.hale.hale.LetBinding#isMutable <em>Mutable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mutable</em>'.
+   * @see willburden.hale.hale.LetBinding#isMutable()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EAttribute getLetBinding_Mutable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LetBinding#getBinding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binding</em>'.
+   * @see willburden.hale.hale.LetBinding#getBinding()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EReference getLetBinding_Binding();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LetBinding#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see willburden.hale.hale.LetBinding#getType()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EReference getLetBinding_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LetBinding#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see willburden.hale.hale.LetBinding#getExpression()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EReference getLetBinding_Expression();
+
+  /**
    * Returns the meta object for class '{@link willburden.hale.hale.BindingReference <em>Binding Reference</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1934,6 +2006,136 @@ public interface HalePackage extends EPackage
   EClass getIf();
 
   /**
+   * Returns the meta object for class '{@link willburden.hale.hale.IfLet <em>If Let</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Let</em>'.
+   * @see willburden.hale.hale.IfLet
+   * @generated
+   */
+  EClass getIfLet();
+
+  /**
+   * Returns the meta object for the attribute '{@link willburden.hale.hale.IfLet#isMutable <em>Mutable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mutable</em>'.
+   * @see willburden.hale.hale.IfLet#isMutable()
+   * @see #getIfLet()
+   * @generated
+   */
+  EAttribute getIfLet_Mutable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.IfLet#getBinding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binding</em>'.
+   * @see willburden.hale.hale.IfLet#getBinding()
+   * @see #getIfLet()
+   * @generated
+   */
+  EReference getIfLet_Binding();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.IfLet#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see willburden.hale.hale.IfLet#getType()
+   * @see #getIfLet()
+   * @generated
+   */
+  EReference getIfLet_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.IfLet#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see willburden.hale.hale.IfLet#getExpression()
+   * @see #getIfLet()
+   * @generated
+   */
+  EReference getIfLet_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.IfLet#getIfBlock <em>If Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>If Block</em>'.
+   * @see willburden.hale.hale.IfLet#getIfBlock()
+   * @see #getIfLet()
+   * @generated
+   */
+  EReference getIfLet_IfBlock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.IfLet#getElseLet <em>Else Let</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else Let</em>'.
+   * @see willburden.hale.hale.IfLet#getElseLet()
+   * @see #getIfLet()
+   * @generated
+   */
+  EReference getIfLet_ElseLet();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.ElseLet <em>Else Let</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Else Let</em>'.
+   * @see willburden.hale.hale.ElseLet
+   * @generated
+   */
+  EClass getElseLet();
+
+  /**
+   * Returns the meta object for the attribute '{@link willburden.hale.hale.ElseLet#isMutable <em>Mutable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mutable</em>'.
+   * @see willburden.hale.hale.ElseLet#isMutable()
+   * @see #getElseLet()
+   * @generated
+   */
+  EAttribute getElseLet_Mutable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.ElseLet#getBinding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binding</em>'.
+   * @see willburden.hale.hale.ElseLet#getBinding()
+   * @see #getElseLet()
+   * @generated
+   */
+  EReference getElseLet_Binding();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.ElseLet#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see willburden.hale.hale.ElseLet#getType()
+   * @see #getElseLet()
+   * @generated
+   */
+  EReference getElseLet_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.ElseLet#getElseBlock <em>Else Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else Block</em>'.
+   * @see willburden.hale.hale.ElseLet#getElseBlock()
+   * @see #getElseLet()
+   * @generated
+   */
+  EReference getElseLet_ElseBlock();
+
+  /**
    * Returns the meta object for class '{@link willburden.hale.hale.IfConditions <em>If Conditions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2017,6 +2219,103 @@ public interface HalePackage extends EPackage
    * @generated
    */
   EClass getBreak();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function</em>'.
+   * @see willburden.hale.hale.Function
+   * @generated
+   */
+  EClass getFunction();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Function#getBinding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binding</em>'.
+   * @see willburden.hale.hale.Function#getBinding()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_Binding();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link willburden.hale.hale.Function#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see willburden.hale.hale.Function#getParameters()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Function#getReturnType <em>Return Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Type</em>'.
+   * @see willburden.hale.hale.Function#getReturnType()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_ReturnType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Function#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see willburden.hale.hale.Function#getBody()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_Body();
+
+  /**
+   * Returns the meta object for class '{@link willburden.hale.hale.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see willburden.hale.hale.Parameter
+   * @generated
+   */
+  EClass getParameter();
+
+  /**
+   * Returns the meta object for the attribute '{@link willburden.hale.hale.Parameter#isMutable <em>Mutable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mutable</em>'.
+   * @see willburden.hale.hale.Parameter#isMutable()
+   * @see #getParameter()
+   * @generated
+   */
+  EAttribute getParameter_Mutable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Parameter#getBinding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binding</em>'.
+   * @see willburden.hale.hale.Parameter#getBinding()
+   * @see #getParameter()
+   * @generated
+   */
+  EReference getParameter_Binding();
+
+  /**
+   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Parameter#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see willburden.hale.hale.Parameter#getType()
+   * @see #getParameter()
+   * @generated
+   */
+  EReference getParameter_Type();
 
   /**
    * Returns the meta object for class '{@link willburden.hale.hale.Return <em>Return</em>}'.
@@ -2732,210 +3031,6 @@ public interface HalePackage extends EPackage
   EAttribute getPrimitiveType_Type();
 
   /**
-   * Returns the meta object for class '{@link willburden.hale.hale.LetBinding <em>Let Binding</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Let Binding</em>'.
-   * @see willburden.hale.hale.LetBinding
-   * @generated
-   */
-  EClass getLetBinding();
-
-  /**
-   * Returns the meta object for the attribute '{@link willburden.hale.hale.LetBinding#isMutable <em>Mutable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Mutable</em>'.
-   * @see willburden.hale.hale.LetBinding#isMutable()
-   * @see #getLetBinding()
-   * @generated
-   */
-  EAttribute getLetBinding_Mutable();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LetBinding#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see willburden.hale.hale.LetBinding#getType()
-   * @see #getLetBinding()
-   * @generated
-   */
-  EReference getLetBinding_Type();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.LetBinding#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see willburden.hale.hale.LetBinding#getExpression()
-   * @see #getLetBinding()
-   * @generated
-   */
-  EReference getLetBinding_Expression();
-
-  /**
-   * Returns the meta object for class '{@link willburden.hale.hale.IfLet <em>If Let</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>If Let</em>'.
-   * @see willburden.hale.hale.IfLet
-   * @generated
-   */
-  EClass getIfLet();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.IfLet#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see willburden.hale.hale.IfLet#getType()
-   * @see #getIfLet()
-   * @generated
-   */
-  EReference getIfLet_Type();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.IfLet#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see willburden.hale.hale.IfLet#getExpression()
-   * @see #getIfLet()
-   * @generated
-   */
-  EReference getIfLet_Expression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.IfLet#getIfBlock <em>If Block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>If Block</em>'.
-   * @see willburden.hale.hale.IfLet#getIfBlock()
-   * @see #getIfLet()
-   * @generated
-   */
-  EReference getIfLet_IfBlock();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.IfLet#getElseLet <em>Else Let</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Else Let</em>'.
-   * @see willburden.hale.hale.IfLet#getElseLet()
-   * @see #getIfLet()
-   * @generated
-   */
-  EReference getIfLet_ElseLet();
-
-  /**
-   * Returns the meta object for class '{@link willburden.hale.hale.ElseLet <em>Else Let</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Else Let</em>'.
-   * @see willburden.hale.hale.ElseLet
-   * @generated
-   */
-  EClass getElseLet();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.ElseLet#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see willburden.hale.hale.ElseLet#getType()
-   * @see #getElseLet()
-   * @generated
-   */
-  EReference getElseLet_Type();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.ElseLet#getElseBlock <em>Else Block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Else Block</em>'.
-   * @see willburden.hale.hale.ElseLet#getElseBlock()
-   * @see #getElseLet()
-   * @generated
-   */
-  EReference getElseLet_ElseBlock();
-
-  /**
-   * Returns the meta object for class '{@link willburden.hale.hale.Function <em>Function</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Function</em>'.
-   * @see willburden.hale.hale.Function
-   * @generated
-   */
-  EClass getFunction();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link willburden.hale.hale.Function#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameters</em>'.
-   * @see willburden.hale.hale.Function#getParameters()
-   * @see #getFunction()
-   * @generated
-   */
-  EReference getFunction_Parameters();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Function#getReturnType <em>Return Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Return Type</em>'.
-   * @see willburden.hale.hale.Function#getReturnType()
-   * @see #getFunction()
-   * @generated
-   */
-  EReference getFunction_ReturnType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Function#getBody <em>Body</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see willburden.hale.hale.Function#getBody()
-   * @see #getFunction()
-   * @generated
-   */
-  EReference getFunction_Body();
-
-  /**
-   * Returns the meta object for class '{@link willburden.hale.hale.Parameter <em>Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parameter</em>'.
-   * @see willburden.hale.hale.Parameter
-   * @generated
-   */
-  EClass getParameter();
-
-  /**
-   * Returns the meta object for the attribute '{@link willburden.hale.hale.Parameter#isMutable <em>Mutable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Mutable</em>'.
-   * @see willburden.hale.hale.Parameter#isMutable()
-   * @see #getParameter()
-   * @generated
-   */
-  EAttribute getParameter_Mutable();
-
-  /**
-   * Returns the meta object for the containment reference '{@link willburden.hale.hale.Parameter#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see willburden.hale.hale.Parameter#getType()
-   * @see #getParameter()
-   * @generated
-   */
-  EReference getParameter_Type();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3117,6 +3212,48 @@ public interface HalePackage extends EPackage
     EAttribute BINDING__NAME = eINSTANCE.getBinding_Name();
 
     /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.LetBindingImpl <em>Let Binding</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.LetBindingImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getLetBinding()
+     * @generated
+     */
+    EClass LET_BINDING = eINSTANCE.getLetBinding();
+
+    /**
+     * The meta object literal for the '<em><b>Mutable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LET_BINDING__MUTABLE = eINSTANCE.getLetBinding_Mutable();
+
+    /**
+     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_BINDING__BINDING = eINSTANCE.getLetBinding_Binding();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_BINDING__TYPE = eINSTANCE.getLetBinding_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_BINDING__EXPRESSION = eINSTANCE.getLetBinding_Expression();
+
+    /**
      * The meta object literal for the '{@link willburden.hale.hale.impl.BindingReferenceImpl <em>Binding Reference</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3199,6 +3336,106 @@ public interface HalePackage extends EPackage
     EClass IF = eINSTANCE.getIf();
 
     /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.IfLetImpl <em>If Let</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.IfLetImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getIfLet()
+     * @generated
+     */
+    EClass IF_LET = eINSTANCE.getIfLet();
+
+    /**
+     * The meta object literal for the '<em><b>Mutable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IF_LET__MUTABLE = eINSTANCE.getIfLet_Mutable();
+
+    /**
+     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_LET__BINDING = eINSTANCE.getIfLet_Binding();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_LET__TYPE = eINSTANCE.getIfLet_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_LET__EXPRESSION = eINSTANCE.getIfLet_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>If Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_LET__IF_BLOCK = eINSTANCE.getIfLet_IfBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Else Let</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_LET__ELSE_LET = eINSTANCE.getIfLet_ElseLet();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.ElseLetImpl <em>Else Let</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.ElseLetImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getElseLet()
+     * @generated
+     */
+    EClass ELSE_LET = eINSTANCE.getElseLet();
+
+    /**
+     * The meta object literal for the '<em><b>Mutable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ELSE_LET__MUTABLE = eINSTANCE.getElseLet_Mutable();
+
+    /**
+     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELSE_LET__BINDING = eINSTANCE.getElseLet_Binding();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELSE_LET__TYPE = eINSTANCE.getElseLet_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Else Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELSE_LET__ELSE_BLOCK = eINSTANCE.getElseLet_ElseBlock();
+
+    /**
      * The meta object literal for the '{@link willburden.hale.hale.impl.IfConditionsImpl <em>If Conditions</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3267,6 +3504,82 @@ public interface HalePackage extends EPackage
      * @generated
      */
     EClass BREAK = eINSTANCE.getBreak();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.FunctionImpl <em>Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.FunctionImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getFunction()
+     * @generated
+     */
+    EClass FUNCTION = eINSTANCE.getFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__BINDING = eINSTANCE.getFunction_Binding();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__PARAMETERS = eINSTANCE.getFunction_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__RETURN_TYPE = eINSTANCE.getFunction_ReturnType();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__BODY = eINSTANCE.getFunction_Body();
+
+    /**
+     * The meta object literal for the '{@link willburden.hale.hale.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see willburden.hale.hale.impl.ParameterImpl
+     * @see willburden.hale.hale.impl.HalePackageImpl#getParameter()
+     * @generated
+     */
+    EClass PARAMETER = eINSTANCE.getParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Mutable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER__MUTABLE = eINSTANCE.getParameter_Mutable();
+
+    /**
+     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER__BINDING = eINSTANCE.getParameter_Binding();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
     /**
      * The meta object literal for the '{@link willburden.hale.hale.impl.ReturnImpl <em>Return</em>}' class.
@@ -3851,168 +4164,6 @@ public interface HalePackage extends EPackage
      * @generated
      */
     EAttribute PRIMITIVE_TYPE__TYPE = eINSTANCE.getPrimitiveType_Type();
-
-    /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.LetBindingImpl <em>Let Binding</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.LetBindingImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getLetBinding()
-     * @generated
-     */
-    EClass LET_BINDING = eINSTANCE.getLetBinding();
-
-    /**
-     * The meta object literal for the '<em><b>Mutable</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LET_BINDING__MUTABLE = eINSTANCE.getLetBinding_Mutable();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET_BINDING__TYPE = eINSTANCE.getLetBinding_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET_BINDING__EXPRESSION = eINSTANCE.getLetBinding_Expression();
-
-    /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.IfLetImpl <em>If Let</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.IfLetImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getIfLet()
-     * @generated
-     */
-    EClass IF_LET = eINSTANCE.getIfLet();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IF_LET__TYPE = eINSTANCE.getIfLet_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IF_LET__EXPRESSION = eINSTANCE.getIfLet_Expression();
-
-    /**
-     * The meta object literal for the '<em><b>If Block</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IF_LET__IF_BLOCK = eINSTANCE.getIfLet_IfBlock();
-
-    /**
-     * The meta object literal for the '<em><b>Else Let</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IF_LET__ELSE_LET = eINSTANCE.getIfLet_ElseLet();
-
-    /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.ElseLetImpl <em>Else Let</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.ElseLetImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getElseLet()
-     * @generated
-     */
-    EClass ELSE_LET = eINSTANCE.getElseLet();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ELSE_LET__TYPE = eINSTANCE.getElseLet_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Else Block</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ELSE_LET__ELSE_BLOCK = eINSTANCE.getElseLet_ElseBlock();
-
-    /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.FunctionImpl <em>Function</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.FunctionImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getFunction()
-     * @generated
-     */
-    EClass FUNCTION = eINSTANCE.getFunction();
-
-    /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FUNCTION__PARAMETERS = eINSTANCE.getFunction_Parameters();
-
-    /**
-     * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FUNCTION__RETURN_TYPE = eINSTANCE.getFunction_ReturnType();
-
-    /**
-     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FUNCTION__BODY = eINSTANCE.getFunction_Body();
-
-    /**
-     * The meta object literal for the '{@link willburden.hale.hale.impl.ParameterImpl <em>Parameter</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see willburden.hale.hale.impl.ParameterImpl
-     * @see willburden.hale.hale.impl.HalePackageImpl#getParameter()
-     * @generated
-     */
-    EClass PARAMETER = eINSTANCE.getParameter();
-
-    /**
-     * The meta object literal for the '<em><b>Mutable</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARAMETER__MUTABLE = eINSTANCE.getParameter_Mutable();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
   }
 

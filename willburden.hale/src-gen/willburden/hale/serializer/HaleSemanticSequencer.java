@@ -17,6 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import willburden.hale.hale.Addition;
 import willburden.hale.hale.Application;
 import willburden.hale.hale.Assignment;
+import willburden.hale.hale.Binding;
 import willburden.hale.hale.BindingReference;
 import willburden.hale.hale.Block;
 import willburden.hale.hale.BooleanLiteral;
@@ -80,6 +81,9 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case HalePackage.ASSIGNMENT:
 				sequence_Assignment(context, (Assignment) semanticObject); 
+				return; 
+			case HalePackage.BINDING:
+				sequence_Binding(context, (Binding) semanticObject); 
 				return; 
 			case HalePackage.BINDING_REFERENCE:
 				sequence_BindingReference(context, (BindingReference) semanticObject); 
@@ -280,6 +284,26 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Binding returns Binding
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_Binding(ISerializationContext context, Binding semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, HalePackage.Literals.BINDING__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HalePackage.Literals.BINDING__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBindingAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Block returns Block
 	 *     Statement returns Block
 	 *     BracedBlock returns Block
@@ -393,7 +417,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ElseLet returns ElseLet
 	 *
 	 * Constraint:
-	 *     ((name=ID type=TypeAnnotation?)? elseBlock=BracedBlock)
+	 *     ((mutable?='mut'? binding=Binding type=TypeAnnotation?)? elseBlock=BracedBlock)
 	 * </pre>
 	 */
 	protected void sequence_ElseLet(ISerializationContext context, ElseLet semanticObject) {
@@ -1400,7 +1424,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Function returns Function
 	 *
 	 * Constraint:
-	 *     (name=ID (parameters+=Parameter parameters+=Parameter*)? returnType=TypeAnnotation? body=BracedBlock)
+	 *     (binding=Binding (parameters+=Parameter parameters+=Parameter*)? returnType=TypeAnnotation? body=BracedBlock)
 	 * </pre>
 	 */
 	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
@@ -1452,7 +1476,14 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     IfLet returns IfLet
 	 *
 	 * Constraint:
-	 *     (name=ID type=TypeAnnotation? expression=Expression ifBlock=BracedBlock elseLet=ElseLet?)
+	 *     (
+	 *         mutable?='mut'? 
+	 *         binding=Binding 
+	 *         type=TypeAnnotation? 
+	 *         expression=Expression 
+	 *         ifBlock=BracedBlock 
+	 *         elseLet=ElseLet?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_IfLet(ISerializationContext context, IfLet semanticObject) {
@@ -1511,7 +1542,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     LetBinding returns LetBinding
 	 *
 	 * Constraint:
-	 *     (mutable?='mut'? name=ID type=TypeAnnotation? expression=Expression)
+	 *     (mutable?='mut'? binding=Binding type=TypeAnnotation? expression=Expression)
 	 * </pre>
 	 */
 	protected void sequence_LetBinding(ISerializationContext context, LetBinding semanticObject) {
@@ -1576,7 +1607,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     (mutable?='mut'? name=ID type=TypeAnnotation)
+	 *     (mutable?='mut'? binding=Binding type=TypeAnnotation)
 	 * </pre>
 	 */
 	protected void sequence_Parameter(ISerializationContext context, willburden.hale.hale.Parameter semanticObject) {

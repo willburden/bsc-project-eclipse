@@ -3,6 +3,7 @@
  */
 package willburden.hale.hale;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package willburden.hale.hale;
  * @model
  * @generated
  */
-public interface Binding extends Statement, If
+public interface Binding extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

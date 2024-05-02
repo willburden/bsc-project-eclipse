@@ -76,14 +76,19 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
       case HalePackage.STRING_LITERAL: return createStringLiteral();
       case HalePackage.TYPE: return createType();
       case HalePackage.BINDING: return createBinding();
+      case HalePackage.LET_BINDING: return createLetBinding();
       case HalePackage.BINDING_REFERENCE: return createBindingReference();
       case HalePackage.ASSIGNMENT: return createAssignment();
       case HalePackage.INPUT: return createInput();
       case HalePackage.PRINT: return createPrint();
       case HalePackage.IF: return createIf();
+      case HalePackage.IF_LET: return createIfLet();
+      case HalePackage.ELSE_LET: return createElseLet();
       case HalePackage.IF_CONDITIONS: return createIfConditions();
       case HalePackage.WHILE: return createWhile();
       case HalePackage.BREAK: return createBreak();
+      case HalePackage.FUNCTION: return createFunction();
+      case HalePackage.PARAMETER: return createParameter();
       case HalePackage.RETURN: return createReturn();
       case HalePackage.THROW: return createThrow();
       case HalePackage.CONCATENATION: return createConcatenation();
@@ -108,11 +113,6 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
       case HalePackage.FUNCTION_TYPE: return createFunctionType();
       case HalePackage.EITHER_TYPE: return createEitherType();
       case HalePackage.PRIMITIVE_TYPE: return createPrimitiveType();
-      case HalePackage.LET_BINDING: return createLetBinding();
-      case HalePackage.IF_LET: return createIfLet();
-      case HalePackage.ELSE_LET: return createElseLet();
-      case HalePackage.FUNCTION: return createFunction();
-      case HalePackage.PARAMETER: return createParameter();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -256,6 +256,18 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
+  public LetBinding createLetBinding()
+  {
+    LetBindingImpl letBinding = new LetBindingImpl();
+    return letBinding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public BindingReference createBindingReference()
   {
     BindingReferenceImpl bindingReference = new BindingReferenceImpl();
@@ -316,6 +328,30 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
+  public IfLet createIfLet()
+  {
+    IfLetImpl ifLet = new IfLetImpl();
+    return ifLet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ElseLet createElseLet()
+  {
+    ElseLetImpl elseLet = new ElseLetImpl();
+    return elseLet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public IfConditions createIfConditions()
   {
     IfConditionsImpl ifConditions = new IfConditionsImpl();
@@ -344,6 +380,30 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
   {
     BreakImpl break_ = new BreakImpl();
     return break_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Function createFunction()
+  {
+    FunctionImpl function = new FunctionImpl();
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**
@@ -632,66 +692,6 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
   {
     PrimitiveTypeImpl primitiveType = new PrimitiveTypeImpl();
     return primitiveType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public LetBinding createLetBinding()
-  {
-    LetBindingImpl letBinding = new LetBindingImpl();
-    return letBinding;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IfLet createIfLet()
-  {
-    IfLetImpl ifLet = new IfLetImpl();
-    return ifLet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ElseLet createElseLet()
-  {
-    ElseLetImpl elseLet = new ElseLetImpl();
-    return elseLet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Function createFunction()
-  {
-    FunctionImpl function = new FunctionImpl();
-    return function;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Parameter createParameter()
-  {
-    ParameterImpl parameter = new ParameterImpl();
-    return parameter;
   }
 
   /**

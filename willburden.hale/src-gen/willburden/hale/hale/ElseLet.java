@@ -3,6 +3,7 @@
  */
 package willburden.hale.hale;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,8 @@ package willburden.hale.hale;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link willburden.hale.hale.ElseLet#isMutable <em>Mutable</em>}</li>
+ *   <li>{@link willburden.hale.hale.ElseLet#getBinding <em>Binding</em>}</li>
  *   <li>{@link willburden.hale.hale.ElseLet#getType <em>Type</em>}</li>
  *   <li>{@link willburden.hale.hale.ElseLet#getElseBlock <em>Else Block</em>}</li>
  * </ul>
@@ -21,8 +24,52 @@ package willburden.hale.hale;
  * @model
  * @generated
  */
-public interface ElseLet extends Binding
+public interface ElseLet extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Mutable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mutable</em>' attribute.
+   * @see #setMutable(boolean)
+   * @see willburden.hale.hale.HalePackage#getElseLet_Mutable()
+   * @model
+   * @generated
+   */
+  boolean isMutable();
+
+  /**
+   * Sets the value of the '{@link willburden.hale.hale.ElseLet#isMutable <em>Mutable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Mutable</em>' attribute.
+   * @see #isMutable()
+   * @generated
+   */
+  void setMutable(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Binding</em>' containment reference.
+   * @see #setBinding(Binding)
+   * @see willburden.hale.hale.HalePackage#getElseLet_Binding()
+   * @model containment="true"
+   * @generated
+   */
+  Binding getBinding();
+
+  /**
+   * Sets the value of the '{@link willburden.hale.hale.ElseLet#getBinding <em>Binding</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Binding</em>' containment reference.
+   * @see #getBinding()
+   * @generated
+   */
+  void setBinding(Binding value);
+
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->

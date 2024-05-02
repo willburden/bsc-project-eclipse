@@ -1,6 +1,7 @@
 package willburden.hale.standalone.values;
 
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import willburden.hale.hale.Function;
 import willburden.hale.standalone.error.ErrorMessages;
@@ -43,11 +44,13 @@ public class HaleFunction implements HaleValue {
 	
 	@Override
 	public final String toString() {
-		return "function " + value.getName() + "(" +
-				value.getParameters().stream()
-					.map(param -> param.getName())
+		return "function " + value.getBinding().getName() + "(" +
+				IntStream.range(0, value.getParameters().size())
+					.mapToObj(i -> value.getParameters().get(i).getBinding().getName()
+							+ ": "
+							+ type.paramTypes().get(i).toString())
 					.collect(Collectors.joining(", ")) +
-				") {...}";
+				"): " + type.returnType().toString() + " {...}";
 	}
 
 }

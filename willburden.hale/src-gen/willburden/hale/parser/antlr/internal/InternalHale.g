@@ -1855,6 +1855,41 @@ rulePrimitiveType returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleBinding
+entryRuleBinding returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBindingRule()); }
+	iv_ruleBinding=ruleBinding
+	{ $current=$iv_ruleBinding.current; }
+	EOF;
+
+// Rule Binding
+ruleBinding returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getBindingAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getBindingRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"willburden.hale.Hale.ID");
+			}
+		)
+	)
+;
+
 // Entry rule entryRuleLetBinding
 entryRuleLetBinding returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getLetBindingRule()); }
@@ -1871,55 +1906,49 @@ ruleLetBinding returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getLetBindingAccess().getLetBindingAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='let'
+		otherlv_0='let'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getLetBindingAccess().getLetKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getLetBindingAccess().getLetKeyword_0());
 		}
 		(
 			(
-				lv_mutable_2_0='mut'
+				lv_mutable_1_0='mut'
 				{
-					newLeafNode(lv_mutable_2_0, grammarAccess.getLetBindingAccess().getMutableMutKeyword_2_0());
+					newLeafNode(lv_mutable_1_0, grammarAccess.getLetBindingAccess().getMutableMutKeyword_1_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getLetBindingRule());
 					}
-					setWithLastConsumed($current, "mutable", lv_mutable_2_0 != null, "mut");
+					setWithLastConsumed($current, "mutable", lv_mutable_1_0 != null, "mut");
 				}
 			)
 		)?
 		(
 			(
-				lv_name_3_0=RULE_ID
 				{
-					newLeafNode(lv_name_3_0, grammarAccess.getLetBindingAccess().getNameIDTerminalRuleCall_3_0());
+					newCompositeNode(grammarAccess.getLetBindingAccess().getBindingBindingParserRuleCall_2_0());
 				}
+				lv_binding_2_0=ruleBinding
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getLetBindingRule());
+						$current = createModelElementForParent(grammarAccess.getLetBindingRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"name",
-						lv_name_3_0,
-						"willburden.hale.Hale.ID");
+						"binding",
+						lv_binding_2_0,
+						"willburden.hale.Hale.Binding");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLetBindingAccess().getTypeTypeAnnotationParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getLetBindingAccess().getTypeTypeAnnotationParserRuleCall_3_0());
 				}
-				lv_type_4_0=ruleTypeAnnotation
+				lv_type_3_0=ruleTypeAnnotation
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLetBindingRule());
@@ -1927,22 +1956,22 @@ ruleLetBinding returns [EObject current=null]
 					set(
 						$current,
 						"type",
-						lv_type_4_0,
+						lv_type_3_0,
 						"willburden.hale.Hale.TypeAnnotation");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_5='='
+		otherlv_4='='
 		{
-			newLeafNode(otherlv_5, grammarAccess.getLetBindingAccess().getEqualsSignKeyword_5());
+			newLeafNode(otherlv_4, grammarAccess.getLetBindingAccess().getEqualsSignKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLetBindingAccess().getExpressionExpressionParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getLetBindingAccess().getExpressionExpressionParserRuleCall_5_0());
 				}
-				lv_expression_6_0=ruleExpression
+				lv_expression_5_0=ruleExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLetBindingRule());
@@ -1950,7 +1979,7 @@ ruleLetBinding returns [EObject current=null]
 					set(
 						$current,
 						"expression",
-						lv_expression_6_0,
+						lv_expression_5_0,
 						"willburden.hale.Hale.Expression");
 					afterParserOrEnumRuleCall();
 				}
@@ -2174,32 +2203,40 @@ ruleIfLet returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getIfLetAccess().getIfLetAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='let'
+		otherlv_0='let'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getIfLetAccess().getLetKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getIfLetAccess().getLetKeyword_0());
 		}
 		(
 			(
-				lv_name_2_0=RULE_ID
+				lv_mutable_1_0='mut'
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getIfLetAccess().getNameIDTerminalRuleCall_2_0());
+					newLeafNode(lv_mutable_1_0, grammarAccess.getIfLetAccess().getMutableMutKeyword_1_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getIfLetRule());
 					}
-					setWithLastConsumed(
+					setWithLastConsumed($current, "mutable", lv_mutable_1_0 != null, "mut");
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getIfLetAccess().getBindingBindingParserRuleCall_2_0());
+				}
+				lv_binding_2_0=ruleBinding
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getIfLetRule());
+					}
+					set(
 						$current,
-						"name",
-						lv_name_2_0,
-						"willburden.hale.Hale.ID");
+						"binding",
+						lv_binding_2_0,
+						"willburden.hale.Hale.Binding");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -2309,39 +2346,47 @@ ruleElseLet returns [EObject current=null]
 }:
 	(
 		(
+			otherlv_0='let'
 			{
-				$current = forceCreateModelElement(
-					grammarAccess.getElseLetAccess().getElseLetAction_0(),
-					$current);
-			}
-		)
-		(
-			otherlv_1='let'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getElseLetAccess().getLetKeyword_1_0());
+				newLeafNode(otherlv_0, grammarAccess.getElseLetAccess().getLetKeyword_0_0());
 			}
 			(
 				(
-					lv_name_2_0=RULE_ID
+					lv_mutable_1_0='mut'
 					{
-						newLeafNode(lv_name_2_0, grammarAccess.getElseLetAccess().getNameIDTerminalRuleCall_1_1_0());
+						newLeafNode(lv_mutable_1_0, grammarAccess.getElseLetAccess().getMutableMutKeyword_0_1_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getElseLetRule());
 						}
-						setWithLastConsumed(
+						setWithLastConsumed($current, "mutable", lv_mutable_1_0 != null, "mut");
+					}
+				)
+			)?
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getElseLetAccess().getBindingBindingParserRuleCall_0_2_0());
+					}
+					lv_binding_2_0=ruleBinding
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getElseLetRule());
+						}
+						set(
 							$current,
-							"name",
-							lv_name_2_0,
-							"willburden.hale.Hale.ID");
+							"binding",
+							lv_binding_2_0,
+							"willburden.hale.Hale.Binding");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getElseLetAccess().getTypeTypeAnnotationParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getElseLetAccess().getTypeTypeAnnotationParserRuleCall_0_3_0());
 					}
 					lv_type_3_0=ruleTypeAnnotation
 					{
@@ -2361,7 +2406,7 @@ ruleElseLet returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getElseLetAccess().getElseBlockBracedBlockParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getElseLetAccess().getElseBlockBracedBlockParserRuleCall_1_0());
 				}
 				lv_elseBlock_4_0=ruleBracedBlock
 				{
@@ -2397,18 +2442,11 @@ ruleIfConditions returns [EObject current=null]
 }:
 	(
 		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getIfConditionsAccess().getIfConditionsAction_0(),
-					$current);
-			}
-		)
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getIfConditionsAccess().getConditionsExpressionParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getIfConditionsAccess().getConditionsExpressionParserRuleCall_0_0());
 				}
-				lv_conditions_1_0=ruleExpression
+				lv_conditions_0_0=ruleExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getIfConditionsRule());
@@ -2416,7 +2454,7 @@ ruleIfConditions returns [EObject current=null]
 					add(
 						$current,
 						"conditions",
-						lv_conditions_1_0,
+						lv_conditions_0_0,
 						"willburden.hale.Hale.Expression");
 					afterParserOrEnumRuleCall();
 				}
@@ -2425,9 +2463,9 @@ ruleIfConditions returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getIfConditionsAccess().getIfBlocksBracedBlockParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getIfConditionsAccess().getIfBlocksBracedBlockParserRuleCall_1_0());
 				}
-				lv_ifBlocks_2_0=ruleBracedBlock
+				lv_ifBlocks_1_0=ruleBracedBlock
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getIfConditionsRule());
@@ -2435,23 +2473,23 @@ ruleIfConditions returns [EObject current=null]
 					add(
 						$current,
 						"ifBlocks",
-						lv_ifBlocks_2_0,
+						lv_ifBlocks_1_0,
 						"willburden.hale.Hale.BracedBlock");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_3='elseif'
+			otherlv_2='elseif'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getIfConditionsAccess().getElseifKeyword_3_0());
+				newLeafNode(otherlv_2, grammarAccess.getIfConditionsAccess().getElseifKeyword_2_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getIfConditionsAccess().getConditionsExpressionParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getIfConditionsAccess().getConditionsExpressionParserRuleCall_2_1_0());
 					}
-					lv_conditions_4_0=ruleExpression
+					lv_conditions_3_0=ruleExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getIfConditionsRule());
@@ -2459,7 +2497,7 @@ ruleIfConditions returns [EObject current=null]
 						add(
 							$current,
 							"conditions",
-							lv_conditions_4_0,
+							lv_conditions_3_0,
 							"willburden.hale.Hale.Expression");
 						afterParserOrEnumRuleCall();
 					}
@@ -2468,9 +2506,9 @@ ruleIfConditions returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getIfConditionsAccess().getIfBlocksBracedBlockParserRuleCall_3_2_0());
+						newCompositeNode(grammarAccess.getIfConditionsAccess().getIfBlocksBracedBlockParserRuleCall_2_2_0());
 					}
-					lv_ifBlocks_5_0=ruleBracedBlock
+					lv_ifBlocks_4_0=ruleBracedBlock
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getIfConditionsRule());
@@ -2478,7 +2516,7 @@ ruleIfConditions returns [EObject current=null]
 						add(
 							$current,
 							"ifBlocks",
-							lv_ifBlocks_5_0,
+							lv_ifBlocks_4_0,
 							"willburden.hale.Hale.BracedBlock");
 						afterParserOrEnumRuleCall();
 					}
@@ -2486,16 +2524,16 @@ ruleIfConditions returns [EObject current=null]
 			)
 		)*
 		(
-			otherlv_6='else'
+			otherlv_5='else'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getIfConditionsAccess().getElseKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getIfConditionsAccess().getElseKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getIfConditionsAccess().getElseBlockBracedBlockParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getIfConditionsAccess().getElseBlockBracedBlockParserRuleCall_3_1_0());
 					}
-					lv_elseBlock_7_0=ruleBracedBlock
+					lv_elseBlock_6_0=ruleBracedBlock
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getIfConditionsRule());
@@ -2503,7 +2541,7 @@ ruleIfConditions returns [EObject current=null]
 						set(
 							$current,
 							"elseBlock",
-							lv_elseBlock_7_0,
+							lv_elseBlock_6_0,
 							"willburden.hale.Hale.BracedBlock");
 						afterParserOrEnumRuleCall();
 					}
@@ -2620,46 +2658,40 @@ ruleFunction returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getFunctionAccess().getFunctionAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='function'
+		otherlv_0='function'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getFunctionAccess().getFunctionKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getFunctionAccess().getFunctionKeyword_0());
 		}
 		(
 			(
-				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getFunctionAccess().getBindingBindingParserRuleCall_1_0());
 				}
+				lv_binding_1_0=ruleBinding
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFunctionRule());
+						$current = createModelElementForParent(grammarAccess.getFunctionRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"name",
-						lv_name_2_0,
-						"willburden.hale.Hale.ID");
+						"binding",
+						lv_binding_1_0,
+						"willburden.hale.Hale.Binding");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3='('
+		otherlv_2='('
 		{
-			newLeafNode(otherlv_3, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_2());
 		}
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getFunctionAccess().getParametersParameterParserRuleCall_4_0_0());
+						newCompositeNode(grammarAccess.getFunctionAccess().getParametersParameterParserRuleCall_3_0_0());
 					}
-					lv_parameters_4_0=ruleParameter
+					lv_parameters_3_0=ruleParameter
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getFunctionRule());
@@ -2667,23 +2699,23 @@ ruleFunction returns [EObject current=null]
 						add(
 							$current,
 							"parameters",
-							lv_parameters_4_0,
+							lv_parameters_3_0,
 							"willburden.hale.Hale.Parameter");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_5=','
+				otherlv_4=','
 				{
-					newLeafNode(otherlv_5, grammarAccess.getFunctionAccess().getCommaKeyword_4_1_0());
+					newLeafNode(otherlv_4, grammarAccess.getFunctionAccess().getCommaKeyword_3_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getFunctionAccess().getParametersParameterParserRuleCall_4_1_1_0());
+							newCompositeNode(grammarAccess.getFunctionAccess().getParametersParameterParserRuleCall_3_1_1_0());
 						}
-						lv_parameters_6_0=ruleParameter
+						lv_parameters_5_0=ruleParameter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getFunctionRule());
@@ -2691,7 +2723,7 @@ ruleFunction returns [EObject current=null]
 							add(
 								$current,
 								"parameters",
-								lv_parameters_6_0,
+								lv_parameters_5_0,
 								"willburden.hale.Hale.Parameter");
 							afterParserOrEnumRuleCall();
 						}
@@ -2699,22 +2731,22 @@ ruleFunction returns [EObject current=null]
 				)
 			)*
 			(
-				otherlv_7=','
+				otherlv_6=','
 				{
-					newLeafNode(otherlv_7, grammarAccess.getFunctionAccess().getCommaKeyword_4_2());
+					newLeafNode(otherlv_6, grammarAccess.getFunctionAccess().getCommaKeyword_3_2());
 				}
 			)?
 		)?
-		otherlv_8=')'
+		otherlv_7=')'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getFunctionAccess().getRightParenthesisKeyword_5());
+			newLeafNode(otherlv_7, grammarAccess.getFunctionAccess().getRightParenthesisKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFunctionAccess().getReturnTypeTypeAnnotationParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getFunctionAccess().getReturnTypeTypeAnnotationParserRuleCall_5_0());
 				}
-				lv_returnType_9_0=ruleTypeAnnotation
+				lv_returnType_8_0=ruleTypeAnnotation
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFunctionRule());
@@ -2722,7 +2754,7 @@ ruleFunction returns [EObject current=null]
 					set(
 						$current,
 						"returnType",
-						lv_returnType_9_0,
+						lv_returnType_8_0,
 						"willburden.hale.Hale.TypeAnnotation");
 					afterParserOrEnumRuleCall();
 				}
@@ -2731,9 +2763,9 @@ ruleFunction returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFunctionAccess().getBodyBracedBlockParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getFunctionAccess().getBodyBracedBlockParserRuleCall_6_0());
 				}
-				lv_body_10_0=ruleBracedBlock
+				lv_body_9_0=ruleBracedBlock
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFunctionRule());
@@ -2741,7 +2773,7 @@ ruleFunction returns [EObject current=null]
 					set(
 						$current,
 						"body",
-						lv_body_10_0,
+						lv_body_9_0,
 						"willburden.hale.Hale.BracedBlock");
 					afterParserOrEnumRuleCall();
 				}
@@ -2789,19 +2821,20 @@ ruleParameter returns [EObject current=null]
 		)?
 		(
 			(
-				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getParameterAccess().getBindingBindingParserRuleCall_2_0());
 				}
+				lv_binding_2_0=ruleBinding
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getParameterRule());
+						$current = createModelElementForParent(grammarAccess.getParameterRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"name",
-						lv_name_2_0,
-						"willburden.hale.Hale.ID");
+						"binding",
+						lv_binding_2_0,
+						"willburden.hale.Hale.Binding");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)

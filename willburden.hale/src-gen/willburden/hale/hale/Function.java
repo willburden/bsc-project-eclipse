@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link willburden.hale.hale.Function#getBinding <em>Binding</em>}</li>
  *   <li>{@link willburden.hale.hale.Function#getParameters <em>Parameters</em>}</li>
  *   <li>{@link willburden.hale.hale.Function#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link willburden.hale.hale.Function#getBody <em>Body</em>}</li>
@@ -23,11 +24,33 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Function extends Binding
+public interface Function extends Statement
 {
   /**
+   * Returns the value of the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Binding</em>' containment reference.
+   * @see #setBinding(Binding)
+   * @see willburden.hale.hale.HalePackage#getFunction_Binding()
+   * @model containment="true"
+   * @generated
+   */
+  Binding getBinding();
+
+  /**
+   * Sets the value of the '{@link willburden.hale.hale.Function#getBinding <em>Binding</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Binding</em>' containment reference.
+   * @see #getBinding()
+   * @generated
+   */
+  void setBinding(Binding value);
+
+  /**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link willburden.hale.hale.Binding}.
+   * The list contents are of type {@link willburden.hale.hale.Parameter}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference list.
@@ -35,7 +58,7 @@ public interface Function extends Binding
    * @model containment="true"
    * @generated
    */
-  EList<Binding> getParameters();
+  EList<Parameter> getParameters();
 
   /**
    * Returns the value of the '<em><b>Return Type</b></em>' containment reference.

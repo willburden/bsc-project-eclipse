@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import willburden.hale.hale.Binding;
 import willburden.hale.hale.HalePackage;
 import willburden.hale.hale.Parameter;
 import willburden.hale.hale.Type;
@@ -24,12 +26,13 @@ import willburden.hale.hale.Type;
  * </p>
  * <ul>
  *   <li>{@link willburden.hale.hale.impl.ParameterImpl#isMutable <em>Mutable</em>}</li>
+ *   <li>{@link willburden.hale.hale.impl.ParameterImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.ParameterImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParameterImpl extends BindingImpl implements Parameter
+public class ParameterImpl extends MinimalEObjectImpl.Container implements Parameter
 {
   /**
    * The default value of the '{@link #isMutable() <em>Mutable</em>}' attribute.
@@ -50,6 +53,16 @@ public class ParameterImpl extends BindingImpl implements Parameter
    * @ordered
    */
   protected boolean mutable = MUTABLE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBinding()
+   * @generated
+   * @ordered
+   */
+  protected Binding binding;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -113,6 +126,56 @@ public class ParameterImpl extends BindingImpl implements Parameter
    * @generated
    */
   @Override
+  public Binding getBinding()
+  {
+    return binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBinding(Binding newBinding, NotificationChain msgs)
+  {
+    Binding oldBinding = binding;
+    binding = newBinding;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.PARAMETER__BINDING, oldBinding, newBinding);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBinding(Binding newBinding)
+  {
+    if (newBinding != binding)
+    {
+      NotificationChain msgs = null;
+      if (binding != null)
+        msgs = ((InternalEObject)binding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.PARAMETER__BINDING, null, msgs);
+      if (newBinding != null)
+        msgs = ((InternalEObject)newBinding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.PARAMETER__BINDING, null, msgs);
+      msgs = basicSetBinding(newBinding, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.PARAMETER__BINDING, newBinding, newBinding));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Type getType()
   {
     return type;
@@ -167,6 +230,8 @@ public class ParameterImpl extends BindingImpl implements Parameter
   {
     switch (featureID)
     {
+      case HalePackage.PARAMETER__BINDING:
+        return basicSetBinding(null, msgs);
       case HalePackage.PARAMETER__TYPE:
         return basicSetType(null, msgs);
     }
@@ -185,6 +250,8 @@ public class ParameterImpl extends BindingImpl implements Parameter
     {
       case HalePackage.PARAMETER__MUTABLE:
         return isMutable();
+      case HalePackage.PARAMETER__BINDING:
+        return getBinding();
       case HalePackage.PARAMETER__TYPE:
         return getType();
     }
@@ -203,6 +270,9 @@ public class ParameterImpl extends BindingImpl implements Parameter
     {
       case HalePackage.PARAMETER__MUTABLE:
         setMutable((Boolean)newValue);
+        return;
+      case HalePackage.PARAMETER__BINDING:
+        setBinding((Binding)newValue);
         return;
       case HalePackage.PARAMETER__TYPE:
         setType((Type)newValue);
@@ -224,6 +294,9 @@ public class ParameterImpl extends BindingImpl implements Parameter
       case HalePackage.PARAMETER__MUTABLE:
         setMutable(MUTABLE_EDEFAULT);
         return;
+      case HalePackage.PARAMETER__BINDING:
+        setBinding((Binding)null);
+        return;
       case HalePackage.PARAMETER__TYPE:
         setType((Type)null);
         return;
@@ -243,6 +316,8 @@ public class ParameterImpl extends BindingImpl implements Parameter
     {
       case HalePackage.PARAMETER__MUTABLE:
         return mutable != MUTABLE_EDEFAULT;
+      case HalePackage.PARAMETER__BINDING:
+        return binding != null;
       case HalePackage.PARAMETER__TYPE:
         return type != null;
     }

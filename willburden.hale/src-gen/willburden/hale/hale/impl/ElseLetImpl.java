@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import willburden.hale.hale.Binding;
 import willburden.hale.hale.Block;
 import willburden.hale.hale.ElseLet;
 import willburden.hale.hale.HalePackage;
@@ -24,14 +26,46 @@ import willburden.hale.hale.Type;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link willburden.hale.hale.impl.ElseLetImpl#isMutable <em>Mutable</em>}</li>
+ *   <li>{@link willburden.hale.hale.impl.ElseLetImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.ElseLetImpl#getType <em>Type</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.ElseLetImpl#getElseBlock <em>Else Block</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ElseLetImpl extends BindingImpl implements ElseLet
+public class ElseLetImpl extends MinimalEObjectImpl.Container implements ElseLet
 {
+  /**
+   * The default value of the '{@link #isMutable() <em>Mutable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isMutable()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean MUTABLE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isMutable() <em>Mutable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isMutable()
+   * @generated
+   * @ordered
+   */
+  protected boolean mutable = MUTABLE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBinding()
+   * @generated
+   * @ordered
+   */
+  protected Binding binding;
+
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +105,81 @@ public class ElseLetImpl extends BindingImpl implements ElseLet
   protected EClass eStaticClass()
   {
     return HalePackage.Literals.ELSE_LET;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean isMutable()
+  {
+    return mutable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setMutable(boolean newMutable)
+  {
+    boolean oldMutable = mutable;
+    mutable = newMutable;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.ELSE_LET__MUTABLE, oldMutable, mutable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Binding getBinding()
+  {
+    return binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBinding(Binding newBinding, NotificationChain msgs)
+  {
+    Binding oldBinding = binding;
+    binding = newBinding;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.ELSE_LET__BINDING, oldBinding, newBinding);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBinding(Binding newBinding)
+  {
+    if (newBinding != binding)
+    {
+      NotificationChain msgs = null;
+      if (binding != null)
+        msgs = ((InternalEObject)binding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.ELSE_LET__BINDING, null, msgs);
+      if (newBinding != null)
+        msgs = ((InternalEObject)newBinding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.ELSE_LET__BINDING, null, msgs);
+      msgs = basicSetBinding(newBinding, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.ELSE_LET__BINDING, newBinding, newBinding));
   }
 
   /**
@@ -183,6 +292,8 @@ public class ElseLetImpl extends BindingImpl implements ElseLet
   {
     switch (featureID)
     {
+      case HalePackage.ELSE_LET__BINDING:
+        return basicSetBinding(null, msgs);
       case HalePackage.ELSE_LET__TYPE:
         return basicSetType(null, msgs);
       case HalePackage.ELSE_LET__ELSE_BLOCK:
@@ -201,6 +312,10 @@ public class ElseLetImpl extends BindingImpl implements ElseLet
   {
     switch (featureID)
     {
+      case HalePackage.ELSE_LET__MUTABLE:
+        return isMutable();
+      case HalePackage.ELSE_LET__BINDING:
+        return getBinding();
       case HalePackage.ELSE_LET__TYPE:
         return getType();
       case HalePackage.ELSE_LET__ELSE_BLOCK:
@@ -219,6 +334,12 @@ public class ElseLetImpl extends BindingImpl implements ElseLet
   {
     switch (featureID)
     {
+      case HalePackage.ELSE_LET__MUTABLE:
+        setMutable((Boolean)newValue);
+        return;
+      case HalePackage.ELSE_LET__BINDING:
+        setBinding((Binding)newValue);
+        return;
       case HalePackage.ELSE_LET__TYPE:
         setType((Type)newValue);
         return;
@@ -239,6 +360,12 @@ public class ElseLetImpl extends BindingImpl implements ElseLet
   {
     switch (featureID)
     {
+      case HalePackage.ELSE_LET__MUTABLE:
+        setMutable(MUTABLE_EDEFAULT);
+        return;
+      case HalePackage.ELSE_LET__BINDING:
+        setBinding((Binding)null);
+        return;
       case HalePackage.ELSE_LET__TYPE:
         setType((Type)null);
         return;
@@ -259,12 +386,33 @@ public class ElseLetImpl extends BindingImpl implements ElseLet
   {
     switch (featureID)
     {
+      case HalePackage.ELSE_LET__MUTABLE:
+        return mutable != MUTABLE_EDEFAULT;
+      case HalePackage.ELSE_LET__BINDING:
+        return binding != null;
       case HalePackage.ELSE_LET__TYPE:
         return type != null;
       case HalePackage.ELSE_LET__ELSE_BLOCK:
         return elseBlock != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (mutable: ");
+    result.append(mutable);
+    result.append(')');
+    return result.toString();
   }
 
 } //ElseLetImpl

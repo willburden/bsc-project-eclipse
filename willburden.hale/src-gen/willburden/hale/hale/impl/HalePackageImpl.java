@@ -151,6 +151,13 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass letBindingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass bindingReferenceEClass = null;
 
   /**
@@ -186,6 +193,20 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass ifLetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass elseLetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass ifConditionsEClass = null;
 
   /**
@@ -201,6 +222,20 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   private EClass breakEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -369,41 +404,6 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   private EClass primitiveTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass letBindingEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass ifLetEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass elseLetEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass functionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass parameterEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -660,6 +660,61 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
+  public EClass getLetBinding()
+  {
+    return letBindingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLetBinding_Mutable()
+  {
+    return (EAttribute)letBindingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLetBinding_Binding()
+  {
+    return (EReference)letBindingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLetBinding_Type()
+  {
+    return (EReference)letBindingEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLetBinding_Expression()
+  {
+    return (EReference)letBindingEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getBindingReference()
   {
     return bindingReferenceEClass;
@@ -759,6 +814,138 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
+  public EClass getIfLet()
+  {
+    return ifLetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getIfLet_Mutable()
+  {
+    return (EAttribute)ifLetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfLet_Binding()
+  {
+    return (EReference)ifLetEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfLet_Type()
+  {
+    return (EReference)ifLetEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfLet_Expression()
+  {
+    return (EReference)ifLetEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfLet_IfBlock()
+  {
+    return (EReference)ifLetEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfLet_ElseLet()
+  {
+    return (EReference)ifLetEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getElseLet()
+  {
+    return elseLetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getElseLet_Mutable()
+  {
+    return (EAttribute)elseLetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getElseLet_Binding()
+  {
+    return (EReference)elseLetEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getElseLet_Type()
+  {
+    return (EReference)elseLetEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getElseLet_ElseBlock()
+  {
+    return (EReference)elseLetEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getIfConditions()
   {
     return ifConditionsEClass;
@@ -839,6 +1026,105 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
   public EClass getBreak()
   {
     return breakEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunction()
+  {
+    return functionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunction_Binding()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunction_Parameters()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunction_ReturnType()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunction_Body()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getParameter()
+  {
+    return parameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getParameter_Mutable()
+  {
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getParameter_Binding()
+  {
+    return (EReference)parameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getParameter_Type()
+  {
+    return (EReference)parameterEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1584,215 +1870,6 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EClass getLetBinding()
-  {
-    return letBindingEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getLetBinding_Mutable()
-  {
-    return (EAttribute)letBindingEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getLetBinding_Type()
-  {
-    return (EReference)letBindingEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getLetBinding_Expression()
-  {
-    return (EReference)letBindingEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getIfLet()
-  {
-    return ifLetEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getIfLet_Type()
-  {
-    return (EReference)ifLetEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getIfLet_Expression()
-  {
-    return (EReference)ifLetEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getIfLet_IfBlock()
-  {
-    return (EReference)ifLetEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getIfLet_ElseLet()
-  {
-    return (EReference)ifLetEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getElseLet()
-  {
-    return elseLetEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getElseLet_Type()
-  {
-    return (EReference)elseLetEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getElseLet_ElseBlock()
-  {
-    return (EReference)elseLetEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getFunction()
-  {
-    return functionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunction_Parameters()
-  {
-    return (EReference)functionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunction_ReturnType()
-  {
-    return (EReference)functionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunction_Body()
-  {
-    return (EReference)functionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getParameter()
-  {
-    return parameterEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getParameter_Mutable()
-  {
-    return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getParameter_Type()
-  {
-    return (EReference)parameterEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public HaleFactory getHaleFactory()
   {
     return (HaleFactory)getEFactoryInstance();
@@ -1846,6 +1923,12 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     bindingEClass = createEClass(BINDING);
     createEAttribute(bindingEClass, BINDING__NAME);
 
+    letBindingEClass = createEClass(LET_BINDING);
+    createEAttribute(letBindingEClass, LET_BINDING__MUTABLE);
+    createEReference(letBindingEClass, LET_BINDING__BINDING);
+    createEReference(letBindingEClass, LET_BINDING__TYPE);
+    createEReference(letBindingEClass, LET_BINDING__EXPRESSION);
+
     bindingReferenceEClass = createEClass(BINDING_REFERENCE);
     createEReference(bindingReferenceEClass, BINDING_REFERENCE__BINDING);
 
@@ -1860,6 +1943,20 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
 
     ifEClass = createEClass(IF);
 
+    ifLetEClass = createEClass(IF_LET);
+    createEAttribute(ifLetEClass, IF_LET__MUTABLE);
+    createEReference(ifLetEClass, IF_LET__BINDING);
+    createEReference(ifLetEClass, IF_LET__TYPE);
+    createEReference(ifLetEClass, IF_LET__EXPRESSION);
+    createEReference(ifLetEClass, IF_LET__IF_BLOCK);
+    createEReference(ifLetEClass, IF_LET__ELSE_LET);
+
+    elseLetEClass = createEClass(ELSE_LET);
+    createEAttribute(elseLetEClass, ELSE_LET__MUTABLE);
+    createEReference(elseLetEClass, ELSE_LET__BINDING);
+    createEReference(elseLetEClass, ELSE_LET__TYPE);
+    createEReference(elseLetEClass, ELSE_LET__ELSE_BLOCK);
+
     ifConditionsEClass = createEClass(IF_CONDITIONS);
     createEReference(ifConditionsEClass, IF_CONDITIONS__CONDITIONS);
     createEReference(ifConditionsEClass, IF_CONDITIONS__IF_BLOCKS);
@@ -1870,6 +1967,17 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     createEReference(whileEClass, WHILE__BLOCK);
 
     breakEClass = createEClass(BREAK);
+
+    functionEClass = createEClass(FUNCTION);
+    createEReference(functionEClass, FUNCTION__BINDING);
+    createEReference(functionEClass, FUNCTION__PARAMETERS);
+    createEReference(functionEClass, FUNCTION__RETURN_TYPE);
+    createEReference(functionEClass, FUNCTION__BODY);
+
+    parameterEClass = createEClass(PARAMETER);
+    createEAttribute(parameterEClass, PARAMETER__MUTABLE);
+    createEReference(parameterEClass, PARAMETER__BINDING);
+    createEReference(parameterEClass, PARAMETER__TYPE);
 
     returnEClass = createEClass(RETURN);
     createEReference(returnEClass, RETURN__EXPRESSION);
@@ -1961,30 +2069,6 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
 
     primitiveTypeEClass = createEClass(PRIMITIVE_TYPE);
     createEAttribute(primitiveTypeEClass, PRIMITIVE_TYPE__TYPE);
-
-    letBindingEClass = createEClass(LET_BINDING);
-    createEAttribute(letBindingEClass, LET_BINDING__MUTABLE);
-    createEReference(letBindingEClass, LET_BINDING__TYPE);
-    createEReference(letBindingEClass, LET_BINDING__EXPRESSION);
-
-    ifLetEClass = createEClass(IF_LET);
-    createEReference(ifLetEClass, IF_LET__TYPE);
-    createEReference(ifLetEClass, IF_LET__EXPRESSION);
-    createEReference(ifLetEClass, IF_LET__IF_BLOCK);
-    createEReference(ifLetEClass, IF_LET__ELSE_LET);
-
-    elseLetEClass = createEClass(ELSE_LET);
-    createEReference(elseLetEClass, ELSE_LET__TYPE);
-    createEReference(elseLetEClass, ELSE_LET__ELSE_BLOCK);
-
-    functionEClass = createEClass(FUNCTION);
-    createEReference(functionEClass, FUNCTION__PARAMETERS);
-    createEReference(functionEClass, FUNCTION__RETURN_TYPE);
-    createEReference(functionEClass, FUNCTION__BODY);
-
-    parameterEClass = createEClass(PARAMETER);
-    createEAttribute(parameterEClass, PARAMETER__MUTABLE);
-    createEReference(parameterEClass, PARAMETER__TYPE);
   }
 
   /**
@@ -2023,16 +2107,17 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     booleanLiteralEClass.getESuperTypes().add(this.getLiteral());
     numberLiteralEClass.getESuperTypes().add(this.getLiteral());
     stringLiteralEClass.getESuperTypes().add(this.getLiteral());
-    bindingEClass.getESuperTypes().add(this.getStatement());
-    bindingEClass.getESuperTypes().add(this.getIf());
+    letBindingEClass.getESuperTypes().add(this.getStatement());
     bindingReferenceEClass.getESuperTypes().add(this.getExpression());
     assignmentEClass.getESuperTypes().add(this.getStatement());
     inputEClass.getESuperTypes().add(this.getExpression());
     printEClass.getESuperTypes().add(this.getStatement());
     ifEClass.getESuperTypes().add(this.getStatement());
+    ifLetEClass.getESuperTypes().add(this.getIf());
     ifConditionsEClass.getESuperTypes().add(this.getIf());
     whileEClass.getESuperTypes().add(this.getStatement());
     breakEClass.getESuperTypes().add(this.getStatement());
+    functionEClass.getESuperTypes().add(this.getStatement());
     returnEClass.getESuperTypes().add(this.getStatement());
     throwEClass.getESuperTypes().add(this.getStatement());
     concatenationEClass.getESuperTypes().add(this.getExpression());
@@ -2057,11 +2142,6 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     functionTypeEClass.getESuperTypes().add(this.getType());
     eitherTypeEClass.getESuperTypes().add(this.getType());
     primitiveTypeEClass.getESuperTypes().add(this.getType());
-    letBindingEClass.getESuperTypes().add(this.getBinding());
-    ifLetEClass.getESuperTypes().add(this.getBinding());
-    elseLetEClass.getESuperTypes().add(this.getBinding());
-    functionEClass.getESuperTypes().add(this.getBinding());
-    parameterEClass.getESuperTypes().add(this.getBinding());
 
     // Initialize classes and features; add operations and parameters
     initEClass(haleEClass, Hale.class, "Hale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2092,6 +2172,12 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBinding_Name(), ecorePackage.getEString(), "name", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(letBindingEClass, LetBinding.class, "LetBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLetBinding_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLetBinding_Binding(), this.getBinding(), null, "binding", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLetBinding_Type(), this.getType(), null, "type", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLetBinding_Expression(), this.getExpression(), null, "expression", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(bindingReferenceEClass, BindingReference.class, "BindingReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBindingReference_Binding(), this.getBinding(), null, "binding", null, 0, 1, BindingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2106,6 +2192,20 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
 
     initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(ifLetEClass, IfLet.class, "IfLet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIfLet_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfLet_Binding(), this.getBinding(), null, "binding", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfLet_Type(), this.getType(), null, "type", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfLet_Expression(), this.getExpression(), null, "expression", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfLet_IfBlock(), this.getBlock(), null, "ifBlock", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfLet_ElseLet(), this.getElseLet(), null, "elseLet", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elseLetEClass, ElseLet.class, "ElseLet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getElseLet_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, ElseLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElseLet_Binding(), this.getBinding(), null, "binding", null, 0, 1, ElseLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElseLet_Type(), this.getType(), null, "type", null, 0, 1, ElseLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElseLet_ElseBlock(), this.getBlock(), null, "elseBlock", null, 0, 1, ElseLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(ifConditionsEClass, IfConditions.class, "IfConditions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIfConditions_Conditions(), this.getExpression(), null, "conditions", null, 0, -1, IfConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIfConditions_IfBlocks(), this.getBlock(), null, "ifBlocks", null, 0, -1, IfConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2116,6 +2216,17 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     initEReference(getWhile_Block(), this.getBlock(), null, "block", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(breakEClass, Break.class, "Break", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunction_Binding(), this.getBinding(), null, "binding", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_ReturnType(), this.getType(), null, "returnType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Body(), this.getBlock(), null, "body", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParameter_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameter_Binding(), this.getBinding(), null, "binding", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameter_Type(), this.getType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReturn_Expression(), this.getExpression(), null, "expression", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2207,30 +2318,6 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
 
     initEClass(primitiveTypeEClass, PrimitiveType.class, "PrimitiveType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrimitiveType_Type(), ecorePackage.getEString(), "type", null, 0, 1, PrimitiveType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(letBindingEClass, LetBinding.class, "LetBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLetBinding_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLetBinding_Type(), this.getType(), null, "type", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLetBinding_Expression(), this.getExpression(), null, "expression", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(ifLetEClass, IfLet.class, "IfLet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIfLet_Type(), this.getType(), null, "type", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIfLet_Expression(), this.getExpression(), null, "expression", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIfLet_IfBlock(), this.getBlock(), null, "ifBlock", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIfLet_ElseLet(), this.getBinding(), null, "elseLet", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(elseLetEClass, ElseLet.class, "ElseLet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getElseLet_Type(), this.getType(), null, "type", null, 0, 1, ElseLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getElseLet_ElseBlock(), this.getBlock(), null, "elseBlock", null, 0, 1, ElseLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFunction_Parameters(), this.getBinding(), null, "parameters", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunction_ReturnType(), this.getType(), null, "returnType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunction_Body(), this.getBlock(), null, "body", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getParameter_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getParameter_Type(), this.getType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -22,6 +22,7 @@ import willburden.hale.hale.Binding;
 import willburden.hale.hale.Block;
 import willburden.hale.hale.Function;
 import willburden.hale.hale.HalePackage;
+import willburden.hale.hale.Parameter;
 import willburden.hale.hale.Type;
 
 /**
@@ -32,6 +33,7 @@ import willburden.hale.hale.Type;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link willburden.hale.hale.impl.FunctionImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.FunctionImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.FunctionImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.FunctionImpl#getBody <em>Body</em>}</li>
@@ -39,8 +41,18 @@ import willburden.hale.hale.Type;
  *
  * @generated
  */
-public class FunctionImpl extends BindingImpl implements Function
+public class FunctionImpl extends StatementImpl implements Function
 {
+  /**
+   * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBinding()
+   * @generated
+   * @ordered
+   */
+  protected Binding binding;
+
   /**
    * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -49,7 +61,7 @@ public class FunctionImpl extends BindingImpl implements Function
    * @generated
    * @ordered
    */
-  protected EList<Binding> parameters;
+  protected EList<Parameter> parameters;
 
   /**
    * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
@@ -98,11 +110,61 @@ public class FunctionImpl extends BindingImpl implements Function
    * @generated
    */
   @Override
-  public EList<Binding> getParameters()
+  public Binding getBinding()
+  {
+    return binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBinding(Binding newBinding, NotificationChain msgs)
+  {
+    Binding oldBinding = binding;
+    binding = newBinding;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.FUNCTION__BINDING, oldBinding, newBinding);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBinding(Binding newBinding)
+  {
+    if (newBinding != binding)
+    {
+      NotificationChain msgs = null;
+      if (binding != null)
+        msgs = ((InternalEObject)binding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.FUNCTION__BINDING, null, msgs);
+      if (newBinding != null)
+        msgs = ((InternalEObject)newBinding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.FUNCTION__BINDING, null, msgs);
+      msgs = basicSetBinding(newBinding, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.FUNCTION__BINDING, newBinding, newBinding));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Parameter> getParameters()
   {
     if (parameters == null)
     {
-      parameters = new EObjectContainmentEList<Binding>(Binding.class, this, HalePackage.FUNCTION__PARAMETERS);
+      parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, HalePackage.FUNCTION__PARAMETERS);
     }
     return parameters;
   }
@@ -217,6 +279,8 @@ public class FunctionImpl extends BindingImpl implements Function
   {
     switch (featureID)
     {
+      case HalePackage.FUNCTION__BINDING:
+        return basicSetBinding(null, msgs);
       case HalePackage.FUNCTION__PARAMETERS:
         return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
       case HalePackage.FUNCTION__RETURN_TYPE:
@@ -237,6 +301,8 @@ public class FunctionImpl extends BindingImpl implements Function
   {
     switch (featureID)
     {
+      case HalePackage.FUNCTION__BINDING:
+        return getBinding();
       case HalePackage.FUNCTION__PARAMETERS:
         return getParameters();
       case HalePackage.FUNCTION__RETURN_TYPE:
@@ -258,9 +324,12 @@ public class FunctionImpl extends BindingImpl implements Function
   {
     switch (featureID)
     {
+      case HalePackage.FUNCTION__BINDING:
+        setBinding((Binding)newValue);
+        return;
       case HalePackage.FUNCTION__PARAMETERS:
         getParameters().clear();
-        getParameters().addAll((Collection<? extends Binding>)newValue);
+        getParameters().addAll((Collection<? extends Parameter>)newValue);
         return;
       case HalePackage.FUNCTION__RETURN_TYPE:
         setReturnType((Type)newValue);
@@ -282,6 +351,9 @@ public class FunctionImpl extends BindingImpl implements Function
   {
     switch (featureID)
     {
+      case HalePackage.FUNCTION__BINDING:
+        setBinding((Binding)null);
+        return;
       case HalePackage.FUNCTION__PARAMETERS:
         getParameters().clear();
         return;
@@ -305,6 +377,8 @@ public class FunctionImpl extends BindingImpl implements Function
   {
     switch (featureID)
     {
+      case HalePackage.FUNCTION__BINDING:
+        return binding != null;
       case HalePackage.FUNCTION__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
       case HalePackage.FUNCTION__RETURN_TYPE:

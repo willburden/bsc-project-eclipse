@@ -5,6 +5,7 @@ package willburden.hale.scoping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -18,6 +19,8 @@ import willburden.hale.hale.Block;
 import willburden.hale.hale.ElseLet;
 import willburden.hale.hale.Function;
 import willburden.hale.hale.IfLet;
+import willburden.hale.hale.LetBinding;
+import willburden.hale.hale.Parameter;
 
 /**
  * This class contains custom scoping description.
@@ -45,7 +48,14 @@ public class HaleScopeProvider extends AbstractHaleScopeProvider {
 		
 		List<EObject> candidates = containingBlock.getStatements().stream()
 			.takeWhile(statement -> !EcoreUtil.isAncestor(statement, context))
-			.map(statement -> (EObject) statement)
+			.flatMap(statement -> {
+				if (statement instanceof LetBinding letBinding) {
+					return Stream.of((EObject) letBinding.getBinding());
+				} else if (statement instanceof Function function) {
+					return Stream.of((EObject) function.getBinding());
+				}
+				return Stream.empty();
+			})
 			.toList();
 
 		// Make the list mutable.
@@ -53,20 +63,20 @@ public class HaleScopeProvider extends AbstractHaleScopeProvider {
 		
 		// If this scope is a function body, we need to include the parameters.
 		if (containingBlock.eContainer() instanceof Function function) {
-			for (Binding param : function.getParameters()) {
-				candidates.add(param);
+			for (Parameter param : function.getParameters()) {
+				candidates.add(param.getBinding());
 			}
 		}
 		
 		// If this scope is an if-let or else-let block, we need to include its bindings.
 		if (containingBlock.eContainer() instanceof IfLet ifLet) {
-			if (ifLet.getName() != null) {
-				candidates.add(ifLet);
+			if (ifLet.getBinding() != null) {
+				candidates.add(ifLet.getBinding());
 			}
 		}
 		if (containingBlock.eContainer() instanceof ElseLet elseLet) {
-			if (elseLet.getName() != null) {
-				candidates.add(elseLet);
+			if (elseLet.getBinding() != null) {
+				candidates.add(elseLet.getBinding());
 			}
 		}
 		

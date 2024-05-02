@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import willburden.hale.hale.Binding;
 import willburden.hale.hale.Expression;
 import willburden.hale.hale.HalePackage;
 import willburden.hale.hale.LetBinding;
@@ -25,13 +26,14 @@ import willburden.hale.hale.Type;
  * </p>
  * <ul>
  *   <li>{@link willburden.hale.hale.impl.LetBindingImpl#isMutable <em>Mutable</em>}</li>
+ *   <li>{@link willburden.hale.hale.impl.LetBindingImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.LetBindingImpl#getType <em>Type</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.LetBindingImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LetBindingImpl extends BindingImpl implements LetBinding
+public class LetBindingImpl extends StatementImpl implements LetBinding
 {
   /**
    * The default value of the '{@link #isMutable() <em>Mutable</em>}' attribute.
@@ -52,6 +54,16 @@ public class LetBindingImpl extends BindingImpl implements LetBinding
    * @ordered
    */
   protected boolean mutable = MUTABLE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBinding()
+   * @generated
+   * @ordered
+   */
+  protected Binding binding;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -117,6 +129,56 @@ public class LetBindingImpl extends BindingImpl implements LetBinding
     mutable = newMutable;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.LET_BINDING__MUTABLE, oldMutable, mutable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Binding getBinding()
+  {
+    return binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBinding(Binding newBinding, NotificationChain msgs)
+  {
+    Binding oldBinding = binding;
+    binding = newBinding;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.LET_BINDING__BINDING, oldBinding, newBinding);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBinding(Binding newBinding)
+  {
+    if (newBinding != binding)
+    {
+      NotificationChain msgs = null;
+      if (binding != null)
+        msgs = ((InternalEObject)binding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.LET_BINDING__BINDING, null, msgs);
+      if (newBinding != null)
+        msgs = ((InternalEObject)newBinding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.LET_BINDING__BINDING, null, msgs);
+      msgs = basicSetBinding(newBinding, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.LET_BINDING__BINDING, newBinding, newBinding));
   }
 
   /**
@@ -229,6 +291,8 @@ public class LetBindingImpl extends BindingImpl implements LetBinding
   {
     switch (featureID)
     {
+      case HalePackage.LET_BINDING__BINDING:
+        return basicSetBinding(null, msgs);
       case HalePackage.LET_BINDING__TYPE:
         return basicSetType(null, msgs);
       case HalePackage.LET_BINDING__EXPRESSION:
@@ -249,6 +313,8 @@ public class LetBindingImpl extends BindingImpl implements LetBinding
     {
       case HalePackage.LET_BINDING__MUTABLE:
         return isMutable();
+      case HalePackage.LET_BINDING__BINDING:
+        return getBinding();
       case HalePackage.LET_BINDING__TYPE:
         return getType();
       case HalePackage.LET_BINDING__EXPRESSION:
@@ -269,6 +335,9 @@ public class LetBindingImpl extends BindingImpl implements LetBinding
     {
       case HalePackage.LET_BINDING__MUTABLE:
         setMutable((Boolean)newValue);
+        return;
+      case HalePackage.LET_BINDING__BINDING:
+        setBinding((Binding)newValue);
         return;
       case HalePackage.LET_BINDING__TYPE:
         setType((Type)newValue);
@@ -293,6 +362,9 @@ public class LetBindingImpl extends BindingImpl implements LetBinding
       case HalePackage.LET_BINDING__MUTABLE:
         setMutable(MUTABLE_EDEFAULT);
         return;
+      case HalePackage.LET_BINDING__BINDING:
+        setBinding((Binding)null);
+        return;
       case HalePackage.LET_BINDING__TYPE:
         setType((Type)null);
         return;
@@ -315,6 +387,8 @@ public class LetBindingImpl extends BindingImpl implements LetBinding
     {
       case HalePackage.LET_BINDING__MUTABLE:
         return mutable != MUTABLE_EDEFAULT;
+      case HalePackage.LET_BINDING__BINDING:
+        return binding != null;
       case HalePackage.LET_BINDING__TYPE:
         return type != null;
       case HalePackage.LET_BINDING__EXPRESSION:

@@ -1265,66 +1265,78 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//PRIMITIVE_TYPE
 		public RuleCall getTypePRIMITIVE_TYPETerminalRuleCall_1_0() { return cTypePRIMITIVE_TYPETerminalRuleCall_1_0; }
 	}
-	public class LetBindingElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.LetBinding");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cLetBindingAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cLetKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMutableAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Keyword cMutableMutKeyword_2_0 = (Keyword)cMutableAssignment_2.eContents().get(0);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTypeTypeAnnotationParserRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cExpressionAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cExpressionExpressionParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
+	public class BindingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Binding");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		///*************************************************************
 		// * Bindings
 		// ************************************************************/
-		//LetBinding returns Binding:
-		//    {LetBinding}
-		//    'let' (mutable?='mut')? name=ID (type=TypeAnnotation)? '=' expression=Expression
+		//Binding:
+		//    name=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{LetBinding}
-		//'let' (mutable?='mut')? name=ID (type=TypeAnnotation)? '=' expression=Expression
-		public Group getGroup() { return cGroup; }
-		
-		//{LetBinding}
-		public Action getLetBindingAction_0() { return cLetBindingAction_0; }
-		
-		//'let'
-		public Keyword getLetKeyword_1() { return cLetKeyword_1; }
-		
-		//(mutable?='mut')?
-		public Assignment getMutableAssignment_2() { return cMutableAssignment_2; }
-		
-		//'mut'
-		public Keyword getMutableMutKeyword_2_0() { return cMutableMutKeyword_2_0; }
-		
 		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment() { return cNameAssignment; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
+	public class LetBindingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.LetBinding");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLetKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cMutableAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cMutableMutKeyword_1_0 = (Keyword)cMutableAssignment_1.eContents().get(0);
+		private final Assignment cBindingAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBindingBindingParserRuleCall_2_0 = (RuleCall)cBindingAssignment_2.eContents().get(0);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeTypeAnnotationParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cExpressionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cExpressionExpressionParserRuleCall_5_0 = (RuleCall)cExpressionAssignment_5.eContents().get(0);
+		
+		//LetBinding:
+		//    'let' (mutable?='mut')? binding=Binding
+		//    (type=TypeAnnotation)? '=' expression=Expression
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'let' (mutable?='mut')? binding=Binding
+		//(type=TypeAnnotation)? '=' expression=Expression
+		public Group getGroup() { return cGroup; }
+		
+		//'let'
+		public Keyword getLetKeyword_0() { return cLetKeyword_0; }
+		
+		//(mutable?='mut')?
+		public Assignment getMutableAssignment_1() { return cMutableAssignment_1; }
+		
+		//'mut'
+		public Keyword getMutableMutKeyword_1_0() { return cMutableMutKeyword_1_0; }
+		
+		//binding=Binding
+		public Assignment getBindingAssignment_2() { return cBindingAssignment_2; }
+		
+		//Binding
+		public RuleCall getBindingBindingParserRuleCall_2_0() { return cBindingBindingParserRuleCall_2_0; }
 		
 		//(type=TypeAnnotation)?
-		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 		
 		//TypeAnnotation
-		public RuleCall getTypeTypeAnnotationParserRuleCall_4_0() { return cTypeTypeAnnotationParserRuleCall_4_0; }
+		public RuleCall getTypeTypeAnnotationParserRuleCall_3_0() { return cTypeTypeAnnotationParserRuleCall_3_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_5() { return cEqualsSignKeyword_5; }
+		public Keyword getEqualsSignKeyword_4() { return cEqualsSignKeyword_4; }
 		
 		//expression=Expression
-		public Assignment getExpressionAssignment_6() { return cExpressionAssignment_6; }
+		public Assignment getExpressionAssignment_5() { return cExpressionAssignment_5; }
 		
 		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_6_0() { return cExpressionExpressionParserRuleCall_6_0; }
+		public RuleCall getExpressionExpressionParserRuleCall_5_0() { return cExpressionExpressionParserRuleCall_5_0; }
 	}
 	public class BindingReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.BindingReference");
@@ -1463,10 +1475,11 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class IfLetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.IfLet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cIfLetAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cLetKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLetKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cMutableAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cMutableMutKeyword_1_0 = (Keyword)cMutableAssignment_1.eContents().get(0);
+		private final Assignment cBindingAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBindingBindingParserRuleCall_2_0 = (RuleCall)cBindingAssignment_2.eContents().get(0);
 		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTypeTypeAnnotationParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
@@ -1479,31 +1492,34 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Assignment cElseLetAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final RuleCall cElseLetElseLetParserRuleCall_7_1_0 = (RuleCall)cElseLetAssignment_7_1.eContents().get(0);
 		
-		//IfLet returns Binding:
-		//    {IfLet}
-		//    'let' name=ID (type=TypeAnnotation)? '=' expression=Expression
+		//IfLet:
+		//    'let' (mutable?='mut')? binding=Binding (type=TypeAnnotation)?
+		//    '=' expression=Expression
 		//        ifBlock=BracedBlock
 		//    ('else' elseLet=ElseLet)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IfLet}
-		//'let' name=ID (type=TypeAnnotation)? '=' expression=Expression
+		//'let' (mutable?='mut')? binding=Binding (type=TypeAnnotation)?
+		//'=' expression=Expression
 		//    ifBlock=BracedBlock
 		//('else' elseLet=ElseLet)?
 		public Group getGroup() { return cGroup; }
 		
-		//{IfLet}
-		public Action getIfLetAction_0() { return cIfLetAction_0; }
-		
 		//'let'
-		public Keyword getLetKeyword_1() { return cLetKeyword_1; }
+		public Keyword getLetKeyword_0() { return cLetKeyword_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//(mutable?='mut')?
+		public Assignment getMutableAssignment_1() { return cMutableAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//'mut'
+		public Keyword getMutableMutKeyword_1_0() { return cMutableMutKeyword_1_0; }
+		
+		//binding=Binding
+		public Assignment getBindingAssignment_2() { return cBindingAssignment_2; }
+		
+		//Binding
+		public RuleCall getBindingBindingParserRuleCall_2_0() { return cBindingBindingParserRuleCall_2_0; }
 		
 		//(type=TypeAnnotation)?
 		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
@@ -1541,132 +1557,128 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class ElseLetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.ElseLet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cElseLetAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cLetKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
-		private final Assignment cTypeAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cTypeTypeAnnotationParserRuleCall_1_2_0 = (RuleCall)cTypeAssignment_1_2.eContents().get(0);
-		private final Assignment cElseBlockAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cElseBlockBracedBlockParserRuleCall_2_0 = (RuleCall)cElseBlockAssignment_2.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cLetKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cMutableAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final Keyword cMutableMutKeyword_0_1_0 = (Keyword)cMutableAssignment_0_1.eContents().get(0);
+		private final Assignment cBindingAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cBindingBindingParserRuleCall_0_2_0 = (RuleCall)cBindingAssignment_0_2.eContents().get(0);
+		private final Assignment cTypeAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cTypeTypeAnnotationParserRuleCall_0_3_0 = (RuleCall)cTypeAssignment_0_3.eContents().get(0);
+		private final Assignment cElseBlockAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElseBlockBracedBlockParserRuleCall_1_0 = (RuleCall)cElseBlockAssignment_1.eContents().get(0);
 		
-		//ElseLet returns Binding:
-		//    {ElseLet}
-		//    ('let' name=ID (type=TypeAnnotation)?)?
+		//ElseLet:
+		//    ('let' (mutable?='mut')? binding=Binding (type=TypeAnnotation)?)?
 		//        elseBlock=BracedBlock
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ElseLet}
-		//('let' name=ID (type=TypeAnnotation)?)?
+		//('let' (mutable?='mut')? binding=Binding (type=TypeAnnotation)?)?
 		//    elseBlock=BracedBlock
 		public Group getGroup() { return cGroup; }
 		
-		//{ElseLet}
-		public Action getElseLetAction_0() { return cElseLetAction_0; }
-		
-		//('let' name=ID (type=TypeAnnotation)?)?
-		public Group getGroup_1() { return cGroup_1; }
+		//('let' (mutable?='mut')? binding=Binding (type=TypeAnnotation)?)?
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//'let'
-		public Keyword getLetKeyword_1_0() { return cLetKeyword_1_0; }
+		public Keyword getLetKeyword_0_0() { return cLetKeyword_0_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		//(mutable?='mut')?
+		public Assignment getMutableAssignment_0_1() { return cMutableAssignment_0_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		//'mut'
+		public Keyword getMutableMutKeyword_0_1_0() { return cMutableMutKeyword_0_1_0; }
+		
+		//binding=Binding
+		public Assignment getBindingAssignment_0_2() { return cBindingAssignment_0_2; }
+		
+		//Binding
+		public RuleCall getBindingBindingParserRuleCall_0_2_0() { return cBindingBindingParserRuleCall_0_2_0; }
 		
 		//(type=TypeAnnotation)?
-		public Assignment getTypeAssignment_1_2() { return cTypeAssignment_1_2; }
+		public Assignment getTypeAssignment_0_3() { return cTypeAssignment_0_3; }
 		
 		//TypeAnnotation
-		public RuleCall getTypeTypeAnnotationParserRuleCall_1_2_0() { return cTypeTypeAnnotationParserRuleCall_1_2_0; }
+		public RuleCall getTypeTypeAnnotationParserRuleCall_0_3_0() { return cTypeTypeAnnotationParserRuleCall_0_3_0; }
 		
 		//elseBlock=BracedBlock
-		public Assignment getElseBlockAssignment_2() { return cElseBlockAssignment_2; }
+		public Assignment getElseBlockAssignment_1() { return cElseBlockAssignment_1; }
 		
 		//BracedBlock
-		public RuleCall getElseBlockBracedBlockParserRuleCall_2_0() { return cElseBlockBracedBlockParserRuleCall_2_0; }
+		public RuleCall getElseBlockBracedBlockParserRuleCall_1_0() { return cElseBlockBracedBlockParserRuleCall_1_0; }
 	}
 	public class IfConditionsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.IfConditions");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cIfConditionsAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cConditionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cConditionsExpressionParserRuleCall_1_0 = (RuleCall)cConditionsAssignment_1.eContents().get(0);
-		private final Assignment cIfBlocksAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cIfBlocksBracedBlockParserRuleCall_2_0 = (RuleCall)cIfBlocksAssignment_2.eContents().get(0);
+		private final Assignment cConditionsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cConditionsExpressionParserRuleCall_0_0 = (RuleCall)cConditionsAssignment_0.eContents().get(0);
+		private final Assignment cIfBlocksAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIfBlocksBracedBlockParserRuleCall_1_0 = (RuleCall)cIfBlocksAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cElseifKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cConditionsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cConditionsExpressionParserRuleCall_2_1_0 = (RuleCall)cConditionsAssignment_2_1.eContents().get(0);
+		private final Assignment cIfBlocksAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cIfBlocksBracedBlockParserRuleCall_2_2_0 = (RuleCall)cIfBlocksAssignment_2_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cElseifKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cConditionsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cConditionsExpressionParserRuleCall_3_1_0 = (RuleCall)cConditionsAssignment_3_1.eContents().get(0);
-		private final Assignment cIfBlocksAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cIfBlocksBracedBlockParserRuleCall_3_2_0 = (RuleCall)cIfBlocksAssignment_3_2.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cElseKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cElseBlockAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cElseBlockBracedBlockParserRuleCall_4_1_0 = (RuleCall)cElseBlockAssignment_4_1.eContents().get(0);
+		private final Keyword cElseKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cElseBlockAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cElseBlockBracedBlockParserRuleCall_3_1_0 = (RuleCall)cElseBlockAssignment_3_1.eContents().get(0);
 		
 		//IfConditions:
-		//    {IfConditions}
 		//    conditions+=Expression ifBlocks+=BracedBlock
 		//    ('elseif' conditions+=Expression ifBlocks+=BracedBlock)*
 		//    ('else' elseBlock=BracedBlock)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IfConditions}
 		//conditions+=Expression ifBlocks+=BracedBlock
 		//('elseif' conditions+=Expression ifBlocks+=BracedBlock)*
 		//('else' elseBlock=BracedBlock)?
 		public Group getGroup() { return cGroup; }
 		
-		//{IfConditions}
-		public Action getIfConditionsAction_0() { return cIfConditionsAction_0; }
-		
 		//conditions+=Expression
-		public Assignment getConditionsAssignment_1() { return cConditionsAssignment_1; }
+		public Assignment getConditionsAssignment_0() { return cConditionsAssignment_0; }
 		
 		//Expression
-		public RuleCall getConditionsExpressionParserRuleCall_1_0() { return cConditionsExpressionParserRuleCall_1_0; }
+		public RuleCall getConditionsExpressionParserRuleCall_0_0() { return cConditionsExpressionParserRuleCall_0_0; }
 		
 		//ifBlocks+=BracedBlock
-		public Assignment getIfBlocksAssignment_2() { return cIfBlocksAssignment_2; }
+		public Assignment getIfBlocksAssignment_1() { return cIfBlocksAssignment_1; }
 		
 		//BracedBlock
-		public RuleCall getIfBlocksBracedBlockParserRuleCall_2_0() { return cIfBlocksBracedBlockParserRuleCall_2_0; }
+		public RuleCall getIfBlocksBracedBlockParserRuleCall_1_0() { return cIfBlocksBracedBlockParserRuleCall_1_0; }
 		
 		//('elseif' conditions+=Expression ifBlocks+=BracedBlock)*
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'elseif'
-		public Keyword getElseifKeyword_3_0() { return cElseifKeyword_3_0; }
+		public Keyword getElseifKeyword_2_0() { return cElseifKeyword_2_0; }
 		
 		//conditions+=Expression
-		public Assignment getConditionsAssignment_3_1() { return cConditionsAssignment_3_1; }
+		public Assignment getConditionsAssignment_2_1() { return cConditionsAssignment_2_1; }
 		
 		//Expression
-		public RuleCall getConditionsExpressionParserRuleCall_3_1_0() { return cConditionsExpressionParserRuleCall_3_1_0; }
+		public RuleCall getConditionsExpressionParserRuleCall_2_1_0() { return cConditionsExpressionParserRuleCall_2_1_0; }
 		
 		//ifBlocks+=BracedBlock
-		public Assignment getIfBlocksAssignment_3_2() { return cIfBlocksAssignment_3_2; }
+		public Assignment getIfBlocksAssignment_2_2() { return cIfBlocksAssignment_2_2; }
 		
 		//BracedBlock
-		public RuleCall getIfBlocksBracedBlockParserRuleCall_3_2_0() { return cIfBlocksBracedBlockParserRuleCall_3_2_0; }
+		public RuleCall getIfBlocksBracedBlockParserRuleCall_2_2_0() { return cIfBlocksBracedBlockParserRuleCall_2_2_0; }
 		
 		//('else' elseBlock=BracedBlock)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'else'
-		public Keyword getElseKeyword_4_0() { return cElseKeyword_4_0; }
+		public Keyword getElseKeyword_3_0() { return cElseKeyword_3_0; }
 		
 		//elseBlock=BracedBlock
-		public Assignment getElseBlockAssignment_4_1() { return cElseBlockAssignment_4_1; }
+		public Assignment getElseBlockAssignment_3_1() { return cElseBlockAssignment_3_1; }
 		
 		//BracedBlock
-		public RuleCall getElseBlockBracedBlockParserRuleCall_4_1_0() { return cElseBlockBracedBlockParserRuleCall_4_1_0; }
+		public RuleCall getElseBlockBracedBlockParserRuleCall_3_1_0() { return cElseBlockBracedBlockParserRuleCall_3_1_0; }
 	}
 	public class WhileElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.While");
@@ -1723,31 +1735,29 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class FunctionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Function");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cFunctionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cFunctionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cParametersAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cParametersParameterParserRuleCall_4_0_0 = (RuleCall)cParametersAssignment_4_0.eContents().get(0);
-		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
-		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cParametersAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cParametersParameterParserRuleCall_4_1_1_0 = (RuleCall)cParametersAssignment_4_1_1.eContents().get(0);
-		private final Keyword cCommaKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cReturnTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cReturnTypeTypeAnnotationParserRuleCall_6_0 = (RuleCall)cReturnTypeAssignment_6.eContents().get(0);
-		private final Assignment cBodyAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cBodyBracedBlockParserRuleCall_7_0 = (RuleCall)cBodyAssignment_7.eContents().get(0);
+		private final Keyword cFunctionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cBindingAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBindingBindingParserRuleCall_1_0 = (RuleCall)cBindingAssignment_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cParametersAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cParametersParameterParserRuleCall_3_0_0 = (RuleCall)cParametersAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cParametersAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cParametersParameterParserRuleCall_3_1_1_0 = (RuleCall)cParametersAssignment_3_1_1.eContents().get(0);
+		private final Keyword cCommaKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cReturnTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cReturnTypeTypeAnnotationParserRuleCall_5_0 = (RuleCall)cReturnTypeAssignment_5.eContents().get(0);
+		private final Assignment cBodyAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cBodyBracedBlockParserRuleCall_6_0 = (RuleCall)cBodyAssignment_6.eContents().get(0);
 		
 		///*************************************************************
 		// * Functions
 		// ************************************************************/
-		//Function returns Binding:
-		//    {Function}
-		//    'function' name=ID '('
+		//Function:
+		//    'function' binding=Binding '('
 		//        (parameters+=Parameter (',' parameters+=Parameter)* ','?)?
 		//    ')'
 		//    (returnType=TypeAnnotation)?
@@ -1755,67 +1765,63 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Function}
-		//'function' name=ID '('
+		//'function' binding=Binding '('
 		//    (parameters+=Parameter (',' parameters+=Parameter)* ','?)?
 		//')'
 		//(returnType=TypeAnnotation)?
 		//body=BracedBlock
 		public Group getGroup() { return cGroup; }
 		
-		//{Function}
-		public Action getFunctionAction_0() { return cFunctionAction_0; }
-		
 		//'function'
-		public Keyword getFunctionKeyword_1() { return cFunctionKeyword_1; }
+		public Keyword getFunctionKeyword_0() { return cFunctionKeyword_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//binding=Binding
+		public Assignment getBindingAssignment_1() { return cBindingAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//Binding
+		public RuleCall getBindingBindingParserRuleCall_1_0() { return cBindingBindingParserRuleCall_1_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 		
 		//(parameters+=Parameter (',' parameters+=Parameter)* ','?)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//parameters+=Parameter
-		public Assignment getParametersAssignment_4_0() { return cParametersAssignment_4_0; }
+		public Assignment getParametersAssignment_3_0() { return cParametersAssignment_3_0; }
 		
 		//Parameter
-		public RuleCall getParametersParameterParserRuleCall_4_0_0() { return cParametersParameterParserRuleCall_4_0_0; }
+		public RuleCall getParametersParameterParserRuleCall_3_0_0() { return cParametersParameterParserRuleCall_3_0_0; }
 		
 		//(',' parameters+=Parameter)*
-		public Group getGroup_4_1() { return cGroup_4_1; }
+		public Group getGroup_3_1() { return cGroup_3_1; }
 		
 		//','
-		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
 		
 		//parameters+=Parameter
-		public Assignment getParametersAssignment_4_1_1() { return cParametersAssignment_4_1_1; }
+		public Assignment getParametersAssignment_3_1_1() { return cParametersAssignment_3_1_1; }
 		
 		//Parameter
-		public RuleCall getParametersParameterParserRuleCall_4_1_1_0() { return cParametersParameterParserRuleCall_4_1_1_0; }
+		public RuleCall getParametersParameterParserRuleCall_3_1_1_0() { return cParametersParameterParserRuleCall_3_1_1_0; }
 		
 		//','?
-		public Keyword getCommaKeyword_4_2() { return cCommaKeyword_4_2; }
+		public Keyword getCommaKeyword_3_2() { return cCommaKeyword_3_2; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 		
 		//(returnType=TypeAnnotation)?
-		public Assignment getReturnTypeAssignment_6() { return cReturnTypeAssignment_6; }
+		public Assignment getReturnTypeAssignment_5() { return cReturnTypeAssignment_5; }
 		
 		//TypeAnnotation
-		public RuleCall getReturnTypeTypeAnnotationParserRuleCall_6_0() { return cReturnTypeTypeAnnotationParserRuleCall_6_0; }
+		public RuleCall getReturnTypeTypeAnnotationParserRuleCall_5_0() { return cReturnTypeTypeAnnotationParserRuleCall_5_0; }
 		
 		//body=BracedBlock
-		public Assignment getBodyAssignment_7() { return cBodyAssignment_7; }
+		public Assignment getBodyAssignment_6() { return cBodyAssignment_6; }
 		
 		//BracedBlock
-		public RuleCall getBodyBracedBlockParserRuleCall_7_0() { return cBodyBracedBlockParserRuleCall_7_0; }
+		public RuleCall getBodyBracedBlockParserRuleCall_6_0() { return cBodyBracedBlockParserRuleCall_6_0; }
 	}
 	public class ParameterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "willburden.hale.Hale.Parameter");
@@ -1823,19 +1829,19 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Action cParameterAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cMutableAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cMutableMutKeyword_1_0 = (Keyword)cMutableAssignment_1.eContents().get(0);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cBindingAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBindingBindingParserRuleCall_2_0 = (RuleCall)cBindingAssignment_2.eContents().get(0);
 		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTypeTypeAnnotationParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		
-		//Parameter returns Binding:
+		//Parameter:
 		//    {Parameter}
-		//    (mutable?='mut')? name=ID type=TypeAnnotation
+		//    (mutable?='mut')? binding=Binding type=TypeAnnotation
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Parameter}
-		//(mutable?='mut')? name=ID type=TypeAnnotation
+		//(mutable?='mut')? binding=Binding type=TypeAnnotation
 		public Group getGroup() { return cGroup; }
 		
 		//{Parameter}
@@ -1847,11 +1853,11 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'mut'
 		public Keyword getMutableMutKeyword_1_0() { return cMutableMutKeyword_1_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//binding=Binding
+		public Assignment getBindingAssignment_2() { return cBindingAssignment_2; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//Binding
+		public RuleCall getBindingBindingParserRuleCall_2_0() { return cBindingBindingParserRuleCall_2_0; }
 		
 		//type=TypeAnnotation
 		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
@@ -1948,6 +1954,7 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final EitherTypeElements pEitherType;
 	private final PrimaryTypeElements pPrimaryType;
 	private final PrimitiveTypeElements pPrimitiveType;
+	private final BindingElements pBinding;
 	private final LetBindingElements pLetBinding;
 	private final BindingReferenceElements pBindingReference;
 	private final AssignmentElements pAssignment;
@@ -2004,6 +2011,7 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pEitherType = new EitherTypeElements();
 		this.pPrimaryType = new PrimaryTypeElements();
 		this.pPrimitiveType = new PrimitiveTypeElements();
+		this.pBinding = new BindingElements();
 		this.pLetBinding = new LetBindingElements();
 		this.pBindingReference = new BindingReferenceElements();
 		this.pAssignment = new AssignmentElements();
@@ -2417,9 +2425,20 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	///*************************************************************
 	// * Bindings
 	// ************************************************************/
-	//LetBinding returns Binding:
-	//    {LetBinding}
-	//    'let' (mutable?='mut')? name=ID (type=TypeAnnotation)? '=' expression=Expression
+	//Binding:
+	//    name=ID
+	//;
+	public BindingElements getBindingAccess() {
+		return pBinding;
+	}
+	
+	public ParserRule getBindingRule() {
+		return getBindingAccess().getRule();
+	}
+	
+	//LetBinding:
+	//    'let' (mutable?='mut')? binding=Binding
+	//    (type=TypeAnnotation)? '=' expression=Expression
 	//;
 	public LetBindingElements getLetBindingAccess() {
 		return pLetBinding;
@@ -2490,9 +2509,9 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getIfAccess().getRule();
 	}
 	
-	//IfLet returns Binding:
-	//    {IfLet}
-	//    'let' name=ID (type=TypeAnnotation)? '=' expression=Expression
+	//IfLet:
+	//    'let' (mutable?='mut')? binding=Binding (type=TypeAnnotation)?
+	//    '=' expression=Expression
 	//        ifBlock=BracedBlock
 	//    ('else' elseLet=ElseLet)?
 	//;
@@ -2504,9 +2523,8 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getIfLetAccess().getRule();
 	}
 	
-	//ElseLet returns Binding:
-	//    {ElseLet}
-	//    ('let' name=ID (type=TypeAnnotation)?)?
+	//ElseLet:
+	//    ('let' (mutable?='mut')? binding=Binding (type=TypeAnnotation)?)?
 	//        elseBlock=BracedBlock
 	//;
 	public ElseLetElements getElseLetAccess() {
@@ -2518,7 +2536,6 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//IfConditions:
-	//    {IfConditions}
 	//    conditions+=Expression ifBlocks+=BracedBlock
 	//    ('elseif' conditions+=Expression ifBlocks+=BracedBlock)*
 	//    ('else' elseBlock=BracedBlock)?
@@ -2556,9 +2573,8 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	///*************************************************************
 	// * Functions
 	// ************************************************************/
-	//Function returns Binding:
-	//    {Function}
-	//    'function' name=ID '('
+	//Function:
+	//    'function' binding=Binding '('
 	//        (parameters+=Parameter (',' parameters+=Parameter)* ','?)?
 	//    ')'
 	//    (returnType=TypeAnnotation)?
@@ -2572,9 +2588,9 @@ public class HaleGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getFunctionAccess().getRule();
 	}
 	
-	//Parameter returns Binding:
+	//Parameter:
 	//    {Parameter}
-	//    (mutable?='mut')? name=ID type=TypeAnnotation
+	//    (mutable?='mut')? binding=Binding type=TypeAnnotation
 	//;
 	public ParameterElements getParameterAccess() {
 		return pParameter;

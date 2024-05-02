@@ -131,6 +131,11 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
         return createBindingAdapter();
       }
       @Override
+      public Adapter caseLetBinding(LetBinding object)
+      {
+        return createLetBindingAdapter();
+      }
+      @Override
       public Adapter caseBindingReference(BindingReference object)
       {
         return createBindingReferenceAdapter();
@@ -156,6 +161,16 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
         return createIfAdapter();
       }
       @Override
+      public Adapter caseIfLet(IfLet object)
+      {
+        return createIfLetAdapter();
+      }
+      @Override
+      public Adapter caseElseLet(ElseLet object)
+      {
+        return createElseLetAdapter();
+      }
+      @Override
       public Adapter caseIfConditions(IfConditions object)
       {
         return createIfConditionsAdapter();
@@ -169,6 +184,16 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBreak(Break object)
       {
         return createBreakAdapter();
+      }
+      @Override
+      public Adapter caseFunction(Function object)
+      {
+        return createFunctionAdapter();
+      }
+      @Override
+      public Adapter caseParameter(Parameter object)
+      {
+        return createParameterAdapter();
       }
       @Override
       public Adapter caseReturn(Return object)
@@ -289,31 +314,6 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
       public Adapter casePrimitiveType(PrimitiveType object)
       {
         return createPrimitiveTypeAdapter();
-      }
-      @Override
-      public Adapter caseLetBinding(LetBinding object)
-      {
-        return createLetBindingAdapter();
-      }
-      @Override
-      public Adapter caseIfLet(IfLet object)
-      {
-        return createIfLetAdapter();
-      }
-      @Override
-      public Adapter caseElseLet(ElseLet object)
-      {
-        return createElseLetAdapter();
-      }
-      @Override
-      public Adapter caseFunction(Function object)
-      {
-        return createFunctionAdapter();
-      }
-      @Override
-      public Adapter caseParameter(Parameter object)
-      {
-        return createParameterAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -503,6 +503,21 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.LetBinding <em>Let Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.LetBinding
+   * @generated
+   */
+  public Adapter createLetBindingAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link willburden.hale.hale.BindingReference <em>Binding Reference</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -578,6 +593,36 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.IfLet <em>If Let</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.IfLet
+   * @generated
+   */
+  public Adapter createIfLetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.ElseLet <em>Else Let</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.ElseLet
+   * @generated
+   */
+  public Adapter createElseLetAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link willburden.hale.hale.IfConditions <em>If Conditions</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -618,6 +663,36 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBreakAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Function
+   * @generated
+   */
+  public Adapter createFunctionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Parameter
+   * @generated
+   */
+  public Adapter createParameterAdapter()
   {
     return null;
   }
@@ -978,81 +1053,6 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPrimitiveTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.LetBinding <em>Let Binding</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.LetBinding
-   * @generated
-   */
-  public Adapter createLetBindingAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.IfLet <em>If Let</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.IfLet
-   * @generated
-   */
-  public Adapter createIfLetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.ElseLet <em>Else Let</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.ElseLet
-   * @generated
-   */
-  public Adapter createElseLetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Function <em>Function</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.Function
-   * @generated
-   */
-  public Adapter createFunctionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Parameter <em>Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.Parameter
-   * @generated
-   */
-  public Adapter createParameterAdapter()
   {
     return null;
   }

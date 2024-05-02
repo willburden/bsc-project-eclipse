@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import willburden.hale.hale.Binding;
 import willburden.hale.hale.Block;
+import willburden.hale.hale.ElseLet;
 import willburden.hale.hale.Expression;
 import willburden.hale.hale.HalePackage;
 import willburden.hale.hale.IfLet;
@@ -26,6 +27,8 @@ import willburden.hale.hale.Type;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link willburden.hale.hale.impl.IfLetImpl#isMutable <em>Mutable</em>}</li>
+ *   <li>{@link willburden.hale.hale.impl.IfLetImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.IfLetImpl#getType <em>Type</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.IfLetImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link willburden.hale.hale.impl.IfLetImpl#getIfBlock <em>If Block</em>}</li>
@@ -34,8 +37,38 @@ import willburden.hale.hale.Type;
  *
  * @generated
  */
-public class IfLetImpl extends BindingImpl implements IfLet
+public class IfLetImpl extends IfImpl implements IfLet
 {
+  /**
+   * The default value of the '{@link #isMutable() <em>Mutable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isMutable()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean MUTABLE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isMutable() <em>Mutable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isMutable()
+   * @generated
+   * @ordered
+   */
+  protected boolean mutable = MUTABLE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBinding()
+   * @generated
+   * @ordered
+   */
+  protected Binding binding;
+
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -74,7 +107,7 @@ public class IfLetImpl extends BindingImpl implements IfLet
    * @generated
    * @ordered
    */
-  protected Binding elseLet;
+  protected ElseLet elseLet;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,6 +128,81 @@ public class IfLetImpl extends BindingImpl implements IfLet
   protected EClass eStaticClass()
   {
     return HalePackage.Literals.IF_LET;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean isMutable()
+  {
+    return mutable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setMutable(boolean newMutable)
+  {
+    boolean oldMutable = mutable;
+    mutable = newMutable;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.IF_LET__MUTABLE, oldMutable, mutable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Binding getBinding()
+  {
+    return binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBinding(Binding newBinding, NotificationChain msgs)
+  {
+    Binding oldBinding = binding;
+    binding = newBinding;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.IF_LET__BINDING, oldBinding, newBinding);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBinding(Binding newBinding)
+  {
+    if (newBinding != binding)
+    {
+      NotificationChain msgs = null;
+      if (binding != null)
+        msgs = ((InternalEObject)binding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.IF_LET__BINDING, null, msgs);
+      if (newBinding != null)
+        msgs = ((InternalEObject)newBinding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.IF_LET__BINDING, null, msgs);
+      msgs = basicSetBinding(newBinding, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.IF_LET__BINDING, newBinding, newBinding));
   }
 
   /**
@@ -253,7 +361,7 @@ public class IfLetImpl extends BindingImpl implements IfLet
    * @generated
    */
   @Override
-  public Binding getElseLet()
+  public ElseLet getElseLet()
   {
     return elseLet;
   }
@@ -263,9 +371,9 @@ public class IfLetImpl extends BindingImpl implements IfLet
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetElseLet(Binding newElseLet, NotificationChain msgs)
+  public NotificationChain basicSetElseLet(ElseLet newElseLet, NotificationChain msgs)
   {
-    Binding oldElseLet = elseLet;
+    ElseLet oldElseLet = elseLet;
     elseLet = newElseLet;
     if (eNotificationRequired())
     {
@@ -281,7 +389,7 @@ public class IfLetImpl extends BindingImpl implements IfLet
    * @generated
    */
   @Override
-  public void setElseLet(Binding newElseLet)
+  public void setElseLet(ElseLet newElseLet)
   {
     if (newElseLet != elseLet)
     {
@@ -307,6 +415,8 @@ public class IfLetImpl extends BindingImpl implements IfLet
   {
     switch (featureID)
     {
+      case HalePackage.IF_LET__BINDING:
+        return basicSetBinding(null, msgs);
       case HalePackage.IF_LET__TYPE:
         return basicSetType(null, msgs);
       case HalePackage.IF_LET__EXPRESSION:
@@ -329,6 +439,10 @@ public class IfLetImpl extends BindingImpl implements IfLet
   {
     switch (featureID)
     {
+      case HalePackage.IF_LET__MUTABLE:
+        return isMutable();
+      case HalePackage.IF_LET__BINDING:
+        return getBinding();
       case HalePackage.IF_LET__TYPE:
         return getType();
       case HalePackage.IF_LET__EXPRESSION:
@@ -351,6 +465,12 @@ public class IfLetImpl extends BindingImpl implements IfLet
   {
     switch (featureID)
     {
+      case HalePackage.IF_LET__MUTABLE:
+        setMutable((Boolean)newValue);
+        return;
+      case HalePackage.IF_LET__BINDING:
+        setBinding((Binding)newValue);
+        return;
       case HalePackage.IF_LET__TYPE:
         setType((Type)newValue);
         return;
@@ -361,7 +481,7 @@ public class IfLetImpl extends BindingImpl implements IfLet
         setIfBlock((Block)newValue);
         return;
       case HalePackage.IF_LET__ELSE_LET:
-        setElseLet((Binding)newValue);
+        setElseLet((ElseLet)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -377,6 +497,12 @@ public class IfLetImpl extends BindingImpl implements IfLet
   {
     switch (featureID)
     {
+      case HalePackage.IF_LET__MUTABLE:
+        setMutable(MUTABLE_EDEFAULT);
+        return;
+      case HalePackage.IF_LET__BINDING:
+        setBinding((Binding)null);
+        return;
       case HalePackage.IF_LET__TYPE:
         setType((Type)null);
         return;
@@ -387,7 +513,7 @@ public class IfLetImpl extends BindingImpl implements IfLet
         setIfBlock((Block)null);
         return;
       case HalePackage.IF_LET__ELSE_LET:
-        setElseLet((Binding)null);
+        setElseLet((ElseLet)null);
         return;
     }
     super.eUnset(featureID);
@@ -403,6 +529,10 @@ public class IfLetImpl extends BindingImpl implements IfLet
   {
     switch (featureID)
     {
+      case HalePackage.IF_LET__MUTABLE:
+        return mutable != MUTABLE_EDEFAULT;
+      case HalePackage.IF_LET__BINDING:
+        return binding != null;
       case HalePackage.IF_LET__TYPE:
         return type != null;
       case HalePackage.IF_LET__EXPRESSION:
@@ -413,6 +543,23 @@ public class IfLetImpl extends BindingImpl implements IfLet
         return elseLet != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (mutable: ");
+    result.append(mutable);
+    result.append(')');
+    return result.toString();
   }
 
 } //IfLetImpl

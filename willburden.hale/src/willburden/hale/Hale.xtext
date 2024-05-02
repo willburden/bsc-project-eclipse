@@ -185,9 +185,13 @@ PrimitiveType returns Type:
  * Bindings
  ************************************************************/
 
-LetBinding returns Binding:
-	{LetBinding}
-	'let' (mutable?='mut')? name=ID (type=TypeAnnotation)? '=' expression=Expression
+Binding:
+	name=ID
+;
+
+LetBinding:
+	'let' (mutable?='mut')? binding=Binding
+	(type=TypeAnnotation)? '=' expression=Expression
 ;
 
 BindingReference:
@@ -218,21 +222,19 @@ If:
 	'if' (IfLet | IfConditions)
 ;
 
-IfLet returns Binding:
-	{IfLet}
-	'let' name=ID (type=TypeAnnotation)? '=' expression=Expression
+IfLet:
+	'let' (mutable?='mut')? binding=Binding (type=TypeAnnotation)?
+	'=' expression=Expression
 		ifBlock=BracedBlock
 	('else' elseLet=ElseLet)?
 ;
 
-ElseLet returns Binding:
-	{ElseLet}
-	('let' name=ID (type=TypeAnnotation)?)?
+ElseLet:
+	('let' (mutable?='mut')? binding=Binding (type=TypeAnnotation)?)?
 		elseBlock=BracedBlock
 ;
 
 IfConditions:
-	{IfConditions}
 	conditions+=Expression ifBlocks+=BracedBlock
 	('elseif' conditions+=Expression ifBlocks+=BracedBlock)*
 	('else' elseBlock=BracedBlock)?
@@ -250,18 +252,17 @@ Break:
  * Functions
  ************************************************************/
 
-Function returns Binding:
-	{Function}
-	'function' name=ID '('
+Function:
+	'function' binding=Binding '('
 		(parameters+=Parameter (',' parameters+=Parameter)* ','?)?
 	')'
 	(returnType=TypeAnnotation)?
 	body=BracedBlock
 ;
 
-Parameter returns Binding:
+Parameter:
 	{Parameter}
-	(mutable?='mut')? name=ID type=TypeAnnotation
+	(mutable?='mut')? binding=Binding type=TypeAnnotation
 ;
 
 Return:

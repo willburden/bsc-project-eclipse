@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import willburden.hale.hale.Binding;
 import willburden.hale.hale.HalePackage;
@@ -25,7 +26,7 @@ import willburden.hale.hale.HalePackage;
  *
  * @generated
  */
-public class BindingImpl extends StatementImpl implements Binding
+public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

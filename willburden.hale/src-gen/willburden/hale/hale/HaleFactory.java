@@ -123,6 +123,15 @@ public interface HaleFactory extends EFactory
   Binding createBinding();
 
   /**
+   * Returns a new object of class '<em>Let Binding</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let Binding</em>'.
+   * @generated
+   */
+  LetBinding createLetBinding();
+
+  /**
    * Returns a new object of class '<em>Binding Reference</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -168,6 +177,24 @@ public interface HaleFactory extends EFactory
   If createIf();
 
   /**
+   * Returns a new object of class '<em>If Let</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Let</em>'.
+   * @generated
+   */
+  IfLet createIfLet();
+
+  /**
+   * Returns a new object of class '<em>Else Let</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Else Let</em>'.
+   * @generated
+   */
+  ElseLet createElseLet();
+
+  /**
    * Returns a new object of class '<em>If Conditions</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -193,6 +220,24 @@ public interface HaleFactory extends EFactory
    * @generated
    */
   Break createBreak();
+
+  /**
+   * Returns a new object of class '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function</em>'.
+   * @generated
+   */
+  Function createFunction();
+
+  /**
+   * Returns a new object of class '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter</em>'.
+   * @generated
+   */
+  Parameter createParameter();
 
   /**
    * Returns a new object of class '<em>Return</em>'.
@@ -409,51 +454,6 @@ public interface HaleFactory extends EFactory
    * @generated
    */
   PrimitiveType createPrimitiveType();
-
-  /**
-   * Returns a new object of class '<em>Let Binding</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Let Binding</em>'.
-   * @generated
-   */
-  LetBinding createLetBinding();
-
-  /**
-   * Returns a new object of class '<em>If Let</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>If Let</em>'.
-   * @generated
-   */
-  IfLet createIfLet();
-
-  /**
-   * Returns a new object of class '<em>Else Let</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Else Let</em>'.
-   * @generated
-   */
-  ElseLet createElseLet();
-
-  /**
-   * Returns a new object of class '<em>Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function</em>'.
-   * @generated
-   */
-  Function createFunction();
-
-  /**
-   * Returns a new object of class '<em>Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter</em>'.
-   * @generated
-   */
-  Parameter createParameter();
 
   /**
    * Returns the package supported by this factory.

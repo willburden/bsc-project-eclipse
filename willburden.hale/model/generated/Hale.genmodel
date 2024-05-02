@@ -29,6 +29,12 @@
     <genClasses ecoreClass="Hale.ecore#//Binding">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//Binding/name"/>
     </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//LetBinding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//LetBinding/mutable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LetBinding/binding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LetBinding/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LetBinding/expression"/>
+    </genClasses>
     <genClasses ecoreClass="Hale.ecore#//BindingReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Hale.ecore#//BindingReference/binding"/>
     </genClasses>
@@ -41,6 +47,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Print/expression"/>
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//If"/>
+    <genClasses ecoreClass="Hale.ecore#//IfLet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//IfLet/mutable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfLet/binding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfLet/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfLet/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfLet/ifBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfLet/elseLet"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//ElseLet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//ElseLet/mutable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//ElseLet/binding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//ElseLet/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//ElseLet/elseBlock"/>
+    </genClasses>
     <genClasses ecoreClass="Hale.ecore#//IfConditions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfConditions/conditions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfConditions/ifBlocks"/>
@@ -51,6 +71,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//While/block"/>
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//Break"/>
+    <genClasses ecoreClass="Hale.ecore#//Function">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Function/binding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Function/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Function/returnType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Function/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//Parameter/mutable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Parameter/binding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Parameter/type"/>
+    </genClasses>
     <genClasses ecoreClass="Hale.ecore#//Return">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Return/expression"/>
     </genClasses>
@@ -141,30 +172,6 @@
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//PrimitiveType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//PrimitiveType/type"/>
-    </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//LetBinding">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//LetBinding/mutable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LetBinding/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//LetBinding/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//IfLet">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfLet/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfLet/expression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfLet/ifBlock"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//IfLet/elseLet"/>
-    </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//ElseLet">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//ElseLet/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//ElseLet/elseBlock"/>
-    </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//Function">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Function/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Function/returnType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Function/body"/>
-    </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//Parameter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//Parameter/mutable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Parameter/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -13,6 +13,8 @@ package willburden.hale.hale;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link willburden.hale.hale.IfLet#isMutable <em>Mutable</em>}</li>
+ *   <li>{@link willburden.hale.hale.IfLet#getBinding <em>Binding</em>}</li>
  *   <li>{@link willburden.hale.hale.IfLet#getType <em>Type</em>}</li>
  *   <li>{@link willburden.hale.hale.IfLet#getExpression <em>Expression</em>}</li>
  *   <li>{@link willburden.hale.hale.IfLet#getIfBlock <em>If Block</em>}</li>
@@ -23,8 +25,52 @@ package willburden.hale.hale;
  * @model
  * @generated
  */
-public interface IfLet extends Binding
+public interface IfLet extends If
 {
+  /**
+   * Returns the value of the '<em><b>Mutable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mutable</em>' attribute.
+   * @see #setMutable(boolean)
+   * @see willburden.hale.hale.HalePackage#getIfLet_Mutable()
+   * @model
+   * @generated
+   */
+  boolean isMutable();
+
+  /**
+   * Sets the value of the '{@link willburden.hale.hale.IfLet#isMutable <em>Mutable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Mutable</em>' attribute.
+   * @see #isMutable()
+   * @generated
+   */
+  void setMutable(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Binding</em>' containment reference.
+   * @see #setBinding(Binding)
+   * @see willburden.hale.hale.HalePackage#getIfLet_Binding()
+   * @model containment="true"
+   * @generated
+   */
+  Binding getBinding();
+
+  /**
+   * Sets the value of the '{@link willburden.hale.hale.IfLet#getBinding <em>Binding</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Binding</em>' containment reference.
+   * @see #getBinding()
+   * @generated
+   */
+  void setBinding(Binding value);
+
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -96,12 +142,12 @@ public interface IfLet extends Binding
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Else Let</em>' containment reference.
-   * @see #setElseLet(Binding)
+   * @see #setElseLet(ElseLet)
    * @see willburden.hale.hale.HalePackage#getIfLet_ElseLet()
    * @model containment="true"
    * @generated
    */
-  Binding getElseLet();
+  ElseLet getElseLet();
 
   /**
    * Sets the value of the '{@link willburden.hale.hale.IfLet#getElseLet <em>Else Let</em>}' containment reference.
@@ -111,6 +157,6 @@ public interface IfLet extends Binding
    * @see #getElseLet()
    * @generated
    */
-  void setElseLet(Binding value);
+  void setElseLet(ElseLet value);
 
 } // IfLet

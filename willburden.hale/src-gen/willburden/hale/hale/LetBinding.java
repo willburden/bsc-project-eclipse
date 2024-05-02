@@ -14,6 +14,7 @@ package willburden.hale.hale;
  * </p>
  * <ul>
  *   <li>{@link willburden.hale.hale.LetBinding#isMutable <em>Mutable</em>}</li>
+ *   <li>{@link willburden.hale.hale.LetBinding#getBinding <em>Binding</em>}</li>
  *   <li>{@link willburden.hale.hale.LetBinding#getType <em>Type</em>}</li>
  *   <li>{@link willburden.hale.hale.LetBinding#getExpression <em>Expression</em>}</li>
  * </ul>
@@ -22,7 +23,7 @@ package willburden.hale.hale;
  * @model
  * @generated
  */
-public interface LetBinding extends Binding
+public interface LetBinding extends Statement
 {
   /**
    * Returns the value of the '<em><b>Mutable</b></em>' attribute.
@@ -45,6 +46,28 @@ public interface LetBinding extends Binding
    * @generated
    */
   void setMutable(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Binding</em>' containment reference.
+   * @see #setBinding(Binding)
+   * @see willburden.hale.hale.HalePackage#getLetBinding_Binding()
+   * @model containment="true"
+   * @generated
+   */
+  Binding getBinding();
+
+  /**
+   * Sets the value of the '{@link willburden.hale.hale.LetBinding#getBinding <em>Binding</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Binding</em>' containment reference.
+   * @see #getBinding()
+   * @generated
+   */
+  void setBinding(Binding value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.

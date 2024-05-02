@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 import willburden.hale.hale.Addition;
 import willburden.hale.hale.Application;
 import willburden.hale.hale.Assignment;
-import willburden.hale.hale.Binding;
 import willburden.hale.hale.BindingReference;
 import willburden.hale.hale.Block;
 import willburden.hale.hale.BooleanLiteral;
@@ -142,13 +141,13 @@ public class Interpreter {
 	}
 
 	private void execFunction(Function function) {
-		stack.put(function.getName(), new HaleFunction(buildFunctionType(function), function));
+		stack.put(function.getBinding().getName(), new HaleFunction(buildFunctionType(function), function));
 	}
 
 	private HaleFunctionType buildFunctionType(Function function) {
 		List<HaleType> paramTypes = new ArrayList<>();
-		for (Binding param : function.getParameters()) {
-			paramTypes.add(resolveType(((Parameter) param).getType()));
+		for (Parameter param : function.getParameters()) {
+			paramTypes.add(resolveType(param.getType()));
 		}
 		
 		HaleType returnType = function.getReturnType() == null
@@ -204,14 +203,14 @@ public class Interpreter {
 		// here in this method and then call execBlockStatements instead of execBlock.
 		stack.pushScope();
 		if (either.isLeft()) {
-			stack.put(ifLet.getName(), either.value());
+			stack.put(ifLet.getBinding().getName(), either.value());
 			
 			execBlockStatements(ifLet.getIfBlock()); // Doesn't create a redundant new scope.
 			
 		} else if (elseLet != null) {
-			if (elseLet.getName() != null) {
+			if (elseLet.getBinding() != null) {
 				// We need to create a binding for the right outcome value.
-				stack.put(elseLet.getName(), either.value());
+				stack.put(elseLet.getBinding().getName(), either.value());
 			}
 			
 			execBlockStatements(elseLet.getElseBlock());
@@ -296,7 +295,7 @@ public class Interpreter {
 			}
 		}
 
-		stack.put(letBinding.getName(), value);
+		stack.put(letBinding.getBinding().getName(), value);
 	}
 
 	private void execAssignment(Assignment assignment) {
@@ -554,10 +553,10 @@ public class Interpreter {
 		for (int i = 0; i < numParams; i++) {
 			// Create a binding. We also check the type annotations match here.
 			HaleType paramType = function.type().paramTypes().get(i);
-			String paramName = function.value().getParameters().get(i).getName();
+			String paramName = function.value().getParameters().get(i).getBinding().getName();
 			HaleValue argument = arguments.get(i);
 
-			if (paramType != argument.type()) {
+			if (!paramType.typeEquals(argument.type())) {
 				throw new InterpreterException(ErrorMessages.functionApplicationFailed(), new InterpreterException(
 						ErrorMessages.argumentOfWrongType(argument, paramName, paramType)));
 			}

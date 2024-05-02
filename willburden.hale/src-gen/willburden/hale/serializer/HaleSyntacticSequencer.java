@@ -25,7 +25,7 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Expression0_LeftParenthesisKeyword_3_0_p;
 	protected AbstractElementAlias match_Expression1_CommaKeyword_1_2_2_q;
 	protected AbstractElementAlias match_FunctionType_CommaKeyword_0_3_2_q;
-	protected AbstractElementAlias match_Function_CommaKeyword_4_2_q;
+	protected AbstractElementAlias match_Function_CommaKeyword_3_2_q;
 	protected AbstractElementAlias match_PrimaryType_LeftParenthesisKeyword_1_0_a;
 	protected AbstractElementAlias match_PrimaryType_LeftParenthesisKeyword_1_0_p;
 	
@@ -37,7 +37,7 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Expression0_LeftParenthesisKeyword_3_0_p = new TokenAlias(true, false, grammarAccess.getExpression0Access().getLeftParenthesisKeyword_3_0());
 		match_Expression1_CommaKeyword_1_2_2_q = new TokenAlias(false, true, grammarAccess.getExpression1Access().getCommaKeyword_1_2_2());
 		match_FunctionType_CommaKeyword_0_3_2_q = new TokenAlias(false, true, grammarAccess.getFunctionTypeAccess().getCommaKeyword_0_3_2());
-		match_Function_CommaKeyword_4_2_q = new TokenAlias(false, true, grammarAccess.getFunctionAccess().getCommaKeyword_4_2());
+		match_Function_CommaKeyword_3_2_q = new TokenAlias(false, true, grammarAccess.getFunctionAccess().getCommaKeyword_3_2());
 		match_PrimaryType_LeftParenthesisKeyword_1_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryTypeAccess().getLeftParenthesisKeyword_1_0());
 		match_PrimaryType_LeftParenthesisKeyword_1_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryTypeAccess().getLeftParenthesisKeyword_1_0());
 	}
@@ -64,8 +64,8 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Expression1_CommaKeyword_1_2_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_FunctionType_CommaKeyword_0_3_2_q.equals(syntax))
 				emit_FunctionType_CommaKeyword_0_3_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Function_CommaKeyword_4_2_q.equals(syntax))
-				emit_Function_CommaKeyword_4_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Function_CommaKeyword_3_2_q.equals(syntax))
+				emit_Function_CommaKeyword_3_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PrimaryType_LeftParenthesisKeyword_1_0_a.equals(syntax))
 				emit_PrimaryType_LeftParenthesisKeyword_1_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PrimaryType_LeftParenthesisKeyword_1_0_p.equals(syntax))
@@ -209,7 +209,7 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Function_CommaKeyword_4_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Function_CommaKeyword_3_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
