@@ -41,23 +41,22 @@ public class Standalone {
 		try {
 			interpreter.execute(result.tree());
 		} catch (InterpreterException e) {
-			System.err.printf("Encountered error while interpreting program%n%n");
+			System.err.println("Encountered error while interpreting program");
 			
 			if (e.getMessage() != null) {
-				System.err.println(e.getMessage());
+				System.err.println("\n" + e.getMessage());
 			}
 			
 			Throwable cause = e.getCause();
 			while (cause != null) {
 				if (cause.getMessage() != null) {
-					System.err.println("\nCaused by:");
-					System.err.println(cause.getMessage());
+					System.err.println("\nCaused by:\n" + cause.getMessage());
 				}
 				
 				cause = cause.getCause();
 			}
 			
-			System.err.printf("%nAborting due to error%n");
+			System.err.println("\nAborting due to error");
 			return;
 		}
 	}

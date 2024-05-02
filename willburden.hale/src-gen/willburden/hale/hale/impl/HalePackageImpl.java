@@ -11,35 +11,54 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import willburden.hale.hale.Addition;
+import willburden.hale.hale.Application;
 import willburden.hale.hale.Assignment;
 import willburden.hale.hale.Binding;
 import willburden.hale.hale.BindingReference;
 import willburden.hale.hale.Block;
+import willburden.hale.hale.BooleanLiteral;
+import willburden.hale.hale.Break;
+import willburden.hale.hale.Concatenation;
+import willburden.hale.hale.Conversion;
 import willburden.hale.hale.Division;
+import willburden.hale.hale.EitherType;
+import willburden.hale.hale.ElseLet;
 import willburden.hale.hale.Equality;
 import willburden.hale.hale.Exponentiation;
 import willburden.hale.hale.Expression;
+import willburden.hale.hale.Function;
+import willburden.hale.hale.FunctionType;
 import willburden.hale.hale.GreaterThan;
 import willburden.hale.hale.GreaterThanOrEqual;
 import willburden.hale.hale.Hale;
 import willburden.hale.hale.HaleFactory;
 import willburden.hale.hale.HalePackage;
 import willburden.hale.hale.If;
+import willburden.hale.hale.IfConditions;
+import willburden.hale.hale.IfLet;
 import willburden.hale.hale.Inequality;
+import willburden.hale.hale.Input;
 import willburden.hale.hale.LessThan;
 import willburden.hale.hale.LessThanOrEqual;
+import willburden.hale.hale.LetBinding;
 import willburden.hale.hale.Literal;
 import willburden.hale.hale.LogicalAnd;
 import willburden.hale.hale.LogicalNot;
 import willburden.hale.hale.LogicalOr;
 import willburden.hale.hale.Multiplication;
 import willburden.hale.hale.NumberLiteral;
+import willburden.hale.hale.Parameter;
+import willburden.hale.hale.PrimitiveType;
 import willburden.hale.hale.Print;
 import willburden.hale.hale.Remainder;
+import willburden.hale.hale.Return;
 import willburden.hale.hale.Statement;
 import willburden.hale.hale.StringLiteral;
 import willburden.hale.hale.Subtraction;
+import willburden.hale.hale.Throw;
+import willburden.hale.hale.Type;
 import willburden.hale.hale.UnaryNegation;
+import willburden.hale.hale.VoidLiteral;
 import willburden.hale.hale.While;
 
 /**
@@ -90,6 +109,20 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass voidLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass numberLiteralEClass = null;
 
   /**
@@ -98,6 +131,13 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   private EClass stringLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -125,6 +165,13 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass inputEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass printEClass = null;
 
   /**
@@ -139,7 +186,42 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass ifConditionsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass whileEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass breakEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass returnEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass throwEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass concatenationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -244,6 +326,13 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass conversionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass unaryNegationEClass = null;
 
   /**
@@ -252,6 +341,69 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   private EClass logicalNotEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass applicationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass eitherTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass primitiveTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass letBindingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ifLetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass elseLetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -332,7 +484,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getHale_Block()
+  public EReference getHale_MainBlock()
   {
     return (EReference)haleEClass.getEStructuralFeatures().get(0);
   }
@@ -398,6 +550,39 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
+  public EClass getVoidLiteral()
+  {
+    return voidLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBooleanLiteral()
+  {
+    return booleanLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBooleanLiteral_Value()
+  {
+    return (EAttribute)booleanLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getNumberLiteral()
   {
     return numberLiteralEClass;
@@ -442,6 +627,17 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
+  public EClass getType()
+  {
+    return typeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getBinding()
   {
     return bindingEClass;
@@ -453,31 +649,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EAttribute getBinding_Mutable()
-  {
-    return (EAttribute)bindingEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EAttribute getBinding_Name()
   {
-    return (EAttribute)bindingEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getBinding_Expression()
-  {
-    return (EReference)bindingEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)bindingEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -541,6 +715,17 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
+  public EClass getInput()
+  {
+    return inputEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getPrint()
   {
     return printEClass;
@@ -574,9 +759,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getIf_Conditions()
+  public EClass getIfConditions()
   {
-    return (EReference)ifEClass.getEStructuralFeatures().get(0);
+    return ifConditionsEClass;
   }
 
   /**
@@ -585,9 +770,9 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getIf_IfBlocks()
+  public EReference getIfConditions_Conditions()
   {
-    return (EReference)ifEClass.getEStructuralFeatures().get(1);
+    return (EReference)ifConditionsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -596,9 +781,20 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
-  public EReference getIf_ElseBlock()
+  public EReference getIfConditions_IfBlocks()
   {
-    return (EReference)ifEClass.getEStructuralFeatures().get(2);
+    return (EReference)ifConditionsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfConditions_ElseBlock()
+  {
+    return (EReference)ifConditionsEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -632,6 +828,94 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
   public EReference getWhile_Block()
   {
     return (EReference)whileEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBreak()
+  {
+    return breakEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReturn()
+  {
+    return returnEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReturn_Expression()
+  {
+    return (EReference)returnEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getThrow()
+  {
+    return throwEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getThrow_Expression()
+  {
+    return (EReference)throwEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getConcatenation()
+  {
+    return concatenationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConcatenation_Left()
+  {
+    return (EReference)concatenationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConcatenation_Right()
+  {
+    return (EReference)concatenationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1102,6 +1386,39 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
+  public EClass getConversion()
+  {
+    return conversionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConversion_Left()
+  {
+    return (EReference)conversionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConversion_Right()
+  {
+    return (EReference)conversionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getUnaryNegation()
   {
     return unaryNegationEClass;
@@ -1146,6 +1463,336 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
    * @generated
    */
   @Override
+  public EClass getApplication()
+  {
+    return applicationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getApplication_Expression()
+  {
+    return (EReference)applicationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getApplication_Arguments()
+  {
+    return (EReference)applicationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunctionType()
+  {
+    return functionTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionType_ParamTypes()
+  {
+    return (EReference)functionTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionType_ReturnType()
+  {
+    return (EReference)functionTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEitherType()
+  {
+    return eitherTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEitherType_Left()
+  {
+    return (EReference)eitherTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEitherType_Right()
+  {
+    return (EReference)eitherTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPrimitiveType()
+  {
+    return primitiveTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPrimitiveType_Type()
+  {
+    return (EAttribute)primitiveTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLetBinding()
+  {
+    return letBindingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLetBinding_Mutable()
+  {
+    return (EAttribute)letBindingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLetBinding_Type()
+  {
+    return (EReference)letBindingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLetBinding_Expression()
+  {
+    return (EReference)letBindingEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIfLet()
+  {
+    return ifLetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfLet_Type()
+  {
+    return (EReference)ifLetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfLet_Expression()
+  {
+    return (EReference)ifLetEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfLet_IfBlock()
+  {
+    return (EReference)ifLetEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfLet_ElseLet()
+  {
+    return (EReference)ifLetEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getElseLet()
+  {
+    return elseLetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getElseLet_Type()
+  {
+    return (EReference)elseLetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getElseLet_ElseBlock()
+  {
+    return (EReference)elseLetEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunction()
+  {
+    return functionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunction_Parameters()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunction_ReturnType()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunction_Body()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getParameter()
+  {
+    return parameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getParameter_Mutable()
+  {
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getParameter_Type()
+  {
+    return (EReference)parameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public HaleFactory getHaleFactory()
   {
     return (HaleFactory)getEFactoryInstance();
@@ -1172,7 +1819,7 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
 
     // Create classes and their features
     haleEClass = createEClass(HALE);
-    createEReference(haleEClass, HALE__BLOCK);
+    createEReference(haleEClass, HALE__MAIN_BLOCK);
 
     blockEClass = createEClass(BLOCK);
     createEReference(blockEClass, BLOCK__STATEMENTS);
@@ -1183,16 +1830,21 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
 
     literalEClass = createEClass(LITERAL);
 
+    voidLiteralEClass = createEClass(VOID_LITERAL);
+
+    booleanLiteralEClass = createEClass(BOOLEAN_LITERAL);
+    createEAttribute(booleanLiteralEClass, BOOLEAN_LITERAL__VALUE);
+
     numberLiteralEClass = createEClass(NUMBER_LITERAL);
     createEAttribute(numberLiteralEClass, NUMBER_LITERAL__VALUE);
 
     stringLiteralEClass = createEClass(STRING_LITERAL);
     createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
 
+    typeEClass = createEClass(TYPE);
+
     bindingEClass = createEClass(BINDING);
-    createEAttribute(bindingEClass, BINDING__MUTABLE);
     createEAttribute(bindingEClass, BINDING__NAME);
-    createEReference(bindingEClass, BINDING__EXPRESSION);
 
     bindingReferenceEClass = createEClass(BINDING_REFERENCE);
     createEReference(bindingReferenceEClass, BINDING_REFERENCE__BINDING);
@@ -1201,17 +1853,33 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     createEReference(assignmentEClass, ASSIGNMENT__BINDING);
     createEReference(assignmentEClass, ASSIGNMENT__EXPRESSION);
 
+    inputEClass = createEClass(INPUT);
+
     printEClass = createEClass(PRINT);
     createEReference(printEClass, PRINT__EXPRESSION);
 
     ifEClass = createEClass(IF);
-    createEReference(ifEClass, IF__CONDITIONS);
-    createEReference(ifEClass, IF__IF_BLOCKS);
-    createEReference(ifEClass, IF__ELSE_BLOCK);
+
+    ifConditionsEClass = createEClass(IF_CONDITIONS);
+    createEReference(ifConditionsEClass, IF_CONDITIONS__CONDITIONS);
+    createEReference(ifConditionsEClass, IF_CONDITIONS__IF_BLOCKS);
+    createEReference(ifConditionsEClass, IF_CONDITIONS__ELSE_BLOCK);
 
     whileEClass = createEClass(WHILE);
     createEReference(whileEClass, WHILE__CONDITION);
     createEReference(whileEClass, WHILE__BLOCK);
+
+    breakEClass = createEClass(BREAK);
+
+    returnEClass = createEClass(RETURN);
+    createEReference(returnEClass, RETURN__EXPRESSION);
+
+    throwEClass = createEClass(THROW);
+    createEReference(throwEClass, THROW__EXPRESSION);
+
+    concatenationEClass = createEClass(CONCATENATION);
+    createEReference(concatenationEClass, CONCATENATION__LEFT);
+    createEReference(concatenationEClass, CONCATENATION__RIGHT);
 
     logicalAndEClass = createEClass(LOGICAL_AND);
     createEReference(logicalAndEClass, LOGICAL_AND__LEFT);
@@ -1269,11 +1937,54 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     createEReference(exponentiationEClass, EXPONENTIATION__LEFT);
     createEReference(exponentiationEClass, EXPONENTIATION__RIGHT);
 
+    conversionEClass = createEClass(CONVERSION);
+    createEReference(conversionEClass, CONVERSION__LEFT);
+    createEReference(conversionEClass, CONVERSION__RIGHT);
+
     unaryNegationEClass = createEClass(UNARY_NEGATION);
     createEReference(unaryNegationEClass, UNARY_NEGATION__INNER);
 
     logicalNotEClass = createEClass(LOGICAL_NOT);
     createEReference(logicalNotEClass, LOGICAL_NOT__INNER);
+
+    applicationEClass = createEClass(APPLICATION);
+    createEReference(applicationEClass, APPLICATION__EXPRESSION);
+    createEReference(applicationEClass, APPLICATION__ARGUMENTS);
+
+    functionTypeEClass = createEClass(FUNCTION_TYPE);
+    createEReference(functionTypeEClass, FUNCTION_TYPE__PARAM_TYPES);
+    createEReference(functionTypeEClass, FUNCTION_TYPE__RETURN_TYPE);
+
+    eitherTypeEClass = createEClass(EITHER_TYPE);
+    createEReference(eitherTypeEClass, EITHER_TYPE__LEFT);
+    createEReference(eitherTypeEClass, EITHER_TYPE__RIGHT);
+
+    primitiveTypeEClass = createEClass(PRIMITIVE_TYPE);
+    createEAttribute(primitiveTypeEClass, PRIMITIVE_TYPE__TYPE);
+
+    letBindingEClass = createEClass(LET_BINDING);
+    createEAttribute(letBindingEClass, LET_BINDING__MUTABLE);
+    createEReference(letBindingEClass, LET_BINDING__TYPE);
+    createEReference(letBindingEClass, LET_BINDING__EXPRESSION);
+
+    ifLetEClass = createEClass(IF_LET);
+    createEReference(ifLetEClass, IF_LET__TYPE);
+    createEReference(ifLetEClass, IF_LET__EXPRESSION);
+    createEReference(ifLetEClass, IF_LET__IF_BLOCK);
+    createEReference(ifLetEClass, IF_LET__ELSE_LET);
+
+    elseLetEClass = createEClass(ELSE_LET);
+    createEReference(elseLetEClass, ELSE_LET__TYPE);
+    createEReference(elseLetEClass, ELSE_LET__ELSE_BLOCK);
+
+    functionEClass = createEClass(FUNCTION);
+    createEReference(functionEClass, FUNCTION__PARAMETERS);
+    createEReference(functionEClass, FUNCTION__RETURN_TYPE);
+    createEReference(functionEClass, FUNCTION__BODY);
+
+    parameterEClass = createEClass(PARAMETER);
+    createEAttribute(parameterEClass, PARAMETER__MUTABLE);
+    createEReference(parameterEClass, PARAMETER__TYPE);
   }
 
   /**
@@ -1308,14 +2019,23 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     blockEClass.getESuperTypes().add(this.getStatement());
     expressionEClass.getESuperTypes().add(this.getStatement());
     literalEClass.getESuperTypes().add(this.getExpression());
+    voidLiteralEClass.getESuperTypes().add(this.getLiteral());
+    booleanLiteralEClass.getESuperTypes().add(this.getLiteral());
     numberLiteralEClass.getESuperTypes().add(this.getLiteral());
     stringLiteralEClass.getESuperTypes().add(this.getLiteral());
     bindingEClass.getESuperTypes().add(this.getStatement());
+    bindingEClass.getESuperTypes().add(this.getIf());
     bindingReferenceEClass.getESuperTypes().add(this.getExpression());
     assignmentEClass.getESuperTypes().add(this.getStatement());
+    inputEClass.getESuperTypes().add(this.getExpression());
     printEClass.getESuperTypes().add(this.getStatement());
     ifEClass.getESuperTypes().add(this.getStatement());
+    ifConditionsEClass.getESuperTypes().add(this.getIf());
     whileEClass.getESuperTypes().add(this.getStatement());
+    breakEClass.getESuperTypes().add(this.getStatement());
+    returnEClass.getESuperTypes().add(this.getStatement());
+    throwEClass.getESuperTypes().add(this.getStatement());
+    concatenationEClass.getESuperTypes().add(this.getExpression());
     logicalAndEClass.getESuperTypes().add(this.getExpression());
     logicalOrEClass.getESuperTypes().add(this.getExpression());
     equalityEClass.getESuperTypes().add(this.getExpression());
@@ -1330,12 +2050,22 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     divisionEClass.getESuperTypes().add(this.getExpression());
     remainderEClass.getESuperTypes().add(this.getExpression());
     exponentiationEClass.getESuperTypes().add(this.getExpression());
+    conversionEClass.getESuperTypes().add(this.getExpression());
     unaryNegationEClass.getESuperTypes().add(this.getExpression());
     logicalNotEClass.getESuperTypes().add(this.getExpression());
+    applicationEClass.getESuperTypes().add(this.getExpression());
+    functionTypeEClass.getESuperTypes().add(this.getType());
+    eitherTypeEClass.getESuperTypes().add(this.getType());
+    primitiveTypeEClass.getESuperTypes().add(this.getType());
+    letBindingEClass.getESuperTypes().add(this.getBinding());
+    ifLetEClass.getESuperTypes().add(this.getBinding());
+    elseLetEClass.getESuperTypes().add(this.getBinding());
+    functionEClass.getESuperTypes().add(this.getBinding());
+    parameterEClass.getESuperTypes().add(this.getBinding());
 
     // Initialize classes and features; add operations and parameters
     initEClass(haleEClass, Hale.class, "Hale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getHale_Block(), this.getBlock(), null, "block", null, 0, 1, Hale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getHale_MainBlock(), this.getBlock(), null, "mainBlock", null, 0, 1, Hale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBlock_Statements(), this.getStatement(), null, "statements", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1346,16 +2076,21 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
 
     initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(voidLiteralEClass, VoidLiteral.class, "VoidLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(booleanLiteralEClass, BooleanLiteral.class, "BooleanLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBooleanLiteral_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(numberLiteralEClass, NumberLiteral.class, "NumberLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNumberLiteral_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, NumberLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBinding_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBinding_Name(), ecorePackage.getEString(), "name", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBinding_Expression(), this.getExpression(), null, "expression", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingReferenceEClass, BindingReference.class, "BindingReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBindingReference_Binding(), this.getBinding(), null, "binding", null, 0, 1, BindingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1364,17 +2099,33 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     initEReference(getAssignment_Binding(), this.getBinding(), null, "binding", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssignment_Expression(), this.getExpression(), null, "expression", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(printEClass, Print.class, "Print", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPrint_Expression(), this.getExpression(), null, "expression", null, 0, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIf_Conditions(), this.getExpression(), null, "conditions", null, 0, -1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIf_IfBlocks(), this.getBlock(), null, "ifBlocks", null, 0, -1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIf_ElseBlock(), this.getBlock(), null, "elseBlock", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ifConditionsEClass, IfConditions.class, "IfConditions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIfConditions_Conditions(), this.getExpression(), null, "conditions", null, 0, -1, IfConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfConditions_IfBlocks(), this.getBlock(), null, "ifBlocks", null, 0, -1, IfConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfConditions_ElseBlock(), this.getBlock(), null, "elseBlock", null, 0, 1, IfConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWhile_Condition(), this.getExpression(), null, "condition", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWhile_Block(), this.getBlock(), null, "block", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(breakEClass, Break.class, "Break", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReturn_Expression(), this.getExpression(), null, "expression", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(throwEClass, Throw.class, "Throw", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getThrow_Expression(), this.getExpression(), null, "expression", null, 0, 1, Throw.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(concatenationEClass, Concatenation.class, "Concatenation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConcatenation_Left(), this.getExpression(), null, "left", null, 0, 1, Concatenation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConcatenation_Right(), this.getExpression(), null, "right", null, 0, 1, Concatenation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicalAndEClass, LogicalAnd.class, "LogicalAnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLogicalAnd_Left(), this.getExpression(), null, "left", null, 0, 1, LogicalAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1432,11 +2183,54 @@ public class HalePackageImpl extends EPackageImpl implements HalePackage
     initEReference(getExponentiation_Left(), this.getExpression(), null, "left", null, 0, 1, Exponentiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExponentiation_Right(), this.getExpression(), null, "right", null, 0, 1, Exponentiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(conversionEClass, Conversion.class, "Conversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConversion_Left(), this.getExpression(), null, "left", null, 0, 1, Conversion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConversion_Right(), this.getType(), null, "right", null, 0, 1, Conversion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(unaryNegationEClass, UnaryNegation.class, "UnaryNegation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUnaryNegation_Inner(), this.getExpression(), null, "inner", null, 0, 1, UnaryNegation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicalNotEClass, LogicalNot.class, "LogicalNot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLogicalNot_Inner(), this.getExpression(), null, "inner", null, 0, 1, LogicalNot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getApplication_Expression(), this.getExpression(), null, "expression", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplication_Arguments(), this.getExpression(), null, "arguments", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionTypeEClass, FunctionType.class, "FunctionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionType_ParamTypes(), this.getType(), null, "paramTypes", null, 0, -1, FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionType_ReturnType(), this.getType(), null, "returnType", null, 0, 1, FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(eitherTypeEClass, EitherType.class, "EitherType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEitherType_Left(), this.getType(), null, "left", null, 0, 1, EitherType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEitherType_Right(), this.getType(), null, "right", null, 0, 1, EitherType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(primitiveTypeEClass, PrimitiveType.class, "PrimitiveType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPrimitiveType_Type(), ecorePackage.getEString(), "type", null, 0, 1, PrimitiveType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(letBindingEClass, LetBinding.class, "LetBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLetBinding_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLetBinding_Type(), this.getType(), null, "type", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLetBinding_Expression(), this.getExpression(), null, "expression", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ifLetEClass, IfLet.class, "IfLet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIfLet_Type(), this.getType(), null, "type", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfLet_Expression(), this.getExpression(), null, "expression", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfLet_IfBlock(), this.getBlock(), null, "ifBlock", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfLet_ElseLet(), this.getBinding(), null, "elseLet", null, 0, 1, IfLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elseLetEClass, ElseLet.class, "ElseLet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElseLet_Type(), this.getType(), null, "type", null, 0, 1, ElseLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElseLet_ElseBlock(), this.getBlock(), null, "elseBlock", null, 0, 1, ElseLet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunction_Parameters(), this.getBinding(), null, "parameters", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_ReturnType(), this.getType(), null, "returnType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Body(), this.getBlock(), null, "body", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParameter_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameter_Type(), this.getType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

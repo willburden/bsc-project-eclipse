@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import willburden.hale.standalone.error.BindingDoesntExistException;
+import willburden.hale.standalone.error.ErrorMessages;
+import willburden.hale.standalone.values.HaleValue;
+
 public class CallFrame {
 	private Deque<Map<String, RuntimeBinding>> scopes;
 	
@@ -37,6 +41,6 @@ public class CallFrame {
 			}
 		}
 		
-		throw new BindingDoesntExistException(name);
+		throw new BindingDoesntExistException(ErrorMessages.bindingDoesntExist(name));
 	}
 }

@@ -1,0 +1,19 @@
+function calculator(input1: String, input2: String, input3: String): Number ? String {
+	if let num1 = input1 as Number {
+		if let num2 = input3 as Number {
+			if input2 == "+" {
+				return num1 + num2;
+			} elseif input2 == "-" {
+				return num1 - num2;
+			} elseif input2 == '*' {
+				return num1 * num2;
+			} elseif input2 == "/" {
+				return num1 / num2;
+			}
+		} else {
+			throw "Cannot convert " . input3 . " to a number";
+		}
+	} else {
+		throw "Cannot convert " . input1 . " to a number";
+	}
+}

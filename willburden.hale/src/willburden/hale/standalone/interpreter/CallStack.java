@@ -3,6 +3,9 @@ package willburden.hale.standalone.interpreter;
 import java.util.Deque;
 import java.util.LinkedList;
 
+import willburden.hale.standalone.error.BindingDoesntExistException;
+import willburden.hale.standalone.values.HaleValue;
+
 public class CallStack {
 	private Deque<CallFrame> frames;
 	

@@ -3,23 +3,8 @@
  */
 package willburden.hale.hale.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import willburden.hale.hale.Block;
-import willburden.hale.hale.Expression;
 import willburden.hale.hale.HalePackage;
 import willburden.hale.hale.If;
 
@@ -27,49 +12,11 @@ import willburden.hale.hale.If;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>If</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link willburden.hale.hale.impl.IfImpl#getConditions <em>Conditions</em>}</li>
- *   <li>{@link willburden.hale.hale.impl.IfImpl#getIfBlocks <em>If Blocks</em>}</li>
- *   <li>{@link willburden.hale.hale.impl.IfImpl#getElseBlock <em>Else Block</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class IfImpl extends StatementImpl implements If
 {
-  /**
-   * The cached value of the '{@link #getConditions() <em>Conditions</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getConditions()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expression> conditions;
-
-  /**
-   * The cached value of the '{@link #getIfBlocks() <em>If Blocks</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIfBlocks()
-   * @generated
-   * @ordered
-   */
-  protected EList<Block> ifBlocks;
-
-  /**
-   * The cached value of the '{@link #getElseBlock() <em>Else Block</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getElseBlock()
-   * @generated
-   * @ordered
-   */
-  protected Block elseBlock;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -89,195 +36,6 @@ public class IfImpl extends StatementImpl implements If
   protected EClass eStaticClass()
   {
     return HalePackage.Literals.IF;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<Expression> getConditions()
-  {
-    if (conditions == null)
-    {
-      conditions = new EObjectContainmentEList<Expression>(Expression.class, this, HalePackage.IF__CONDITIONS);
-    }
-    return conditions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<Block> getIfBlocks()
-  {
-    if (ifBlocks == null)
-    {
-      ifBlocks = new EObjectContainmentEList<Block>(Block.class, this, HalePackage.IF__IF_BLOCKS);
-    }
-    return ifBlocks;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Block getElseBlock()
-  {
-    return elseBlock;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetElseBlock(Block newElseBlock, NotificationChain msgs)
-  {
-    Block oldElseBlock = elseBlock;
-    elseBlock = newElseBlock;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HalePackage.IF__ELSE_BLOCK, oldElseBlock, newElseBlock);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setElseBlock(Block newElseBlock)
-  {
-    if (newElseBlock != elseBlock)
-    {
-      NotificationChain msgs = null;
-      if (elseBlock != null)
-        msgs = ((InternalEObject)elseBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HalePackage.IF__ELSE_BLOCK, null, msgs);
-      if (newElseBlock != null)
-        msgs = ((InternalEObject)newElseBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HalePackage.IF__ELSE_BLOCK, null, msgs);
-      msgs = basicSetElseBlock(newElseBlock, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HalePackage.IF__ELSE_BLOCK, newElseBlock, newElseBlock));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case HalePackage.IF__CONDITIONS:
-        return ((InternalEList<?>)getConditions()).basicRemove(otherEnd, msgs);
-      case HalePackage.IF__IF_BLOCKS:
-        return ((InternalEList<?>)getIfBlocks()).basicRemove(otherEnd, msgs);
-      case HalePackage.IF__ELSE_BLOCK:
-        return basicSetElseBlock(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case HalePackage.IF__CONDITIONS:
-        return getConditions();
-      case HalePackage.IF__IF_BLOCKS:
-        return getIfBlocks();
-      case HalePackage.IF__ELSE_BLOCK:
-        return getElseBlock();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case HalePackage.IF__CONDITIONS:
-        getConditions().clear();
-        getConditions().addAll((Collection<? extends Expression>)newValue);
-        return;
-      case HalePackage.IF__IF_BLOCKS:
-        getIfBlocks().clear();
-        getIfBlocks().addAll((Collection<? extends Block>)newValue);
-        return;
-      case HalePackage.IF__ELSE_BLOCK:
-        setElseBlock((Block)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case HalePackage.IF__CONDITIONS:
-        getConditions().clear();
-        return;
-      case HalePackage.IF__IF_BLOCKS:
-        getIfBlocks().clear();
-        return;
-      case HalePackage.IF__ELSE_BLOCK:
-        setElseBlock((Block)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case HalePackage.IF__CONDITIONS:
-        return conditions != null && !conditions.isEmpty();
-      case HalePackage.IF__IF_BLOCKS:
-        return ifBlocks != null && !ifBlocks.isEmpty();
-      case HalePackage.IF__ELSE_BLOCK:
-        return elseBlock != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //IfImpl

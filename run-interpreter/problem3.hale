@@ -1,0 +1,24 @@
+function identity(num: Number): Number {
+	return num;
+}
+
+function negate(num: Number): Number {
+	return -num;
+}
+
+function absolute(num: Number): Number {
+	if num >= 0 {
+		return num;
+	} else {
+		return -num;
+	}
+}
+
+let mut i = -1;
+while i <= 1 {
+	print identity(i);
+	print negate(i);
+	print absolute(i);
+	
+	i = i + 1;
+}

@@ -1,25 +1,27 @@
-let a = "A1";
-{
-	let mut a = "A2";
-	print a;
-	a = "A3";
-	print a;
-	
-	a = 0;
-	
-	let mut a = 0;
-	while a < 10 {
-		a = a + 1;
-		print a;
+function checked_div(dividend: Number, divisor: Number): Number ? String {
+	if divisor == 0 {
+		throw "Attempted to divide by zero";
 	}
-	
+
+	return dividend / divisor;
 }
-print a;
 
-print 5 / 2;
-print 1 / 3;
-print 135913 ** 2 - (1 / 3);
+function input_number(prompt: String, errorMessage: String ? Void): Number {
+	while true {
+		print prompt;
+		
+		if let number = input as Number {
+			return number;
+		}
+		
+		print errorMessage;
+	}
+}
 
-print 35.064;
+function null(): Void ? Void {
+	throw void;
+}
 
-print 5 - (1 / 3) == 6 - (4 / 3) - 0.006;
+let parseError = "That is not a number";
+let dividend = input_number("Enter dividend", parseError);
+let divisor = input_number("Enter divisor", parseError);

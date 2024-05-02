@@ -3,8 +3,8 @@
  */
 package willburden.hale.scoping;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -15,7 +15,9 @@ import org.eclipse.xtext.scoping.Scopes;
 
 import willburden.hale.hale.Binding;
 import willburden.hale.hale.Block;
-import willburden.hale.hale.Statement;
+import willburden.hale.hale.ElseLet;
+import willburden.hale.hale.Function;
+import willburden.hale.hale.IfLet;
 
 /**
  * This class contains custom scoping description.
@@ -41,9 +43,32 @@ public class HaleScopeProvider extends AbstractHaleScopeProvider {
 			return IScope.NULLSCOPE;
 		}
 		
-		List<Statement> candidates = containingBlock.getStatements().stream()
+		List<EObject> candidates = containingBlock.getStatements().stream()
 			.takeWhile(statement -> !EcoreUtil.isAncestor(statement, context))
+			.map(statement -> (EObject) statement)
 			.toList();
+
+		// Make the list mutable.
+		candidates = new ArrayList<>(candidates);
+		
+		// If this scope is a function body, we need to include the parameters.
+		if (containingBlock.eContainer() instanceof Function function) {
+			for (Binding param : function.getParameters()) {
+				candidates.add(param);
+			}
+		}
+		
+		// If this scope is an if-let or else-let block, we need to include its bindings.
+		if (containingBlock.eContainer() instanceof IfLet ifLet) {
+			if (ifLet.getName() != null) {
+				candidates.add(ifLet);
+			}
+		}
+		if (containingBlock.eContainer() instanceof ElseLet elseLet) {
+			if (elseLet.getName() != null) {
+				candidates.add(elseLet);
+			}
+		}
 		
 		return Scopes.scopeFor(candidates, getBindingReferenceScope(containingBlock));
 	}

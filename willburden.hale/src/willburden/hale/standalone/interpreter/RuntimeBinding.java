@@ -1,6 +1,9 @@
 package willburden.hale.standalone.interpreter;
 
+import willburden.hale.standalone.error.ErrorMessages;
 import willburden.hale.standalone.error.TypeMismatchException;
+import willburden.hale.standalone.types.HaleType;
+import willburden.hale.standalone.values.HaleValue;
 
 /**
  * The runtime representation of a binding from a name to a HaleValue. This is
@@ -21,7 +24,7 @@ public class RuntimeBinding {
 	}
 
 	public HaleType getType() {
-		return value.getType();
+		return value.type();
 	}
 
 	public HaleValue getValue() {
@@ -29,8 +32,8 @@ public class RuntimeBinding {
 	}
 
 	public void setValue(HaleValue value) throws TypeMismatchException {
-		if (value.getType() != getType()) {
-			throw new TypeMismatchException(value, getType());
+		if (value.type() != getType()) {
+			throw new TypeMismatchException(ErrorMessages.valueOfWrongType(value, getType()));
 		}
 		
 		this.value = value;

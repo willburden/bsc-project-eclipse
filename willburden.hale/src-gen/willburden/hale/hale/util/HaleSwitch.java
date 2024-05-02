@@ -112,6 +112,26 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case HalePackage.VOID_LITERAL:
+      {
+        VoidLiteral voidLiteral = (VoidLiteral)theEObject;
+        T result = caseVoidLiteral(voidLiteral);
+        if (result == null) result = caseLiteral(voidLiteral);
+        if (result == null) result = caseExpression(voidLiteral);
+        if (result == null) result = caseStatement(voidLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.BOOLEAN_LITERAL:
+      {
+        BooleanLiteral booleanLiteral = (BooleanLiteral)theEObject;
+        T result = caseBooleanLiteral(booleanLiteral);
+        if (result == null) result = caseLiteral(booleanLiteral);
+        if (result == null) result = caseExpression(booleanLiteral);
+        if (result == null) result = caseStatement(booleanLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case HalePackage.NUMBER_LITERAL:
       {
         NumberLiteral numberLiteral = (NumberLiteral)theEObject;
@@ -132,10 +152,18 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case HalePackage.TYPE:
+      {
+        Type type = (Type)theEObject;
+        T result = caseType(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case HalePackage.BINDING:
       {
         Binding binding = (Binding)theEObject;
         T result = caseBinding(binding);
+        if (result == null) result = caseIf(binding);
         if (result == null) result = caseStatement(binding);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -157,6 +185,15 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case HalePackage.INPUT:
+      {
+        Input input = (Input)theEObject;
+        T result = caseInput(input);
+        if (result == null) result = caseExpression(input);
+        if (result == null) result = caseStatement(input);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case HalePackage.PRINT:
       {
         Print print = (Print)theEObject;
@@ -173,11 +210,53 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case HalePackage.IF_CONDITIONS:
+      {
+        IfConditions ifConditions = (IfConditions)theEObject;
+        T result = caseIfConditions(ifConditions);
+        if (result == null) result = caseIf(ifConditions);
+        if (result == null) result = caseStatement(ifConditions);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case HalePackage.WHILE:
       {
         While while_ = (While)theEObject;
         T result = caseWhile(while_);
         if (result == null) result = caseStatement(while_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.BREAK:
+      {
+        Break break_ = (Break)theEObject;
+        T result = caseBreak(break_);
+        if (result == null) result = caseStatement(break_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.RETURN:
+      {
+        Return return_ = (Return)theEObject;
+        T result = caseReturn(return_);
+        if (result == null) result = caseStatement(return_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.THROW:
+      {
+        Throw throw_ = (Throw)theEObject;
+        T result = caseThrow(throw_);
+        if (result == null) result = caseStatement(throw_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.CONCATENATION:
+      {
+        Concatenation concatenation = (Concatenation)theEObject;
+        T result = caseConcatenation(concatenation);
+        if (result == null) result = caseExpression(concatenation);
+        if (result == null) result = caseStatement(concatenation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -307,6 +386,15 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case HalePackage.CONVERSION:
+      {
+        Conversion conversion = (Conversion)theEObject;
+        T result = caseConversion(conversion);
+        if (result == null) result = caseExpression(conversion);
+        if (result == null) result = caseStatement(conversion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case HalePackage.UNARY_NEGATION:
       {
         UnaryNegation unaryNegation = (UnaryNegation)theEObject;
@@ -322,6 +410,89 @@ public class HaleSwitch<T> extends Switch<T>
         T result = caseLogicalNot(logicalNot);
         if (result == null) result = caseExpression(logicalNot);
         if (result == null) result = caseStatement(logicalNot);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.APPLICATION:
+      {
+        Application application = (Application)theEObject;
+        T result = caseApplication(application);
+        if (result == null) result = caseExpression(application);
+        if (result == null) result = caseStatement(application);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.FUNCTION_TYPE:
+      {
+        FunctionType functionType = (FunctionType)theEObject;
+        T result = caseFunctionType(functionType);
+        if (result == null) result = caseType(functionType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.EITHER_TYPE:
+      {
+        EitherType eitherType = (EitherType)theEObject;
+        T result = caseEitherType(eitherType);
+        if (result == null) result = caseType(eitherType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.PRIMITIVE_TYPE:
+      {
+        PrimitiveType primitiveType = (PrimitiveType)theEObject;
+        T result = casePrimitiveType(primitiveType);
+        if (result == null) result = caseType(primitiveType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.LET_BINDING:
+      {
+        LetBinding letBinding = (LetBinding)theEObject;
+        T result = caseLetBinding(letBinding);
+        if (result == null) result = caseBinding(letBinding);
+        if (result == null) result = caseIf(letBinding);
+        if (result == null) result = caseStatement(letBinding);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.IF_LET:
+      {
+        IfLet ifLet = (IfLet)theEObject;
+        T result = caseIfLet(ifLet);
+        if (result == null) result = caseBinding(ifLet);
+        if (result == null) result = caseIf(ifLet);
+        if (result == null) result = caseStatement(ifLet);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.ELSE_LET:
+      {
+        ElseLet elseLet = (ElseLet)theEObject;
+        T result = caseElseLet(elseLet);
+        if (result == null) result = caseBinding(elseLet);
+        if (result == null) result = caseIf(elseLet);
+        if (result == null) result = caseStatement(elseLet);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.FUNCTION:
+      {
+        Function function = (Function)theEObject;
+        T result = caseFunction(function);
+        if (result == null) result = caseBinding(function);
+        if (result == null) result = caseIf(function);
+        if (result == null) result = caseStatement(function);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.PARAMETER:
+      {
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
+        if (result == null) result = caseBinding(parameter);
+        if (result == null) result = caseIf(parameter);
+        if (result == null) result = caseStatement(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -410,6 +581,38 @@ public class HaleSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Void Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Void Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVoidLiteral(VoidLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBooleanLiteral(BooleanLiteral object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Number Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -437,6 +640,22 @@ public class HaleSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStringLiteral(StringLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseType(Type object)
   {
     return null;
   }
@@ -490,6 +709,22 @@ public class HaleSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInput(Input object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Print</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -522,6 +757,22 @@ public class HaleSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>If Conditions</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Conditions</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfConditions(IfConditions object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>While</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -533,6 +784,70 @@ public class HaleSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseWhile(While object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Break</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Break</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBreak(Break object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Return</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Return</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReturn(Return object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Throw</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Throw</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseThrow(Throw object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Concatenation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Concatenation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConcatenation(Concatenation object)
   {
     return null;
   }
@@ -762,6 +1077,22 @@ public class HaleSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Conversion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Conversion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConversion(Conversion object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Unary Negation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -789,6 +1120,150 @@ public class HaleSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLogicalNot(LogicalNot object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Application</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseApplication(Application object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionType(FunctionType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Either Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Either Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEitherType(EitherType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Primitive Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Primitive Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrimitiveType(PrimitiveType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Let Binding</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Let Binding</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLetBinding(LetBinding object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Let</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Let</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfLet(IfLet object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Else Let</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Else Let</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElseLet(ElseLet object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunction(Function object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameter(Parameter object)
   {
     return null;
   }

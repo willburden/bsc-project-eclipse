@@ -69,6 +69,24 @@ public interface HaleFactory extends EFactory
   Literal createLiteral();
 
   /**
+   * Returns a new object of class '<em>Void Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Void Literal</em>'.
+   * @generated
+   */
+  VoidLiteral createVoidLiteral();
+
+  /**
+   * Returns a new object of class '<em>Boolean Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Literal</em>'.
+   * @generated
+   */
+  BooleanLiteral createBooleanLiteral();
+
+  /**
    * Returns a new object of class '<em>Number Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,6 +103,15 @@ public interface HaleFactory extends EFactory
    * @generated
    */
   StringLiteral createStringLiteral();
+
+  /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
 
   /**
    * Returns a new object of class '<em>Binding</em>'.
@@ -114,6 +141,15 @@ public interface HaleFactory extends EFactory
   Assignment createAssignment();
 
   /**
+   * Returns a new object of class '<em>Input</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input</em>'.
+   * @generated
+   */
+  Input createInput();
+
+  /**
    * Returns a new object of class '<em>Print</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -132,6 +168,15 @@ public interface HaleFactory extends EFactory
   If createIf();
 
   /**
+   * Returns a new object of class '<em>If Conditions</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Conditions</em>'.
+   * @generated
+   */
+  IfConditions createIfConditions();
+
+  /**
    * Returns a new object of class '<em>While</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -139,6 +184,42 @@ public interface HaleFactory extends EFactory
    * @generated
    */
   While createWhile();
+
+  /**
+   * Returns a new object of class '<em>Break</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Break</em>'.
+   * @generated
+   */
+  Break createBreak();
+
+  /**
+   * Returns a new object of class '<em>Return</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Return</em>'.
+   * @generated
+   */
+  Return createReturn();
+
+  /**
+   * Returns a new object of class '<em>Throw</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Throw</em>'.
+   * @generated
+   */
+  Throw createThrow();
+
+  /**
+   * Returns a new object of class '<em>Concatenation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Concatenation</em>'.
+   * @generated
+   */
+  Concatenation createConcatenation();
 
   /**
    * Returns a new object of class '<em>Logical And</em>'.
@@ -267,6 +348,15 @@ public interface HaleFactory extends EFactory
   Exponentiation createExponentiation();
 
   /**
+   * Returns a new object of class '<em>Conversion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Conversion</em>'.
+   * @generated
+   */
+  Conversion createConversion();
+
+  /**
    * Returns a new object of class '<em>Unary Negation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -283,6 +373,87 @@ public interface HaleFactory extends EFactory
    * @generated
    */
   LogicalNot createLogicalNot();
+
+  /**
+   * Returns a new object of class '<em>Application</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application</em>'.
+   * @generated
+   */
+  Application createApplication();
+
+  /**
+   * Returns a new object of class '<em>Function Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Type</em>'.
+   * @generated
+   */
+  FunctionType createFunctionType();
+
+  /**
+   * Returns a new object of class '<em>Either Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Either Type</em>'.
+   * @generated
+   */
+  EitherType createEitherType();
+
+  /**
+   * Returns a new object of class '<em>Primitive Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primitive Type</em>'.
+   * @generated
+   */
+  PrimitiveType createPrimitiveType();
+
+  /**
+   * Returns a new object of class '<em>Let Binding</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let Binding</em>'.
+   * @generated
+   */
+  LetBinding createLetBinding();
+
+  /**
+   * Returns a new object of class '<em>If Let</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Let</em>'.
+   * @generated
+   */
+  IfLet createIfLet();
+
+  /**
+   * Returns a new object of class '<em>Else Let</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Else Let</em>'.
+   * @generated
+   */
+  ElseLet createElseLet();
+
+  /**
+   * Returns a new object of class '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function</em>'.
+   * @generated
+   */
+  Function createFunction();
+
+  /**
+   * Returns a new object of class '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter</em>'.
+   * @generated
+   */
+  Parameter createParameter();
 
   /**
    * Returns the package supported by this factory.

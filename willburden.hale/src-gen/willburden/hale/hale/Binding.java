@@ -13,39 +13,15 @@ package willburden.hale.hale;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link willburden.hale.hale.Binding#isMutable <em>Mutable</em>}</li>
  *   <li>{@link willburden.hale.hale.Binding#getName <em>Name</em>}</li>
- *   <li>{@link willburden.hale.hale.Binding#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @see willburden.hale.hale.HalePackage#getBinding()
  * @model
  * @generated
  */
-public interface Binding extends Statement
+public interface Binding extends Statement, If
 {
-  /**
-   * Returns the value of the '<em><b>Mutable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Mutable</em>' attribute.
-   * @see #setMutable(boolean)
-   * @see willburden.hale.hale.HalePackage#getBinding_Mutable()
-   * @model
-   * @generated
-   */
-  boolean isMutable();
-
-  /**
-   * Sets the value of the '{@link willburden.hale.hale.Binding#isMutable <em>Mutable</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Mutable</em>' attribute.
-   * @see #isMutable()
-   * @generated
-   */
-  void setMutable(boolean value);
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -67,27 +43,5 @@ public interface Binding extends Statement
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
-   * @see willburden.hale.hale.HalePackage#getBinding_Expression()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getExpression();
-
-  /**
-   * Sets the value of the '{@link willburden.hale.hale.Binding#getExpression <em>Expression</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
-   * @generated
-   */
-  void setExpression(Expression value);
 
 } // Binding

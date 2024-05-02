@@ -3,21 +3,12 @@
  */
 package willburden.hale.hale;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>If</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link willburden.hale.hale.If#getConditions <em>Conditions</em>}</li>
- *   <li>{@link willburden.hale.hale.If#getIfBlocks <em>If Blocks</em>}</li>
- *   <li>{@link willburden.hale.hale.If#getElseBlock <em>Else Block</em>}</li>
- * </ul>
  *
  * @see willburden.hale.hale.HalePackage#getIf()
  * @model
@@ -25,50 +16,4 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface If extends Statement
 {
-  /**
-   * Returns the value of the '<em><b>Conditions</b></em>' containment reference list.
-   * The list contents are of type {@link willburden.hale.hale.Expression}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Conditions</em>' containment reference list.
-   * @see willburden.hale.hale.HalePackage#getIf_Conditions()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Expression> getConditions();
-
-  /**
-   * Returns the value of the '<em><b>If Blocks</b></em>' containment reference list.
-   * The list contents are of type {@link willburden.hale.hale.Block}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>If Blocks</em>' containment reference list.
-   * @see willburden.hale.hale.HalePackage#getIf_IfBlocks()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Block> getIfBlocks();
-
-  /**
-   * Returns the value of the '<em><b>Else Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Else Block</em>' containment reference.
-   * @see #setElseBlock(Block)
-   * @see willburden.hale.hale.HalePackage#getIf_ElseBlock()
-   * @model containment="true"
-   * @generated
-   */
-  Block getElseBlock();
-
-  /**
-   * Sets the value of the '{@link willburden.hale.hale.If#getElseBlock <em>Else Block</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Else Block</em>' containment reference.
-   * @see #getElseBlock()
-   * @generated
-   */
-  void setElseBlock(Block value);
-
 } // If

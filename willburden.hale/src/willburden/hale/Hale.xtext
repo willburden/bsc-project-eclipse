@@ -9,7 +9,8 @@ generate hale "http://www.hale.willburden/Hale"
  ************************************************************/
 
 Hale:
-	{Hale} block=Block
+	{Hale}
+	mainBlock=Block
 ;
 
 Block:
@@ -19,12 +20,16 @@ Block:
 
 Statement:
 	BracedBlock |
+	Function |
 	If |
 	While |
 	((
 		Print |
-		Binding |
+		LetBinding |
 		Assignment |
+		Break |
+		Return |
+		Throw |
 		Expression
 	) ';')
 ;
@@ -37,61 +42,77 @@ BracedBlock returns Block:
  * Expressions
  ************************************************************/
 
-// Start with expressions of lowest precedence.
+// Start with expressions of lowest precedence, since we
+// are generating a syntax tree.
 Expression returns Expression:
-	Expression7
+	Expression10
+;
+
+Expression10 returns Expression:
+	Expression9 ({Concatenation.left=current} '.' right=Expression9)*
+;
+
+Expression9 returns Expression:
+	Expression8 (
+		({LogicalAnd.left=current} 'and' right=Expression8) |
+		({LogicalOr.left=current} 'or' right=Expression8)
+	)*
+;
+
+Expression8 returns Expression:
+	Expression7 (
+		({Equality.left=current} '==' right=Expression7) |
+		({Inequality.left=current} '!=' right=Expression7)
+	)*
 ;
 
 Expression7 returns Expression:
 	Expression6 (
-		({LogicalAnd.left=current} 'and' right=Expression6) |
-		({LogicalOr.left=current} 'or' right=Expression6)
+		({LessThanOrEqual.left=current} '<=' right=Expression6) |
+		({LessThan.left=current} '<' right=Expression6) |
+		({GreaterThanOrEqual.left=current} '>=' right=Expression6) |
+		({GreaterThan.left=current} '>' right=Expression6)
 	)*
 ;
 
 Expression6 returns Expression:
 	Expression5 (
-		({Equality.left=current} '==' right=Expression5) |
-		({Inequality.left=current} '!=' right=Expression5)
+		({Addition.left=current} '+' right=Expression5) |
+		({Subtraction.left=current} '-' right=Expression5)
 	)*
 ;
 
 Expression5 returns Expression:
 	Expression4 (
-		({LessThanOrEqual.left=current} '<=' right=Expression4) |
-		({LessThan.left=current} '<' right=Expression4) |
-		({GreaterThanOrEqual.left=current} '>=' right=Expression4) |
-		({GreaterThan.left=current} '>' right=Expression4)
+		({Multiplication.left=current} '*' right=Expression4) |
+		({Division.left=current} '/' right=Expression4) |
+		({Remainder.left=current} '%' right=Expression4)		
 	)*
 ;
 
 Expression4 returns Expression:
-	Expression3 (
-		({Addition.left=current} '+' right=Expression3) |
-		({Subtraction.left=current} '-' right=Expression3)
-	)*
+	Expression3 ({Exponentiation.left=current} '**' right=Expression3)*
 ;
 
 Expression3 returns Expression:
-	Expression2 (
-		({Multiplication.left=current} '*' right=Expression2) |
-		({Division.left=current} '/' right=Expression2) |
-		({Remainder.left=current} '%' right=Expression2)		
-	)*
+	Expression2 ({Conversion.left=current} 'as' right=Type)*
 ;
 
 Expression2 returns Expression:
-	Expression1 ({Exponentiation.left=current} '**' right=Expression1)*
+	({UnaryNegation} '-' inner=Expression2) |
+	({LogicalNot} 'not' inner=Expression2) |
+	Expression1
 ;
 
 Expression1 returns Expression:
-	({UnaryNegation} '-' inner=Expression1) |
-	({LogicalNot} 'not' inner=Expression1) |
-	Primary
+	Expression0 ({Application.expression=current} '('
+		(arguments+=Expression (',' arguments+=Expression)* ','?)?
+	')')*
 ;
 
-Primary returns Expression:
+Expression0 returns Expression:
 	Literal |
+	Input |
 	BindingReference |
 	'(' Expression ')'
 ;
@@ -101,8 +122,18 @@ Primary returns Expression:
  ************************************************************/
 
 Literal:
+	VoidLiteral |
+	BooleanLiteral |
 	NumberLiteral |
 	StringLiteral
+;
+
+VoidLiteral:
+	{VoidLiteral} 'void'
+;
+
+BooleanLiteral:
+	value=BOOLEAN
 ;
 
 NumberLiteral:
@@ -114,11 +145,49 @@ StringLiteral:
 ;
 
 /*************************************************************
+ * Types
+ ************************************************************/
+
+TypeAnnotation returns Type:
+	':' Type
+;
+
+Type returns Type:
+	FunctionType
+;
+
+FunctionType returns Type:
+	(
+		{FunctionType}
+		'Function' '('
+			(paramTypes+=Type (',' paramTypes+=Type)* ','?)?
+		')'
+		(returnType=TypeAnnotation)?
+	) |
+	EitherType
+;
+
+EitherType returns Type:
+	PrimaryType ({EitherType.left=current} '?' right=PrimaryType)*
+;
+
+PrimaryType returns Type:
+	PrimitiveType |
+	'(' Type ')'
+;
+
+PrimitiveType returns Type:
+	{PrimitiveType}
+	type=PRIMITIVE_TYPE
+;
+
+/*************************************************************
  * Bindings
  ************************************************************/
 
-Binding:
-	'let' (mutable?='mut')? name=ID '=' expression=Expression
+LetBinding returns Binding:
+	{LetBinding}
+	'let' (mutable?='mut')? name=ID (type=TypeAnnotation)? '=' expression=Expression
 ;
 
 BindingReference:
@@ -133,6 +202,10 @@ Assignment:
  * Input/Output
  ************************************************************/
 
+Input:
+	{Input} 'input'
+;
+
 Print:
 	'print' expression=Expression
 ;
@@ -142,7 +215,25 @@ Print:
  ************************************************************/
 
 If:
-	'if' conditions+=Expression ifBlocks+=BracedBlock
+	'if' (IfLet | IfConditions)
+;
+
+IfLet returns Binding:
+	{IfLet}
+	'let' name=ID (type=TypeAnnotation)? '=' expression=Expression
+		ifBlock=BracedBlock
+	('else' elseLet=ElseLet)?
+;
+
+ElseLet returns Binding:
+	{ElseLet}
+	('let' name=ID (type=TypeAnnotation)?)?
+		elseBlock=BracedBlock
+;
+
+IfConditions:
+	{IfConditions}
+	conditions+=Expression ifBlocks+=BracedBlock
 	('elseif' conditions+=Expression ifBlocks+=BracedBlock)*
 	('else' elseBlock=BracedBlock)?
 ;
@@ -151,16 +242,53 @@ While:
 	'while' condition=Expression block=BracedBlock
 ;
 
+Break:
+	{Break} 'break'
+;
+
+/*************************************************************
+ * Functions
+ ************************************************************/
+
+Function returns Binding:
+	{Function}
+	'function' name=ID '('
+		(parameters+=Parameter (',' parameters+=Parameter)* ','?)?
+	')'
+	(returnType=TypeAnnotation)?
+	body=BracedBlock
+;
+
+Parameter returns Binding:
+	{Parameter}
+	(mutable?='mut')? name=ID type=TypeAnnotation
+;
+
+Return:
+	{Return}
+	'return' (expression=Expression)?
+;
+
+Throw:
+	{Throw}
+	'throw' (expression=Expression)?
+;
+
 /*************************************************************
  * Terminals
  ************************************************************/
 
+terminal PRIMITIVE_TYPE: 'Void' | 'Boolean' | 'Number' | 'String';
+terminal BOOLEAN returns ecore::EBoolean: 'true' | 'false';
+
 terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
 terminal DOUBLE returns ecore::EDouble: ('0'..'9')+ ('.' ('0'..'9')+)?;
 terminal STRING:
 			'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
 			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
 		;
+
 terminal ML_COMMENT : '/*' -> '*/';
 terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;
 

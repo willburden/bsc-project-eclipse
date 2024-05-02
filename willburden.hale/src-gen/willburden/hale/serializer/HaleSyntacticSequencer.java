@@ -21,15 +21,25 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected HaleGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Block_SemicolonKeyword_1_1_a;
-	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_2_0_a;
-	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_2_0_p;
+	protected AbstractElementAlias match_Expression0_LeftParenthesisKeyword_3_0_a;
+	protected AbstractElementAlias match_Expression0_LeftParenthesisKeyword_3_0_p;
+	protected AbstractElementAlias match_Expression1_CommaKeyword_1_2_2_q;
+	protected AbstractElementAlias match_FunctionType_CommaKeyword_0_3_2_q;
+	protected AbstractElementAlias match_Function_CommaKeyword_4_2_q;
+	protected AbstractElementAlias match_PrimaryType_LeftParenthesisKeyword_1_0_a;
+	protected AbstractElementAlias match_PrimaryType_LeftParenthesisKeyword_1_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (HaleGrammarAccess) access;
 		match_Block_SemicolonKeyword_1_1_a = new TokenAlias(true, true, grammarAccess.getBlockAccess().getSemicolonKeyword_1_1());
-		match_Primary_LeftParenthesisKeyword_2_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_2_0());
-		match_Primary_LeftParenthesisKeyword_2_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_2_0());
+		match_Expression0_LeftParenthesisKeyword_3_0_a = new TokenAlias(true, true, grammarAccess.getExpression0Access().getLeftParenthesisKeyword_3_0());
+		match_Expression0_LeftParenthesisKeyword_3_0_p = new TokenAlias(true, false, grammarAccess.getExpression0Access().getLeftParenthesisKeyword_3_0());
+		match_Expression1_CommaKeyword_1_2_2_q = new TokenAlias(false, true, grammarAccess.getExpression1Access().getCommaKeyword_1_2_2());
+		match_FunctionType_CommaKeyword_0_3_2_q = new TokenAlias(false, true, grammarAccess.getFunctionTypeAccess().getCommaKeyword_0_3_2());
+		match_Function_CommaKeyword_4_2_q = new TokenAlias(false, true, grammarAccess.getFunctionAccess().getCommaKeyword_4_2());
+		match_PrimaryType_LeftParenthesisKeyword_1_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryTypeAccess().getLeftParenthesisKeyword_1_0());
+		match_PrimaryType_LeftParenthesisKeyword_1_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryTypeAccess().getLeftParenthesisKeyword_1_0());
 	}
 	
 	@Override
@@ -46,10 +56,20 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Block_SemicolonKeyword_1_1_a.equals(syntax))
 				emit_Block_SemicolonKeyword_1_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Primary_LeftParenthesisKeyword_2_0_a.equals(syntax))
-				emit_Primary_LeftParenthesisKeyword_2_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Primary_LeftParenthesisKeyword_2_0_p.equals(syntax))
-				emit_Primary_LeftParenthesisKeyword_2_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Expression0_LeftParenthesisKeyword_3_0_a.equals(syntax))
+				emit_Expression0_LeftParenthesisKeyword_3_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Expression0_LeftParenthesisKeyword_3_0_p.equals(syntax))
+				emit_Expression0_LeftParenthesisKeyword_3_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Expression1_CommaKeyword_1_2_2_q.equals(syntax))
+				emit_Expression1_CommaKeyword_1_2_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_FunctionType_CommaKeyword_0_3_2_q.equals(syntax))
+				emit_FunctionType_CommaKeyword_0_3_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Function_CommaKeyword_4_2_q.equals(syntax))
+				emit_Function_CommaKeyword_4_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PrimaryType_LeftParenthesisKeyword_1_0_a.equals(syntax))
+				emit_PrimaryType_LeftParenthesisKeyword_1_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PrimaryType_LeftParenthesisKeyword_1_0_p.equals(syntax))
+				emit_PrimaryType_LeftParenthesisKeyword_1_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -80,12 +100,20 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '-' inner=Expression1
-	 *     (rule start) (ambiguity) 'not' inner=Expression1
+	 *     (rule start) (ambiguity) '-' inner=Expression2
+	 *     (rule start) (ambiguity) 'input' ';' (rule start)
+	 *     (rule start) (ambiguity) 'input' (rule start)
+	 *     (rule start) (ambiguity) 'not' inner=Expression2
+	 *     (rule start) (ambiguity) 'void' ';' (rule start)
+	 *     (rule start) (ambiguity) 'void' (rule start)
 	 *     (rule start) (ambiguity) binding=[Binding|ID]
+	 *     (rule start) (ambiguity) value=BOOLEAN
 	 *     (rule start) (ambiguity) value=DOUBLE
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) {Addition.left=}
+	 *     (rule start) (ambiguity) {Application.expression=}
+	 *     (rule start) (ambiguity) {Concatenation.left=}
+	 *     (rule start) (ambiguity) {Conversion.left=}
 	 *     (rule start) (ambiguity) {Division.left=}
 	 *     (rule start) (ambiguity) {Equality.left=}
 	 *     (rule start) (ambiguity) {Exponentiation.left=}
@@ -102,7 +130,7 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Primary_LeftParenthesisKeyword_2_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Expression0_LeftParenthesisKeyword_3_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -112,9 +140,12 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '-' inner=Expression1
-	 *     (rule start) (ambiguity) 'not' inner=Expression1
+	 *     (rule start) (ambiguity) '-' inner=Expression2
+	 *     (rule start) (ambiguity) 'not' inner=Expression2
 	 *     (rule start) (ambiguity) {Addition.left=}
+	 *     (rule start) (ambiguity) {Application.expression=}
+	 *     (rule start) (ambiguity) {Concatenation.left=}
+	 *     (rule start) (ambiguity) {Conversion.left=}
 	 *     (rule start) (ambiguity) {Division.left=}
 	 *     (rule start) (ambiguity) {Equality.left=}
 	 *     (rule start) (ambiguity) {Exponentiation.left=}
@@ -131,7 +162,94 @@ public class HaleSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_Primary_LeftParenthesisKeyword_2_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Expression0_LeftParenthesisKeyword_3_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     arguments+=Expression (ambiguity) ')' ')' (rule end)
+	 *     arguments+=Expression (ambiguity) ')' ';' (rule end)
+	 *     arguments+=Expression (ambiguity) ')' (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Expression1_CommaKeyword_1_2_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     paramTypes+=Type (ambiguity) ')' ')' (rule end)
+	 *     paramTypes+=Type (ambiguity) ')' (rule end)
+	 *     paramTypes+=Type (ambiguity) ')' returnType=TypeAnnotation
+	 
+	 * </pre>
+	 */
+	protected void emit_FunctionType_CommaKeyword_0_3_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ','?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     parameters+=Parameter (ambiguity) ')' body=BracedBlock
+	 *     parameters+=Parameter (ambiguity) ')' returnType=TypeAnnotation
+	 
+	 * </pre>
+	 */
+	protected void emit_Function_CommaKeyword_4_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     '('*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) ':' (ambiguity) 'Function' '(' ')' (rule start)
+	 *     (rule start) ':' (ambiguity) 'Function' '(' ')' returnType=TypeAnnotation
+	 *     (rule start) ':' (ambiguity) 'Function' '(' paramTypes+=Type
+	 *     (rule start) ':' (ambiguity) type=PRIMITIVE_TYPE
+	 *     (rule start) ':' (ambiguity) {EitherType.left=}
+	 *     (rule start) (ambiguity) 'Function' '(' ')' (rule start)
+	 *     (rule start) (ambiguity) 'Function' '(' ')' returnType=TypeAnnotation
+	 *     (rule start) (ambiguity) 'Function' '(' paramTypes+=Type
+	 *     (rule start) (ambiguity) type=PRIMITIVE_TYPE
+	 *     (rule start) (ambiguity) {EitherType.left=}
+	 
+	 * </pre>
+	 */
+	protected void emit_PrimaryType_LeftParenthesisKeyword_1_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     '('+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'Function' '(' ')' ')' (rule start)
+	 *     (rule start) (ambiguity) 'Function' '(' ')' returnType=TypeAnnotation
+	 *     (rule start) (ambiguity) 'Function' '(' paramTypes+=Type
+	 *     (rule start) (ambiguity) {EitherType.left=}
+	 
+	 * </pre>
+	 */
+	protected void emit_PrimaryType_LeftParenthesisKeyword_1_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

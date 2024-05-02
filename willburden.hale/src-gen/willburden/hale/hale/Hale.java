@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link willburden.hale.hale.Hale#getBlock <em>Block</em>}</li>
+ *   <li>{@link willburden.hale.hale.Hale#getMainBlock <em>Main Block</em>}</li>
  * </ul>
  *
  * @see willburden.hale.hale.HalePackage#getHale()
@@ -24,25 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface Hale extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Block</b></em>' containment reference.
+   * Returns the value of the '<em><b>Main Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(Block)
-   * @see willburden.hale.hale.HalePackage#getHale_Block()
+   * @return the value of the '<em>Main Block</em>' containment reference.
+   * @see #setMainBlock(Block)
+   * @see willburden.hale.hale.HalePackage#getHale_MainBlock()
    * @model containment="true"
    * @generated
    */
-  Block getBlock();
+  Block getMainBlock();
 
   /**
-   * Sets the value of the '{@link willburden.hale.hale.Hale#getBlock <em>Block</em>}' containment reference.
+   * Sets the value of the '{@link willburden.hale.hale.Hale#getMainBlock <em>Main Block</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Block</em>' containment reference.
-   * @see #getBlock()
+   * @param value the new value of the '<em>Main Block</em>' containment reference.
+   * @see #getMainBlock()
    * @generated
    */
-  void setBlock(Block value);
+  void setMainBlock(Block value);
 
 } // Hale

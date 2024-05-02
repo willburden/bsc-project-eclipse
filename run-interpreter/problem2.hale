@@ -1,0 +1,16 @@
+let mut i = 1;
+while i <= 100 {
+	let div3 = i % 3 == 0;
+	let div5 = i % 5 == 0;
+	if div3 and div5 {
+		print "FizzBuzz";
+	} elseif div3 {
+		print "Fizz";
+	} elseif div5 {
+		print "Buzz";
+	} else {
+		print i;
+	}
+	
+	i = i + 1;
+}

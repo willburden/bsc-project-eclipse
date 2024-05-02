@@ -70,14 +70,23 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
       case HalePackage.STATEMENT: return createStatement();
       case HalePackage.EXPRESSION: return createExpression();
       case HalePackage.LITERAL: return createLiteral();
+      case HalePackage.VOID_LITERAL: return createVoidLiteral();
+      case HalePackage.BOOLEAN_LITERAL: return createBooleanLiteral();
       case HalePackage.NUMBER_LITERAL: return createNumberLiteral();
       case HalePackage.STRING_LITERAL: return createStringLiteral();
+      case HalePackage.TYPE: return createType();
       case HalePackage.BINDING: return createBinding();
       case HalePackage.BINDING_REFERENCE: return createBindingReference();
       case HalePackage.ASSIGNMENT: return createAssignment();
+      case HalePackage.INPUT: return createInput();
       case HalePackage.PRINT: return createPrint();
       case HalePackage.IF: return createIf();
+      case HalePackage.IF_CONDITIONS: return createIfConditions();
       case HalePackage.WHILE: return createWhile();
+      case HalePackage.BREAK: return createBreak();
+      case HalePackage.RETURN: return createReturn();
+      case HalePackage.THROW: return createThrow();
+      case HalePackage.CONCATENATION: return createConcatenation();
       case HalePackage.LOGICAL_AND: return createLogicalAnd();
       case HalePackage.LOGICAL_OR: return createLogicalOr();
       case HalePackage.EQUALITY: return createEquality();
@@ -92,8 +101,18 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
       case HalePackage.DIVISION: return createDivision();
       case HalePackage.REMAINDER: return createRemainder();
       case HalePackage.EXPONENTIATION: return createExponentiation();
+      case HalePackage.CONVERSION: return createConversion();
       case HalePackage.UNARY_NEGATION: return createUnaryNegation();
       case HalePackage.LOGICAL_NOT: return createLogicalNot();
+      case HalePackage.APPLICATION: return createApplication();
+      case HalePackage.FUNCTION_TYPE: return createFunctionType();
+      case HalePackage.EITHER_TYPE: return createEitherType();
+      case HalePackage.PRIMITIVE_TYPE: return createPrimitiveType();
+      case HalePackage.LET_BINDING: return createLetBinding();
+      case HalePackage.IF_LET: return createIfLet();
+      case HalePackage.ELSE_LET: return createElseLet();
+      case HalePackage.FUNCTION: return createFunction();
+      case HalePackage.PARAMETER: return createParameter();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -165,6 +184,30 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
+  public VoidLiteral createVoidLiteral()
+  {
+    VoidLiteralImpl voidLiteral = new VoidLiteralImpl();
+    return voidLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BooleanLiteral createBooleanLiteral()
+  {
+    BooleanLiteralImpl booleanLiteral = new BooleanLiteralImpl();
+    return booleanLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NumberLiteral createNumberLiteral()
   {
     NumberLiteralImpl numberLiteral = new NumberLiteralImpl();
@@ -181,6 +224,18 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
   {
     StringLiteralImpl stringLiteral = new StringLiteralImpl();
     return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
   }
 
   /**
@@ -225,6 +280,18 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
+  public Input createInput()
+  {
+    InputImpl input = new InputImpl();
+    return input;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Print createPrint()
   {
     PrintImpl print = new PrintImpl();
@@ -249,10 +316,70 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
+  public IfConditions createIfConditions()
+  {
+    IfConditionsImpl ifConditions = new IfConditionsImpl();
+    return ifConditions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public While createWhile()
   {
     WhileImpl while_ = new WhileImpl();
     return while_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Break createBreak()
+  {
+    BreakImpl break_ = new BreakImpl();
+    return break_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Return createReturn()
+  {
+    ReturnImpl return_ = new ReturnImpl();
+    return return_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Throw createThrow()
+  {
+    ThrowImpl throw_ = new ThrowImpl();
+    return throw_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Concatenation createConcatenation()
+  {
+    ConcatenationImpl concatenation = new ConcatenationImpl();
+    return concatenation;
   }
 
   /**
@@ -429,6 +556,18 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
+  public Conversion createConversion()
+  {
+    ConversionImpl conversion = new ConversionImpl();
+    return conversion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public UnaryNegation createUnaryNegation()
   {
     UnaryNegationImpl unaryNegation = new UnaryNegationImpl();
@@ -445,6 +584,114 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
   {
     LogicalNotImpl logicalNot = new LogicalNotImpl();
     return logicalNot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Application createApplication()
+  {
+    ApplicationImpl application = new ApplicationImpl();
+    return application;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FunctionType createFunctionType()
+  {
+    FunctionTypeImpl functionType = new FunctionTypeImpl();
+    return functionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EitherType createEitherType()
+  {
+    EitherTypeImpl eitherType = new EitherTypeImpl();
+    return eitherType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PrimitiveType createPrimitiveType()
+  {
+    PrimitiveTypeImpl primitiveType = new PrimitiveTypeImpl();
+    return primitiveType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LetBinding createLetBinding()
+  {
+    LetBindingImpl letBinding = new LetBindingImpl();
+    return letBinding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IfLet createIfLet()
+  {
+    IfLetImpl ifLet = new IfLetImpl();
+    return ifLet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ElseLet createElseLet()
+  {
+    ElseLetImpl elseLet = new ElseLetImpl();
+    return elseLet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Function createFunction()
+  {
+    FunctionImpl function = new FunctionImpl();
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**

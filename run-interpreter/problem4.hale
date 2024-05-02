@@ -1,0 +1,14 @@
+while (true) {
+	print "Please enter your height in cm";
+	
+	if let height = input as Number {
+		if height > 130 {
+			print "You are tall enough";
+		} else {
+			print "You are not tall enough";
+		}
+		break;
+	} else {
+		print "That is not a number";
+	}
+}
