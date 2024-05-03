@@ -1,4 +1,0 @@
-module A
-def a:2;
-def b:1;
-a+b;

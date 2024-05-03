@@ -1,62 +1,62 @@
-    Hale 
-        Block 
-            Function (name: checked_div)
-                Parameter (name: dividend) (mutable: false)
-                    PrimitiveType (type: Number)
-                Parameter (name: divisor) (mutable: false)
-                    PrimitiveType (type: Number)
-                EitherType 
-                    PrimitiveType (type: Number)
-                    PrimitiveType (type: String)
-                Block 
-                    IfConditions 
-                        Equality 
-                            BindingReference  ->Parameter (name: divisor) (mutable: false)
-                            NumberLiteral (value: 0.0)
-                        Block 
-                            Throw 
-                                StringLiteral (value: Attempted to divide by zero)
-                    Return 
-                        Division 
-                            BindingReference  ->Parameter (name: dividend) (mutable: false)
-                            BindingReference  ->Parameter (name: divisor) (mutable: false)
-            Function (name: input_number)
-                Parameter (name: prompt) (mutable: false)
-                    PrimitiveType (type: String)
-                Parameter (name: errorMessage) (mutable: false)
-                    EitherType 
-                        PrimitiveType (type: String)
-                        PrimitiveType (type: Void)
+Hale 
+    Block 
+        Function (name: checked_div)
+            Parameter (name: dividend) (mutable: false)
                 PrimitiveType (type: Number)
-                Block 
-                    While 
-                        BooleanLiteral (value: true)
-                        Block 
-                            Print 
-                                BindingReference  ->Parameter (name: prompt) (mutable: false)
-                            IfLet (name: number)
-                                Conversion 
-                                    Input 
-                                    PrimitiveType (type: Number)
-                                Block 
-                                    Return 
-                                        BindingReference  ->IfLet (name: number)
-                            Print 
-                                BindingReference  ->Parameter (name: errorMessage) (mutable: false)
-            Function (name: null)
+            Parameter (name: divisor) (mutable: false)
+                PrimitiveType (type: Number)
+            EitherType 
+                PrimitiveType (type: Number)
+                PrimitiveType (type: String)
+            Block 
+                IfConditions 
+                    Equality 
+                        BindingReference  ->Parameter (name: divisor) (mutable: false)
+                        NumberLiteral (value: 0.0)
+                    Block 
+                        Throw 
+                            StringLiteral (value: Attempted to divide by zero)
+                Return 
+                    Division 
+                        BindingReference  ->Parameter (name: dividend) (mutable: false)
+                        BindingReference  ->Parameter (name: divisor) (mutable: false)
+        Function (name: input_number)
+            Parameter (name: prompt) (mutable: false)
+                PrimitiveType (type: String)
+            Parameter (name: errorMessage) (mutable: false)
                 EitherType 
+                    PrimitiveType (type: String)
                     PrimitiveType (type: Void)
-                    PrimitiveType (type: Void)
-                Block 
-            LetBinding (name: parseError) (mutable: false)
-                StringLiteral (value: That is not a number)
-            LetBinding (name: dividend) (mutable: false)
-                Application 
-                    BindingReference  ->Function (name: input_number)
-                    StringLiteral (value: Enter dividend)
-                    BindingReference  ->LetBinding (name: parseError) (mutable: false)
-            LetBinding (name: divisor) (mutable: false)
-                Application 
-                    BindingReference  ->Function (name: input_number)
-                    StringLiteral (value: Enter divisor)
-                    BindingReference  ->LetBinding (name: parseError) (mutable: false)
+            PrimitiveType (type: Number)
+            Block 
+                While 
+                    BooleanLiteral (value: true)
+                    Block 
+                        Print 
+                            BindingReference  ->Parameter (name: prompt) (mutable: false)
+                        IfLet (name: number)
+                            Conversion 
+                                Input 
+                                PrimitiveType (type: Number)
+                            Block 
+                                Return 
+                                    BindingReference  ->IfLet (name: number)
+                        Print 
+                            BindingReference  ->Parameter (name: errorMessage) (mutable: false)
+        Function (name: null)
+            EitherType 
+                PrimitiveType (type: Void)
+                PrimitiveType (type: Void)
+            Block 
+        LetBinding (name: parseError) (mutable: false)
+            StringLiteral (value: That is not a number)
+        LetBinding (name: dividend) (mutable: false)
+            Application 
+                BindingReference  ->Function (name: input_number)
+                StringLiteral (value: Enter dividend)
+                BindingReference  ->LetBinding (name: parseError) (mutable: false)
+        LetBinding (name: divisor) (mutable: false)
+            Application 
+                BindingReference  ->Function (name: input_number)
+                StringLiteral (value: Enter divisor)
+                BindingReference  ->LetBinding (name: parseError) (mutable: false)

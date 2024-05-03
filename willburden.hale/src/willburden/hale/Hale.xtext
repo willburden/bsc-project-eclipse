@@ -39,85 +39,6 @@ BracedBlock returns Block:
 ;
 
 /*************************************************************
- * Expressions
- ************************************************************/
-
-// Start with expressions of lowest precedence, since we
-// are generating a syntax tree.
-Expression returns Expression:
-	Expression10
-;
-
-Expression10 returns Expression:
-	Expression9 ({Concatenation.left=current} '.' right=Expression9)*
-;
-
-Expression9 returns Expression:
-	Expression8 (
-		({LogicalAnd.left=current} 'and' right=Expression8) |
-		({LogicalOr.left=current} 'or' right=Expression8)
-	)*
-;
-
-Expression8 returns Expression:
-	Expression7 (
-		({Equality.left=current} '==' right=Expression7) |
-		({Inequality.left=current} '!=' right=Expression7)
-	)*
-;
-
-Expression7 returns Expression:
-	Expression6 (
-		({LessThanOrEqual.left=current} '<=' right=Expression6) |
-		({LessThan.left=current} '<' right=Expression6) |
-		({GreaterThanOrEqual.left=current} '>=' right=Expression6) |
-		({GreaterThan.left=current} '>' right=Expression6)
-	)*
-;
-
-Expression6 returns Expression:
-	Expression5 (
-		({Addition.left=current} '+' right=Expression5) |
-		({Subtraction.left=current} '-' right=Expression5)
-	)*
-;
-
-Expression5 returns Expression:
-	Expression4 (
-		({Multiplication.left=current} '*' right=Expression4) |
-		({Division.left=current} '/' right=Expression4) |
-		({Remainder.left=current} '%' right=Expression4)		
-	)*
-;
-
-Expression4 returns Expression:
-	Expression3 ({Exponentiation.left=current} '**' right=Expression3)*
-;
-
-Expression3 returns Expression:
-	Expression2 ({Conversion.left=current} 'as' right=Type)*
-;
-
-Expression2 returns Expression:
-	({UnaryNegation} '-' inner=Expression2) |
-	({LogicalNot} 'not' inner=Expression2) |
-	Expression1
-;
-
-Expression1 returns Expression:
-	Expression0 ({Application.expression=current} '('
-		(arguments+=Expression (',' arguments+=Expression)* ','?)?
-	')')*
-;
-
-Expression0 returns Expression:
-	Literal |
-	Input |
-	BindingReference |
-	'(' Expression ')'
-;
-
-/*************************************************************
  * Literals
  ************************************************************/
 
@@ -273,6 +194,86 @@ Return:
 Throw:
 	{Throw}
 	'throw' (expression=Expression)?
+;
+
+
+/*************************************************************
+ * Expressions
+ ************************************************************/
+
+// Start with expressions of lowest precedence, since we
+// are generating a syntax tree.
+Expression returns Expression:
+	Expression10
+;
+
+Expression10 returns Expression:
+	Expression9 ({Concatenation.left=current} '.' right=Expression9)*
+;
+
+Expression9 returns Expression:
+	Expression8 (
+		({LogicalAnd.left=current} 'and' right=Expression8) |
+		({LogicalOr.left=current} 'or' right=Expression8)
+	)*
+;
+
+Expression8 returns Expression:
+	Expression7 (
+		({Equality.left=current} '==' right=Expression7) |
+		({Inequality.left=current} '!=' right=Expression7)
+	)*
+;
+
+Expression7 returns Expression:
+	Expression6 (
+		({LessThanOrEqual.left=current} '<=' right=Expression6) |
+		({LessThan.left=current} '<' right=Expression6) |
+		({GreaterThanOrEqual.left=current} '>=' right=Expression6) |
+		({GreaterThan.left=current} '>' right=Expression6)
+	)*
+;
+
+Expression6 returns Expression:
+	Expression5 (
+		({Addition.left=current} '+' right=Expression5) |
+		({Subtraction.left=current} '-' right=Expression5)
+	)*
+;
+
+Expression5 returns Expression:
+	Expression4 (
+		({Multiplication.left=current} '*' right=Expression4) |
+		({Division.left=current} '/' right=Expression4) |
+		({Remainder.left=current} '%' right=Expression4)		
+	)*
+;
+
+Expression4 returns Expression:
+	Expression3 ({Exponentiation.left=current} '**' right=Expression3)*
+;
+
+Expression3 returns Expression:
+	Expression2 ({Conversion.left=current} 'as' right=Type)*
+;
+
+Expression2 returns Expression:
+	({UnaryNegation} '-' inner=Expression2) |
+	({LogicalNot} 'not' inner=Expression2) |
+	Expression1
+;
+
+Expression1 returns Expression:
+	Expression0 ({Application.expression=current} '('
+		(arguments+=Expression (',' arguments+=Expression)* ','?)?
+	')')*
+;
+
+Expression0 returns Expression:
+	Literal |
+	Input |
+	BindingReference |
+	'(' Expression ')'
 ;
 
 /*************************************************************

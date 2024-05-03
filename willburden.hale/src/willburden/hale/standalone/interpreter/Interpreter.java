@@ -81,6 +81,11 @@ public class Interpreter {
 		stack = new CallStack();
 		scanner = new Scanner(System.in);
 	}
+	
+	// Gives other components direct access to the stack, e.g. for testing.
+	public CallStack stack() {
+		return stack;
+	}
 
 	public void execute(Hale program) {
 		stack.pushFrame();
@@ -97,7 +102,7 @@ public class Interpreter {
 		stack.popFrame();
 	}
 
-	private void execBlock(Block block) throws ControlFlowThrowable {
+	public void execBlock(Block block) throws ControlFlowThrowable {
 		stack.pushScope();
 		execBlockStatements(block);
 		stack.popScope();
@@ -111,7 +116,7 @@ public class Interpreter {
 		}
 	}
 
-	private void execStatement(Statement statement) throws ControlFlowThrowable {
+	public void execStatement(Statement statement) throws ControlFlowThrowable {
 		if (statement instanceof Block block) {
 			execBlock(block);
 		} else if (statement instanceof Function function) {
@@ -140,24 +145,11 @@ public class Interpreter {
 		}
 	}
 
-	private void execFunction(Function function) {
-		stack.put(function.getBinding().getName(), new HaleFunction(buildFunctionType(function), function));
+	public void execFunction(Function function) {
+		stack.put(function.getBinding().getName(), new HaleFunction(resolveFunctionSignature(function), function));
 	}
 
-	private HaleFunctionType buildFunctionType(Function function) {
-		List<HaleType> paramTypes = new ArrayList<>();
-		for (Parameter param : function.getParameters()) {
-			paramTypes.add(resolveType(param.getType()));
-		}
-		
-		HaleType returnType = function.getReturnType() == null
-				? HalePrimitiveType.VOID
-				: resolveType(function.getReturnType());
-		
-		return new HaleFunctionType(paramTypes, returnType);
-	}
-
-	private void execIf(If ifStmt) throws ControlFlowThrowable {
+	public void execIf(If ifStmt) throws ControlFlowThrowable {
 		if (ifStmt instanceof IfLet ifLet) {
 			execIfLet(ifLet);
 		} else if (ifStmt instanceof IfConditions ifConditions) {
@@ -167,7 +159,7 @@ public class Interpreter {
 		}
 	}
 	
-	private void execIfLet(IfLet ifLet) throws ControlFlowThrowable {
+	public void execIfLet(IfLet ifLet) throws ControlFlowThrowable {
 		HaleValue value = evalExpression(ifLet.getExpression());
 		
 		// Check the expression evaluates to an either value.
@@ -218,7 +210,7 @@ public class Interpreter {
 		stack.popScope();
 	}
 	
-	private void execIfConditions(IfConditions ifConditions) throws ControlFlowThrowable {
+	public void execIfConditions(IfConditions ifConditions) throws ControlFlowThrowable {
 		for (int i = 0; i < ifConditions.getIfBlocks().size(); i++) {
 			boolean condition;
 			try {
@@ -240,7 +232,7 @@ public class Interpreter {
 		}
 	}
 
-	private void execWhile(While whileStmt) throws ControlFlowThrowable {
+	public void execWhile(While whileStmt) throws ControlFlowThrowable {
 		// We use while (true) so we can wrap the condition evaluation in a try/catch.
 		while (true) {
 			boolean condition;
@@ -273,7 +265,7 @@ public class Interpreter {
 		return ((HaleBoolean) value.convertTo(HalePrimitiveType.BOOLEAN)).value();
 	}
 
-	private void execPrint(Print print) {
+	public void execPrint(Print print) {
 		HaleValue value = evalExpression(print.getExpression());
 
 		// Implicitly convert all types to String.
@@ -284,7 +276,7 @@ public class Interpreter {
 		}
 	}
 
-	private void execLetBinding(LetBinding letBinding) {
+	public void execLetBinding(LetBinding letBinding) {
 		HaleValue value = evalExpression(letBinding.getExpression());
 
 		if (letBinding.getType() != null) {
@@ -298,7 +290,7 @@ public class Interpreter {
 		stack.put(letBinding.getBinding().getName(), value);
 	}
 
-	private void execAssignment(Assignment assignment) {
+	public void execAssignment(Assignment assignment) {
 		String name = assignment.getBinding().getName();
 
 		try {
@@ -308,11 +300,11 @@ public class Interpreter {
 		}
 	}
 
-	private void execBreak(Break breakStmt) throws LoopBreak {
+	public void execBreak(Break breakStmt) throws LoopBreak {
 		throw new LoopBreak();
 	}
 
-	private void execReturn(Return returnStmt) throws ReturnValue {
+	public void execReturn(Return returnStmt) throws ReturnValue {
 		if (returnStmt.getExpression() != null) {
 			throw new ReturnValue(evalExpression(returnStmt.getExpression()));
 		} else {
@@ -320,7 +312,7 @@ public class Interpreter {
 		}
 	}
 
-	private void execThrow(Throw throwStmt) throws ThrowValue {
+	public void execThrow(Throw throwStmt) throws ThrowValue {
 		if (throwStmt.getExpression() != null) {
 			throw new ThrowValue(evalExpression(throwStmt.getExpression()));
 		} else {
@@ -328,11 +320,11 @@ public class Interpreter {
 		}
 	}
 
-	private void execExpression(Expression expression) {
+	public void execExpression(Expression expression) {
 		evalExpression(expression);
 	}
 
-	private HaleValue evalExpression(Expression expression) {
+	public HaleValue evalExpression(Expression expression) {
 		if (expression instanceof Concatenation concatenation) {
 			return evalConcatenation(concatenation);
 		} else if (expression instanceof LogicalAnd logicalAnd) {
@@ -383,7 +375,7 @@ public class Interpreter {
 		}
 	}
 
-	private HaleString evalConcatenation(Concatenation operator) {
+	public HaleString evalConcatenation(Concatenation operator) {
 		// Because concatenation is a dedicated operator, we can implicitly convert
 		// values of any type.
 		HaleString left, right;
@@ -397,84 +389,84 @@ public class Interpreter {
 		return new HaleString(left.value() + right.value());
 	}
 
-	private HaleBoolean evalLogicalAnd(LogicalAnd operator) {
+	public HaleBoolean evalLogicalAnd(LogicalAnd operator) {
 		HaleBoolean left = (HaleBoolean) evalToType(operator.getLeft(), HalePrimitiveType.BOOLEAN);
 		HaleBoolean right = (HaleBoolean) evalToType(operator.getRight(), HalePrimitiveType.BOOLEAN);
 
 		return new HaleBoolean(left.value() && right.value());
 	}
 
-	private HaleBoolean evalLogicalOr(LogicalOr operator) {
+	public HaleBoolean evalLogicalOr(LogicalOr operator) {
 		HaleBoolean left = (HaleBoolean) evalToType(operator.getLeft(), HalePrimitiveType.BOOLEAN);
 		HaleBoolean right = (HaleBoolean) evalToType(operator.getRight(), HalePrimitiveType.BOOLEAN);
 
 		return new HaleBoolean(left.value() || right.value());
 	}
 
-	private HaleBoolean evalEquality(Equality operator) {
+	public HaleBoolean evalEquality(Equality operator) {
 		HaleValue left = evalExpression(operator.getLeft());
 		HaleValue right = evalExpression(operator.getRight());
 
 		return new HaleBoolean(left.valueEquals(right));
 	}
 
-	private HaleBoolean evalInequality(Inequality operator) {
+	public HaleBoolean evalInequality(Inequality operator) {
 		HaleValue left = evalExpression(operator.getLeft());
 		HaleValue right = evalExpression(operator.getRight());
 
 		return new HaleBoolean(!left.valueEquals(right));
 	}
 
-	private HaleBoolean evalLessThanOrEqual(LessThanOrEqual operator) {
+	public HaleBoolean evalLessThanOrEqual(LessThanOrEqual operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
 		return new HaleBoolean(left.value() <= right.value());
 	}
 
-	private HaleBoolean evalLessThan(LessThan operator) {
+	public HaleBoolean evalLessThan(LessThan operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
 		return new HaleBoolean(left.value() < right.value());
 	}
 
-	private HaleBoolean evalGreaterThanOrEqual(GreaterThanOrEqual operator) {
+	public HaleBoolean evalGreaterThanOrEqual(GreaterThanOrEqual operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
 		return new HaleBoolean(left.value() >= right.value());
 	}
 
-	private HaleBoolean evalGreaterThan(GreaterThan operator) {
+	public HaleBoolean evalGreaterThan(GreaterThan operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
 		return new HaleBoolean(left.value() > right.value());
 	}
 
-	private HaleNumber evalAddition(Addition operator) {
+	public HaleNumber evalAddition(Addition operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
 		return new HaleNumber(left.value() + right.value());
 	}
 
-	private HaleNumber evalSubtraction(Subtraction operator) {
+	public HaleNumber evalSubtraction(Subtraction operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
 		return new HaleNumber(left.value() - right.value());
 	}
 
-	private HaleNumber evalMultiplication(Multiplication operator) {
+	public HaleNumber evalMultiplication(Multiplication operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
 		return new HaleNumber(left.value() * right.value());
 	}
 
-	private HaleNumber evalDivision(Division operator) {
+	public HaleNumber evalDivision(Division operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
@@ -485,21 +477,21 @@ public class Interpreter {
 		return new HaleNumber(left.value() / right.value());
 	}
 
-	private HaleNumber evalRemainder(Remainder operator) {
+	public HaleNumber evalRemainder(Remainder operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
 		return new HaleNumber(left.value() % right.value());
 	}
 
-	private HaleNumber evalExponentiation(Exponentiation operator) {
+	public HaleNumber evalExponentiation(Exponentiation operator) {
 		HaleNumber left = (HaleNumber) evalToType(operator.getLeft(), HalePrimitiveType.NUMBER);
 		HaleNumber right = (HaleNumber) evalToType(operator.getRight(), HalePrimitiveType.NUMBER);
 
 		return new HaleNumber(Math.pow(left.value(), right.value()));
 	}
 
-	private HaleValue evalConversion(Conversion operator) {
+	public HaleValue evalConversion(Conversion operator) {
 		HaleValue value = evalExpression(operator.getLeft());
 		HaleType targetType = resolveType(operator.getRight());
 
@@ -510,19 +502,19 @@ public class Interpreter {
 		}
 	}
 
-	private HaleNumber evalUnaryNegation(UnaryNegation operator) {
+	public HaleNumber evalUnaryNegation(UnaryNegation operator) {
 		HaleNumber inner = (HaleNumber) evalToType(operator.getInner(), HalePrimitiveType.NUMBER);
 
 		return new HaleNumber(-inner.value());
 	}
 
-	private HaleBoolean evalLogicalNot(LogicalNot operator) {
+	public HaleBoolean evalLogicalNot(LogicalNot operator) {
 		HaleBoolean inner = (HaleBoolean) evalToType(operator.getInner(), HalePrimitiveType.BOOLEAN);
 
 		return new HaleBoolean(!inner.value());
 	}
 
-	private HaleValue evalApplication(Application application) {
+	public HaleValue evalApplication(Application application) {
 		// Evaluate the expression to get the function we are applying.
 		HaleValue applValue = evalExpression(application.getExpression());
 		HaleFunction function;
@@ -605,7 +597,7 @@ public class Interpreter {
 		return returnValue;
 	}
 
-	private HaleValue evalLiteral(Literal literal) {
+	public HaleValue evalLiteral(Literal literal) {
 		if (literal instanceof VoidLiteral) {
 			return new HaleVoid();
 		} else if (literal instanceof BooleanLiteral bool) {
@@ -619,7 +611,7 @@ public class Interpreter {
 		}
 	}
 
-	private HaleValue evalBindingReference(BindingReference bindingReference) {
+	public HaleValue evalBindingReference(BindingReference bindingReference) {
 		String name = bindingReference.getBinding().getName();
 		RuntimeBinding binding;
 
@@ -632,7 +624,7 @@ public class Interpreter {
 		return binding.getValue();
 	}
 
-	private HaleString evalInput(Input input) {
+	public HaleString evalInput(Input input) {
 		return new HaleString(scanner.nextLine());
 	}
 
@@ -650,9 +642,9 @@ public class Interpreter {
 		return value;
 	}
 
-	// This method is public so it can be used by HaleValidator to produce better error messages
+	// This method is static so it can be used by HaleValidator to produce better error messages
 	// during static analysis. The introduction of user-defined types would mean this method
-	// could no longer be static, so would require a more complex solution.
+	// could no longer be static, so would require a more complex solution, i.e. a shared TypeChecker component.
 	public static HaleType resolveType(Type type) {
 		if (type instanceof FunctionType functionType) {
 			return resolveFunctionType(functionType);
@@ -665,7 +657,7 @@ public class Interpreter {
 		}
 	}
 	
-	private static HaleFunctionType resolveFunctionType(FunctionType functionType) {
+	public static HaleFunctionType resolveFunctionType(FunctionType functionType) {
 		HaleType returnType = resolveType(functionType.getReturnType());
 		List<HaleType> paramTypes = functionType.getParamTypes().stream()
 				.map(paramType -> resolveType(paramType))
@@ -673,13 +665,13 @@ public class Interpreter {
 		return new HaleFunctionType(paramTypes, returnType);
 	}
 	
-	private static HaleEitherType resolveEitherType(EitherType eitherType) {
+	public static HaleEitherType resolveEitherType(EitherType eitherType) {
 		HaleType left = resolveType(eitherType.getLeft());
 		HaleType right = resolveType(eitherType.getRight());
 		return new HaleEitherType(left, right);
 	}
 
-	private static HalePrimitiveType resolvePrimitiveType(PrimitiveType primitiveType) {
+	public static HalePrimitiveType resolvePrimitiveType(PrimitiveType primitiveType) {
 		return switch (primitiveType.getType()) {
 		case "Void" -> HalePrimitiveType.VOID;
 		case "Boolean" -> HalePrimitiveType.BOOLEAN;
@@ -687,5 +679,19 @@ public class Interpreter {
 		case "String" -> HalePrimitiveType.STRING;
 		default -> throw new InterpreterException(ErrorMessages.cantResolveType(primitiveType.getType()));
 		};
+	}
+	
+	// Used to infer the associated types of a function from its definition statement
+	public static HaleFunctionType resolveFunctionSignature(Function function) {
+		List<HaleType> paramTypes = new ArrayList<>();
+		for (Parameter param : function.getParameters()) {
+			paramTypes.add(resolveType(param.getType()));
+		}
+		
+		HaleType returnType = function.getReturnType() == null
+				? HalePrimitiveType.VOID
+				: resolveType(function.getReturnType());
+		
+		return new HaleFunctionType(paramTypes, returnType);
 	}
 }
