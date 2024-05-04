@@ -5,7 +5,17 @@ import willburden.hale.standalone.error.TypeConversionException;
 import willburden.hale.standalone.types.HalePrimitiveType;
 import willburden.hale.standalone.types.HaleType;
 
-public record HaleBoolean(boolean value) implements HaleValue {
+public class HaleBoolean implements HaleValue {
+	private boolean value;
+	
+	public HaleBoolean(boolean value) {
+		this.value = value;
+	}
+	
+	public boolean value() {
+		return value;
+	}
+	
 	@Override
 	public HalePrimitiveType type() {
 		return HalePrimitiveType.BOOLEAN;

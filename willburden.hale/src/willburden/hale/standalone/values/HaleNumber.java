@@ -7,8 +7,18 @@ import willburden.hale.standalone.error.TypeConversionException;
 import willburden.hale.standalone.types.HalePrimitiveType;
 import willburden.hale.standalone.types.HaleType;
 
-public record HaleNumber(double value) implements HaleValue {
+public class HaleNumber implements HaleValue {
 	private static DecimalFormat decimalFormat;
+	
+	private double value;
+	
+	public HaleNumber(double value) {
+		this.value = value;
+	}
+	
+	public double value() {
+		return value;
+	}
 	
 	static {
 		decimalFormat = new DecimalFormat("#,###.#########");

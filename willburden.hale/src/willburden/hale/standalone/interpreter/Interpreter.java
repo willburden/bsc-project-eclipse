@@ -97,22 +97,8 @@ public class Interpreter {
 			// to the main program body.
 			throw new InterpreterException(
 					ErrorMessages.unimplementedForSubclass(ControlFlowThrowable.class, e.getClass()));
-		}
-
-		stack.popFrame();
-	}
-
-	public void execBlock(Block block) throws ControlFlowThrowable {
-		stack.pushScope();
-		execBlockStatements(block);
-		stack.popScope();
-	}
-	
-	private void execBlockStatements(Block block) throws ControlFlowThrowable {
-		// In some cases (function application, if let) we've already created the new scope
-		// for the block, so this method is extracted to just run the statements using the current scope.
-		for (Statement statement : block.getStatements()) {
-			execStatement(statement);
+		} finally {
+			stack.popFrame();
 		}
 	}
 
@@ -142,6 +128,23 @@ public class Interpreter {
 		} else {
 			throw new InterpreterException(
 					ErrorMessages.unimplementedForSubclass(Statement.class, statement.getClass()));
+		}
+	}
+
+	public void execBlock(Block block) throws ControlFlowThrowable {
+		stack.pushScope();
+		try {
+			execBlockStatements(block);
+		} finally {
+			stack.popScope();
+		}
+	}
+	
+	private void execBlockStatements(Block block) throws ControlFlowThrowable {
+		// In some cases (function application, if let) we've already created the new scope
+		// for the block, so this method is extracted to just run the statements using the current scope.
+		for (Statement statement : block.getStatements()) {
+			execStatement(statement);
 		}
 	}
 
@@ -194,20 +197,23 @@ public class Interpreter {
 		// Any new bindings should only last for this block's scope, so we create the scope
 		// here in this method and then call execBlockStatements instead of execBlock.
 		stack.pushScope();
-		if (either.isLeft()) {
-			stack.put(ifLet.getBinding().getName(), either.value());
-			
-			execBlockStatements(ifLet.getIfBlock()); // Doesn't create a redundant new scope.
-			
-		} else if (elseLet != null) {
-			if (elseLet.getBinding() != null) {
-				// We need to create a binding for the right outcome value.
-				stack.put(elseLet.getBinding().getName(), either.value());
+		try {
+			if (either.isLeft()) {
+				stack.put(ifLet.getBinding().getName(), either.value());
+				
+				execBlockStatements(ifLet.getIfBlock()); // Doesn't create a redundant new scope.
+				
+			} else if (elseLet != null) {
+				if (elseLet.getBinding() != null) {
+					// We need to create a binding for the right outcome value.
+					stack.put(elseLet.getBinding().getName(), either.value());
+				}
+				
+				execBlockStatements(elseLet.getElseBlock());
 			}
-			
-			execBlockStatements(elseLet.getElseBlock());
+		} finally {
+			stack.popScope();
 		}
-		stack.popScope();
 	}
 	
 	public void execIfConditions(IfConditions ifConditions) throws ControlFlowThrowable {
@@ -296,7 +302,7 @@ public class Interpreter {
 		try {
 			stack.get(name).setValue(evalExpression(assignment.getExpression()));
 		} catch (BindingDoesntExistException | TypeMismatchException e) {
-			throw new InterpreterException(ErrorMessages.assignmentFailed(name), e);
+			throw new InterpreterException(e.getMessage(), e.getCause());
 		}
 	}
 
@@ -521,16 +527,14 @@ public class Interpreter {
 		try {
 			function = (HaleFunction) applValue;
 		} catch (ClassCastException e) {
-			throw new InterpreterException(ErrorMessages.functionApplicationFailed(),
-					new InterpreterException(ErrorMessages.valueNotAFunction(applValue)));
+			throw new InterpreterException(ErrorMessages.valueNotAFunction(applValue));
 		}
 		
 		int numParams = function.type().paramTypes().size();
 		int numArgs = application.getArguments().size();
 
 		if (numParams != numArgs) {
-			throw new InterpreterException(ErrorMessages.functionApplicationFailed(),
-					new InterpreterException(ErrorMessages.wrongNumberOfArguments(numParams, numArgs)));
+			throw new InterpreterException(ErrorMessages.wrongNumberOfArguments(numParams, numArgs));
 		}
 
 		// It's important to evaluate all the arguments before creating the new stack
@@ -542,73 +546,93 @@ public class Interpreter {
 		stack.pushFrame();
 		stack.pushScope();
 
-		for (int i = 0; i < numParams; i++) {
-			// Create a binding. We also check the type annotations match here.
-			HaleType paramType = function.type().paramTypes().get(i);
-			String paramName = function.value().getParameters().get(i).getBinding().getName();
-			HaleValue argument = arguments.get(i);
-
-			if (!paramType.typeEquals(argument.type())) {
-				throw new InterpreterException(ErrorMessages.functionApplicationFailed(), new InterpreterException(
-						ErrorMessages.argumentOfWrongType(argument, paramName, paramType)));
-			}
-
-			stack.put(paramName, arguments.get(i));
-		}
-
-		// Execute the function body.
-		HaleValue returnValue;
-		boolean isThrowing = false;
 		try {
-			execBlockStatements(function.value().getBody());
-
-			// If the end of the function is reached without a return statement, the
-			// function returns Void.
-			returnValue = new HaleVoid();
-		} catch (ReturnValue r) {
-			returnValue = r.value();
-		} catch (ThrowValue t) {
-			returnValue = t.value();
-			isThrowing = true;
-		} catch (LoopBreak l) {
-			throw new InterpreterException(ErrorMessages.breakNotInLoop());
-		} catch (ControlFlowThrowable t) {
-			throw new InterpreterException(
-					ErrorMessages.unimplementedForSubclass(ControlFlowThrowable.class, t.getClass()));
-		}
+			for (int i = 0; i < numParams; i++) {
+				// Create a binding. We also check the type annotations match here.
+				HaleType paramType = function.type().paramTypes().get(i);
+				String paramName = function.value().getParameters().get(i).getBinding().getName();
+				HaleValue argument = arguments.get(i);
 		
-		// Return/throw value is automatically converted to an either if necessary.
-		if (function.type().returnType() instanceof HaleEitherType eitherType) {
-			try {
-				returnValue = new HaleEither(eitherType, returnValue, !isThrowing);
-			} catch (EitherTypeMismatchException e) {
-				HaleType expectedType = isThrowing ? eitherType.right() : eitherType.left();
-				throw new InterpreterException(ErrorMessages.returnValueOfWrongType(returnValue, expectedType));
+				if (!paramType.typeEquals(argument.type())) {
+					throw new InterpreterException(
+							ErrorMessages.argumentOfWrongType(argument, paramName, paramType)
+					);
+				}
+		
+				stack.put(paramName, arguments.get(i));
 			}
-		} else if (returnValue.type() != function.type().returnType()) {
-			// Non-either return values must still be of the correct type.
-			throw new InterpreterException(ErrorMessages.returnValueOfWrongType(returnValue, function.type().returnType()));
-		}
 		
-		// Note that we don't need to check for throwing inside a non-either function, since that
-		// is statically precluded.
+			// Execute the function body.
+			HaleValue returnValue;
+			boolean isThrowing = false;
+			try {
+				execBlockStatements(function.value().getBody());
+		
+				// If the end of the function is reached without a return statement, the
+				// function returns Void.
+				returnValue = new HaleVoid();
+			} catch (ReturnValue r) {
+				returnValue = r.value();
+			} catch (ThrowValue t) {
+				returnValue = t.value();
+				isThrowing = true;
+			} catch (LoopBreak l) {
+				throw new InterpreterException(ErrorMessages.breakNotInLoop());
+			} catch (ControlFlowThrowable t) {
+				throw new InterpreterException(
+						ErrorMessages.unimplementedForSubclass(ControlFlowThrowable.class, t.getClass()));
+			}
+			
+			// Return/throw value is automatically converted to an either if necessary.
+			if (function.type().returnType() instanceof HaleEitherType eitherType) {
+				try {
+					returnValue = new HaleEither(eitherType, returnValue, !isThrowing);
+				} catch (EitherTypeMismatchException e) {
+					HaleType expectedType = isThrowing ? eitherType.right() : eitherType.left();
+					throw new InterpreterException(ErrorMessages.returnValueOfWrongType(returnValue, expectedType));
+				}
+			} else if (returnValue.type() != function.type().returnType()) {
+				// Non-either return values must still be of the correct type.
+				throw new InterpreterException(ErrorMessages.returnValueOfWrongType(returnValue, function.type().returnType()));
+			}
+			
+			// Note that we don't need to check for throwing inside a non-either function, since that
+			// is statically precluded.
 
-		stack.popFrame();
-		return returnValue;
+			return returnValue;
+		} finally {
+			stack.popFrame();
+		}
 	}
 
 	public HaleValue evalLiteral(Literal literal) {
-		if (literal instanceof VoidLiteral) {
-			return new HaleVoid();
-		} else if (literal instanceof BooleanLiteral bool) {
-			return new HaleBoolean(bool.isValue());
-		} else if (literal instanceof NumberLiteral number) {
-			return new HaleNumber(number.getValue());
-		} else if (literal instanceof StringLiteral string) {
-			return new HaleString(string.getValue());
+		if (literal instanceof VoidLiteral voidLiteral) {
+			return evalVoidLiteral(voidLiteral);
+		} else if (literal instanceof BooleanLiteral booleanLiteral) {
+			return evalBooleanLiteral(booleanLiteral);
+		} else if (literal instanceof NumberLiteral numberLiteral) {
+			return evalNumberLiteral(numberLiteral);
+		} else if (literal instanceof StringLiteral stringLiteral) {
+			return evalStringLiteral(stringLiteral);
 		} else {
 			throw new InterpreterException(ErrorMessages.unimplementedForSubclass(Literal.class, literal.getClass()));
 		}
+	}
+	
+	public HaleVoid evalVoidLiteral(VoidLiteral literal) {
+		return new HaleVoid();
+	}
+	
+	public HaleBoolean evalBooleanLiteral(BooleanLiteral literal) {
+		return new HaleBoolean(literal.isValue());
+	}
+	
+	public HaleNumber evalNumberLiteral(NumberLiteral literal) {
+		return new HaleNumber(literal.getValue());
+	}
+	
+	public HaleString evalStringLiteral(StringLiteral literal) {
+		return new HaleString(literal.getValue());
 	}
 
 	public HaleValue evalBindingReference(BindingReference bindingReference) {
@@ -658,10 +682,12 @@ public class Interpreter {
 	}
 	
 	public static HaleFunctionType resolveFunctionType(FunctionType functionType) {
-		HaleType returnType = resolveType(functionType.getReturnType());
 		List<HaleType> paramTypes = functionType.getParamTypes().stream()
 				.map(paramType -> resolveType(paramType))
 				.collect(Collectors.toList());
+		
+		HaleType returnType = resolveTypeOrVoid(functionType.getReturnType());
+		
 		return new HaleFunctionType(paramTypes, returnType);
 	}
 	
@@ -681,17 +707,21 @@ public class Interpreter {
 		};
 	}
 	
-	// Used to infer the associated types of a function from its definition statement
+	// Used to construct the type of a function from its definition statement
 	public static HaleFunctionType resolveFunctionSignature(Function function) {
 		List<HaleType> paramTypes = new ArrayList<>();
 		for (Parameter param : function.getParameters()) {
 			paramTypes.add(resolveType(param.getType()));
 		}
 		
-		HaleType returnType = function.getReturnType() == null
-				? HalePrimitiveType.VOID
-				: resolveType(function.getReturnType());
+		HaleType returnType = resolveTypeOrVoid(function.getReturnType());
 		
 		return new HaleFunctionType(paramTypes, returnType);
+	}
+	
+	private static HaleType resolveTypeOrVoid(Type type) {
+		return type != null
+				? resolveType(type)
+				: HalePrimitiveType.VOID;
 	}
 }

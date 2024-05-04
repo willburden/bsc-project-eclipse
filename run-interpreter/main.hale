@@ -1,1 +1,3 @@
-function xyz() { throw; }
+while true {
+	;
+}

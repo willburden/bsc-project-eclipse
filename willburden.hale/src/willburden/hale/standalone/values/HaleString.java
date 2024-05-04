@@ -10,7 +10,17 @@ import willburden.hale.standalone.types.HaleEitherType;
 import willburden.hale.standalone.types.HalePrimitiveType;
 import willburden.hale.standalone.types.HaleType;
 
-public record HaleString(String value) implements HaleValue {
+public class HaleString implements HaleValue {
+	private String value;
+	
+	public HaleString(String value) {
+		this.value = value;
+	}
+	
+	public String value() {
+		return value;
+	}
+	
 	@Override
 	public HalePrimitiveType type() {
 		return HalePrimitiveType.STRING;

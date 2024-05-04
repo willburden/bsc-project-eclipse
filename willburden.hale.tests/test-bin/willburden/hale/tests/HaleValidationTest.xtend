@@ -94,6 +94,29 @@ class HaleValidationTest {
 		"while true { break; }".parse.assertNoIssues()
 	}
 	
+	// Tests for @Check whileTrueWithoutBreak
+	
+	@Test
+	def whileTrueWithoutBreak() {
+		"while true {}".parse.assertWarning(
+			HalePackage.Literals.WHILE,
+			HaleValidator.IssueCodes.WHILE_TRUE_WITHOUT_BREAK
+		)
+	}
+	
+	@Test
+	def whileTrueWithBreakInFunction() {
+		"while true { function xyz() { break; } }".parse.assertWarning(
+			HalePackage.Literals.WHILE,
+			HaleValidator.IssueCodes.WHILE_TRUE_WITHOUT_BREAK
+		)
+	}
+	
+	@Test
+	def whileTrueWithBreak() {
+		"while true { break; }".parse.assertNoIssues()
+	}
+	
 	// Tests for @Check returnOutsideFunction
 	
 	@Test

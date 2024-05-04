@@ -13,6 +13,10 @@ public class CallStack {
 		frames = new LinkedList<>();
 	}
 	
+	public Deque<CallFrame> frames() {
+		return frames;
+	}
+	
 	public void pushFrame() {
 		frames.push(new CallFrame());
 	}

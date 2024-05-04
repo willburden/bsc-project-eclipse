@@ -245,7 +245,7 @@ public class HaleParsingTest {
 
   @Test
   public void ifLetMut() {
-    Statement _parseStatement = this._testHelper.parseStatement("if let mut xyz = void { }");
+    Statement _parseStatement = this._testHelper.parseStatement("if let mut xyz = void {}");
     final IfLet ifLet = ((IfLet) _parseStatement);
     Assertions.assertTrue(ifLet.isMutable());
     Assertions.assertEquals("xyz", ifLet.getBinding().getName());
@@ -258,7 +258,7 @@ public class HaleParsingTest {
 
   @Test
   public void ifLetWithTypeAnnotation() {
-    Statement _parseStatement = this._testHelper.parseStatement("if let xyz: Void = void { }");
+    Statement _parseStatement = this._testHelper.parseStatement("if let xyz: Void = void {}");
     final IfLet ifLet = ((IfLet) _parseStatement);
     Assertions.assertFalse(ifLet.isMutable());
     Assertions.assertEquals("xyz", ifLet.getBinding().getName());
@@ -272,7 +272,7 @@ public class HaleParsingTest {
 
   @Test
   public void ifLetElse() {
-    Statement _parseStatement = this._testHelper.parseStatement("if let xyz = void { } else { }");
+    Statement _parseStatement = this._testHelper.parseStatement("if let xyz = void {} else {}");
     final IfLet ifLet = ((IfLet) _parseStatement);
     final ElseLet elseLet = ifLet.getElseLet();
     Assertions.assertFalse(elseLet.isMutable());
@@ -283,7 +283,7 @@ public class HaleParsingTest {
 
   @Test
   public void ifLetElseLet() {
-    Statement _parseStatement = this._testHelper.parseStatement("if let xyz = void { } else let abc { abc; }");
+    Statement _parseStatement = this._testHelper.parseStatement("if let xyz = void {} else let abc { abc; }");
     final IfLet ifLet = ((IfLet) _parseStatement);
     final ElseLet elseLet = ifLet.getElseLet();
     Assertions.assertFalse(elseLet.isMutable());
@@ -297,7 +297,7 @@ public class HaleParsingTest {
 
   @Test
   public void ifLetElseLetMut() {
-    Statement _parseStatement = this._testHelper.parseStatement("if let xyz = void { } else let mut abc { }");
+    Statement _parseStatement = this._testHelper.parseStatement("if let xyz = void {} else let mut abc {}");
     final IfLet ifLet = ((IfLet) _parseStatement);
     final ElseLet elseLet = ifLet.getElseLet();
     Assertions.assertTrue(elseLet.isMutable());
@@ -308,7 +308,7 @@ public class HaleParsingTest {
 
   @Test
   public void ifLetElseLetWithTypeAnnotation() {
-    Statement _parseStatement = this._testHelper.parseStatement("if let xyz = void { } else let abc: String { }");
+    Statement _parseStatement = this._testHelper.parseStatement("if let xyz = void {} else let abc: String {}");
     final IfLet ifLet = ((IfLet) _parseStatement);
     final ElseLet elseLet = ifLet.getElseLet();
     Assertions.assertFalse(elseLet.isMutable());
@@ -320,7 +320,7 @@ public class HaleParsingTest {
 
   @Test
   public void ifConditions() {
-    Statement _parseStatement = this._testHelper.parseStatement("if true { }");
+    Statement _parseStatement = this._testHelper.parseStatement("if true {}");
     final IfConditions ifCon = ((IfConditions) _parseStatement);
     final EList<Expression> cons = ifCon.getConditions();
     Assertions.assertEquals(1, cons.size());
@@ -334,14 +334,14 @@ public class HaleParsingTest {
 
   @Test
   public void ifConditionsElse() {
-    Statement _parseStatement = this._testHelper.parseStatement("if true { } else { }");
+    Statement _parseStatement = this._testHelper.parseStatement("if true {} else {}");
     final IfConditions ifCon = ((IfConditions) _parseStatement);
     Assertions.assertEquals(0, ifCon.getElseBlock().getStatements().size());
   }
 
   @Test
   public void ifConditionsElseif() {
-    Statement _parseStatement = this._testHelper.parseStatement("if false { } elseif true { } elseif false { }");
+    Statement _parseStatement = this._testHelper.parseStatement("if false {} elseif true {} elseif false {}");
     final IfConditions ifCon = ((IfConditions) _parseStatement);
     final EList<Expression> cons = ifCon.getConditions();
     Assertions.assertEquals(3, cons.size());
@@ -361,7 +361,7 @@ public class HaleParsingTest {
 
   @Test
   public void ifConditionsElseifElse() {
-    Statement _parseStatement = this._testHelper.parseStatement("if false { } elseif true { } else { }");
+    Statement _parseStatement = this._testHelper.parseStatement("if false {} elseif true {} else {}");
     final IfConditions ifCon = ((IfConditions) _parseStatement);
     Assertions.assertEquals(2, ifCon.getConditions().size());
     Assertions.assertEquals(2, ifCon.getIfBlocks().size());
@@ -370,7 +370,7 @@ public class HaleParsingTest {
 
   @Test
   public void whileStmt() {
-    Statement _parseStatement = this._testHelper.parseStatement("while true { }");
+    Statement _parseStatement = this._testHelper.parseStatement("while true {}");
     final While stmt = ((While) _parseStatement);
     Expression _condition = stmt.getCondition();
     Assertions.assertEquals(Boolean.valueOf(true), Boolean.valueOf(((BooleanLiteral) _condition).isValue()));
@@ -388,7 +388,7 @@ public class HaleParsingTest {
 
   @Test
   public void function() {
-    Statement _parseStatement = this._testHelper.parseStatement("function xyz() { }");
+    Statement _parseStatement = this._testHelper.parseStatement("function xyz() {}");
     final Function func = ((Function) _parseStatement);
     Assertions.assertEquals("xyz", func.getBinding().getName());
     Assertions.assertEquals(0, func.getParameters().size());
@@ -423,7 +423,7 @@ public class HaleParsingTest {
 
   @Test
   public void functionWithReturnType() {
-    Statement _parseStatement = this._testHelper.parseStatement("function xyz(): String { }");
+    Statement _parseStatement = this._testHelper.parseStatement("function xyz(): String {}");
     final Function func = ((Function) _parseStatement);
     Assertions.assertEquals("xyz", func.getBinding().getName());
     Type _returnType = func.getReturnType();

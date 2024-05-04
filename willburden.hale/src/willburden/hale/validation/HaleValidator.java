@@ -1,10 +1,13 @@
 package willburden.hale.validation;
 
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 
 import willburden.hale.hale.Assignment;
 import willburden.hale.hale.Binding;
+import willburden.hale.hale.BooleanLiteral;
 import willburden.hale.hale.Break;
 import willburden.hale.hale.EitherType;
 import willburden.hale.hale.ElseLet;
@@ -32,6 +35,7 @@ public class HaleValidator extends AbstractHaleValidator {
 		public static String RETURN_OUTSIDE_FUNCTION = "02";
 		public static String THROW_OUTSIDE_FUNCTION = "03";
 		public static String THROW_IN_NON_EITHER_FUNCTION = "04";
+		public static String WHILE_TRUE_WITHOUT_BREAK = "05";
 	}
 
 	@Check
@@ -55,6 +59,30 @@ public class HaleValidator extends AbstractHaleValidator {
 	public void breakOutsideLoop(Break breakStmt) {
 		if (EcoreUtil2.getContainerOfType(breakStmt, While.class) == null) {
 			error(ErrorMessages.breakNotInLoop(), null, IssueCodes.BREAK_OUTSIDE_LOOP);
+		}
+	}
+	
+	@Check
+	public void whileTrueWithoutBreak(While whileStmt) {
+		if (whileStmt.getCondition() instanceof BooleanLiteral literal
+				&& literal.isValue()
+		) {
+			TreeIterator<EObject> it = whileStmt.eAllContents();
+			while (it.hasNext()) {
+				EObject obj = it.next();
+				if (obj instanceof Break) {
+					return;
+				}
+				if (obj instanceof Function) {
+					// Break statements inside functions don't help the issue.
+					it.prune();
+				}
+			}
+			warning(
+					ErrorMessages.whileTrueWithoutBreak(),
+					HalePackage.Literals.WHILE__CONDITION,
+					IssueCodes.WHILE_TRUE_WITHOUT_BREAK
+			);
 		}
 	}
 	

@@ -1,6 +1,22 @@
 package willburden.hale.standalone.types;
 
-public record HaleEitherType(HaleType left, HaleType right) implements HaleType {
+public class HaleEitherType implements HaleType {
+	private HaleType left;
+	private HaleType right;
+	
+	public HaleEitherType(HaleType left, HaleType right) {
+		this.left = left;
+		this.right = right;
+	}
+	
+	public HaleType left() {
+		return left;
+	}
+	
+	public HaleType right() {
+		return right;
+	}
+	
 	@Override
 	public boolean typeEquals(HaleType other) {
 		return other instanceof HaleEitherType eitherType &&

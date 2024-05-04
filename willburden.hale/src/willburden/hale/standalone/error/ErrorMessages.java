@@ -16,16 +16,8 @@ public class ErrorMessages {
 		return "Reference to binding `" + name + "` before it is declared";
 	}
 
-	public static String assignmentFailed(String name) {
-		return "Cannot assign to binding `" + name + "`";
-	}
-
 	public static String assignmentToImmutableBinding() {
 		return "Cannot assign to immutable variable";
-	}
-
-	public static String functionApplicationFailed() {
-		return "Cannot perform function application";
 	}
 
 	public static String wrongNumberOfArguments(int expected, int actual) {
@@ -34,6 +26,10 @@ public class ErrorMessages {
 
 	public static String breakNotInLoop() {
 		return "A break statement must be inside a while loop";
+	}
+	
+	public static String whileTrueWithoutBreak() {
+		return "'while true' loop without a break statement will loop forever";
 	}
 
 	public static String returnNotInFunction() {

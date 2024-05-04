@@ -16,6 +16,10 @@ public class CallFrame {
 		scopes = new LinkedList<>();
 	}
 	
+	public Deque<Map<String, RuntimeBinding>> scopes() {
+		return scopes;
+	}
+	
 	public void pushScope() {
 		scopes.push(new HashMap<>());
 	}

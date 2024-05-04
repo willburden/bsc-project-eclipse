@@ -39,8 +39,8 @@ public class HaleEither implements HaleValue {
 	@Override
 	public boolean valueEquals(HaleValue other) {
 		return other instanceof HaleEither either &&
-				type == either.type() &&
 				isLeft == either.isLeft() &&
+				type.typeEquals(other.type()) &&
 				value.valueEquals(either.value());
 	}
 

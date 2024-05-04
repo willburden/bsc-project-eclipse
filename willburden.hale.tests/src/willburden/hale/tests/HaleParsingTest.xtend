@@ -210,7 +210,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void ifLetMut() {
-		val ifLet = "if let mut xyz = void { }"
+		val ifLet = "if let mut xyz = void {}"
 			.parseStatement as IfLet
 		assertTrue(ifLet.mutable)
 		assertEquals("xyz", ifLet.binding.name)
@@ -222,7 +222,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void ifLetWithTypeAnnotation() {
-		val ifLet = "if let xyz: Void = void { }"
+		val ifLet = "if let xyz: Void = void {}"
 			.parseStatement as IfLet
 		assertFalse(ifLet.mutable)
 		assertEquals("xyz", ifLet.binding.name)
@@ -234,7 +234,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void ifLetElse() {
-		val ifLet =  "if let xyz = void { } else { }"
+		val ifLet =  "if let xyz = void {} else {}"
 			.parseStatement as IfLet
 		val elseLet = ifLet.elseLet
 		assertFalse(elseLet.mutable)
@@ -245,7 +245,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void ifLetElseLet() {
-		val ifLet = "if let xyz = void { } else let abc { abc; }"
+		val ifLet = "if let xyz = void {} else let abc { abc; }"
 			.parseStatement as IfLet
 		val elseLet = ifLet.elseLet
 		assertFalse(elseLet.mutable)
@@ -259,7 +259,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void ifLetElseLetMut() {
-		val ifLet = "if let xyz = void { } else let mut abc { }"
+		val ifLet = "if let xyz = void {} else let mut abc {}"
 			.parseStatement as IfLet
 		val elseLet = ifLet.elseLet
 		assertTrue(elseLet.mutable)
@@ -270,7 +270,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void ifLetElseLetWithTypeAnnotation() {
-		val ifLet = "if let xyz = void { } else let abc: String { }"
+		val ifLet = "if let xyz = void {} else let abc: String {}"
 			.parseStatement as IfLet
 		val elseLet = ifLet.elseLet
 		assertFalse(elseLet.mutable)
@@ -281,7 +281,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void ifConditions() {
-		val ifCon = "if true { }"
+		val ifCon = "if true {}"
 			.parseStatement as IfConditions
 		val cons = ifCon.conditions
 		assertEquals(1, cons.size)
@@ -294,14 +294,14 @@ class HaleParsingTest {
 	
 	@Test
 	def void ifConditionsElse() {
-		val ifCon = "if true { } else { }"
+		val ifCon = "if true {} else {}"
 			.parseStatement as IfConditions
 		assertEquals(0, ifCon.elseBlock.statements.size)
 	}
 	
 	@Test
 	def void ifConditionsElseif() {
-		val ifCon = "if false { } elseif true { } elseif false { }"
+		val ifCon = "if false {} elseif true {} elseif false {}"
 			.parseStatement as IfConditions
 		val cons = ifCon.conditions
 		assertEquals(3, cons.size)
@@ -318,7 +318,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void ifConditionsElseifElse() {
-		val ifCon = "if false { } elseif true { } else { }"
+		val ifCon = "if false {} elseif true {} else {}"
 			.parseStatement as IfConditions
 		assertEquals(2, ifCon.conditions.size)
 		assertEquals(2, ifCon.ifBlocks.size)
@@ -327,7 +327,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void whileStmt() {
-		val stmt = "while true { }"
+		val stmt = "while true {}"
 			.parseStatement as While
 		assertEquals(true, (stmt.condition as BooleanLiteral).value)
 		assertEquals(0, stmt.block.statements.size)
@@ -345,7 +345,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void function() {
-		val func = "function xyz() { }"
+		val func = "function xyz() {}"
 			.parseStatement as Function
 		assertEquals("xyz", func.binding.name)
 		assertEquals(0, func.parameters.size)
@@ -378,7 +378,7 @@ class HaleParsingTest {
 	
 	@Test
 	def void functionWithReturnType() {
-		val func = "function xyz(): String { }"
+		val func = "function xyz(): String {}"
 			.parseStatement as Function
 		assertEquals("xyz", func.binding.name)
 		assertEquals("String", (func.returnType as PrimitiveType).type)

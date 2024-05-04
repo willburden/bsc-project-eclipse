@@ -137,6 +137,37 @@ public class HaleValidationTest {
   }
 
   @Test
+  public void whileTrueWithoutBreak() {
+    try {
+      this._validationTestHelper.assertWarning(this._parseHelper.parse("while true {}"), 
+        HalePackage.Literals.WHILE, 
+        HaleValidator.IssueCodes.WHILE_TRUE_WITHOUT_BREAK);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void whileTrueWithBreakInFunction() {
+    try {
+      this._validationTestHelper.assertWarning(this._parseHelper.parse("while true { function xyz() { break; } }"), 
+        HalePackage.Literals.WHILE, 
+        HaleValidator.IssueCodes.WHILE_TRUE_WITHOUT_BREAK);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void whileTrueWithBreak() {
+    try {
+      this._validationTestHelper.assertNoIssues(this._parseHelper.parse("while true { break; }"));
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
   public void returnOutsideFunction() {
     try {
       this._validationTestHelper.assertError(this._parseHelper.parse("return;"), 
