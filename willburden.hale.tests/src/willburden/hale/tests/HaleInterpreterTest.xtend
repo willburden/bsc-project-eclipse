@@ -38,18 +38,18 @@ import willburden.hale.hale.StringLiteral
 import willburden.hale.hale.Subtraction
 import willburden.hale.hale.UnaryNegation
 import willburden.hale.hale.VoidLiteral
-import willburden.hale.standalone.error.ErrorMessages
-import willburden.hale.standalone.error.InterpreterException
-import willburden.hale.standalone.interpreter.Interpreter
-import willburden.hale.standalone.types.HaleEitherType
-import willburden.hale.standalone.types.HaleFunctionType
-import willburden.hale.standalone.types.HalePrimitiveType
-import willburden.hale.standalone.values.HaleBoolean
-import willburden.hale.standalone.values.HaleEither
-import willburden.hale.standalone.values.HaleFunction
-import willburden.hale.standalone.values.HaleNumber
-import willburden.hale.standalone.values.HaleString
-import willburden.hale.standalone.values.HaleVoid
+import willburden.hale.error.ErrorMessages
+import willburden.hale.error.InterpreterException
+import willburden.hale.interpreter.Interpreter
+import willburden.hale.types.HaleEitherType
+import willburden.hale.types.HaleFunctionType
+import willburden.hale.types.HalePrimitiveType
+import willburden.hale.values.HaleBoolean
+import willburden.hale.values.HaleEither
+import willburden.hale.values.HaleFunction
+import willburden.hale.values.HaleNumber
+import willburden.hale.values.HaleString
+import willburden.hale.values.HaleVoid
 
 import static org.junit.jupiter.api.Assertions.*
 import willburden.hale.hale.While

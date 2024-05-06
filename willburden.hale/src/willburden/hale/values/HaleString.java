@@ -1,0 +1,69 @@
+package willburden.hale.values;
+
+import java.util.Objects;
+
+import willburden.hale.error.EitherTypeMismatchException;
+import willburden.hale.error.ErrorMessages;
+import willburden.hale.error.InterpreterException;
+import willburden.hale.error.TypeConversionException;
+import willburden.hale.types.HaleEitherType;
+import willburden.hale.types.HalePrimitiveType;
+import willburden.hale.types.HaleType;
+
+public class HaleString implements HaleValue {
+	private String value;
+	
+	public HaleString(String value) {
+		this.value = value;
+	}
+	
+	public String value() {
+		return value;
+	}
+	
+	@Override
+	public HalePrimitiveType type() {
+		return HalePrimitiveType.STRING;
+	}
+
+	@Override
+	public boolean valueEquals(HaleValue other) {
+		return other instanceof HaleString string && Objects.equals(value, string.value());
+	}
+
+	@Override
+	public HaleValue convertTo(HaleType type) throws TypeConversionException {
+		if (type instanceof HalePrimitiveType primitiveType) {
+			if (primitiveType == HalePrimitiveType.STRING) {
+				return this;
+			} else if (primitiveType == HalePrimitiveType.NUMBER) {
+				HaleEitherType eitherType = new HaleEitherType(HalePrimitiveType.NUMBER, HalePrimitiveType.VOID);
+				try {
+					try {
+						return new HaleEither(
+								eitherType, 
+								new HaleNumber(Double.parseDouble(value)),
+								true
+						);
+					} catch (NumberFormatException e) {
+						return new HaleEither(
+								eitherType,
+								new HaleVoid(),
+								false
+						);
+					}
+				} catch (EitherTypeMismatchException e) {
+					// Shouldn't happen since we know the types are correct.
+					throw new InterpreterException(e);
+				}
+			}
+		}
+
+		throw new TypeConversionException(ErrorMessages.cantConvert(this, type));
+	}
+	
+	@Override
+	public String toString() {
+		return "\"" + value + "\"";
+	}
+}

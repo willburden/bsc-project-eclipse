@@ -91,11 +91,6 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
-      public Adapter caseExpression(Expression object)
-      {
-        return createExpressionAdapter();
-      }
-      @Override
       public Adapter caseLiteral(Literal object)
       {
         return createLiteralAdapter();
@@ -206,6 +201,26 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
         return createThrowAdapter();
       }
       @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseFunctionType(FunctionType object)
+      {
+        return createFunctionTypeAdapter();
+      }
+      @Override
+      public Adapter caseEitherType(EitherType object)
+      {
+        return createEitherTypeAdapter();
+      }
+      @Override
+      public Adapter casePrimitiveType(PrimitiveType object)
+      {
+        return createPrimitiveTypeAdapter();
+      }
+      @Override
       public Adapter caseConcatenation(Concatenation object)
       {
         return createConcatenationAdapter();
@@ -301,21 +316,6 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
         return createApplicationAdapter();
       }
       @Override
-      public Adapter caseFunctionType(FunctionType object)
-      {
-        return createFunctionTypeAdapter();
-      }
-      @Override
-      public Adapter caseEitherType(EitherType object)
-      {
-        return createEitherTypeAdapter();
-      }
-      @Override
-      public Adapter casePrimitiveType(PrimitiveType object)
-      {
-        return createPrimitiveTypeAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -378,21 +378,6 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Expression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.Expression
-   * @generated
-   */
-  public Adapter createExpressionAdapter()
   {
     return null;
   }
@@ -728,6 +713,66 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.FunctionType <em>Function Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.FunctionType
+   * @generated
+   */
+  public Adapter createFunctionTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.EitherType <em>Either Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.EitherType
+   * @generated
+   */
+  public Adapter createEitherTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link willburden.hale.hale.PrimitiveType <em>Primitive Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see willburden.hale.hale.PrimitiveType
+   * @generated
+   */
+  public Adapter createPrimitiveTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link willburden.hale.hale.Concatenation <em>Concatenation</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1008,51 +1053,6 @@ public class HaleAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createApplicationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.FunctionType <em>Function Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.FunctionType
-   * @generated
-   */
-  public Adapter createFunctionTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.EitherType <em>Either Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.EitherType
-   * @generated
-   */
-  public Adapter createEitherTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link willburden.hale.hale.PrimitiveType <em>Primitive Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see willburden.hale.hale.PrimitiveType
-   * @generated
-   */
-  public Adapter createPrimitiveTypeAdapter()
   {
     return null;
   }

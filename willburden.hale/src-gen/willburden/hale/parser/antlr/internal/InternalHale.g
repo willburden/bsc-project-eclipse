@@ -317,1030 +317,6 @@ ruleBracedBlock returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleExpression
-entryRuleExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpressionRule()); }
-	iv_ruleExpression=ruleExpression
-	{ $current=$iv_ruleExpression.current; }
-	EOF;
-
-// Rule Expression
-ruleExpression returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	{
-		newCompositeNode(grammarAccess.getExpressionAccess().getExpression10ParserRuleCall());
-	}
-	this_Expression10_0=ruleExpression10
-	{
-		$current = $this_Expression10_0.current;
-		afterParserOrEnumRuleCall();
-	}
-;
-
-// Entry rule entryRuleExpression10
-entryRuleExpression10 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression10Rule()); }
-	iv_ruleExpression10=ruleExpression10
-	{ $current=$iv_ruleExpression10.current; }
-	EOF;
-
-// Rule Expression10
-ruleExpression10 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression10Access().getExpression9ParserRuleCall_0());
-		}
-		this_Expression9_0=ruleExpression9
-		{
-			$current = $this_Expression9_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getExpression10Access().getConcatenationLeftAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_2='.'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getExpression10Access().getFullStopKeyword_1_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getExpression10Access().getRightExpression9ParserRuleCall_1_2_0());
-					}
-					lv_right_3_0=ruleExpression9
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExpression10Rule());
-						}
-						set(
-							$current,
-							"right",
-							lv_right_3_0,
-							"willburden.hale.Hale.Expression9");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleExpression9
-entryRuleExpression9 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression9Rule()); }
-	iv_ruleExpression9=ruleExpression9
-	{ $current=$iv_ruleExpression9.current; }
-	EOF;
-
-// Rule Expression9
-ruleExpression9 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression9Access().getExpression8ParserRuleCall_0());
-		}
-		this_Expression8_0=ruleExpression8
-		{
-			$current = $this_Expression8_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression9Access().getLogicalAndLeftAction_1_0_0(),
-							$current);
-					}
-				)
-				otherlv_2='and'
-				{
-					newLeafNode(otherlv_2, grammarAccess.getExpression9Access().getAndKeyword_1_0_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression9Access().getRightExpression8ParserRuleCall_1_0_2_0());
-						}
-						lv_right_3_0=ruleExpression8
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression9Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_3_0,
-								"willburden.hale.Hale.Expression8");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression9Access().getLogicalOrLeftAction_1_1_0(),
-							$current);
-					}
-				)
-				otherlv_5='or'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getExpression9Access().getOrKeyword_1_1_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression9Access().getRightExpression8ParserRuleCall_1_1_2_0());
-						}
-						lv_right_6_0=ruleExpression8
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression9Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_6_0,
-								"willburden.hale.Hale.Expression8");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleExpression8
-entryRuleExpression8 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression8Rule()); }
-	iv_ruleExpression8=ruleExpression8
-	{ $current=$iv_ruleExpression8.current; }
-	EOF;
-
-// Rule Expression8
-ruleExpression8 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression8Access().getExpression7ParserRuleCall_0());
-		}
-		this_Expression7_0=ruleExpression7
-		{
-			$current = $this_Expression7_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression8Access().getEqualityLeftAction_1_0_0(),
-							$current);
-					}
-				)
-				otherlv_2='=='
-				{
-					newLeafNode(otherlv_2, grammarAccess.getExpression8Access().getEqualsSignEqualsSignKeyword_1_0_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression8Access().getRightExpression7ParserRuleCall_1_0_2_0());
-						}
-						lv_right_3_0=ruleExpression7
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression8Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_3_0,
-								"willburden.hale.Hale.Expression7");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression8Access().getInequalityLeftAction_1_1_0(),
-							$current);
-					}
-				)
-				otherlv_5='!='
-				{
-					newLeafNode(otherlv_5, grammarAccess.getExpression8Access().getExclamationMarkEqualsSignKeyword_1_1_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression8Access().getRightExpression7ParserRuleCall_1_1_2_0());
-						}
-						lv_right_6_0=ruleExpression7
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression8Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_6_0,
-								"willburden.hale.Hale.Expression7");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleExpression7
-entryRuleExpression7 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression7Rule()); }
-	iv_ruleExpression7=ruleExpression7
-	{ $current=$iv_ruleExpression7.current; }
-	EOF;
-
-// Rule Expression7
-ruleExpression7 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression7Access().getExpression6ParserRuleCall_0());
-		}
-		this_Expression6_0=ruleExpression6
-		{
-			$current = $this_Expression6_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression7Access().getLessThanOrEqualLeftAction_1_0_0(),
-							$current);
-					}
-				)
-				otherlv_2='<='
-				{
-					newLeafNode(otherlv_2, grammarAccess.getExpression7Access().getLessThanSignEqualsSignKeyword_1_0_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_0_2_0());
-						}
-						lv_right_3_0=ruleExpression6
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression7Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_3_0,
-								"willburden.hale.Hale.Expression6");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression7Access().getLessThanLeftAction_1_1_0(),
-							$current);
-					}
-				)
-				otherlv_5='<'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getExpression7Access().getLessThanSignKeyword_1_1_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_1_2_0());
-						}
-						lv_right_6_0=ruleExpression6
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression7Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_6_0,
-								"willburden.hale.Hale.Expression6");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression7Access().getGreaterThanOrEqualLeftAction_1_2_0(),
-							$current);
-					}
-				)
-				otherlv_8='>='
-				{
-					newLeafNode(otherlv_8, grammarAccess.getExpression7Access().getGreaterThanSignEqualsSignKeyword_1_2_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_2_2_0());
-						}
-						lv_right_9_0=ruleExpression6
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression7Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_9_0,
-								"willburden.hale.Hale.Expression6");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression7Access().getGreaterThanLeftAction_1_3_0(),
-							$current);
-					}
-				)
-				otherlv_11='>'
-				{
-					newLeafNode(otherlv_11, grammarAccess.getExpression7Access().getGreaterThanSignKeyword_1_3_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_3_2_0());
-						}
-						lv_right_12_0=ruleExpression6
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression7Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_12_0,
-								"willburden.hale.Hale.Expression6");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleExpression6
-entryRuleExpression6 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression6Rule()); }
-	iv_ruleExpression6=ruleExpression6
-	{ $current=$iv_ruleExpression6.current; }
-	EOF;
-
-// Rule Expression6
-ruleExpression6 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression6Access().getExpression5ParserRuleCall_0());
-		}
-		this_Expression5_0=ruleExpression5
-		{
-			$current = $this_Expression5_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression6Access().getAdditionLeftAction_1_0_0(),
-							$current);
-					}
-				)
-				otherlv_2='+'
-				{
-					newLeafNode(otherlv_2, grammarAccess.getExpression6Access().getPlusSignKeyword_1_0_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_0_2_0());
-						}
-						lv_right_3_0=ruleExpression5
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression6Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_3_0,
-								"willburden.hale.Hale.Expression5");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression6Access().getSubtractionLeftAction_1_1_0(),
-							$current);
-					}
-				)
-				otherlv_5='-'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getExpression6Access().getHyphenMinusKeyword_1_1_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_1_2_0());
-						}
-						lv_right_6_0=ruleExpression5
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression6Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_6_0,
-								"willburden.hale.Hale.Expression5");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleExpression5
-entryRuleExpression5 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression5Rule()); }
-	iv_ruleExpression5=ruleExpression5
-	{ $current=$iv_ruleExpression5.current; }
-	EOF;
-
-// Rule Expression5
-ruleExpression5 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression5Access().getExpression4ParserRuleCall_0());
-		}
-		this_Expression4_0=ruleExpression4
-		{
-			$current = $this_Expression4_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression5Access().getMultiplicationLeftAction_1_0_0(),
-							$current);
-					}
-				)
-				otherlv_2='*'
-				{
-					newLeafNode(otherlv_2, grammarAccess.getExpression5Access().getAsteriskKeyword_1_0_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_0_2_0());
-						}
-						lv_right_3_0=ruleExpression4
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression5Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_3_0,
-								"willburden.hale.Hale.Expression4");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression5Access().getDivisionLeftAction_1_1_0(),
-							$current);
-					}
-				)
-				otherlv_5='/'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getExpression5Access().getSolidusKeyword_1_1_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_1_2_0());
-						}
-						lv_right_6_0=ruleExpression4
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression5Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_6_0,
-								"willburden.hale.Hale.Expression4");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				(
-					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getExpression5Access().getRemainderLeftAction_1_2_0(),
-							$current);
-					}
-				)
-				otherlv_8='%'
-				{
-					newLeafNode(otherlv_8, grammarAccess.getExpression5Access().getPercentSignKeyword_1_2_1());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_2_2_0());
-						}
-						lv_right_9_0=ruleExpression4
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression5Rule());
-							}
-							set(
-								$current,
-								"right",
-								lv_right_9_0,
-								"willburden.hale.Hale.Expression4");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleExpression4
-entryRuleExpression4 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression4Rule()); }
-	iv_ruleExpression4=ruleExpression4
-	{ $current=$iv_ruleExpression4.current; }
-	EOF;
-
-// Rule Expression4
-ruleExpression4 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression4Access().getExpression3ParserRuleCall_0());
-		}
-		this_Expression3_0=ruleExpression3
-		{
-			$current = $this_Expression3_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getExpression4Access().getExponentiationLeftAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_2='**'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getExpression4Access().getAsteriskAsteriskKeyword_1_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getExpression4Access().getRightExpression3ParserRuleCall_1_2_0());
-					}
-					lv_right_3_0=ruleExpression3
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExpression4Rule());
-						}
-						set(
-							$current,
-							"right",
-							lv_right_3_0,
-							"willburden.hale.Hale.Expression3");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleExpression3
-entryRuleExpression3 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression3Rule()); }
-	iv_ruleExpression3=ruleExpression3
-	{ $current=$iv_ruleExpression3.current; }
-	EOF;
-
-// Rule Expression3
-ruleExpression3 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression3Access().getExpression2ParserRuleCall_0());
-		}
-		this_Expression2_0=ruleExpression2
-		{
-			$current = $this_Expression2_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getExpression3Access().getConversionLeftAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_2='as'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getExpression3Access().getAsKeyword_1_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getExpression3Access().getRightTypeParserRuleCall_1_2_0());
-					}
-					lv_right_3_0=ruleType
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExpression3Rule());
-						}
-						set(
-							$current,
-							"right",
-							lv_right_3_0,
-							"willburden.hale.Hale.Type");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleExpression2
-entryRuleExpression2 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression2Rule()); }
-	iv_ruleExpression2=ruleExpression2
-	{ $current=$iv_ruleExpression2.current; }
-	EOF;
-
-// Rule Expression2
-ruleExpression2 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getExpression2Access().getUnaryNegationAction_0_0(),
-						$current);
-				}
-			)
-			otherlv_1='-'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getExpression2Access().getHyphenMinusKeyword_0_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getExpression2Access().getInnerExpression2ParserRuleCall_0_2_0());
-					}
-					lv_inner_2_0=ruleExpression2
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExpression2Rule());
-						}
-						set(
-							$current,
-							"inner",
-							lv_inner_2_0,
-							"willburden.hale.Hale.Expression2");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getExpression2Access().getLogicalNotAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_4='not'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getExpression2Access().getNotKeyword_1_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getExpression2Access().getInnerExpression2ParserRuleCall_1_2_0());
-					}
-					lv_inner_5_0=ruleExpression2
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExpression2Rule());
-						}
-						set(
-							$current,
-							"inner",
-							lv_inner_5_0,
-							"willburden.hale.Hale.Expression2");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		{
-			newCompositeNode(grammarAccess.getExpression2Access().getExpression1ParserRuleCall_2());
-		}
-		this_Expression1_6=ruleExpression1
-		{
-			$current = $this_Expression1_6.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleExpression1
-entryRuleExpression1 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression1Rule()); }
-	iv_ruleExpression1=ruleExpression1
-	{ $current=$iv_ruleExpression1.current; }
-	EOF;
-
-// Rule Expression1
-ruleExpression1 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression1Access().getExpression0ParserRuleCall_0());
-		}
-		this_Expression0_0=ruleExpression0
-		{
-			$current = $this_Expression0_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getExpression1Access().getApplicationExpressionAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_2='('
-			{
-				newLeafNode(otherlv_2, grammarAccess.getExpression1Access().getLeftParenthesisKeyword_1_1());
-			}
-			(
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExpression1Access().getArgumentsExpressionParserRuleCall_1_2_0_0());
-						}
-						lv_arguments_3_0=ruleExpression
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExpression1Rule());
-							}
-							add(
-								$current,
-								"arguments",
-								lv_arguments_3_0,
-								"willburden.hale.Hale.Expression");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				(
-					otherlv_4=','
-					{
-						newLeafNode(otherlv_4, grammarAccess.getExpression1Access().getCommaKeyword_1_2_1_0());
-					}
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getExpression1Access().getArgumentsExpressionParserRuleCall_1_2_1_1_0());
-							}
-							lv_arguments_5_0=ruleExpression
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getExpression1Rule());
-								}
-								add(
-									$current,
-									"arguments",
-									lv_arguments_5_0,
-									"willburden.hale.Hale.Expression");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
-				)*
-				(
-					otherlv_6=','
-					{
-						newLeafNode(otherlv_6, grammarAccess.getExpression1Access().getCommaKeyword_1_2_2());
-					}
-				)?
-			)?
-			otherlv_7=')'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getExpression1Access().getRightParenthesisKeyword_1_3());
-			}
-		)*
-	)
-;
-
-// Entry rule entryRuleExpression0
-entryRuleExpression0 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpression0Rule()); }
-	iv_ruleExpression0=ruleExpression0
-	{ $current=$iv_ruleExpression0.current; }
-	EOF;
-
-// Rule Expression0
-ruleExpression0 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getExpression0Access().getLiteralParserRuleCall_0());
-		}
-		this_Literal_0=ruleLiteral
-		{
-			$current = $this_Literal_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getExpression0Access().getInputParserRuleCall_1());
-		}
-		this_Input_1=ruleInput
-		{
-			$current = $this_Input_1.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getExpression0Access().getBindingReferenceParserRuleCall_2());
-		}
-		this_BindingReference_2=ruleBindingReference
-		{
-			$current = $this_BindingReference_2.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		(
-			otherlv_3='('
-			{
-				newLeafNode(otherlv_3, grammarAccess.getExpression0Access().getLeftParenthesisKeyword_3_0());
-			}
-			{
-				newCompositeNode(grammarAccess.getExpression0Access().getExpressionParserRuleCall_3_1());
-			}
-			this_Expression_4=ruleExpression
-			{
-				$current = $this_Expression_4.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_5=')'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getExpression0Access().getRightParenthesisKeyword_3_2());
-			}
-		)
-	)
-;
-
 // Entry rule entryRuleLiteral
 entryRuleLiteral returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getLiteralRule()); }
@@ -2955,6 +1931,1030 @@ ruleThrow returns [EObject current=null]
 				}
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleExpression
+entryRuleExpression returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionRule()); }
+	iv_ruleExpression=ruleExpression
+	{ $current=$iv_ruleExpression.current; }
+	EOF;
+
+// Rule Expression
+ruleExpression returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	{
+		newCompositeNode(grammarAccess.getExpressionAccess().getExpression10ParserRuleCall());
+	}
+	this_Expression10_0=ruleExpression10
+	{
+		$current = $this_Expression10_0.current;
+		afterParserOrEnumRuleCall();
+	}
+;
+
+// Entry rule entryRuleExpression10
+entryRuleExpression10 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression10Rule()); }
+	iv_ruleExpression10=ruleExpression10
+	{ $current=$iv_ruleExpression10.current; }
+	EOF;
+
+// Rule Expression10
+ruleExpression10 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression10Access().getExpression9ParserRuleCall_0());
+		}
+		this_Expression9_0=ruleExpression9
+		{
+			$current = $this_Expression9_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					$current = forceCreateModelElementAndSet(
+						grammarAccess.getExpression10Access().getConcatenationLeftAction_1_0(),
+						$current);
+				}
+			)
+			otherlv_2='.'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getExpression10Access().getFullStopKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExpression10Access().getRightExpression9ParserRuleCall_1_2_0());
+					}
+					lv_right_3_0=ruleExpression9
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExpression10Rule());
+						}
+						set(
+							$current,
+							"right",
+							lv_right_3_0,
+							"willburden.hale.Hale.Expression9");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpression9
+entryRuleExpression9 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression9Rule()); }
+	iv_ruleExpression9=ruleExpression9
+	{ $current=$iv_ruleExpression9.current; }
+	EOF;
+
+// Rule Expression9
+ruleExpression9 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression9Access().getExpression8ParserRuleCall_0());
+		}
+		this_Expression8_0=ruleExpression8
+		{
+			$current = $this_Expression8_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression9Access().getLogicalAndLeftAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2='and'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getExpression9Access().getAndKeyword_1_0_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression9Access().getRightExpression8ParserRuleCall_1_0_2_0());
+						}
+						lv_right_3_0=ruleExpression8
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression9Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_3_0,
+								"willburden.hale.Hale.Expression8");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression9Access().getLogicalOrLeftAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_5='or'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getExpression9Access().getOrKeyword_1_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression9Access().getRightExpression8ParserRuleCall_1_1_2_0());
+						}
+						lv_right_6_0=ruleExpression8
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression9Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_6_0,
+								"willburden.hale.Hale.Expression8");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpression8
+entryRuleExpression8 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression8Rule()); }
+	iv_ruleExpression8=ruleExpression8
+	{ $current=$iv_ruleExpression8.current; }
+	EOF;
+
+// Rule Expression8
+ruleExpression8 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression8Access().getExpression7ParserRuleCall_0());
+		}
+		this_Expression7_0=ruleExpression7
+		{
+			$current = $this_Expression7_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression8Access().getEqualityLeftAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2='=='
+				{
+					newLeafNode(otherlv_2, grammarAccess.getExpression8Access().getEqualsSignEqualsSignKeyword_1_0_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression8Access().getRightExpression7ParserRuleCall_1_0_2_0());
+						}
+						lv_right_3_0=ruleExpression7
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression8Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_3_0,
+								"willburden.hale.Hale.Expression7");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression8Access().getInequalityLeftAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_5='!='
+				{
+					newLeafNode(otherlv_5, grammarAccess.getExpression8Access().getExclamationMarkEqualsSignKeyword_1_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression8Access().getRightExpression7ParserRuleCall_1_1_2_0());
+						}
+						lv_right_6_0=ruleExpression7
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression8Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_6_0,
+								"willburden.hale.Hale.Expression7");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpression7
+entryRuleExpression7 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression7Rule()); }
+	iv_ruleExpression7=ruleExpression7
+	{ $current=$iv_ruleExpression7.current; }
+	EOF;
+
+// Rule Expression7
+ruleExpression7 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression7Access().getExpression6ParserRuleCall_0());
+		}
+		this_Expression6_0=ruleExpression6
+		{
+			$current = $this_Expression6_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression7Access().getLessThanOrEqualLeftAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2='<='
+				{
+					newLeafNode(otherlv_2, grammarAccess.getExpression7Access().getLessThanSignEqualsSignKeyword_1_0_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_0_2_0());
+						}
+						lv_right_3_0=ruleExpression6
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression7Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_3_0,
+								"willburden.hale.Hale.Expression6");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression7Access().getLessThanLeftAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_5='<'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getExpression7Access().getLessThanSignKeyword_1_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_1_2_0());
+						}
+						lv_right_6_0=ruleExpression6
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression7Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_6_0,
+								"willburden.hale.Hale.Expression6");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression7Access().getGreaterThanOrEqualLeftAction_1_2_0(),
+							$current);
+					}
+				)
+				otherlv_8='>='
+				{
+					newLeafNode(otherlv_8, grammarAccess.getExpression7Access().getGreaterThanSignEqualsSignKeyword_1_2_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_2_2_0());
+						}
+						lv_right_9_0=ruleExpression6
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression7Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_9_0,
+								"willburden.hale.Hale.Expression6");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression7Access().getGreaterThanLeftAction_1_3_0(),
+							$current);
+					}
+				)
+				otherlv_11='>'
+				{
+					newLeafNode(otherlv_11, grammarAccess.getExpression7Access().getGreaterThanSignKeyword_1_3_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_3_2_0());
+						}
+						lv_right_12_0=ruleExpression6
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression7Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_12_0,
+								"willburden.hale.Hale.Expression6");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpression6
+entryRuleExpression6 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression6Rule()); }
+	iv_ruleExpression6=ruleExpression6
+	{ $current=$iv_ruleExpression6.current; }
+	EOF;
+
+// Rule Expression6
+ruleExpression6 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression6Access().getExpression5ParserRuleCall_0());
+		}
+		this_Expression5_0=ruleExpression5
+		{
+			$current = $this_Expression5_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression6Access().getAdditionLeftAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2='+'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getExpression6Access().getPlusSignKeyword_1_0_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_0_2_0());
+						}
+						lv_right_3_0=ruleExpression5
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression6Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_3_0,
+								"willburden.hale.Hale.Expression5");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression6Access().getSubtractionLeftAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_5='-'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getExpression6Access().getHyphenMinusKeyword_1_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_1_2_0());
+						}
+						lv_right_6_0=ruleExpression5
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression6Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_6_0,
+								"willburden.hale.Hale.Expression5");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpression5
+entryRuleExpression5 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression5Rule()); }
+	iv_ruleExpression5=ruleExpression5
+	{ $current=$iv_ruleExpression5.current; }
+	EOF;
+
+// Rule Expression5
+ruleExpression5 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression5Access().getExpression4ParserRuleCall_0());
+		}
+		this_Expression4_0=ruleExpression4
+		{
+			$current = $this_Expression4_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression5Access().getMultiplicationLeftAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2='*'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getExpression5Access().getAsteriskKeyword_1_0_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_0_2_0());
+						}
+						lv_right_3_0=ruleExpression4
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression5Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_3_0,
+								"willburden.hale.Hale.Expression4");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression5Access().getDivisionLeftAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_5='/'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getExpression5Access().getSolidusKeyword_1_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_1_2_0());
+						}
+						lv_right_6_0=ruleExpression4
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression5Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_6_0,
+								"willburden.hale.Hale.Expression4");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpression5Access().getRemainderLeftAction_1_2_0(),
+							$current);
+					}
+				)
+				otherlv_8='%'
+				{
+					newLeafNode(otherlv_8, grammarAccess.getExpression5Access().getPercentSignKeyword_1_2_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_2_2_0());
+						}
+						lv_right_9_0=ruleExpression4
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression5Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_9_0,
+								"willburden.hale.Hale.Expression4");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpression4
+entryRuleExpression4 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression4Rule()); }
+	iv_ruleExpression4=ruleExpression4
+	{ $current=$iv_ruleExpression4.current; }
+	EOF;
+
+// Rule Expression4
+ruleExpression4 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression4Access().getExpression3ParserRuleCall_0());
+		}
+		this_Expression3_0=ruleExpression3
+		{
+			$current = $this_Expression3_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					$current = forceCreateModelElementAndSet(
+						grammarAccess.getExpression4Access().getExponentiationLeftAction_1_0(),
+						$current);
+				}
+			)
+			otherlv_2='**'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getExpression4Access().getAsteriskAsteriskKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExpression4Access().getRightExpression3ParserRuleCall_1_2_0());
+					}
+					lv_right_3_0=ruleExpression3
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExpression4Rule());
+						}
+						set(
+							$current,
+							"right",
+							lv_right_3_0,
+							"willburden.hale.Hale.Expression3");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpression3
+entryRuleExpression3 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression3Rule()); }
+	iv_ruleExpression3=ruleExpression3
+	{ $current=$iv_ruleExpression3.current; }
+	EOF;
+
+// Rule Expression3
+ruleExpression3 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression3Access().getExpression2ParserRuleCall_0());
+		}
+		this_Expression2_0=ruleExpression2
+		{
+			$current = $this_Expression2_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					$current = forceCreateModelElementAndSet(
+						grammarAccess.getExpression3Access().getConversionLeftAction_1_0(),
+						$current);
+				}
+			)
+			otherlv_2='as'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getExpression3Access().getAsKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExpression3Access().getRightTypeParserRuleCall_1_2_0());
+					}
+					lv_right_3_0=ruleType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExpression3Rule());
+						}
+						set(
+							$current,
+							"right",
+							lv_right_3_0,
+							"willburden.hale.Hale.Type");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpression2
+entryRuleExpression2 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression2Rule()); }
+	iv_ruleExpression2=ruleExpression2
+	{ $current=$iv_ruleExpression2.current; }
+	EOF;
+
+// Rule Expression2
+ruleExpression2 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getExpression2Access().getUnaryNegationAction_0_0(),
+						$current);
+				}
+			)
+			otherlv_1='-'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getExpression2Access().getHyphenMinusKeyword_0_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExpression2Access().getInnerExpression2ParserRuleCall_0_2_0());
+					}
+					lv_inner_2_0=ruleExpression2
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExpression2Rule());
+						}
+						set(
+							$current,
+							"inner",
+							lv_inner_2_0,
+							"willburden.hale.Hale.Expression2");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getExpression2Access().getLogicalNotAction_1_0(),
+						$current);
+				}
+			)
+			otherlv_4='not'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getExpression2Access().getNotKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExpression2Access().getInnerExpression2ParserRuleCall_1_2_0());
+					}
+					lv_inner_5_0=ruleExpression2
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExpression2Rule());
+						}
+						set(
+							$current,
+							"inner",
+							lv_inner_5_0,
+							"willburden.hale.Hale.Expression2");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		{
+			newCompositeNode(grammarAccess.getExpression2Access().getExpression1ParserRuleCall_2());
+		}
+		this_Expression1_6=ruleExpression1
+		{
+			$current = $this_Expression1_6.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleExpression1
+entryRuleExpression1 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression1Rule()); }
+	iv_ruleExpression1=ruleExpression1
+	{ $current=$iv_ruleExpression1.current; }
+	EOF;
+
+// Rule Expression1
+ruleExpression1 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression1Access().getExpression0ParserRuleCall_0());
+		}
+		this_Expression0_0=ruleExpression0
+		{
+			$current = $this_Expression0_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					$current = forceCreateModelElementAndSet(
+						grammarAccess.getExpression1Access().getApplicationExpressionAction_1_0(),
+						$current);
+				}
+			)
+			otherlv_2='('
+			{
+				newLeafNode(otherlv_2, grammarAccess.getExpression1Access().getLeftParenthesisKeyword_1_1());
+			}
+			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpression1Access().getArgumentsExpressionParserRuleCall_1_2_0_0());
+						}
+						lv_arguments_3_0=ruleExpression
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpression1Rule());
+							}
+							add(
+								$current,
+								"arguments",
+								lv_arguments_3_0,
+								"willburden.hale.Hale.Expression");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					otherlv_4=','
+					{
+						newLeafNode(otherlv_4, grammarAccess.getExpression1Access().getCommaKeyword_1_2_1_0());
+					}
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getExpression1Access().getArgumentsExpressionParserRuleCall_1_2_1_1_0());
+							}
+							lv_arguments_5_0=ruleExpression
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getExpression1Rule());
+								}
+								add(
+									$current,
+									"arguments",
+									lv_arguments_5_0,
+									"willburden.hale.Hale.Expression");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+				)*
+				(
+					otherlv_6=','
+					{
+						newLeafNode(otherlv_6, grammarAccess.getExpression1Access().getCommaKeyword_1_2_2());
+					}
+				)?
+			)?
+			otherlv_7=')'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getExpression1Access().getRightParenthesisKeyword_1_3());
+			}
+		)*
+	)
+;
+
+// Entry rule entryRuleExpression0
+entryRuleExpression0 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpression0Rule()); }
+	iv_ruleExpression0=ruleExpression0
+	{ $current=$iv_ruleExpression0.current; }
+	EOF;
+
+// Rule Expression0
+ruleExpression0 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpression0Access().getLiteralParserRuleCall_0());
+		}
+		this_Literal_0=ruleLiteral
+		{
+			$current = $this_Literal_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getExpression0Access().getInputParserRuleCall_1());
+		}
+		this_Input_1=ruleInput
+		{
+			$current = $this_Input_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getExpression0Access().getBindingReferenceParserRuleCall_2());
+		}
+		this_BindingReference_2=ruleBindingReference
+		{
+			$current = $this_BindingReference_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		(
+			otherlv_3='('
+			{
+				newLeafNode(otherlv_3, grammarAccess.getExpression0Access().getLeftParenthesisKeyword_3_0());
+			}
+			{
+				newCompositeNode(grammarAccess.getExpression0Access().getExpressionParserRuleCall_3_1());
+			}
+			this_Expression_4=ruleExpression
+			{
+				$current = $this_Expression_4.current;
+				afterParserOrEnumRuleCall();
+			}
+			otherlv_5=')'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getExpression0Access().getRightParenthesisKeyword_3_2());
+			}
+		)
 	)
 ;
 

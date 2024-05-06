@@ -17,14 +17,14 @@ import willburden.hale.hale.Expression
 import willburden.hale.hale.Hale
 import willburden.hale.hale.Statement
 import willburden.hale.hale.Type
-import willburden.hale.standalone.interpreter.CallStack
-import willburden.hale.standalone.interpreter.Interpreter
-import willburden.hale.standalone.values.HaleValue
-
-import static org.junit.jupiter.api.Assertions.*
+import willburden.hale.interpreter.CallStack
+import willburden.hale.interpreter.Interpreter
+import willburden.hale.values.HaleValue
 import java.util.NoSuchElementException
 import java.io.InputStream
-import willburden.hale.standalone.types.HaleType
+import willburden.hale.types.HaleType
+
+import static org.junit.jupiter.api.Assertions.*
 
 @InjectWith(HaleInjectorProvider)
 class TestHelper {

@@ -28,12 +28,12 @@ import willburden.hale.hale.Expression;
 import willburden.hale.hale.Hale;
 import willburden.hale.hale.Statement;
 import willburden.hale.hale.Type;
-import willburden.hale.standalone.interpreter.CallFrame;
-import willburden.hale.standalone.interpreter.CallStack;
-import willburden.hale.standalone.interpreter.Interpreter;
-import willburden.hale.standalone.interpreter.RuntimeBinding;
-import willburden.hale.standalone.types.HaleType;
-import willburden.hale.standalone.values.HaleValue;
+import willburden.hale.interpreter.CallFrame;
+import willburden.hale.interpreter.CallStack;
+import willburden.hale.interpreter.Interpreter;
+import willburden.hale.interpreter.RuntimeBinding;
+import willburden.hale.types.HaleType;
+import willburden.hale.values.HaleValue;
 
 @InjectWith(HaleInjectorProvider.class)
 @SuppressWarnings("all")

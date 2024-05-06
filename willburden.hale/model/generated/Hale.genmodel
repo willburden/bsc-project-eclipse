@@ -13,7 +13,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Block/statements"/>
     </genClasses>
     <genClasses ecoreClass="Hale.ecore#//Statement"/>
-    <genClasses ecoreClass="Hale.ecore#//Expression"/>
     <genClasses ecoreClass="Hale.ecore#//Literal"/>
     <genClasses ecoreClass="Hale.ecore#//VoidLiteral"/>
     <genClasses ecoreClass="Hale.ecore#//BooleanLiteral">
@@ -88,6 +87,18 @@
     <genClasses ecoreClass="Hale.ecore#//Throw">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Throw/expression"/>
     </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//Expression"/>
+    <genClasses ecoreClass="Hale.ecore#//FunctionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//FunctionType/paramTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//FunctionType/returnType"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//EitherType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//EitherType/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//EitherType/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Hale.ecore#//PrimitiveType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//PrimitiveType/type"/>
+    </genClasses>
     <genClasses ecoreClass="Hale.ecore#//Concatenation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Concatenation/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Concatenation/right"/>
@@ -161,17 +172,6 @@
     <genClasses ecoreClass="Hale.ecore#//Application">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Application/expression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//Application/arguments"/>
-    </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//FunctionType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//FunctionType/paramTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//FunctionType/returnType"/>
-    </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//EitherType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//EitherType/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Hale.ecore#//EitherType/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Hale.ecore#//PrimitiveType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Hale.ecore#//PrimitiveType/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

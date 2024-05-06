@@ -235,6 +235,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Statement returns BindingReference
+	 *     BindingReference returns BindingReference
 	 *     Expression returns BindingReference
 	 *     Expression10 returns BindingReference
 	 *     Expression10.Concatenation_1_0 returns BindingReference
@@ -264,7 +265,6 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression1 returns BindingReference
 	 *     Expression1.Application_1_0 returns BindingReference
 	 *     Expression0 returns BindingReference
-	 *     BindingReference returns BindingReference
 	 *
 	 * Constraint:
 	 *     binding=[Binding|ID]
@@ -321,6 +321,8 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Statement returns BooleanLiteral
+	 *     Literal returns BooleanLiteral
+	 *     BooleanLiteral returns BooleanLiteral
 	 *     Expression returns BooleanLiteral
 	 *     Expression10 returns BooleanLiteral
 	 *     Expression10.Concatenation_1_0 returns BooleanLiteral
@@ -350,8 +352,6 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression1 returns BooleanLiteral
 	 *     Expression1.Application_1_0 returns BooleanLiteral
 	 *     Expression0 returns BooleanLiteral
-	 *     Literal returns BooleanLiteral
-	 *     BooleanLiteral returns BooleanLiteral
 	 *
 	 * Constraint:
 	 *     value=BOOLEAN
@@ -1495,6 +1495,7 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Statement returns Input
+	 *     Input returns Input
 	 *     Expression returns Input
 	 *     Expression10 returns Input
 	 *     Expression10.Concatenation_1_0 returns Input
@@ -1524,7 +1525,6 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression1 returns Input
 	 *     Expression1.Application_1_0 returns Input
 	 *     Expression0 returns Input
-	 *     Input returns Input
 	 *
 	 * Constraint:
 	 *     {Input}
@@ -1554,6 +1554,8 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Statement returns NumberLiteral
+	 *     Literal returns NumberLiteral
+	 *     NumberLiteral returns NumberLiteral
 	 *     Expression returns NumberLiteral
 	 *     Expression10 returns NumberLiteral
 	 *     Expression10.Concatenation_1_0 returns NumberLiteral
@@ -1583,8 +1585,6 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression1 returns NumberLiteral
 	 *     Expression1.Application_1_0 returns NumberLiteral
 	 *     Expression0 returns NumberLiteral
-	 *     Literal returns NumberLiteral
-	 *     NumberLiteral returns NumberLiteral
 	 *
 	 * Constraint:
 	 *     value=DOUBLE
@@ -1681,6 +1681,8 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Statement returns StringLiteral
+	 *     Literal returns StringLiteral
+	 *     StringLiteral returns StringLiteral
 	 *     Expression returns StringLiteral
 	 *     Expression10 returns StringLiteral
 	 *     Expression10.Concatenation_1_0 returns StringLiteral
@@ -1710,8 +1712,6 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression1 returns StringLiteral
 	 *     Expression1.Application_1_0 returns StringLiteral
 	 *     Expression0 returns StringLiteral
-	 *     Literal returns StringLiteral
-	 *     StringLiteral returns StringLiteral
 	 *
 	 * Constraint:
 	 *     value=STRING
@@ -1747,6 +1747,8 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Statement returns VoidLiteral
+	 *     Literal returns VoidLiteral
+	 *     VoidLiteral returns VoidLiteral
 	 *     Expression returns VoidLiteral
 	 *     Expression10 returns VoidLiteral
 	 *     Expression10.Concatenation_1_0 returns VoidLiteral
@@ -1776,8 +1778,6 @@ public class HaleSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression1 returns VoidLiteral
 	 *     Expression1.Application_1_0 returns VoidLiteral
 	 *     Expression0 returns VoidLiteral
-	 *     Literal returns VoidLiteral
-	 *     VoidLiteral returns VoidLiteral
 	 *
 	 * Constraint:
 	 *     {VoidLiteral}

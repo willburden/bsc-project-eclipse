@@ -107,7 +107,7 @@ public class HaleParsingTest {
   }
 
   @Test
-  public void FunctionType() {
+  public void functionType() {
     Type _parseType = this._testHelper.parseType("Function()");
     final FunctionType type = ((FunctionType) _parseType);
     Assertions.assertEquals(0, type.getParamTypes().size());
@@ -115,7 +115,7 @@ public class HaleParsingTest {
   }
 
   @Test
-  public void FunctionTypeWithParams() {
+  public void functionTypeWithParams() {
     Type _parseType = this._testHelper.parseType("Function(Number, String)");
     final FunctionType type = ((FunctionType) _parseType);
     Assertions.assertEquals(2, type.getParamTypes().size());
@@ -127,7 +127,7 @@ public class HaleParsingTest {
   }
 
   @Test
-  public void FunctionTypeWithReturnType() {
+  public void functionTypeWithReturnType() {
     Type _parseType = this._testHelper.parseType("Function(): Boolean");
     final FunctionType type = ((FunctionType) _parseType);
     Assertions.assertEquals(0, type.getParamTypes().size());
@@ -136,7 +136,7 @@ public class HaleParsingTest {
   }
 
   @Test
-  public void EitherType() {
+  public void eitherType() {
     Type _parseType = this._testHelper.parseType("String ? Void");
     final EitherType type = ((EitherType) _parseType);
     Type _left = type.getLeft();

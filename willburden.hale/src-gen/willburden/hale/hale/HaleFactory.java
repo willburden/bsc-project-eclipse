@@ -51,15 +51,6 @@ public interface HaleFactory extends EFactory
   Statement createStatement();
 
   /**
-   * Returns a new object of class '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
-   * @generated
-   */
-  Expression createExpression();
-
-  /**
    * Returns a new object of class '<em>Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -258,6 +249,42 @@ public interface HaleFactory extends EFactory
   Throw createThrow();
 
   /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Function Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Type</em>'.
+   * @generated
+   */
+  FunctionType createFunctionType();
+
+  /**
+   * Returns a new object of class '<em>Either Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Either Type</em>'.
+   * @generated
+   */
+  EitherType createEitherType();
+
+  /**
+   * Returns a new object of class '<em>Primitive Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primitive Type</em>'.
+   * @generated
+   */
+  PrimitiveType createPrimitiveType();
+
+  /**
    * Returns a new object of class '<em>Concatenation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -427,33 +454,6 @@ public interface HaleFactory extends EFactory
    * @generated
    */
   Application createApplication();
-
-  /**
-   * Returns a new object of class '<em>Function Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Type</em>'.
-   * @generated
-   */
-  FunctionType createFunctionType();
-
-  /**
-   * Returns a new object of class '<em>Either Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Either Type</em>'.
-   * @generated
-   */
-  EitherType createEitherType();
-
-  /**
-   * Returns a new object of class '<em>Primitive Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primitive Type</em>'.
-   * @generated
-   */
-  PrimitiveType createPrimitiveType();
 
   /**
    * Returns the package supported by this factory.

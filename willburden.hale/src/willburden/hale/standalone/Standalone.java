@@ -1,10 +1,8 @@
 package willburden.hale.standalone;
 
-import willburden.hale.standalone.error.InterpreterException;
-import willburden.hale.standalone.interpreter.Interpreter;
-import willburden.hale.standalone.parser.Parser;
-import willburden.hale.standalone.parser.ParserDiagnostic;
-import willburden.hale.standalone.parser.Parser.ParseResult;
+import willburden.hale.error.InterpreterException;
+import willburden.hale.interpreter.Interpreter;
+import willburden.hale.standalone.Parser.ParseResult;
 
 public class Standalone {
 

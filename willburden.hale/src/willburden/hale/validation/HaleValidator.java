@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 
+import willburden.hale.error.ErrorMessages;
 import willburden.hale.hale.Assignment;
 import willburden.hale.hale.Binding;
 import willburden.hale.hale.BooleanLiteral;
@@ -19,8 +20,7 @@ import willburden.hale.hale.Parameter;
 import willburden.hale.hale.Return;
 import willburden.hale.hale.Throw;
 import willburden.hale.hale.While;
-import willburden.hale.standalone.error.ErrorMessages;
-import willburden.hale.standalone.interpreter.Interpreter;
+import willburden.hale.interpreter.Interpreter;
 
 /**
  * This class contains custom validation rules. 

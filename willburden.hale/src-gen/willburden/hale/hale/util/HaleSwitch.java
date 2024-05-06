@@ -95,14 +95,6 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case HalePackage.EXPRESSION:
-      {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
-        if (result == null) result = caseStatement(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case HalePackage.LITERAL:
       {
         Literal literal = (Literal)theEObject;
@@ -288,6 +280,38 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case HalePackage.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = caseStatement(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.FUNCTION_TYPE:
+      {
+        FunctionType functionType = (FunctionType)theEObject;
+        T result = caseFunctionType(functionType);
+        if (result == null) result = caseType(functionType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.EITHER_TYPE:
+      {
+        EitherType eitherType = (EitherType)theEObject;
+        T result = caseEitherType(eitherType);
+        if (result == null) result = caseType(eitherType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case HalePackage.PRIMITIVE_TYPE:
+      {
+        PrimitiveType primitiveType = (PrimitiveType)theEObject;
+        T result = casePrimitiveType(primitiveType);
+        if (result == null) result = caseType(primitiveType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case HalePackage.CONCATENATION:
       {
         Concatenation concatenation = (Concatenation)theEObject;
@@ -459,30 +483,6 @@ public class HaleSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case HalePackage.FUNCTION_TYPE:
-      {
-        FunctionType functionType = (FunctionType)theEObject;
-        T result = caseFunctionType(functionType);
-        if (result == null) result = caseType(functionType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case HalePackage.EITHER_TYPE:
-      {
-        EitherType eitherType = (EitherType)theEObject;
-        T result = caseEitherType(eitherType);
-        if (result == null) result = caseType(eitherType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case HalePackage.PRIMITIVE_TYPE:
-      {
-        PrimitiveType primitiveType = (PrimitiveType)theEObject;
-        T result = casePrimitiveType(primitiveType);
-        if (result == null) result = caseType(primitiveType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -531,22 +531,6 @@ public class HaleSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStatement(Statement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExpression(Expression object)
   {
     return null;
   }
@@ -904,6 +888,70 @@ public class HaleSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionType(FunctionType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Either Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Either Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEitherType(EitherType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Primitive Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Primitive Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrimitiveType(PrimitiveType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Concatenation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1203,54 +1251,6 @@ public class HaleSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseApplication(Application object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Function Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Function Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFunctionType(FunctionType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Either Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Either Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEitherType(EitherType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Primitive Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Primitive Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePrimitiveType(PrimitiveType object)
   {
     return null;
   }

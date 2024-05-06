@@ -68,7 +68,6 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
       case HalePackage.HALE: return createHale();
       case HalePackage.BLOCK: return createBlock();
       case HalePackage.STATEMENT: return createStatement();
-      case HalePackage.EXPRESSION: return createExpression();
       case HalePackage.LITERAL: return createLiteral();
       case HalePackage.VOID_LITERAL: return createVoidLiteral();
       case HalePackage.BOOLEAN_LITERAL: return createBooleanLiteral();
@@ -91,6 +90,10 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
       case HalePackage.PARAMETER: return createParameter();
       case HalePackage.RETURN: return createReturn();
       case HalePackage.THROW: return createThrow();
+      case HalePackage.EXPRESSION: return createExpression();
+      case HalePackage.FUNCTION_TYPE: return createFunctionType();
+      case HalePackage.EITHER_TYPE: return createEitherType();
+      case HalePackage.PRIMITIVE_TYPE: return createPrimitiveType();
       case HalePackage.CONCATENATION: return createConcatenation();
       case HalePackage.LOGICAL_AND: return createLogicalAnd();
       case HalePackage.LOGICAL_OR: return createLogicalOr();
@@ -110,9 +113,6 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
       case HalePackage.UNARY_NEGATION: return createUnaryNegation();
       case HalePackage.LOGICAL_NOT: return createLogicalNot();
       case HalePackage.APPLICATION: return createApplication();
-      case HalePackage.FUNCTION_TYPE: return createFunctionType();
-      case HalePackage.EITHER_TYPE: return createEitherType();
-      case HalePackage.PRIMITIVE_TYPE: return createPrimitiveType();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -152,18 +152,6 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
   {
     StatementImpl statement = new StatementImpl();
     return statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Expression createExpression()
-  {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
   }
 
   /**
@@ -436,6 +424,54 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
    * @generated
    */
   @Override
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FunctionType createFunctionType()
+  {
+    FunctionTypeImpl functionType = new FunctionTypeImpl();
+    return functionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EitherType createEitherType()
+  {
+    EitherTypeImpl eitherType = new EitherTypeImpl();
+    return eitherType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PrimitiveType createPrimitiveType()
+  {
+    PrimitiveTypeImpl primitiveType = new PrimitiveTypeImpl();
+    return primitiveType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Concatenation createConcatenation()
   {
     ConcatenationImpl concatenation = new ConcatenationImpl();
@@ -656,42 +692,6 @@ public class HaleFactoryImpl extends EFactoryImpl implements HaleFactory
   {
     ApplicationImpl application = new ApplicationImpl();
     return application;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public FunctionType createFunctionType()
-  {
-    FunctionTypeImpl functionType = new FunctionTypeImpl();
-    return functionType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EitherType createEitherType()
-  {
-    EitherTypeImpl eitherType = new EitherTypeImpl();
-    return eitherType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public PrimitiveType createPrimitiveType()
-  {
-    PrimitiveTypeImpl primitiveType = new PrimitiveTypeImpl();
-    return primitiveType;
   }
 
   /**

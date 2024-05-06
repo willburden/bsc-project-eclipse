@@ -94,14 +94,14 @@ class HaleParsingTest {
 	// Types
 	
 	@Test
-	def void FunctionType() {
+	def void functionType() {
 		val type = "Function()".parseType as FunctionType
 		assertEquals(0, type.paramTypes.size)
 		assertNull(type.returnType)
 	}
 	
 	@Test
-	def void FunctionTypeWithParams() {
+	def void functionTypeWithParams() {
 		val type = "Function(Number, String)".parseType as FunctionType
 		assertEquals(2, type.paramTypes.size)
 		assertEquals("Number", (type.paramTypes.get(0) as PrimitiveType).type)
@@ -110,14 +110,14 @@ class HaleParsingTest {
 	}
 	
 	@Test
-	def void FunctionTypeWithReturnType() {
+	def void functionTypeWithReturnType() {
 		val type = "Function(): Boolean".parseType as FunctionType
 		assertEquals(0, type.paramTypes.size)
 		assertEquals("Boolean", (type.returnType as PrimitiveType).type)
 	}
 	
 	@Test
-	def void EitherType() {
+	def void eitherType() {
 		val type = "String ? Void".parseType as EitherType
 		assertEquals("String", (type.left as PrimitiveType).type)
 		assertEquals("Void", (type.right as PrimitiveType).type)

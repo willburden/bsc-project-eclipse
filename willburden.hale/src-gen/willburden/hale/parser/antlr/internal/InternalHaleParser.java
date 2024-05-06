@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalHaleParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BOOLEAN", "RULE_DOUBLE", "RULE_STRING", "RULE_PRIMITIVE_TYPE", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "';'", "'{'", "'}'", "'.'", "'and'", "'or'", "'=='", "'!='", "'<='", "'<'", "'>='", "'>'", "'+'", "'-'", "'*'", "'/'", "'%'", "'**'", "'as'", "'not'", "'('", "','", "')'", "'void'", "':'", "'Function'", "'?'", "'let'", "'mut'", "'='", "'input'", "'print'", "'if'", "'else'", "'elseif'", "'while'", "'break'", "'function'", "'return'", "'throw'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BOOLEAN", "RULE_DOUBLE", "RULE_STRING", "RULE_PRIMITIVE_TYPE", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "';'", "'{'", "'}'", "'void'", "':'", "'Function'", "'('", "','", "')'", "'?'", "'let'", "'mut'", "'='", "'input'", "'print'", "'if'", "'else'", "'elseif'", "'while'", "'break'", "'function'", "'return'", "'throw'", "'.'", "'and'", "'or'", "'=='", "'!='", "'<='", "'<'", "'>='", "'>'", "'+'", "'-'", "'*'", "'/'", "'%'", "'**'", "'as'", "'not'"
     };
     public static final int T__50=50;
     public static final int RULE_BOOLEAN=4;
@@ -302,7 +302,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                 int alt1=3;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=RULE_BOOLEAN && LA1_0<=RULE_STRING)||LA1_0==RULE_ID||LA1_0==13||LA1_0==25||(LA1_0>=31 && LA1_0<=32)||LA1_0==35||LA1_0==39||(LA1_0>=42 && LA1_0<=44)||(LA1_0>=47 && LA1_0<=51)) ) {
+                if ( ((LA1_0>=RULE_BOOLEAN && LA1_0<=RULE_STRING)||LA1_0==RULE_ID||LA1_0==13||LA1_0==15||LA1_0==18||LA1_0==22||(LA1_0>=25 && LA1_0<=27)||(LA1_0>=30 && LA1_0<=34)||LA1_0==45||LA1_0==51) ) {
                     alt1=1;
                 }
                 else if ( (LA1_0==12) ) {
@@ -466,17 +466,17 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                 alt3=1;
                 }
                 break;
-            case 49:
+            case 32:
                 {
                 alt3=2;
                 }
                 break;
-            case 44:
+            case 27:
                 {
                 alt3=3;
                 }
                 break;
-            case 47:
+            case 30:
                 {
                 alt3=4;
                 }
@@ -485,15 +485,15 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
             case RULE_DOUBLE:
             case RULE_STRING:
             case RULE_ID:
+            case 15:
+            case 18:
+            case 22:
             case 25:
+            case 26:
             case 31:
-            case 32:
-            case 35:
-            case 39:
-            case 42:
-            case 43:
-            case 48:
-            case 50:
+            case 33:
+            case 34:
+            case 45:
             case 51:
                 {
                 alt3=5;
@@ -588,12 +588,12 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     // InternalHale.g:213:4: (this_Print_4= rulePrint | this_LetBinding_5= ruleLetBinding | this_Assignment_6= ruleAssignment | this_Break_7= ruleBreak | this_Return_8= ruleReturn | this_Throw_9= ruleThrow | this_Expression_10= ruleExpression )
                     int alt2=7;
                     switch ( input.LA(1) ) {
-                    case 43:
+                    case 26:
                         {
                         alt2=1;
                         }
                         break;
-                    case 39:
+                    case 22:
                         {
                         alt2=2;
                         }
@@ -602,11 +602,11 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                         {
                         int LA2_3 = input.LA(2);
 
-                        if ( (LA2_3==41) ) {
-                            alt2=3;
-                        }
-                        else if ( (LA2_3==12||(LA2_3>=15 && LA2_3<=30)||LA2_3==32) ) {
+                        if ( (LA2_3==12||LA2_3==18||(LA2_3>=35 && LA2_3<=50)) ) {
                             alt2=7;
+                        }
+                        else if ( (LA2_3==24) ) {
+                            alt2=3;
                         }
                         else {
                             NoViableAltException nvae =
@@ -616,17 +616,17 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                         }
                         }
                         break;
-                    case 48:
+                    case 31:
                         {
                         alt2=4;
                         }
                         break;
-                    case 50:
+                    case 33:
                         {
                         alt2=5;
                         }
                         break;
-                    case 51:
+                    case 34:
                         {
                         alt2=6;
                         }
@@ -634,11 +634,11 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     case RULE_BOOLEAN:
                     case RULE_DOUBLE:
                     case RULE_STRING:
+                    case 15:
+                    case 18:
                     case 25:
-                    case 31:
-                    case 32:
-                    case 35:
-                    case 42:
+                    case 45:
+                    case 51:
                         {
                         alt2=7;
                         }
@@ -910,2653 +910,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleBracedBlock"
 
 
-    // $ANTLR start "entryRuleExpression"
-    // InternalHale.g:321:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
-    public final EObject entryRuleExpression() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression = null;
-
-
-        try {
-            // InternalHale.g:321:51: (iv_ruleExpression= ruleExpression EOF )
-            // InternalHale.g:322:2: iv_ruleExpression= ruleExpression EOF
-            {
-             newCompositeNode(grammarAccess.getExpressionRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression=ruleExpression();
-
-            state._fsp--;
-
-             current =iv_ruleExpression; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression"
-
-
-    // $ANTLR start "ruleExpression"
-    // InternalHale.g:328:1: ruleExpression returns [EObject current=null] : this_Expression10_0= ruleExpression10 ;
-    public final EObject ruleExpression() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_Expression10_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:334:2: (this_Expression10_0= ruleExpression10 )
-            // InternalHale.g:335:2: this_Expression10_0= ruleExpression10
-            {
-
-            		newCompositeNode(grammarAccess.getExpressionAccess().getExpression10ParserRuleCall());
-            	
-            pushFollow(FOLLOW_2);
-            this_Expression10_0=ruleExpression10();
-
-            state._fsp--;
-
-
-            		current = this_Expression10_0;
-            		afterParserOrEnumRuleCall();
-            	
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression"
-
-
-    // $ANTLR start "entryRuleExpression10"
-    // InternalHale.g:346:1: entryRuleExpression10 returns [EObject current=null] : iv_ruleExpression10= ruleExpression10 EOF ;
-    public final EObject entryRuleExpression10() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression10 = null;
-
-
-        try {
-            // InternalHale.g:346:53: (iv_ruleExpression10= ruleExpression10 EOF )
-            // InternalHale.g:347:2: iv_ruleExpression10= ruleExpression10 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression10Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression10=ruleExpression10();
-
-            state._fsp--;
-
-             current =iv_ruleExpression10; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression10"
-
-
-    // $ANTLR start "ruleExpression10"
-    // InternalHale.g:353:1: ruleExpression10 returns [EObject current=null] : (this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )* ) ;
-    public final EObject ruleExpression10() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        EObject this_Expression9_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:359:2: ( (this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )* ) )
-            // InternalHale.g:360:2: (this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )* )
-            {
-            // InternalHale.g:360:2: (this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )* )
-            // InternalHale.g:361:3: this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getExpression10Access().getExpression9ParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_7);
-            this_Expression9_0=ruleExpression9();
-
-            state._fsp--;
-
-
-            			current = this_Expression9_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalHale.g:369:3: ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )*
-            loop4:
-            do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
-
-                if ( (LA4_0==15) ) {
-                    alt4=1;
-                }
-
-
-                switch (alt4) {
-            	case 1 :
-            	    // InternalHale.g:370:4: () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) )
-            	    {
-            	    // InternalHale.g:370:4: ()
-            	    // InternalHale.g:371:5: 
-            	    {
-
-            	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getExpression10Access().getConcatenationLeftAction_1_0(),
-            	    						current);
-            	    				
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,15,FOLLOW_8); 
-
-            	    				newLeafNode(otherlv_2, grammarAccess.getExpression10Access().getFullStopKeyword_1_1());
-            	    			
-            	    // InternalHale.g:381:4: ( (lv_right_3_0= ruleExpression9 ) )
-            	    // InternalHale.g:382:5: (lv_right_3_0= ruleExpression9 )
-            	    {
-            	    // InternalHale.g:382:5: (lv_right_3_0= ruleExpression9 )
-            	    // InternalHale.g:383:6: lv_right_3_0= ruleExpression9
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getExpression10Access().getRightExpression9ParserRuleCall_1_2_0());
-            	    					
-            	    pushFollow(FOLLOW_7);
-            	    lv_right_3_0=ruleExpression9();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getExpression10Rule());
-            	    						}
-            	    						set(
-            	    							current,
-            	    							"right",
-            	    							lv_right_3_0,
-            	    							"willburden.hale.Hale.Expression9");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop4;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression10"
-
-
-    // $ANTLR start "entryRuleExpression9"
-    // InternalHale.g:405:1: entryRuleExpression9 returns [EObject current=null] : iv_ruleExpression9= ruleExpression9 EOF ;
-    public final EObject entryRuleExpression9() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression9 = null;
-
-
-        try {
-            // InternalHale.g:405:52: (iv_ruleExpression9= ruleExpression9 EOF )
-            // InternalHale.g:406:2: iv_ruleExpression9= ruleExpression9 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression9Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression9=ruleExpression9();
-
-            state._fsp--;
-
-             current =iv_ruleExpression9; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression9"
-
-
-    // $ANTLR start "ruleExpression9"
-    // InternalHale.g:412:1: ruleExpression9 returns [EObject current=null] : (this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )* ) ;
-    public final EObject ruleExpression9() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        Token otherlv_5=null;
-        EObject this_Expression8_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-        EObject lv_right_6_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:418:2: ( (this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )* ) )
-            // InternalHale.g:419:2: (this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )* )
-            {
-            // InternalHale.g:419:2: (this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )* )
-            // InternalHale.g:420:3: this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getExpression9Access().getExpression8ParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_9);
-            this_Expression8_0=ruleExpression8();
-
-            state._fsp--;
-
-
-            			current = this_Expression8_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalHale.g:428:3: ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )*
-            loop5:
-            do {
-                int alt5=3;
-                int LA5_0 = input.LA(1);
-
-                if ( (LA5_0==16) ) {
-                    alt5=1;
-                }
-                else if ( (LA5_0==17) ) {
-                    alt5=2;
-                }
-
-
-                switch (alt5) {
-            	case 1 :
-            	    // InternalHale.g:429:4: ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) )
-            	    {
-            	    // InternalHale.g:429:4: ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) )
-            	    // InternalHale.g:430:5: () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) )
-            	    {
-            	    // InternalHale.g:430:5: ()
-            	    // InternalHale.g:431:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression9Access().getLogicalAndLeftAction_1_0_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,16,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_2, grammarAccess.getExpression9Access().getAndKeyword_1_0_1());
-            	    				
-            	    // InternalHale.g:441:5: ( (lv_right_3_0= ruleExpression8 ) )
-            	    // InternalHale.g:442:6: (lv_right_3_0= ruleExpression8 )
-            	    {
-            	    // InternalHale.g:442:6: (lv_right_3_0= ruleExpression8 )
-            	    // InternalHale.g:443:7: lv_right_3_0= ruleExpression8
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression9Access().getRightExpression8ParserRuleCall_1_0_2_0());
-            	    						
-            	    pushFollow(FOLLOW_9);
-            	    lv_right_3_0=ruleExpression8();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression9Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_3_0,
-            	    								"willburden.hale.Hale.Expression8");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // InternalHale.g:462:4: ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) )
-            	    {
-            	    // InternalHale.g:462:4: ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) )
-            	    // InternalHale.g:463:5: () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) )
-            	    {
-            	    // InternalHale.g:463:5: ()
-            	    // InternalHale.g:464:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression9Access().getLogicalOrLeftAction_1_1_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_5=(Token)match(input,17,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_5, grammarAccess.getExpression9Access().getOrKeyword_1_1_1());
-            	    				
-            	    // InternalHale.g:474:5: ( (lv_right_6_0= ruleExpression8 ) )
-            	    // InternalHale.g:475:6: (lv_right_6_0= ruleExpression8 )
-            	    {
-            	    // InternalHale.g:475:6: (lv_right_6_0= ruleExpression8 )
-            	    // InternalHale.g:476:7: lv_right_6_0= ruleExpression8
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression9Access().getRightExpression8ParserRuleCall_1_1_2_0());
-            	    						
-            	    pushFollow(FOLLOW_9);
-            	    lv_right_6_0=ruleExpression8();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression9Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_6_0,
-            	    								"willburden.hale.Hale.Expression8");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop5;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression9"
-
-
-    // $ANTLR start "entryRuleExpression8"
-    // InternalHale.g:499:1: entryRuleExpression8 returns [EObject current=null] : iv_ruleExpression8= ruleExpression8 EOF ;
-    public final EObject entryRuleExpression8() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression8 = null;
-
-
-        try {
-            // InternalHale.g:499:52: (iv_ruleExpression8= ruleExpression8 EOF )
-            // InternalHale.g:500:2: iv_ruleExpression8= ruleExpression8 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression8Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression8=ruleExpression8();
-
-            state._fsp--;
-
-             current =iv_ruleExpression8; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression8"
-
-
-    // $ANTLR start "ruleExpression8"
-    // InternalHale.g:506:1: ruleExpression8 returns [EObject current=null] : (this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )* ) ;
-    public final EObject ruleExpression8() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        Token otherlv_5=null;
-        EObject this_Expression7_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-        EObject lv_right_6_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:512:2: ( (this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )* ) )
-            // InternalHale.g:513:2: (this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )* )
-            {
-            // InternalHale.g:513:2: (this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )* )
-            // InternalHale.g:514:3: this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getExpression8Access().getExpression7ParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_10);
-            this_Expression7_0=ruleExpression7();
-
-            state._fsp--;
-
-
-            			current = this_Expression7_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalHale.g:522:3: ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )*
-            loop6:
-            do {
-                int alt6=3;
-                int LA6_0 = input.LA(1);
-
-                if ( (LA6_0==18) ) {
-                    alt6=1;
-                }
-                else if ( (LA6_0==19) ) {
-                    alt6=2;
-                }
-
-
-                switch (alt6) {
-            	case 1 :
-            	    // InternalHale.g:523:4: ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) )
-            	    {
-            	    // InternalHale.g:523:4: ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) )
-            	    // InternalHale.g:524:5: () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) )
-            	    {
-            	    // InternalHale.g:524:5: ()
-            	    // InternalHale.g:525:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression8Access().getEqualityLeftAction_1_0_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,18,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_2, grammarAccess.getExpression8Access().getEqualsSignEqualsSignKeyword_1_0_1());
-            	    				
-            	    // InternalHale.g:535:5: ( (lv_right_3_0= ruleExpression7 ) )
-            	    // InternalHale.g:536:6: (lv_right_3_0= ruleExpression7 )
-            	    {
-            	    // InternalHale.g:536:6: (lv_right_3_0= ruleExpression7 )
-            	    // InternalHale.g:537:7: lv_right_3_0= ruleExpression7
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression8Access().getRightExpression7ParserRuleCall_1_0_2_0());
-            	    						
-            	    pushFollow(FOLLOW_10);
-            	    lv_right_3_0=ruleExpression7();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression8Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_3_0,
-            	    								"willburden.hale.Hale.Expression7");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // InternalHale.g:556:4: ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) )
-            	    {
-            	    // InternalHale.g:556:4: ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) )
-            	    // InternalHale.g:557:5: () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) )
-            	    {
-            	    // InternalHale.g:557:5: ()
-            	    // InternalHale.g:558:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression8Access().getInequalityLeftAction_1_1_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_5=(Token)match(input,19,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_5, grammarAccess.getExpression8Access().getExclamationMarkEqualsSignKeyword_1_1_1());
-            	    				
-            	    // InternalHale.g:568:5: ( (lv_right_6_0= ruleExpression7 ) )
-            	    // InternalHale.g:569:6: (lv_right_6_0= ruleExpression7 )
-            	    {
-            	    // InternalHale.g:569:6: (lv_right_6_0= ruleExpression7 )
-            	    // InternalHale.g:570:7: lv_right_6_0= ruleExpression7
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression8Access().getRightExpression7ParserRuleCall_1_1_2_0());
-            	    						
-            	    pushFollow(FOLLOW_10);
-            	    lv_right_6_0=ruleExpression7();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression8Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_6_0,
-            	    								"willburden.hale.Hale.Expression7");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop6;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression8"
-
-
-    // $ANTLR start "entryRuleExpression7"
-    // InternalHale.g:593:1: entryRuleExpression7 returns [EObject current=null] : iv_ruleExpression7= ruleExpression7 EOF ;
-    public final EObject entryRuleExpression7() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression7 = null;
-
-
-        try {
-            // InternalHale.g:593:52: (iv_ruleExpression7= ruleExpression7 EOF )
-            // InternalHale.g:594:2: iv_ruleExpression7= ruleExpression7 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression7Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression7=ruleExpression7();
-
-            state._fsp--;
-
-             current =iv_ruleExpression7; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression7"
-
-
-    // $ANTLR start "ruleExpression7"
-    // InternalHale.g:600:1: ruleExpression7 returns [EObject current=null] : (this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )* ) ;
-    public final EObject ruleExpression7() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        Token otherlv_5=null;
-        Token otherlv_8=null;
-        Token otherlv_11=null;
-        EObject this_Expression6_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-        EObject lv_right_6_0 = null;
-
-        EObject lv_right_9_0 = null;
-
-        EObject lv_right_12_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:606:2: ( (this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )* ) )
-            // InternalHale.g:607:2: (this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )* )
-            {
-            // InternalHale.g:607:2: (this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )* )
-            // InternalHale.g:608:3: this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getExpression7Access().getExpression6ParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_11);
-            this_Expression6_0=ruleExpression6();
-
-            state._fsp--;
-
-
-            			current = this_Expression6_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalHale.g:616:3: ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )*
-            loop7:
-            do {
-                int alt7=5;
-                switch ( input.LA(1) ) {
-                case 20:
-                    {
-                    alt7=1;
-                    }
-                    break;
-                case 21:
-                    {
-                    alt7=2;
-                    }
-                    break;
-                case 22:
-                    {
-                    alt7=3;
-                    }
-                    break;
-                case 23:
-                    {
-                    alt7=4;
-                    }
-                    break;
-
-                }
-
-                switch (alt7) {
-            	case 1 :
-            	    // InternalHale.g:617:4: ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) )
-            	    {
-            	    // InternalHale.g:617:4: ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) )
-            	    // InternalHale.g:618:5: () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) )
-            	    {
-            	    // InternalHale.g:618:5: ()
-            	    // InternalHale.g:619:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression7Access().getLessThanOrEqualLeftAction_1_0_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,20,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_2, grammarAccess.getExpression7Access().getLessThanSignEqualsSignKeyword_1_0_1());
-            	    				
-            	    // InternalHale.g:629:5: ( (lv_right_3_0= ruleExpression6 ) )
-            	    // InternalHale.g:630:6: (lv_right_3_0= ruleExpression6 )
-            	    {
-            	    // InternalHale.g:630:6: (lv_right_3_0= ruleExpression6 )
-            	    // InternalHale.g:631:7: lv_right_3_0= ruleExpression6
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_0_2_0());
-            	    						
-            	    pushFollow(FOLLOW_11);
-            	    lv_right_3_0=ruleExpression6();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression7Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_3_0,
-            	    								"willburden.hale.Hale.Expression6");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // InternalHale.g:650:4: ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) )
-            	    {
-            	    // InternalHale.g:650:4: ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) )
-            	    // InternalHale.g:651:5: () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) )
-            	    {
-            	    // InternalHale.g:651:5: ()
-            	    // InternalHale.g:652:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression7Access().getLessThanLeftAction_1_1_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_5=(Token)match(input,21,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_5, grammarAccess.getExpression7Access().getLessThanSignKeyword_1_1_1());
-            	    				
-            	    // InternalHale.g:662:5: ( (lv_right_6_0= ruleExpression6 ) )
-            	    // InternalHale.g:663:6: (lv_right_6_0= ruleExpression6 )
-            	    {
-            	    // InternalHale.g:663:6: (lv_right_6_0= ruleExpression6 )
-            	    // InternalHale.g:664:7: lv_right_6_0= ruleExpression6
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_1_2_0());
-            	    						
-            	    pushFollow(FOLLOW_11);
-            	    lv_right_6_0=ruleExpression6();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression7Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_6_0,
-            	    								"willburden.hale.Hale.Expression6");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 3 :
-            	    // InternalHale.g:683:4: ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) )
-            	    {
-            	    // InternalHale.g:683:4: ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) )
-            	    // InternalHale.g:684:5: () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) )
-            	    {
-            	    // InternalHale.g:684:5: ()
-            	    // InternalHale.g:685:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression7Access().getGreaterThanOrEqualLeftAction_1_2_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_8=(Token)match(input,22,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_8, grammarAccess.getExpression7Access().getGreaterThanSignEqualsSignKeyword_1_2_1());
-            	    				
-            	    // InternalHale.g:695:5: ( (lv_right_9_0= ruleExpression6 ) )
-            	    // InternalHale.g:696:6: (lv_right_9_0= ruleExpression6 )
-            	    {
-            	    // InternalHale.g:696:6: (lv_right_9_0= ruleExpression6 )
-            	    // InternalHale.g:697:7: lv_right_9_0= ruleExpression6
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_2_2_0());
-            	    						
-            	    pushFollow(FOLLOW_11);
-            	    lv_right_9_0=ruleExpression6();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression7Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_9_0,
-            	    								"willburden.hale.Hale.Expression6");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 4 :
-            	    // InternalHale.g:716:4: ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) )
-            	    {
-            	    // InternalHale.g:716:4: ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) )
-            	    // InternalHale.g:717:5: () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) )
-            	    {
-            	    // InternalHale.g:717:5: ()
-            	    // InternalHale.g:718:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression7Access().getGreaterThanLeftAction_1_3_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_11=(Token)match(input,23,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_11, grammarAccess.getExpression7Access().getGreaterThanSignKeyword_1_3_1());
-            	    				
-            	    // InternalHale.g:728:5: ( (lv_right_12_0= ruleExpression6 ) )
-            	    // InternalHale.g:729:6: (lv_right_12_0= ruleExpression6 )
-            	    {
-            	    // InternalHale.g:729:6: (lv_right_12_0= ruleExpression6 )
-            	    // InternalHale.g:730:7: lv_right_12_0= ruleExpression6
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_3_2_0());
-            	    						
-            	    pushFollow(FOLLOW_11);
-            	    lv_right_12_0=ruleExpression6();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression7Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_12_0,
-            	    								"willburden.hale.Hale.Expression6");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop7;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression7"
-
-
-    // $ANTLR start "entryRuleExpression6"
-    // InternalHale.g:753:1: entryRuleExpression6 returns [EObject current=null] : iv_ruleExpression6= ruleExpression6 EOF ;
-    public final EObject entryRuleExpression6() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression6 = null;
-
-
-        try {
-            // InternalHale.g:753:52: (iv_ruleExpression6= ruleExpression6 EOF )
-            // InternalHale.g:754:2: iv_ruleExpression6= ruleExpression6 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression6Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression6=ruleExpression6();
-
-            state._fsp--;
-
-             current =iv_ruleExpression6; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression6"
-
-
-    // $ANTLR start "ruleExpression6"
-    // InternalHale.g:760:1: ruleExpression6 returns [EObject current=null] : (this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )* ) ;
-    public final EObject ruleExpression6() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        Token otherlv_5=null;
-        EObject this_Expression5_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-        EObject lv_right_6_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:766:2: ( (this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )* ) )
-            // InternalHale.g:767:2: (this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )* )
-            {
-            // InternalHale.g:767:2: (this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )* )
-            // InternalHale.g:768:3: this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getExpression6Access().getExpression5ParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_12);
-            this_Expression5_0=ruleExpression5();
-
-            state._fsp--;
-
-
-            			current = this_Expression5_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalHale.g:776:3: ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )*
-            loop8:
-            do {
-                int alt8=3;
-                int LA8_0 = input.LA(1);
-
-                if ( (LA8_0==24) ) {
-                    alt8=1;
-                }
-                else if ( (LA8_0==25) ) {
-                    alt8=2;
-                }
-
-
-                switch (alt8) {
-            	case 1 :
-            	    // InternalHale.g:777:4: ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) )
-            	    {
-            	    // InternalHale.g:777:4: ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) )
-            	    // InternalHale.g:778:5: () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) )
-            	    {
-            	    // InternalHale.g:778:5: ()
-            	    // InternalHale.g:779:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression6Access().getAdditionLeftAction_1_0_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,24,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_2, grammarAccess.getExpression6Access().getPlusSignKeyword_1_0_1());
-            	    				
-            	    // InternalHale.g:789:5: ( (lv_right_3_0= ruleExpression5 ) )
-            	    // InternalHale.g:790:6: (lv_right_3_0= ruleExpression5 )
-            	    {
-            	    // InternalHale.g:790:6: (lv_right_3_0= ruleExpression5 )
-            	    // InternalHale.g:791:7: lv_right_3_0= ruleExpression5
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_0_2_0());
-            	    						
-            	    pushFollow(FOLLOW_12);
-            	    lv_right_3_0=ruleExpression5();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression6Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_3_0,
-            	    								"willburden.hale.Hale.Expression5");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // InternalHale.g:810:4: ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) )
-            	    {
-            	    // InternalHale.g:810:4: ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) )
-            	    // InternalHale.g:811:5: () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) )
-            	    {
-            	    // InternalHale.g:811:5: ()
-            	    // InternalHale.g:812:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression6Access().getSubtractionLeftAction_1_1_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_5=(Token)match(input,25,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_5, grammarAccess.getExpression6Access().getHyphenMinusKeyword_1_1_1());
-            	    				
-            	    // InternalHale.g:822:5: ( (lv_right_6_0= ruleExpression5 ) )
-            	    // InternalHale.g:823:6: (lv_right_6_0= ruleExpression5 )
-            	    {
-            	    // InternalHale.g:823:6: (lv_right_6_0= ruleExpression5 )
-            	    // InternalHale.g:824:7: lv_right_6_0= ruleExpression5
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_1_2_0());
-            	    						
-            	    pushFollow(FOLLOW_12);
-            	    lv_right_6_0=ruleExpression5();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression6Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_6_0,
-            	    								"willburden.hale.Hale.Expression5");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop8;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression6"
-
-
-    // $ANTLR start "entryRuleExpression5"
-    // InternalHale.g:847:1: entryRuleExpression5 returns [EObject current=null] : iv_ruleExpression5= ruleExpression5 EOF ;
-    public final EObject entryRuleExpression5() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression5 = null;
-
-
-        try {
-            // InternalHale.g:847:52: (iv_ruleExpression5= ruleExpression5 EOF )
-            // InternalHale.g:848:2: iv_ruleExpression5= ruleExpression5 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression5Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression5=ruleExpression5();
-
-            state._fsp--;
-
-             current =iv_ruleExpression5; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression5"
-
-
-    // $ANTLR start "ruleExpression5"
-    // InternalHale.g:854:1: ruleExpression5 returns [EObject current=null] : (this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )* ) ;
-    public final EObject ruleExpression5() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        Token otherlv_5=null;
-        Token otherlv_8=null;
-        EObject this_Expression4_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-        EObject lv_right_6_0 = null;
-
-        EObject lv_right_9_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:860:2: ( (this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )* ) )
-            // InternalHale.g:861:2: (this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )* )
-            {
-            // InternalHale.g:861:2: (this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )* )
-            // InternalHale.g:862:3: this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getExpression5Access().getExpression4ParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_13);
-            this_Expression4_0=ruleExpression4();
-
-            state._fsp--;
-
-
-            			current = this_Expression4_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalHale.g:870:3: ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )*
-            loop9:
-            do {
-                int alt9=4;
-                switch ( input.LA(1) ) {
-                case 26:
-                    {
-                    alt9=1;
-                    }
-                    break;
-                case 27:
-                    {
-                    alt9=2;
-                    }
-                    break;
-                case 28:
-                    {
-                    alt9=3;
-                    }
-                    break;
-
-                }
-
-                switch (alt9) {
-            	case 1 :
-            	    // InternalHale.g:871:4: ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) )
-            	    {
-            	    // InternalHale.g:871:4: ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) )
-            	    // InternalHale.g:872:5: () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) )
-            	    {
-            	    // InternalHale.g:872:5: ()
-            	    // InternalHale.g:873:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression5Access().getMultiplicationLeftAction_1_0_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,26,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_2, grammarAccess.getExpression5Access().getAsteriskKeyword_1_0_1());
-            	    				
-            	    // InternalHale.g:883:5: ( (lv_right_3_0= ruleExpression4 ) )
-            	    // InternalHale.g:884:6: (lv_right_3_0= ruleExpression4 )
-            	    {
-            	    // InternalHale.g:884:6: (lv_right_3_0= ruleExpression4 )
-            	    // InternalHale.g:885:7: lv_right_3_0= ruleExpression4
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_0_2_0());
-            	    						
-            	    pushFollow(FOLLOW_13);
-            	    lv_right_3_0=ruleExpression4();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression5Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_3_0,
-            	    								"willburden.hale.Hale.Expression4");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // InternalHale.g:904:4: ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) )
-            	    {
-            	    // InternalHale.g:904:4: ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) )
-            	    // InternalHale.g:905:5: () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) )
-            	    {
-            	    // InternalHale.g:905:5: ()
-            	    // InternalHale.g:906:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression5Access().getDivisionLeftAction_1_1_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_5=(Token)match(input,27,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_5, grammarAccess.getExpression5Access().getSolidusKeyword_1_1_1());
-            	    				
-            	    // InternalHale.g:916:5: ( (lv_right_6_0= ruleExpression4 ) )
-            	    // InternalHale.g:917:6: (lv_right_6_0= ruleExpression4 )
-            	    {
-            	    // InternalHale.g:917:6: (lv_right_6_0= ruleExpression4 )
-            	    // InternalHale.g:918:7: lv_right_6_0= ruleExpression4
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_1_2_0());
-            	    						
-            	    pushFollow(FOLLOW_13);
-            	    lv_right_6_0=ruleExpression4();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression5Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_6_0,
-            	    								"willburden.hale.Hale.Expression4");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 3 :
-            	    // InternalHale.g:937:4: ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) )
-            	    {
-            	    // InternalHale.g:937:4: ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) )
-            	    // InternalHale.g:938:5: () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) )
-            	    {
-            	    // InternalHale.g:938:5: ()
-            	    // InternalHale.g:939:6: 
-            	    {
-
-            	    						current = forceCreateModelElementAndSet(
-            	    							grammarAccess.getExpression5Access().getRemainderLeftAction_1_2_0(),
-            	    							current);
-            	    					
-
-            	    }
-
-            	    otherlv_8=(Token)match(input,28,FOLLOW_8); 
-
-            	    					newLeafNode(otherlv_8, grammarAccess.getExpression5Access().getPercentSignKeyword_1_2_1());
-            	    				
-            	    // InternalHale.g:949:5: ( (lv_right_9_0= ruleExpression4 ) )
-            	    // InternalHale.g:950:6: (lv_right_9_0= ruleExpression4 )
-            	    {
-            	    // InternalHale.g:950:6: (lv_right_9_0= ruleExpression4 )
-            	    // InternalHale.g:951:7: lv_right_9_0= ruleExpression4
-            	    {
-
-            	    							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_2_2_0());
-            	    						
-            	    pushFollow(FOLLOW_13);
-            	    lv_right_9_0=ruleExpression4();
-
-            	    state._fsp--;
-
-
-            	    							if (current==null) {
-            	    								current = createModelElementForParent(grammarAccess.getExpression5Rule());
-            	    							}
-            	    							set(
-            	    								current,
-            	    								"right",
-            	    								lv_right_9_0,
-            	    								"willburden.hale.Hale.Expression4");
-            	    							afterParserOrEnumRuleCall();
-            	    						
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop9;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression5"
-
-
-    // $ANTLR start "entryRuleExpression4"
-    // InternalHale.g:974:1: entryRuleExpression4 returns [EObject current=null] : iv_ruleExpression4= ruleExpression4 EOF ;
-    public final EObject entryRuleExpression4() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression4 = null;
-
-
-        try {
-            // InternalHale.g:974:52: (iv_ruleExpression4= ruleExpression4 EOF )
-            // InternalHale.g:975:2: iv_ruleExpression4= ruleExpression4 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression4Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression4=ruleExpression4();
-
-            state._fsp--;
-
-             current =iv_ruleExpression4; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression4"
-
-
-    // $ANTLR start "ruleExpression4"
-    // InternalHale.g:981:1: ruleExpression4 returns [EObject current=null] : (this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )* ) ;
-    public final EObject ruleExpression4() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        EObject this_Expression3_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:987:2: ( (this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )* ) )
-            // InternalHale.g:988:2: (this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )* )
-            {
-            // InternalHale.g:988:2: (this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )* )
-            // InternalHale.g:989:3: this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getExpression4Access().getExpression3ParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_14);
-            this_Expression3_0=ruleExpression3();
-
-            state._fsp--;
-
-
-            			current = this_Expression3_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalHale.g:997:3: ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )*
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
-
-                if ( (LA10_0==29) ) {
-                    alt10=1;
-                }
-
-
-                switch (alt10) {
-            	case 1 :
-            	    // InternalHale.g:998:4: () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) )
-            	    {
-            	    // InternalHale.g:998:4: ()
-            	    // InternalHale.g:999:5: 
-            	    {
-
-            	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getExpression4Access().getExponentiationLeftAction_1_0(),
-            	    						current);
-            	    				
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,29,FOLLOW_8); 
-
-            	    				newLeafNode(otherlv_2, grammarAccess.getExpression4Access().getAsteriskAsteriskKeyword_1_1());
-            	    			
-            	    // InternalHale.g:1009:4: ( (lv_right_3_0= ruleExpression3 ) )
-            	    // InternalHale.g:1010:5: (lv_right_3_0= ruleExpression3 )
-            	    {
-            	    // InternalHale.g:1010:5: (lv_right_3_0= ruleExpression3 )
-            	    // InternalHale.g:1011:6: lv_right_3_0= ruleExpression3
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getExpression4Access().getRightExpression3ParserRuleCall_1_2_0());
-            	    					
-            	    pushFollow(FOLLOW_14);
-            	    lv_right_3_0=ruleExpression3();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getExpression4Rule());
-            	    						}
-            	    						set(
-            	    							current,
-            	    							"right",
-            	    							lv_right_3_0,
-            	    							"willburden.hale.Hale.Expression3");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop10;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression4"
-
-
-    // $ANTLR start "entryRuleExpression3"
-    // InternalHale.g:1033:1: entryRuleExpression3 returns [EObject current=null] : iv_ruleExpression3= ruleExpression3 EOF ;
-    public final EObject entryRuleExpression3() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression3 = null;
-
-
-        try {
-            // InternalHale.g:1033:52: (iv_ruleExpression3= ruleExpression3 EOF )
-            // InternalHale.g:1034:2: iv_ruleExpression3= ruleExpression3 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression3Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression3=ruleExpression3();
-
-            state._fsp--;
-
-             current =iv_ruleExpression3; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression3"
-
-
-    // $ANTLR start "ruleExpression3"
-    // InternalHale.g:1040:1: ruleExpression3 returns [EObject current=null] : (this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )* ) ;
-    public final EObject ruleExpression3() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        EObject this_Expression2_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:1046:2: ( (this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )* ) )
-            // InternalHale.g:1047:2: (this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )* )
-            {
-            // InternalHale.g:1047:2: (this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )* )
-            // InternalHale.g:1048:3: this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getExpression3Access().getExpression2ParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_15);
-            this_Expression2_0=ruleExpression2();
-
-            state._fsp--;
-
-
-            			current = this_Expression2_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalHale.g:1056:3: ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )*
-            loop11:
-            do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
-
-                if ( (LA11_0==30) ) {
-                    alt11=1;
-                }
-
-
-                switch (alt11) {
-            	case 1 :
-            	    // InternalHale.g:1057:4: () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) )
-            	    {
-            	    // InternalHale.g:1057:4: ()
-            	    // InternalHale.g:1058:5: 
-            	    {
-
-            	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getExpression3Access().getConversionLeftAction_1_0(),
-            	    						current);
-            	    				
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,30,FOLLOW_16); 
-
-            	    				newLeafNode(otherlv_2, grammarAccess.getExpression3Access().getAsKeyword_1_1());
-            	    			
-            	    // InternalHale.g:1068:4: ( (lv_right_3_0= ruleType ) )
-            	    // InternalHale.g:1069:5: (lv_right_3_0= ruleType )
-            	    {
-            	    // InternalHale.g:1069:5: (lv_right_3_0= ruleType )
-            	    // InternalHale.g:1070:6: lv_right_3_0= ruleType
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getExpression3Access().getRightTypeParserRuleCall_1_2_0());
-            	    					
-            	    pushFollow(FOLLOW_15);
-            	    lv_right_3_0=ruleType();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getExpression3Rule());
-            	    						}
-            	    						set(
-            	    							current,
-            	    							"right",
-            	    							lv_right_3_0,
-            	    							"willburden.hale.Hale.Type");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop11;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression3"
-
-
-    // $ANTLR start "entryRuleExpression2"
-    // InternalHale.g:1092:1: entryRuleExpression2 returns [EObject current=null] : iv_ruleExpression2= ruleExpression2 EOF ;
-    public final EObject entryRuleExpression2() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression2 = null;
-
-
-        try {
-            // InternalHale.g:1092:52: (iv_ruleExpression2= ruleExpression2 EOF )
-            // InternalHale.g:1093:2: iv_ruleExpression2= ruleExpression2 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression2Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression2=ruleExpression2();
-
-            state._fsp--;
-
-             current =iv_ruleExpression2; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression2"
-
-
-    // $ANTLR start "ruleExpression2"
-    // InternalHale.g:1099:1: ruleExpression2 returns [EObject current=null] : ( ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) ) | ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) ) | this_Expression1_6= ruleExpression1 ) ;
-    public final EObject ruleExpression2() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_1=null;
-        Token otherlv_4=null;
-        EObject lv_inner_2_0 = null;
-
-        EObject lv_inner_5_0 = null;
-
-        EObject this_Expression1_6 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:1105:2: ( ( ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) ) | ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) ) | this_Expression1_6= ruleExpression1 ) )
-            // InternalHale.g:1106:2: ( ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) ) | ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) ) | this_Expression1_6= ruleExpression1 )
-            {
-            // InternalHale.g:1106:2: ( ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) ) | ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) ) | this_Expression1_6= ruleExpression1 )
-            int alt12=3;
-            switch ( input.LA(1) ) {
-            case 25:
-                {
-                alt12=1;
-                }
-                break;
-            case 31:
-                {
-                alt12=2;
-                }
-                break;
-            case RULE_BOOLEAN:
-            case RULE_DOUBLE:
-            case RULE_STRING:
-            case RULE_ID:
-            case 32:
-            case 35:
-            case 42:
-                {
-                alt12=3;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt12) {
-                case 1 :
-                    // InternalHale.g:1107:3: ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) )
-                    {
-                    // InternalHale.g:1107:3: ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) )
-                    // InternalHale.g:1108:4: () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) )
-                    {
-                    // InternalHale.g:1108:4: ()
-                    // InternalHale.g:1109:5: 
-                    {
-
-                    					current = forceCreateModelElement(
-                    						grammarAccess.getExpression2Access().getUnaryNegationAction_0_0(),
-                    						current);
-                    				
-
-                    }
-
-                    otherlv_1=(Token)match(input,25,FOLLOW_8); 
-
-                    				newLeafNode(otherlv_1, grammarAccess.getExpression2Access().getHyphenMinusKeyword_0_1());
-                    			
-                    // InternalHale.g:1119:4: ( (lv_inner_2_0= ruleExpression2 ) )
-                    // InternalHale.g:1120:5: (lv_inner_2_0= ruleExpression2 )
-                    {
-                    // InternalHale.g:1120:5: (lv_inner_2_0= ruleExpression2 )
-                    // InternalHale.g:1121:6: lv_inner_2_0= ruleExpression2
-                    {
-
-                    						newCompositeNode(grammarAccess.getExpression2Access().getInnerExpression2ParserRuleCall_0_2_0());
-                    					
-                    pushFollow(FOLLOW_2);
-                    lv_inner_2_0=ruleExpression2();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getExpression2Rule());
-                    						}
-                    						set(
-                    							current,
-                    							"inner",
-                    							lv_inner_2_0,
-                    							"willburden.hale.Hale.Expression2");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalHale.g:1140:3: ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) )
-                    {
-                    // InternalHale.g:1140:3: ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) )
-                    // InternalHale.g:1141:4: () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) )
-                    {
-                    // InternalHale.g:1141:4: ()
-                    // InternalHale.g:1142:5: 
-                    {
-
-                    					current = forceCreateModelElement(
-                    						grammarAccess.getExpression2Access().getLogicalNotAction_1_0(),
-                    						current);
-                    				
-
-                    }
-
-                    otherlv_4=(Token)match(input,31,FOLLOW_8); 
-
-                    				newLeafNode(otherlv_4, grammarAccess.getExpression2Access().getNotKeyword_1_1());
-                    			
-                    // InternalHale.g:1152:4: ( (lv_inner_5_0= ruleExpression2 ) )
-                    // InternalHale.g:1153:5: (lv_inner_5_0= ruleExpression2 )
-                    {
-                    // InternalHale.g:1153:5: (lv_inner_5_0= ruleExpression2 )
-                    // InternalHale.g:1154:6: lv_inner_5_0= ruleExpression2
-                    {
-
-                    						newCompositeNode(grammarAccess.getExpression2Access().getInnerExpression2ParserRuleCall_1_2_0());
-                    					
-                    pushFollow(FOLLOW_2);
-                    lv_inner_5_0=ruleExpression2();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getExpression2Rule());
-                    						}
-                    						set(
-                    							current,
-                    							"inner",
-                    							lv_inner_5_0,
-                    							"willburden.hale.Hale.Expression2");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 3 :
-                    // InternalHale.g:1173:3: this_Expression1_6= ruleExpression1
-                    {
-
-                    			newCompositeNode(grammarAccess.getExpression2Access().getExpression1ParserRuleCall_2());
-                    		
-                    pushFollow(FOLLOW_2);
-                    this_Expression1_6=ruleExpression1();
-
-                    state._fsp--;
-
-
-                    			current = this_Expression1_6;
-                    			afterParserOrEnumRuleCall();
-                    		
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression2"
-
-
-    // $ANTLR start "entryRuleExpression1"
-    // InternalHale.g:1185:1: entryRuleExpression1 returns [EObject current=null] : iv_ruleExpression1= ruleExpression1 EOF ;
-    public final EObject entryRuleExpression1() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression1 = null;
-
-
-        try {
-            // InternalHale.g:1185:52: (iv_ruleExpression1= ruleExpression1 EOF )
-            // InternalHale.g:1186:2: iv_ruleExpression1= ruleExpression1 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression1Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression1=ruleExpression1();
-
-            state._fsp--;
-
-             current =iv_ruleExpression1; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression1"
-
-
-    // $ANTLR start "ruleExpression1"
-    // InternalHale.g:1192:1: ruleExpression1 returns [EObject current=null] : (this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )* ) ;
-    public final EObject ruleExpression1() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        Token otherlv_7=null;
-        EObject this_Expression0_0 = null;
-
-        EObject lv_arguments_3_0 = null;
-
-        EObject lv_arguments_5_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:1198:2: ( (this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )* ) )
-            // InternalHale.g:1199:2: (this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )* )
-            {
-            // InternalHale.g:1199:2: (this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )* )
-            // InternalHale.g:1200:3: this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )*
-            {
-
-            			newCompositeNode(grammarAccess.getExpression1Access().getExpression0ParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_17);
-            this_Expression0_0=ruleExpression0();
-
-            state._fsp--;
-
-
-            			current = this_Expression0_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalHale.g:1208:3: ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )*
-            loop16:
-            do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
-
-                if ( (LA16_0==32) ) {
-                    alt16=1;
-                }
-
-
-                switch (alt16) {
-            	case 1 :
-            	    // InternalHale.g:1209:4: () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')'
-            	    {
-            	    // InternalHale.g:1209:4: ()
-            	    // InternalHale.g:1210:5: 
-            	    {
-
-            	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getExpression1Access().getApplicationExpressionAction_1_0(),
-            	    						current);
-            	    				
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,32,FOLLOW_18); 
-
-            	    				newLeafNode(otherlv_2, grammarAccess.getExpression1Access().getLeftParenthesisKeyword_1_1());
-            	    			
-            	    // InternalHale.g:1220:4: ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )?
-            	    int alt15=2;
-            	    int LA15_0 = input.LA(1);
-
-            	    if ( ((LA15_0>=RULE_BOOLEAN && LA15_0<=RULE_STRING)||LA15_0==RULE_ID||LA15_0==25||(LA15_0>=31 && LA15_0<=32)||LA15_0==35||LA15_0==42) ) {
-            	        alt15=1;
-            	    }
-            	    switch (alt15) {
-            	        case 1 :
-            	            // InternalHale.g:1221:5: ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )?
-            	            {
-            	            // InternalHale.g:1221:5: ( (lv_arguments_3_0= ruleExpression ) )
-            	            // InternalHale.g:1222:6: (lv_arguments_3_0= ruleExpression )
-            	            {
-            	            // InternalHale.g:1222:6: (lv_arguments_3_0= ruleExpression )
-            	            // InternalHale.g:1223:7: lv_arguments_3_0= ruleExpression
-            	            {
-
-            	            							newCompositeNode(grammarAccess.getExpression1Access().getArgumentsExpressionParserRuleCall_1_2_0_0());
-            	            						
-            	            pushFollow(FOLLOW_19);
-            	            lv_arguments_3_0=ruleExpression();
-
-            	            state._fsp--;
-
-
-            	            							if (current==null) {
-            	            								current = createModelElementForParent(grammarAccess.getExpression1Rule());
-            	            							}
-            	            							add(
-            	            								current,
-            	            								"arguments",
-            	            								lv_arguments_3_0,
-            	            								"willburden.hale.Hale.Expression");
-            	            							afterParserOrEnumRuleCall();
-            	            						
-
-            	            }
-
-
-            	            }
-
-            	            // InternalHale.g:1240:5: (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )*
-            	            loop13:
-            	            do {
-            	                int alt13=2;
-            	                int LA13_0 = input.LA(1);
-
-            	                if ( (LA13_0==33) ) {
-            	                    int LA13_1 = input.LA(2);
-
-            	                    if ( ((LA13_1>=RULE_BOOLEAN && LA13_1<=RULE_STRING)||LA13_1==RULE_ID||LA13_1==25||(LA13_1>=31 && LA13_1<=32)||LA13_1==35||LA13_1==42) ) {
-            	                        alt13=1;
-            	                    }
-
-
-            	                }
-
-
-            	                switch (alt13) {
-            	            	case 1 :
-            	            	    // InternalHale.g:1241:6: otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) )
-            	            	    {
-            	            	    otherlv_4=(Token)match(input,33,FOLLOW_8); 
-
-            	            	    						newLeafNode(otherlv_4, grammarAccess.getExpression1Access().getCommaKeyword_1_2_1_0());
-            	            	    					
-            	            	    // InternalHale.g:1245:6: ( (lv_arguments_5_0= ruleExpression ) )
-            	            	    // InternalHale.g:1246:7: (lv_arguments_5_0= ruleExpression )
-            	            	    {
-            	            	    // InternalHale.g:1246:7: (lv_arguments_5_0= ruleExpression )
-            	            	    // InternalHale.g:1247:8: lv_arguments_5_0= ruleExpression
-            	            	    {
-
-            	            	    								newCompositeNode(grammarAccess.getExpression1Access().getArgumentsExpressionParserRuleCall_1_2_1_1_0());
-            	            	    							
-            	            	    pushFollow(FOLLOW_19);
-            	            	    lv_arguments_5_0=ruleExpression();
-
-            	            	    state._fsp--;
-
-
-            	            	    								if (current==null) {
-            	            	    									current = createModelElementForParent(grammarAccess.getExpression1Rule());
-            	            	    								}
-            	            	    								add(
-            	            	    									current,
-            	            	    									"arguments",
-            	            	    									lv_arguments_5_0,
-            	            	    									"willburden.hale.Hale.Expression");
-            	            	    								afterParserOrEnumRuleCall();
-            	            	    							
-
-            	            	    }
-
-
-            	            	    }
-
-
-            	            	    }
-            	            	    break;
-
-            	            	default :
-            	            	    break loop13;
-            	                }
-            	            } while (true);
-
-            	            // InternalHale.g:1265:5: (otherlv_6= ',' )?
-            	            int alt14=2;
-            	            int LA14_0 = input.LA(1);
-
-            	            if ( (LA14_0==33) ) {
-            	                alt14=1;
-            	            }
-            	            switch (alt14) {
-            	                case 1 :
-            	                    // InternalHale.g:1266:6: otherlv_6= ','
-            	                    {
-            	                    otherlv_6=(Token)match(input,33,FOLLOW_20); 
-
-            	                    						newLeafNode(otherlv_6, grammarAccess.getExpression1Access().getCommaKeyword_1_2_2());
-            	                    					
-
-            	                    }
-            	                    break;
-
-            	            }
-
-
-            	            }
-            	            break;
-
-            	    }
-
-            	    otherlv_7=(Token)match(input,34,FOLLOW_17); 
-
-            	    				newLeafNode(otherlv_7, grammarAccess.getExpression1Access().getRightParenthesisKeyword_1_3());
-            	    			
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop16;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression1"
-
-
-    // $ANTLR start "entryRuleExpression0"
-    // InternalHale.g:1281:1: entryRuleExpression0 returns [EObject current=null] : iv_ruleExpression0= ruleExpression0 EOF ;
-    public final EObject entryRuleExpression0() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleExpression0 = null;
-
-
-        try {
-            // InternalHale.g:1281:52: (iv_ruleExpression0= ruleExpression0 EOF )
-            // InternalHale.g:1282:2: iv_ruleExpression0= ruleExpression0 EOF
-            {
-             newCompositeNode(grammarAccess.getExpression0Rule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleExpression0=ruleExpression0();
-
-            state._fsp--;
-
-             current =iv_ruleExpression0; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleExpression0"
-
-
-    // $ANTLR start "ruleExpression0"
-    // InternalHale.g:1288:1: ruleExpression0 returns [EObject current=null] : (this_Literal_0= ruleLiteral | this_Input_1= ruleInput | this_BindingReference_2= ruleBindingReference | (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' ) ) ;
-    public final EObject ruleExpression0() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        EObject this_Literal_0 = null;
-
-        EObject this_Input_1 = null;
-
-        EObject this_BindingReference_2 = null;
-
-        EObject this_Expression_4 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalHale.g:1294:2: ( (this_Literal_0= ruleLiteral | this_Input_1= ruleInput | this_BindingReference_2= ruleBindingReference | (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' ) ) )
-            // InternalHale.g:1295:2: (this_Literal_0= ruleLiteral | this_Input_1= ruleInput | this_BindingReference_2= ruleBindingReference | (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' ) )
-            {
-            // InternalHale.g:1295:2: (this_Literal_0= ruleLiteral | this_Input_1= ruleInput | this_BindingReference_2= ruleBindingReference | (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' ) )
-            int alt17=4;
-            switch ( input.LA(1) ) {
-            case RULE_BOOLEAN:
-            case RULE_DOUBLE:
-            case RULE_STRING:
-            case 35:
-                {
-                alt17=1;
-                }
-                break;
-            case 42:
-                {
-                alt17=2;
-                }
-                break;
-            case RULE_ID:
-                {
-                alt17=3;
-                }
-                break;
-            case 32:
-                {
-                alt17=4;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 17, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt17) {
-                case 1 :
-                    // InternalHale.g:1296:3: this_Literal_0= ruleLiteral
-                    {
-
-                    			newCompositeNode(grammarAccess.getExpression0Access().getLiteralParserRuleCall_0());
-                    		
-                    pushFollow(FOLLOW_2);
-                    this_Literal_0=ruleLiteral();
-
-                    state._fsp--;
-
-
-                    			current = this_Literal_0;
-                    			afterParserOrEnumRuleCall();
-                    		
-
-                    }
-                    break;
-                case 2 :
-                    // InternalHale.g:1305:3: this_Input_1= ruleInput
-                    {
-
-                    			newCompositeNode(grammarAccess.getExpression0Access().getInputParserRuleCall_1());
-                    		
-                    pushFollow(FOLLOW_2);
-                    this_Input_1=ruleInput();
-
-                    state._fsp--;
-
-
-                    			current = this_Input_1;
-                    			afterParserOrEnumRuleCall();
-                    		
-
-                    }
-                    break;
-                case 3 :
-                    // InternalHale.g:1314:3: this_BindingReference_2= ruleBindingReference
-                    {
-
-                    			newCompositeNode(grammarAccess.getExpression0Access().getBindingReferenceParserRuleCall_2());
-                    		
-                    pushFollow(FOLLOW_2);
-                    this_BindingReference_2=ruleBindingReference();
-
-                    state._fsp--;
-
-
-                    			current = this_BindingReference_2;
-                    			afterParserOrEnumRuleCall();
-                    		
-
-                    }
-                    break;
-                case 4 :
-                    // InternalHale.g:1323:3: (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' )
-                    {
-                    // InternalHale.g:1323:3: (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' )
-                    // InternalHale.g:1324:4: otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')'
-                    {
-                    otherlv_3=(Token)match(input,32,FOLLOW_8); 
-
-                    				newLeafNode(otherlv_3, grammarAccess.getExpression0Access().getLeftParenthesisKeyword_3_0());
-                    			
-
-                    				newCompositeNode(grammarAccess.getExpression0Access().getExpressionParserRuleCall_3_1());
-                    			
-                    pushFollow(FOLLOW_20);
-                    this_Expression_4=ruleExpression();
-
-                    state._fsp--;
-
-
-                    				current = this_Expression_4;
-                    				afterParserOrEnumRuleCall();
-                    			
-                    otherlv_5=(Token)match(input,34,FOLLOW_2); 
-
-                    				newLeafNode(otherlv_5, grammarAccess.getExpression0Access().getRightParenthesisKeyword_3_2());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleExpression0"
-
-
     // $ANTLR start "entryRuleLiteral"
-    // InternalHale.g:1345:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
+    // InternalHale.g:321:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
     public final EObject entryRuleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -3564,8 +919,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1345:48: (iv_ruleLiteral= ruleLiteral EOF )
-            // InternalHale.g:1346:2: iv_ruleLiteral= ruleLiteral EOF
+            // InternalHale.g:321:48: (iv_ruleLiteral= ruleLiteral EOF )
+            // InternalHale.g:322:2: iv_ruleLiteral= ruleLiteral EOF
             {
              newCompositeNode(grammarAccess.getLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -3592,7 +947,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLiteral"
-    // InternalHale.g:1352:1: ruleLiteral returns [EObject current=null] : (this_VoidLiteral_0= ruleVoidLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NumberLiteral_2= ruleNumberLiteral | this_StringLiteral_3= ruleStringLiteral ) ;
+    // InternalHale.g:328:1: ruleLiteral returns [EObject current=null] : (this_VoidLiteral_0= ruleVoidLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NumberLiteral_2= ruleNumberLiteral | this_StringLiteral_3= ruleStringLiteral ) ;
     public final EObject ruleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -3609,42 +964,42 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1358:2: ( (this_VoidLiteral_0= ruleVoidLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NumberLiteral_2= ruleNumberLiteral | this_StringLiteral_3= ruleStringLiteral ) )
-            // InternalHale.g:1359:2: (this_VoidLiteral_0= ruleVoidLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NumberLiteral_2= ruleNumberLiteral | this_StringLiteral_3= ruleStringLiteral )
+            // InternalHale.g:334:2: ( (this_VoidLiteral_0= ruleVoidLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NumberLiteral_2= ruleNumberLiteral | this_StringLiteral_3= ruleStringLiteral ) )
+            // InternalHale.g:335:2: (this_VoidLiteral_0= ruleVoidLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NumberLiteral_2= ruleNumberLiteral | this_StringLiteral_3= ruleStringLiteral )
             {
-            // InternalHale.g:1359:2: (this_VoidLiteral_0= ruleVoidLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NumberLiteral_2= ruleNumberLiteral | this_StringLiteral_3= ruleStringLiteral )
-            int alt18=4;
+            // InternalHale.g:335:2: (this_VoidLiteral_0= ruleVoidLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NumberLiteral_2= ruleNumberLiteral | this_StringLiteral_3= ruleStringLiteral )
+            int alt4=4;
             switch ( input.LA(1) ) {
-            case 35:
+            case 15:
                 {
-                alt18=1;
+                alt4=1;
                 }
                 break;
             case RULE_BOOLEAN:
                 {
-                alt18=2;
+                alt4=2;
                 }
                 break;
             case RULE_DOUBLE:
                 {
-                alt18=3;
+                alt4=3;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt18=4;
+                alt4=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 18, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt18) {
+            switch (alt4) {
                 case 1 :
-                    // InternalHale.g:1360:3: this_VoidLiteral_0= ruleVoidLiteral
+                    // InternalHale.g:336:3: this_VoidLiteral_0= ruleVoidLiteral
                     {
 
                     			newCompositeNode(grammarAccess.getLiteralAccess().getVoidLiteralParserRuleCall_0());
@@ -3662,7 +1017,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalHale.g:1369:3: this_BooleanLiteral_1= ruleBooleanLiteral
+                    // InternalHale.g:345:3: this_BooleanLiteral_1= ruleBooleanLiteral
                     {
 
                     			newCompositeNode(grammarAccess.getLiteralAccess().getBooleanLiteralParserRuleCall_1());
@@ -3680,7 +1035,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalHale.g:1378:3: this_NumberLiteral_2= ruleNumberLiteral
+                    // InternalHale.g:354:3: this_NumberLiteral_2= ruleNumberLiteral
                     {
 
                     			newCompositeNode(grammarAccess.getLiteralAccess().getNumberLiteralParserRuleCall_2());
@@ -3698,7 +1053,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalHale.g:1387:3: this_StringLiteral_3= ruleStringLiteral
+                    // InternalHale.g:363:3: this_StringLiteral_3= ruleStringLiteral
                     {
 
                     			newCompositeNode(grammarAccess.getLiteralAccess().getStringLiteralParserRuleCall_3());
@@ -3738,7 +1093,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVoidLiteral"
-    // InternalHale.g:1399:1: entryRuleVoidLiteral returns [EObject current=null] : iv_ruleVoidLiteral= ruleVoidLiteral EOF ;
+    // InternalHale.g:375:1: entryRuleVoidLiteral returns [EObject current=null] : iv_ruleVoidLiteral= ruleVoidLiteral EOF ;
     public final EObject entryRuleVoidLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -3746,8 +1101,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1399:52: (iv_ruleVoidLiteral= ruleVoidLiteral EOF )
-            // InternalHale.g:1400:2: iv_ruleVoidLiteral= ruleVoidLiteral EOF
+            // InternalHale.g:375:52: (iv_ruleVoidLiteral= ruleVoidLiteral EOF )
+            // InternalHale.g:376:2: iv_ruleVoidLiteral= ruleVoidLiteral EOF
             {
              newCompositeNode(grammarAccess.getVoidLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -3774,7 +1129,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVoidLiteral"
-    // InternalHale.g:1406:1: ruleVoidLiteral returns [EObject current=null] : ( () otherlv_1= 'void' ) ;
+    // InternalHale.g:382:1: ruleVoidLiteral returns [EObject current=null] : ( () otherlv_1= 'void' ) ;
     public final EObject ruleVoidLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -3784,14 +1139,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1412:2: ( ( () otherlv_1= 'void' ) )
-            // InternalHale.g:1413:2: ( () otherlv_1= 'void' )
+            // InternalHale.g:388:2: ( ( () otherlv_1= 'void' ) )
+            // InternalHale.g:389:2: ( () otherlv_1= 'void' )
             {
-            // InternalHale.g:1413:2: ( () otherlv_1= 'void' )
-            // InternalHale.g:1414:3: () otherlv_1= 'void'
+            // InternalHale.g:389:2: ( () otherlv_1= 'void' )
+            // InternalHale.g:390:3: () otherlv_1= 'void'
             {
-            // InternalHale.g:1414:3: ()
-            // InternalHale.g:1415:4: 
+            // InternalHale.g:390:3: ()
+            // InternalHale.g:391:4: 
             {
 
             				current = forceCreateModelElement(
@@ -3801,7 +1156,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,35,FOLLOW_2); 
+            otherlv_1=(Token)match(input,15,FOLLOW_2); 
 
             			newLeafNode(otherlv_1, grammarAccess.getVoidLiteralAccess().getVoidKeyword_1());
             		
@@ -3828,7 +1183,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleanLiteral"
-    // InternalHale.g:1429:1: entryRuleBooleanLiteral returns [EObject current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
+    // InternalHale.g:405:1: entryRuleBooleanLiteral returns [EObject current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
     public final EObject entryRuleBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -3836,8 +1191,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1429:55: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
-            // InternalHale.g:1430:2: iv_ruleBooleanLiteral= ruleBooleanLiteral EOF
+            // InternalHale.g:405:55: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
+            // InternalHale.g:406:2: iv_ruleBooleanLiteral= ruleBooleanLiteral EOF
             {
              newCompositeNode(grammarAccess.getBooleanLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -3864,7 +1219,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanLiteral"
-    // InternalHale.g:1436:1: ruleBooleanLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_BOOLEAN ) ) ;
+    // InternalHale.g:412:1: ruleBooleanLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_BOOLEAN ) ) ;
     public final EObject ruleBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -3874,14 +1229,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1442:2: ( ( (lv_value_0_0= RULE_BOOLEAN ) ) )
-            // InternalHale.g:1443:2: ( (lv_value_0_0= RULE_BOOLEAN ) )
+            // InternalHale.g:418:2: ( ( (lv_value_0_0= RULE_BOOLEAN ) ) )
+            // InternalHale.g:419:2: ( (lv_value_0_0= RULE_BOOLEAN ) )
             {
-            // InternalHale.g:1443:2: ( (lv_value_0_0= RULE_BOOLEAN ) )
-            // InternalHale.g:1444:3: (lv_value_0_0= RULE_BOOLEAN )
+            // InternalHale.g:419:2: ( (lv_value_0_0= RULE_BOOLEAN ) )
+            // InternalHale.g:420:3: (lv_value_0_0= RULE_BOOLEAN )
             {
-            // InternalHale.g:1444:3: (lv_value_0_0= RULE_BOOLEAN )
-            // InternalHale.g:1445:4: lv_value_0_0= RULE_BOOLEAN
+            // InternalHale.g:420:3: (lv_value_0_0= RULE_BOOLEAN )
+            // InternalHale.g:421:4: lv_value_0_0= RULE_BOOLEAN
             {
             lv_value_0_0=(Token)match(input,RULE_BOOLEAN,FOLLOW_2); 
 
@@ -3923,7 +1278,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumberLiteral"
-    // InternalHale.g:1464:1: entryRuleNumberLiteral returns [EObject current=null] : iv_ruleNumberLiteral= ruleNumberLiteral EOF ;
+    // InternalHale.g:440:1: entryRuleNumberLiteral returns [EObject current=null] : iv_ruleNumberLiteral= ruleNumberLiteral EOF ;
     public final EObject entryRuleNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -3931,8 +1286,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1464:54: (iv_ruleNumberLiteral= ruleNumberLiteral EOF )
-            // InternalHale.g:1465:2: iv_ruleNumberLiteral= ruleNumberLiteral EOF
+            // InternalHale.g:440:54: (iv_ruleNumberLiteral= ruleNumberLiteral EOF )
+            // InternalHale.g:441:2: iv_ruleNumberLiteral= ruleNumberLiteral EOF
             {
              newCompositeNode(grammarAccess.getNumberLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -3959,7 +1314,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumberLiteral"
-    // InternalHale.g:1471:1: ruleNumberLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_DOUBLE ) ) ;
+    // InternalHale.g:447:1: ruleNumberLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_DOUBLE ) ) ;
     public final EObject ruleNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -3969,14 +1324,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1477:2: ( ( (lv_value_0_0= RULE_DOUBLE ) ) )
-            // InternalHale.g:1478:2: ( (lv_value_0_0= RULE_DOUBLE ) )
+            // InternalHale.g:453:2: ( ( (lv_value_0_0= RULE_DOUBLE ) ) )
+            // InternalHale.g:454:2: ( (lv_value_0_0= RULE_DOUBLE ) )
             {
-            // InternalHale.g:1478:2: ( (lv_value_0_0= RULE_DOUBLE ) )
-            // InternalHale.g:1479:3: (lv_value_0_0= RULE_DOUBLE )
+            // InternalHale.g:454:2: ( (lv_value_0_0= RULE_DOUBLE ) )
+            // InternalHale.g:455:3: (lv_value_0_0= RULE_DOUBLE )
             {
-            // InternalHale.g:1479:3: (lv_value_0_0= RULE_DOUBLE )
-            // InternalHale.g:1480:4: lv_value_0_0= RULE_DOUBLE
+            // InternalHale.g:455:3: (lv_value_0_0= RULE_DOUBLE )
+            // InternalHale.g:456:4: lv_value_0_0= RULE_DOUBLE
             {
             lv_value_0_0=(Token)match(input,RULE_DOUBLE,FOLLOW_2); 
 
@@ -4018,7 +1373,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringLiteral"
-    // InternalHale.g:1499:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    // InternalHale.g:475:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
     public final EObject entryRuleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -4026,8 +1381,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1499:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
-            // InternalHale.g:1500:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            // InternalHale.g:475:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // InternalHale.g:476:2: iv_ruleStringLiteral= ruleStringLiteral EOF
             {
              newCompositeNode(grammarAccess.getStringLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -4054,7 +1409,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringLiteral"
-    // InternalHale.g:1506:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
+    // InternalHale.g:482:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
     public final EObject ruleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -4064,14 +1419,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1512:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
-            // InternalHale.g:1513:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalHale.g:488:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
+            // InternalHale.g:489:2: ( (lv_value_0_0= RULE_STRING ) )
             {
-            // InternalHale.g:1513:2: ( (lv_value_0_0= RULE_STRING ) )
-            // InternalHale.g:1514:3: (lv_value_0_0= RULE_STRING )
+            // InternalHale.g:489:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalHale.g:490:3: (lv_value_0_0= RULE_STRING )
             {
-            // InternalHale.g:1514:3: (lv_value_0_0= RULE_STRING )
-            // InternalHale.g:1515:4: lv_value_0_0= RULE_STRING
+            // InternalHale.g:490:3: (lv_value_0_0= RULE_STRING )
+            // InternalHale.g:491:4: lv_value_0_0= RULE_STRING
             {
             lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -4113,7 +1468,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypeAnnotation"
-    // InternalHale.g:1534:1: entryRuleTypeAnnotation returns [EObject current=null] : iv_ruleTypeAnnotation= ruleTypeAnnotation EOF ;
+    // InternalHale.g:510:1: entryRuleTypeAnnotation returns [EObject current=null] : iv_ruleTypeAnnotation= ruleTypeAnnotation EOF ;
     public final EObject entryRuleTypeAnnotation() throws RecognitionException {
         EObject current = null;
 
@@ -4121,8 +1476,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1534:55: (iv_ruleTypeAnnotation= ruleTypeAnnotation EOF )
-            // InternalHale.g:1535:2: iv_ruleTypeAnnotation= ruleTypeAnnotation EOF
+            // InternalHale.g:510:55: (iv_ruleTypeAnnotation= ruleTypeAnnotation EOF )
+            // InternalHale.g:511:2: iv_ruleTypeAnnotation= ruleTypeAnnotation EOF
             {
              newCompositeNode(grammarAccess.getTypeAnnotationRule()); 
             pushFollow(FOLLOW_1);
@@ -4149,7 +1504,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeAnnotation"
-    // InternalHale.g:1541:1: ruleTypeAnnotation returns [EObject current=null] : (otherlv_0= ':' this_Type_1= ruleType ) ;
+    // InternalHale.g:517:1: ruleTypeAnnotation returns [EObject current=null] : (otherlv_0= ':' this_Type_1= ruleType ) ;
     public final EObject ruleTypeAnnotation() throws RecognitionException {
         EObject current = null;
 
@@ -4161,13 +1516,13 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1547:2: ( (otherlv_0= ':' this_Type_1= ruleType ) )
-            // InternalHale.g:1548:2: (otherlv_0= ':' this_Type_1= ruleType )
+            // InternalHale.g:523:2: ( (otherlv_0= ':' this_Type_1= ruleType ) )
+            // InternalHale.g:524:2: (otherlv_0= ':' this_Type_1= ruleType )
             {
-            // InternalHale.g:1548:2: (otherlv_0= ':' this_Type_1= ruleType )
-            // InternalHale.g:1549:3: otherlv_0= ':' this_Type_1= ruleType
+            // InternalHale.g:524:2: (otherlv_0= ':' this_Type_1= ruleType )
+            // InternalHale.g:525:3: otherlv_0= ':' this_Type_1= ruleType
             {
-            otherlv_0=(Token)match(input,36,FOLLOW_16); 
+            otherlv_0=(Token)match(input,16,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getTypeAnnotationAccess().getColonKeyword_0());
             		
@@ -4206,7 +1561,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleType"
-    // InternalHale.g:1565:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
+    // InternalHale.g:541:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
     public final EObject entryRuleType() throws RecognitionException {
         EObject current = null;
 
@@ -4214,8 +1569,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1565:45: (iv_ruleType= ruleType EOF )
-            // InternalHale.g:1566:2: iv_ruleType= ruleType EOF
+            // InternalHale.g:541:45: (iv_ruleType= ruleType EOF )
+            // InternalHale.g:542:2: iv_ruleType= ruleType EOF
             {
              newCompositeNode(grammarAccess.getTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -4242,7 +1597,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleType"
-    // InternalHale.g:1572:1: ruleType returns [EObject current=null] : this_FunctionType_0= ruleFunctionType ;
+    // InternalHale.g:548:1: ruleType returns [EObject current=null] : this_FunctionType_0= ruleFunctionType ;
     public final EObject ruleType() throws RecognitionException {
         EObject current = null;
 
@@ -4253,8 +1608,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1578:2: (this_FunctionType_0= ruleFunctionType )
-            // InternalHale.g:1579:2: this_FunctionType_0= ruleFunctionType
+            // InternalHale.g:554:2: (this_FunctionType_0= ruleFunctionType )
+            // InternalHale.g:555:2: this_FunctionType_0= ruleFunctionType
             {
 
             		newCompositeNode(grammarAccess.getTypeAccess().getFunctionTypeParserRuleCall());
@@ -4288,7 +1643,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFunctionType"
-    // InternalHale.g:1590:1: entryRuleFunctionType returns [EObject current=null] : iv_ruleFunctionType= ruleFunctionType EOF ;
+    // InternalHale.g:566:1: entryRuleFunctionType returns [EObject current=null] : iv_ruleFunctionType= ruleFunctionType EOF ;
     public final EObject entryRuleFunctionType() throws RecognitionException {
         EObject current = null;
 
@@ -4296,8 +1651,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1590:53: (iv_ruleFunctionType= ruleFunctionType EOF )
-            // InternalHale.g:1591:2: iv_ruleFunctionType= ruleFunctionType EOF
+            // InternalHale.g:566:53: (iv_ruleFunctionType= ruleFunctionType EOF )
+            // InternalHale.g:567:2: iv_ruleFunctionType= ruleFunctionType EOF
             {
              newCompositeNode(grammarAccess.getFunctionTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -4324,7 +1679,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunctionType"
-    // InternalHale.g:1597:1: ruleFunctionType returns [EObject current=null] : ( ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ) | this_EitherType_9= ruleEitherType ) ;
+    // InternalHale.g:573:1: ruleFunctionType returns [EObject current=null] : ( ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ) | this_EitherType_9= ruleEitherType ) ;
     public final EObject ruleFunctionType() throws RecognitionException {
         EObject current = null;
 
@@ -4346,34 +1701,34 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1603:2: ( ( ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ) | this_EitherType_9= ruleEitherType ) )
-            // InternalHale.g:1604:2: ( ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ) | this_EitherType_9= ruleEitherType )
+            // InternalHale.g:579:2: ( ( ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ) | this_EitherType_9= ruleEitherType ) )
+            // InternalHale.g:580:2: ( ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ) | this_EitherType_9= ruleEitherType )
             {
-            // InternalHale.g:1604:2: ( ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ) | this_EitherType_9= ruleEitherType )
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // InternalHale.g:580:2: ( ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ) | this_EitherType_9= ruleEitherType )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA23_0==37) ) {
-                alt23=1;
+            if ( (LA9_0==17) ) {
+                alt9=1;
             }
-            else if ( (LA23_0==RULE_PRIMITIVE_TYPE||LA23_0==32) ) {
-                alt23=2;
+            else if ( (LA9_0==RULE_PRIMITIVE_TYPE||LA9_0==18) ) {
+                alt9=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 23, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
-            switch (alt23) {
+            switch (alt9) {
                 case 1 :
-                    // InternalHale.g:1605:3: ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? )
+                    // InternalHale.g:581:3: ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? )
                     {
-                    // InternalHale.g:1605:3: ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? )
-                    // InternalHale.g:1606:4: () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )?
+                    // InternalHale.g:581:3: ( () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? )
+                    // InternalHale.g:582:4: () otherlv_1= 'Function' otherlv_2= '(' ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )?
                     {
-                    // InternalHale.g:1606:4: ()
-                    // InternalHale.g:1607:5: 
+                    // InternalHale.g:582:4: ()
+                    // InternalHale.g:583:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -4383,35 +1738,35 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_1=(Token)match(input,37,FOLLOW_21); 
+                    otherlv_1=(Token)match(input,17,FOLLOW_8); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getFunctionTypeAccess().getFunctionKeyword_0_1());
                     			
-                    otherlv_2=(Token)match(input,32,FOLLOW_22); 
+                    otherlv_2=(Token)match(input,18,FOLLOW_9); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getFunctionTypeAccess().getLeftParenthesisKeyword_0_2());
                     			
-                    // InternalHale.g:1621:4: ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )?
-                    int alt21=2;
-                    int LA21_0 = input.LA(1);
+                    // InternalHale.g:597:4: ( ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )? )?
+                    int alt7=2;
+                    int LA7_0 = input.LA(1);
 
-                    if ( (LA21_0==RULE_PRIMITIVE_TYPE||LA21_0==32||LA21_0==37) ) {
-                        alt21=1;
+                    if ( (LA7_0==RULE_PRIMITIVE_TYPE||(LA7_0>=17 && LA7_0<=18)) ) {
+                        alt7=1;
                     }
-                    switch (alt21) {
+                    switch (alt7) {
                         case 1 :
-                            // InternalHale.g:1622:5: ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )?
+                            // InternalHale.g:598:5: ( (lv_paramTypes_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )* (otherlv_6= ',' )?
                             {
-                            // InternalHale.g:1622:5: ( (lv_paramTypes_3_0= ruleType ) )
-                            // InternalHale.g:1623:6: (lv_paramTypes_3_0= ruleType )
+                            // InternalHale.g:598:5: ( (lv_paramTypes_3_0= ruleType ) )
+                            // InternalHale.g:599:6: (lv_paramTypes_3_0= ruleType )
                             {
-                            // InternalHale.g:1623:6: (lv_paramTypes_3_0= ruleType )
-                            // InternalHale.g:1624:7: lv_paramTypes_3_0= ruleType
+                            // InternalHale.g:599:6: (lv_paramTypes_3_0= ruleType )
+                            // InternalHale.g:600:7: lv_paramTypes_3_0= ruleType
                             {
 
                             							newCompositeNode(grammarAccess.getFunctionTypeAccess().getParamTypesTypeParserRuleCall_0_3_0_0());
                             						
-                            pushFollow(FOLLOW_19);
+                            pushFollow(FOLLOW_10);
                             lv_paramTypes_3_0=ruleType();
 
                             state._fsp--;
@@ -4433,41 +1788,41 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // InternalHale.g:1641:5: (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )*
-                            loop19:
+                            // InternalHale.g:617:5: (otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) ) )*
+                            loop5:
                             do {
-                                int alt19=2;
-                                int LA19_0 = input.LA(1);
+                                int alt5=2;
+                                int LA5_0 = input.LA(1);
 
-                                if ( (LA19_0==33) ) {
-                                    int LA19_1 = input.LA(2);
+                                if ( (LA5_0==19) ) {
+                                    int LA5_1 = input.LA(2);
 
-                                    if ( (LA19_1==RULE_PRIMITIVE_TYPE||LA19_1==32||LA19_1==37) ) {
-                                        alt19=1;
+                                    if ( (LA5_1==RULE_PRIMITIVE_TYPE||(LA5_1>=17 && LA5_1<=18)) ) {
+                                        alt5=1;
                                     }
 
 
                                 }
 
 
-                                switch (alt19) {
+                                switch (alt5) {
                             	case 1 :
-                            	    // InternalHale.g:1642:6: otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) )
+                            	    // InternalHale.g:618:6: otherlv_4= ',' ( (lv_paramTypes_5_0= ruleType ) )
                             	    {
-                            	    otherlv_4=(Token)match(input,33,FOLLOW_16); 
+                            	    otherlv_4=(Token)match(input,19,FOLLOW_7); 
 
                             	    						newLeafNode(otherlv_4, grammarAccess.getFunctionTypeAccess().getCommaKeyword_0_3_1_0());
                             	    					
-                            	    // InternalHale.g:1646:6: ( (lv_paramTypes_5_0= ruleType ) )
-                            	    // InternalHale.g:1647:7: (lv_paramTypes_5_0= ruleType )
+                            	    // InternalHale.g:622:6: ( (lv_paramTypes_5_0= ruleType ) )
+                            	    // InternalHale.g:623:7: (lv_paramTypes_5_0= ruleType )
                             	    {
-                            	    // InternalHale.g:1647:7: (lv_paramTypes_5_0= ruleType )
-                            	    // InternalHale.g:1648:8: lv_paramTypes_5_0= ruleType
+                            	    // InternalHale.g:623:7: (lv_paramTypes_5_0= ruleType )
+                            	    // InternalHale.g:624:8: lv_paramTypes_5_0= ruleType
                             	    {
 
                             	    								newCompositeNode(grammarAccess.getFunctionTypeAccess().getParamTypesTypeParserRuleCall_0_3_1_1_0());
                             	    							
-                            	    pushFollow(FOLLOW_19);
+                            	    pushFollow(FOLLOW_10);
                             	    lv_paramTypes_5_0=ruleType();
 
                             	    state._fsp--;
@@ -4494,22 +1849,22 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                             	    break;
 
                             	default :
-                            	    break loop19;
+                            	    break loop5;
                                 }
                             } while (true);
 
-                            // InternalHale.g:1666:5: (otherlv_6= ',' )?
-                            int alt20=2;
-                            int LA20_0 = input.LA(1);
+                            // InternalHale.g:642:5: (otherlv_6= ',' )?
+                            int alt6=2;
+                            int LA6_0 = input.LA(1);
 
-                            if ( (LA20_0==33) ) {
-                                alt20=1;
+                            if ( (LA6_0==19) ) {
+                                alt6=1;
                             }
-                            switch (alt20) {
+                            switch (alt6) {
                                 case 1 :
-                                    // InternalHale.g:1667:6: otherlv_6= ','
+                                    // InternalHale.g:643:6: otherlv_6= ','
                                     {
-                                    otherlv_6=(Token)match(input,33,FOLLOW_20); 
+                                    otherlv_6=(Token)match(input,19,FOLLOW_11); 
 
                                     						newLeafNode(otherlv_6, grammarAccess.getFunctionTypeAccess().getCommaKeyword_0_3_2());
                                     					
@@ -4525,23 +1880,23 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,34,FOLLOW_23); 
+                    otherlv_7=(Token)match(input,20,FOLLOW_12); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getFunctionTypeAccess().getRightParenthesisKeyword_0_4());
                     			
-                    // InternalHale.g:1677:4: ( (lv_returnType_8_0= ruleTypeAnnotation ) )?
-                    int alt22=2;
-                    int LA22_0 = input.LA(1);
+                    // InternalHale.g:653:4: ( (lv_returnType_8_0= ruleTypeAnnotation ) )?
+                    int alt8=2;
+                    int LA8_0 = input.LA(1);
 
-                    if ( (LA22_0==36) ) {
-                        alt22=1;
+                    if ( (LA8_0==16) ) {
+                        alt8=1;
                     }
-                    switch (alt22) {
+                    switch (alt8) {
                         case 1 :
-                            // InternalHale.g:1678:5: (lv_returnType_8_0= ruleTypeAnnotation )
+                            // InternalHale.g:654:5: (lv_returnType_8_0= ruleTypeAnnotation )
                             {
-                            // InternalHale.g:1678:5: (lv_returnType_8_0= ruleTypeAnnotation )
-                            // InternalHale.g:1679:6: lv_returnType_8_0= ruleTypeAnnotation
+                            // InternalHale.g:654:5: (lv_returnType_8_0= ruleTypeAnnotation )
+                            // InternalHale.g:655:6: lv_returnType_8_0= ruleTypeAnnotation
                             {
 
                             						newCompositeNode(grammarAccess.getFunctionTypeAccess().getReturnTypeTypeAnnotationParserRuleCall_0_5_0());
@@ -4578,7 +1933,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalHale.g:1698:3: this_EitherType_9= ruleEitherType
+                    // InternalHale.g:674:3: this_EitherType_9= ruleEitherType
                     {
 
                     			newCompositeNode(grammarAccess.getFunctionTypeAccess().getEitherTypeParserRuleCall_1());
@@ -4618,7 +1973,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEitherType"
-    // InternalHale.g:1710:1: entryRuleEitherType returns [EObject current=null] : iv_ruleEitherType= ruleEitherType EOF ;
+    // InternalHale.g:686:1: entryRuleEitherType returns [EObject current=null] : iv_ruleEitherType= ruleEitherType EOF ;
     public final EObject entryRuleEitherType() throws RecognitionException {
         EObject current = null;
 
@@ -4626,8 +1981,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1710:51: (iv_ruleEitherType= ruleEitherType EOF )
-            // InternalHale.g:1711:2: iv_ruleEitherType= ruleEitherType EOF
+            // InternalHale.g:686:51: (iv_ruleEitherType= ruleEitherType EOF )
+            // InternalHale.g:687:2: iv_ruleEitherType= ruleEitherType EOF
             {
              newCompositeNode(grammarAccess.getEitherTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -4654,7 +2009,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEitherType"
-    // InternalHale.g:1717:1: ruleEitherType returns [EObject current=null] : (this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )* ) ;
+    // InternalHale.g:693:1: ruleEitherType returns [EObject current=null] : (this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )* ) ;
     public final EObject ruleEitherType() throws RecognitionException {
         EObject current = null;
 
@@ -4668,16 +2023,16 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1723:2: ( (this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )* ) )
-            // InternalHale.g:1724:2: (this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )* )
+            // InternalHale.g:699:2: ( (this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )* ) )
+            // InternalHale.g:700:2: (this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )* )
             {
-            // InternalHale.g:1724:2: (this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )* )
-            // InternalHale.g:1725:3: this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )*
+            // InternalHale.g:700:2: (this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )* )
+            // InternalHale.g:701:3: this_PrimaryType_0= rulePrimaryType ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getEitherTypeAccess().getPrimaryTypeParserRuleCall_0());
             		
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_13);
             this_PrimaryType_0=rulePrimaryType();
 
             state._fsp--;
@@ -4686,23 +2041,23 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
             			current = this_PrimaryType_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalHale.g:1733:3: ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )*
-            loop24:
+            // InternalHale.g:709:3: ( () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) ) )*
+            loop10:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA24_0==38) ) {
-                    alt24=1;
+                if ( (LA10_0==21) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalHale.g:1734:4: () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) )
+            	    // InternalHale.g:710:4: () otherlv_2= '?' ( (lv_right_3_0= rulePrimaryType ) )
             	    {
-            	    // InternalHale.g:1734:4: ()
-            	    // InternalHale.g:1735:5: 
+            	    // InternalHale.g:710:4: ()
+            	    // InternalHale.g:711:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -4712,20 +2067,20 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,38,FOLLOW_16); 
+            	    otherlv_2=(Token)match(input,21,FOLLOW_7); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEitherTypeAccess().getQuestionMarkKeyword_1_1());
             	    			
-            	    // InternalHale.g:1745:4: ( (lv_right_3_0= rulePrimaryType ) )
-            	    // InternalHale.g:1746:5: (lv_right_3_0= rulePrimaryType )
+            	    // InternalHale.g:721:4: ( (lv_right_3_0= rulePrimaryType ) )
+            	    // InternalHale.g:722:5: (lv_right_3_0= rulePrimaryType )
             	    {
-            	    // InternalHale.g:1746:5: (lv_right_3_0= rulePrimaryType )
-            	    // InternalHale.g:1747:6: lv_right_3_0= rulePrimaryType
+            	    // InternalHale.g:722:5: (lv_right_3_0= rulePrimaryType )
+            	    // InternalHale.g:723:6: lv_right_3_0= rulePrimaryType
             	    {
 
             	    						newCompositeNode(grammarAccess.getEitherTypeAccess().getRightPrimaryTypeParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_24);
+            	    pushFollow(FOLLOW_13);
             	    lv_right_3_0=rulePrimaryType();
 
             	    state._fsp--;
@@ -4752,7 +2107,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop10;
                 }
             } while (true);
 
@@ -4779,7 +2134,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimaryType"
-    // InternalHale.g:1769:1: entryRulePrimaryType returns [EObject current=null] : iv_rulePrimaryType= rulePrimaryType EOF ;
+    // InternalHale.g:745:1: entryRulePrimaryType returns [EObject current=null] : iv_rulePrimaryType= rulePrimaryType EOF ;
     public final EObject entryRulePrimaryType() throws RecognitionException {
         EObject current = null;
 
@@ -4787,8 +2142,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1769:52: (iv_rulePrimaryType= rulePrimaryType EOF )
-            // InternalHale.g:1770:2: iv_rulePrimaryType= rulePrimaryType EOF
+            // InternalHale.g:745:52: (iv_rulePrimaryType= rulePrimaryType EOF )
+            // InternalHale.g:746:2: iv_rulePrimaryType= rulePrimaryType EOF
             {
              newCompositeNode(grammarAccess.getPrimaryTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -4815,7 +2170,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimaryType"
-    // InternalHale.g:1776:1: rulePrimaryType returns [EObject current=null] : (this_PrimitiveType_0= rulePrimitiveType | (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' ) ) ;
+    // InternalHale.g:752:1: rulePrimaryType returns [EObject current=null] : (this_PrimitiveType_0= rulePrimitiveType | (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' ) ) ;
     public final EObject rulePrimaryType() throws RecognitionException {
         EObject current = null;
 
@@ -4830,28 +2185,28 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1782:2: ( (this_PrimitiveType_0= rulePrimitiveType | (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' ) ) )
-            // InternalHale.g:1783:2: (this_PrimitiveType_0= rulePrimitiveType | (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' ) )
+            // InternalHale.g:758:2: ( (this_PrimitiveType_0= rulePrimitiveType | (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' ) ) )
+            // InternalHale.g:759:2: (this_PrimitiveType_0= rulePrimitiveType | (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' ) )
             {
-            // InternalHale.g:1783:2: (this_PrimitiveType_0= rulePrimitiveType | (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' ) )
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // InternalHale.g:759:2: (this_PrimitiveType_0= rulePrimitiveType | (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' ) )
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA25_0==RULE_PRIMITIVE_TYPE) ) {
-                alt25=1;
+            if ( (LA11_0==RULE_PRIMITIVE_TYPE) ) {
+                alt11=1;
             }
-            else if ( (LA25_0==32) ) {
-                alt25=2;
+            else if ( (LA11_0==18) ) {
+                alt11=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 25, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
-            switch (alt25) {
+            switch (alt11) {
                 case 1 :
-                    // InternalHale.g:1784:3: this_PrimitiveType_0= rulePrimitiveType
+                    // InternalHale.g:760:3: this_PrimitiveType_0= rulePrimitiveType
                     {
 
                     			newCompositeNode(grammarAccess.getPrimaryTypeAccess().getPrimitiveTypeParserRuleCall_0());
@@ -4869,19 +2224,19 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalHale.g:1793:3: (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' )
+                    // InternalHale.g:769:3: (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' )
                     {
-                    // InternalHale.g:1793:3: (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' )
-                    // InternalHale.g:1794:4: otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')'
+                    // InternalHale.g:769:3: (otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')' )
+                    // InternalHale.g:770:4: otherlv_1= '(' this_Type_2= ruleType otherlv_3= ')'
                     {
-                    otherlv_1=(Token)match(input,32,FOLLOW_16); 
+                    otherlv_1=(Token)match(input,18,FOLLOW_7); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getPrimaryTypeAccess().getLeftParenthesisKeyword_1_0());
                     			
 
                     				newCompositeNode(grammarAccess.getPrimaryTypeAccess().getTypeParserRuleCall_1_1());
                     			
-                    pushFollow(FOLLOW_20);
+                    pushFollow(FOLLOW_11);
                     this_Type_2=ruleType();
 
                     state._fsp--;
@@ -4890,7 +2245,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     				current = this_Type_2;
                     				afterParserOrEnumRuleCall();
                     			
-                    otherlv_3=(Token)match(input,34,FOLLOW_2); 
+                    otherlv_3=(Token)match(input,20,FOLLOW_2); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getPrimaryTypeAccess().getRightParenthesisKeyword_1_2());
                     			
@@ -4923,7 +2278,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimitiveType"
-    // InternalHale.g:1815:1: entryRulePrimitiveType returns [EObject current=null] : iv_rulePrimitiveType= rulePrimitiveType EOF ;
+    // InternalHale.g:791:1: entryRulePrimitiveType returns [EObject current=null] : iv_rulePrimitiveType= rulePrimitiveType EOF ;
     public final EObject entryRulePrimitiveType() throws RecognitionException {
         EObject current = null;
 
@@ -4931,8 +2286,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1815:54: (iv_rulePrimitiveType= rulePrimitiveType EOF )
-            // InternalHale.g:1816:2: iv_rulePrimitiveType= rulePrimitiveType EOF
+            // InternalHale.g:791:54: (iv_rulePrimitiveType= rulePrimitiveType EOF )
+            // InternalHale.g:792:2: iv_rulePrimitiveType= rulePrimitiveType EOF
             {
              newCompositeNode(grammarAccess.getPrimitiveTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -4959,7 +2314,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimitiveType"
-    // InternalHale.g:1822:1: rulePrimitiveType returns [EObject current=null] : ( () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) ) ) ;
+    // InternalHale.g:798:1: rulePrimitiveType returns [EObject current=null] : ( () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) ) ) ;
     public final EObject rulePrimitiveType() throws RecognitionException {
         EObject current = null;
 
@@ -4969,14 +2324,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1828:2: ( ( () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) ) ) )
-            // InternalHale.g:1829:2: ( () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) ) )
+            // InternalHale.g:804:2: ( ( () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) ) ) )
+            // InternalHale.g:805:2: ( () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) ) )
             {
-            // InternalHale.g:1829:2: ( () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) ) )
-            // InternalHale.g:1830:3: () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) )
+            // InternalHale.g:805:2: ( () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) ) )
+            // InternalHale.g:806:3: () ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) )
             {
-            // InternalHale.g:1830:3: ()
-            // InternalHale.g:1831:4: 
+            // InternalHale.g:806:3: ()
+            // InternalHale.g:807:4: 
             {
 
             				current = forceCreateModelElement(
@@ -4986,11 +2341,11 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:1837:3: ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) )
-            // InternalHale.g:1838:4: (lv_type_1_0= RULE_PRIMITIVE_TYPE )
+            // InternalHale.g:813:3: ( (lv_type_1_0= RULE_PRIMITIVE_TYPE ) )
+            // InternalHale.g:814:4: (lv_type_1_0= RULE_PRIMITIVE_TYPE )
             {
-            // InternalHale.g:1838:4: (lv_type_1_0= RULE_PRIMITIVE_TYPE )
-            // InternalHale.g:1839:5: lv_type_1_0= RULE_PRIMITIVE_TYPE
+            // InternalHale.g:814:4: (lv_type_1_0= RULE_PRIMITIVE_TYPE )
+            // InternalHale.g:815:5: lv_type_1_0= RULE_PRIMITIVE_TYPE
             {
             lv_type_1_0=(Token)match(input,RULE_PRIMITIVE_TYPE,FOLLOW_2); 
 
@@ -5035,7 +2390,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBinding"
-    // InternalHale.g:1859:1: entryRuleBinding returns [EObject current=null] : iv_ruleBinding= ruleBinding EOF ;
+    // InternalHale.g:835:1: entryRuleBinding returns [EObject current=null] : iv_ruleBinding= ruleBinding EOF ;
     public final EObject entryRuleBinding() throws RecognitionException {
         EObject current = null;
 
@@ -5043,8 +2398,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1859:48: (iv_ruleBinding= ruleBinding EOF )
-            // InternalHale.g:1860:2: iv_ruleBinding= ruleBinding EOF
+            // InternalHale.g:835:48: (iv_ruleBinding= ruleBinding EOF )
+            // InternalHale.g:836:2: iv_ruleBinding= ruleBinding EOF
             {
              newCompositeNode(grammarAccess.getBindingRule()); 
             pushFollow(FOLLOW_1);
@@ -5071,7 +2426,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBinding"
-    // InternalHale.g:1866:1: ruleBinding returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // InternalHale.g:842:1: ruleBinding returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleBinding() throws RecognitionException {
         EObject current = null;
 
@@ -5081,14 +2436,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1872:2: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // InternalHale.g:1873:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalHale.g:848:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalHale.g:849:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalHale.g:1873:2: ( (lv_name_0_0= RULE_ID ) )
-            // InternalHale.g:1874:3: (lv_name_0_0= RULE_ID )
+            // InternalHale.g:849:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalHale.g:850:3: (lv_name_0_0= RULE_ID )
             {
-            // InternalHale.g:1874:3: (lv_name_0_0= RULE_ID )
-            // InternalHale.g:1875:4: lv_name_0_0= RULE_ID
+            // InternalHale.g:850:3: (lv_name_0_0= RULE_ID )
+            // InternalHale.g:851:4: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -5130,7 +2485,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLetBinding"
-    // InternalHale.g:1894:1: entryRuleLetBinding returns [EObject current=null] : iv_ruleLetBinding= ruleLetBinding EOF ;
+    // InternalHale.g:870:1: entryRuleLetBinding returns [EObject current=null] : iv_ruleLetBinding= ruleLetBinding EOF ;
     public final EObject entryRuleLetBinding() throws RecognitionException {
         EObject current = null;
 
@@ -5138,8 +2493,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1894:51: (iv_ruleLetBinding= ruleLetBinding EOF )
-            // InternalHale.g:1895:2: iv_ruleLetBinding= ruleLetBinding EOF
+            // InternalHale.g:870:51: (iv_ruleLetBinding= ruleLetBinding EOF )
+            // InternalHale.g:871:2: iv_ruleLetBinding= ruleLetBinding EOF
             {
              newCompositeNode(grammarAccess.getLetBindingRule()); 
             pushFollow(FOLLOW_1);
@@ -5166,7 +2521,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLetBinding"
-    // InternalHale.g:1901:1: ruleLetBinding returns [EObject current=null] : (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ) ;
+    // InternalHale.g:877:1: ruleLetBinding returns [EObject current=null] : (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ) ;
     public final EObject ruleLetBinding() throws RecognitionException {
         EObject current = null;
 
@@ -5184,31 +2539,31 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:1907:2: ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ) )
-            // InternalHale.g:1908:2: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) )
+            // InternalHale.g:883:2: ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ) )
+            // InternalHale.g:884:2: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) )
             {
-            // InternalHale.g:1908:2: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) )
-            // InternalHale.g:1909:3: otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) )
+            // InternalHale.g:884:2: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) )
+            // InternalHale.g:885:3: otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) )
             {
-            otherlv_0=(Token)match(input,39,FOLLOW_25); 
+            otherlv_0=(Token)match(input,22,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getLetBindingAccess().getLetKeyword_0());
             		
-            // InternalHale.g:1913:3: ( (lv_mutable_1_0= 'mut' ) )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // InternalHale.g:889:3: ( (lv_mutable_1_0= 'mut' ) )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA26_0==40) ) {
-                alt26=1;
+            if ( (LA12_0==23) ) {
+                alt12=1;
             }
-            switch (alt26) {
+            switch (alt12) {
                 case 1 :
-                    // InternalHale.g:1914:4: (lv_mutable_1_0= 'mut' )
+                    // InternalHale.g:890:4: (lv_mutable_1_0= 'mut' )
                     {
-                    // InternalHale.g:1914:4: (lv_mutable_1_0= 'mut' )
-                    // InternalHale.g:1915:5: lv_mutable_1_0= 'mut'
+                    // InternalHale.g:890:4: (lv_mutable_1_0= 'mut' )
+                    // InternalHale.g:891:5: lv_mutable_1_0= 'mut'
                     {
-                    lv_mutable_1_0=(Token)match(input,40,FOLLOW_25); 
+                    lv_mutable_1_0=(Token)match(input,23,FOLLOW_14); 
 
                     					newLeafNode(lv_mutable_1_0, grammarAccess.getLetBindingAccess().getMutableMutKeyword_1_0());
                     				
@@ -5227,16 +2582,16 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:1927:3: ( (lv_binding_2_0= ruleBinding ) )
-            // InternalHale.g:1928:4: (lv_binding_2_0= ruleBinding )
+            // InternalHale.g:903:3: ( (lv_binding_2_0= ruleBinding ) )
+            // InternalHale.g:904:4: (lv_binding_2_0= ruleBinding )
             {
-            // InternalHale.g:1928:4: (lv_binding_2_0= ruleBinding )
-            // InternalHale.g:1929:5: lv_binding_2_0= ruleBinding
+            // InternalHale.g:904:4: (lv_binding_2_0= ruleBinding )
+            // InternalHale.g:905:5: lv_binding_2_0= ruleBinding
             {
 
             					newCompositeNode(grammarAccess.getLetBindingAccess().getBindingBindingParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_15);
             lv_binding_2_0=ruleBinding();
 
             state._fsp--;
@@ -5258,24 +2613,24 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:1946:3: ( (lv_type_3_0= ruleTypeAnnotation ) )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // InternalHale.g:922:3: ( (lv_type_3_0= ruleTypeAnnotation ) )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA27_0==36) ) {
-                alt27=1;
+            if ( (LA13_0==16) ) {
+                alt13=1;
             }
-            switch (alt27) {
+            switch (alt13) {
                 case 1 :
-                    // InternalHale.g:1947:4: (lv_type_3_0= ruleTypeAnnotation )
+                    // InternalHale.g:923:4: (lv_type_3_0= ruleTypeAnnotation )
                     {
-                    // InternalHale.g:1947:4: (lv_type_3_0= ruleTypeAnnotation )
-                    // InternalHale.g:1948:5: lv_type_3_0= ruleTypeAnnotation
+                    // InternalHale.g:923:4: (lv_type_3_0= ruleTypeAnnotation )
+                    // InternalHale.g:924:5: lv_type_3_0= ruleTypeAnnotation
                     {
 
                     					newCompositeNode(grammarAccess.getLetBindingAccess().getTypeTypeAnnotationParserRuleCall_3_0());
                     				
-                    pushFollow(FOLLOW_27);
+                    pushFollow(FOLLOW_16);
                     lv_type_3_0=ruleTypeAnnotation();
 
                     state._fsp--;
@@ -5300,15 +2655,15 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,41,FOLLOW_8); 
+            otherlv_4=(Token)match(input,24,FOLLOW_17); 
 
             			newLeafNode(otherlv_4, grammarAccess.getLetBindingAccess().getEqualsSignKeyword_4());
             		
-            // InternalHale.g:1969:3: ( (lv_expression_5_0= ruleExpression ) )
-            // InternalHale.g:1970:4: (lv_expression_5_0= ruleExpression )
+            // InternalHale.g:945:3: ( (lv_expression_5_0= ruleExpression ) )
+            // InternalHale.g:946:4: (lv_expression_5_0= ruleExpression )
             {
-            // InternalHale.g:1970:4: (lv_expression_5_0= ruleExpression )
-            // InternalHale.g:1971:5: lv_expression_5_0= ruleExpression
+            // InternalHale.g:946:4: (lv_expression_5_0= ruleExpression )
+            // InternalHale.g:947:5: lv_expression_5_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getLetBindingAccess().getExpressionExpressionParserRuleCall_5_0());
@@ -5358,7 +2713,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBindingReference"
-    // InternalHale.g:1992:1: entryRuleBindingReference returns [EObject current=null] : iv_ruleBindingReference= ruleBindingReference EOF ;
+    // InternalHale.g:968:1: entryRuleBindingReference returns [EObject current=null] : iv_ruleBindingReference= ruleBindingReference EOF ;
     public final EObject entryRuleBindingReference() throws RecognitionException {
         EObject current = null;
 
@@ -5366,8 +2721,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:1992:57: (iv_ruleBindingReference= ruleBindingReference EOF )
-            // InternalHale.g:1993:2: iv_ruleBindingReference= ruleBindingReference EOF
+            // InternalHale.g:968:57: (iv_ruleBindingReference= ruleBindingReference EOF )
+            // InternalHale.g:969:2: iv_ruleBindingReference= ruleBindingReference EOF
             {
              newCompositeNode(grammarAccess.getBindingReferenceRule()); 
             pushFollow(FOLLOW_1);
@@ -5394,7 +2749,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBindingReference"
-    // InternalHale.g:1999:1: ruleBindingReference returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    // InternalHale.g:975:1: ruleBindingReference returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleBindingReference() throws RecognitionException {
         EObject current = null;
 
@@ -5404,14 +2759,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2005:2: ( ( (otherlv_0= RULE_ID ) ) )
-            // InternalHale.g:2006:2: ( (otherlv_0= RULE_ID ) )
+            // InternalHale.g:981:2: ( ( (otherlv_0= RULE_ID ) ) )
+            // InternalHale.g:982:2: ( (otherlv_0= RULE_ID ) )
             {
-            // InternalHale.g:2006:2: ( (otherlv_0= RULE_ID ) )
-            // InternalHale.g:2007:3: (otherlv_0= RULE_ID )
+            // InternalHale.g:982:2: ( (otherlv_0= RULE_ID ) )
+            // InternalHale.g:983:3: (otherlv_0= RULE_ID )
             {
-            // InternalHale.g:2007:3: (otherlv_0= RULE_ID )
-            // InternalHale.g:2008:4: otherlv_0= RULE_ID
+            // InternalHale.g:983:3: (otherlv_0= RULE_ID )
+            // InternalHale.g:984:4: otherlv_0= RULE_ID
             {
 
             				if (current==null) {
@@ -5448,7 +2803,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAssignment"
-    // InternalHale.g:2022:1: entryRuleAssignment returns [EObject current=null] : iv_ruleAssignment= ruleAssignment EOF ;
+    // InternalHale.g:998:1: entryRuleAssignment returns [EObject current=null] : iv_ruleAssignment= ruleAssignment EOF ;
     public final EObject entryRuleAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -5456,8 +2811,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2022:51: (iv_ruleAssignment= ruleAssignment EOF )
-            // InternalHale.g:2023:2: iv_ruleAssignment= ruleAssignment EOF
+            // InternalHale.g:998:51: (iv_ruleAssignment= ruleAssignment EOF )
+            // InternalHale.g:999:2: iv_ruleAssignment= ruleAssignment EOF
             {
              newCompositeNode(grammarAccess.getAssignmentRule()); 
             pushFollow(FOLLOW_1);
@@ -5484,7 +2839,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssignment"
-    // InternalHale.g:2029:1: ruleAssignment returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) ) ) ;
+    // InternalHale.g:1005:1: ruleAssignment returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) ) ) ;
     public final EObject ruleAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -5497,24 +2852,24 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2035:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) ) ) )
-            // InternalHale.g:2036:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) ) )
+            // InternalHale.g:1011:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) ) ) )
+            // InternalHale.g:1012:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) ) )
             {
-            // InternalHale.g:2036:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) ) )
-            // InternalHale.g:2037:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) )
+            // InternalHale.g:1012:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) ) )
+            // InternalHale.g:1013:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_expression_2_0= ruleExpression ) )
             {
-            // InternalHale.g:2037:3: ( (otherlv_0= RULE_ID ) )
-            // InternalHale.g:2038:4: (otherlv_0= RULE_ID )
+            // InternalHale.g:1013:3: ( (otherlv_0= RULE_ID ) )
+            // InternalHale.g:1014:4: (otherlv_0= RULE_ID )
             {
-            // InternalHale.g:2038:4: (otherlv_0= RULE_ID )
-            // InternalHale.g:2039:5: otherlv_0= RULE_ID
+            // InternalHale.g:1014:4: (otherlv_0= RULE_ID )
+            // InternalHale.g:1015:5: otherlv_0= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getAssignmentRule());
             					}
             				
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_27); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_16); 
 
             					newLeafNode(otherlv_0, grammarAccess.getAssignmentAccess().getBindingBindingCrossReference_0_0());
             				
@@ -5524,15 +2879,15 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,41,FOLLOW_8); 
+            otherlv_1=(Token)match(input,24,FOLLOW_17); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAssignmentAccess().getEqualsSignKeyword_1());
             		
-            // InternalHale.g:2054:3: ( (lv_expression_2_0= ruleExpression ) )
-            // InternalHale.g:2055:4: (lv_expression_2_0= ruleExpression )
+            // InternalHale.g:1030:3: ( (lv_expression_2_0= ruleExpression ) )
+            // InternalHale.g:1031:4: (lv_expression_2_0= ruleExpression )
             {
-            // InternalHale.g:2055:4: (lv_expression_2_0= ruleExpression )
-            // InternalHale.g:2056:5: lv_expression_2_0= ruleExpression
+            // InternalHale.g:1031:4: (lv_expression_2_0= ruleExpression )
+            // InternalHale.g:1032:5: lv_expression_2_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getAssignmentAccess().getExpressionExpressionParserRuleCall_2_0());
@@ -5582,7 +2937,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInput"
-    // InternalHale.g:2077:1: entryRuleInput returns [EObject current=null] : iv_ruleInput= ruleInput EOF ;
+    // InternalHale.g:1053:1: entryRuleInput returns [EObject current=null] : iv_ruleInput= ruleInput EOF ;
     public final EObject entryRuleInput() throws RecognitionException {
         EObject current = null;
 
@@ -5590,8 +2945,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2077:46: (iv_ruleInput= ruleInput EOF )
-            // InternalHale.g:2078:2: iv_ruleInput= ruleInput EOF
+            // InternalHale.g:1053:46: (iv_ruleInput= ruleInput EOF )
+            // InternalHale.g:1054:2: iv_ruleInput= ruleInput EOF
             {
              newCompositeNode(grammarAccess.getInputRule()); 
             pushFollow(FOLLOW_1);
@@ -5618,7 +2973,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInput"
-    // InternalHale.g:2084:1: ruleInput returns [EObject current=null] : ( () otherlv_1= 'input' ) ;
+    // InternalHale.g:1060:1: ruleInput returns [EObject current=null] : ( () otherlv_1= 'input' ) ;
     public final EObject ruleInput() throws RecognitionException {
         EObject current = null;
 
@@ -5628,14 +2983,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2090:2: ( ( () otherlv_1= 'input' ) )
-            // InternalHale.g:2091:2: ( () otherlv_1= 'input' )
+            // InternalHale.g:1066:2: ( ( () otherlv_1= 'input' ) )
+            // InternalHale.g:1067:2: ( () otherlv_1= 'input' )
             {
-            // InternalHale.g:2091:2: ( () otherlv_1= 'input' )
-            // InternalHale.g:2092:3: () otherlv_1= 'input'
+            // InternalHale.g:1067:2: ( () otherlv_1= 'input' )
+            // InternalHale.g:1068:3: () otherlv_1= 'input'
             {
-            // InternalHale.g:2092:3: ()
-            // InternalHale.g:2093:4: 
+            // InternalHale.g:1068:3: ()
+            // InternalHale.g:1069:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5645,7 +3000,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,42,FOLLOW_2); 
+            otherlv_1=(Token)match(input,25,FOLLOW_2); 
 
             			newLeafNode(otherlv_1, grammarAccess.getInputAccess().getInputKeyword_1());
             		
@@ -5672,7 +3027,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrint"
-    // InternalHale.g:2107:1: entryRulePrint returns [EObject current=null] : iv_rulePrint= rulePrint EOF ;
+    // InternalHale.g:1083:1: entryRulePrint returns [EObject current=null] : iv_rulePrint= rulePrint EOF ;
     public final EObject entryRulePrint() throws RecognitionException {
         EObject current = null;
 
@@ -5680,8 +3035,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2107:46: (iv_rulePrint= rulePrint EOF )
-            // InternalHale.g:2108:2: iv_rulePrint= rulePrint EOF
+            // InternalHale.g:1083:46: (iv_rulePrint= rulePrint EOF )
+            // InternalHale.g:1084:2: iv_rulePrint= rulePrint EOF
             {
              newCompositeNode(grammarAccess.getPrintRule()); 
             pushFollow(FOLLOW_1);
@@ -5708,7 +3063,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrint"
-    // InternalHale.g:2114:1: rulePrint returns [EObject current=null] : (otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) ) ) ;
+    // InternalHale.g:1090:1: rulePrint returns [EObject current=null] : (otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) ) ) ;
     public final EObject rulePrint() throws RecognitionException {
         EObject current = null;
 
@@ -5720,21 +3075,21 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2120:2: ( (otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) ) ) )
-            // InternalHale.g:2121:2: (otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) ) )
+            // InternalHale.g:1096:2: ( (otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) ) ) )
+            // InternalHale.g:1097:2: (otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) ) )
             {
-            // InternalHale.g:2121:2: (otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) ) )
-            // InternalHale.g:2122:3: otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) )
+            // InternalHale.g:1097:2: (otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) ) )
+            // InternalHale.g:1098:3: otherlv_0= 'print' ( (lv_expression_1_0= ruleExpression ) )
             {
-            otherlv_0=(Token)match(input,43,FOLLOW_8); 
+            otherlv_0=(Token)match(input,26,FOLLOW_17); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPrintAccess().getPrintKeyword_0());
             		
-            // InternalHale.g:2126:3: ( (lv_expression_1_0= ruleExpression ) )
-            // InternalHale.g:2127:4: (lv_expression_1_0= ruleExpression )
+            // InternalHale.g:1102:3: ( (lv_expression_1_0= ruleExpression ) )
+            // InternalHale.g:1103:4: (lv_expression_1_0= ruleExpression )
             {
-            // InternalHale.g:2127:4: (lv_expression_1_0= ruleExpression )
-            // InternalHale.g:2128:5: lv_expression_1_0= ruleExpression
+            // InternalHale.g:1103:4: (lv_expression_1_0= ruleExpression )
+            // InternalHale.g:1104:5: lv_expression_1_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getPrintAccess().getExpressionExpressionParserRuleCall_1_0());
@@ -5784,7 +3139,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIf"
-    // InternalHale.g:2149:1: entryRuleIf returns [EObject current=null] : iv_ruleIf= ruleIf EOF ;
+    // InternalHale.g:1125:1: entryRuleIf returns [EObject current=null] : iv_ruleIf= ruleIf EOF ;
     public final EObject entryRuleIf() throws RecognitionException {
         EObject current = null;
 
@@ -5792,8 +3147,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2149:43: (iv_ruleIf= ruleIf EOF )
-            // InternalHale.g:2150:2: iv_ruleIf= ruleIf EOF
+            // InternalHale.g:1125:43: (iv_ruleIf= ruleIf EOF )
+            // InternalHale.g:1126:2: iv_ruleIf= ruleIf EOF
             {
              newCompositeNode(grammarAccess.getIfRule()); 
             pushFollow(FOLLOW_1);
@@ -5820,7 +3175,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIf"
-    // InternalHale.g:2156:1: ruleIf returns [EObject current=null] : (otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions ) ) ;
+    // InternalHale.g:1132:1: ruleIf returns [EObject current=null] : (otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions ) ) ;
     public final EObject ruleIf() throws RecognitionException {
         EObject current = null;
 
@@ -5834,35 +3189,35 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2162:2: ( (otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions ) ) )
-            // InternalHale.g:2163:2: (otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions ) )
+            // InternalHale.g:1138:2: ( (otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions ) ) )
+            // InternalHale.g:1139:2: (otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions ) )
             {
-            // InternalHale.g:2163:2: (otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions ) )
-            // InternalHale.g:2164:3: otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions )
+            // InternalHale.g:1139:2: (otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions ) )
+            // InternalHale.g:1140:3: otherlv_0= 'if' (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_8); 
+            otherlv_0=(Token)match(input,27,FOLLOW_17); 
 
             			newLeafNode(otherlv_0, grammarAccess.getIfAccess().getIfKeyword_0());
             		
-            // InternalHale.g:2168:3: (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions )
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // InternalHale.g:1144:3: (this_IfLet_1= ruleIfLet | this_IfConditions_2= ruleIfConditions )
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA28_0==39) ) {
-                alt28=1;
+            if ( (LA14_0==22) ) {
+                alt14=1;
             }
-            else if ( ((LA28_0>=RULE_BOOLEAN && LA28_0<=RULE_STRING)||LA28_0==RULE_ID||LA28_0==25||(LA28_0>=31 && LA28_0<=32)||LA28_0==35||LA28_0==42) ) {
-                alt28=2;
+            else if ( ((LA14_0>=RULE_BOOLEAN && LA14_0<=RULE_STRING)||LA14_0==RULE_ID||LA14_0==15||LA14_0==18||LA14_0==25||LA14_0==45||LA14_0==51) ) {
+                alt14=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 28, 0, input);
+                    new NoViableAltException("", 14, 0, input);
 
                 throw nvae;
             }
-            switch (alt28) {
+            switch (alt14) {
                 case 1 :
-                    // InternalHale.g:2169:4: this_IfLet_1= ruleIfLet
+                    // InternalHale.g:1145:4: this_IfLet_1= ruleIfLet
                     {
 
                     				newCompositeNode(grammarAccess.getIfAccess().getIfLetParserRuleCall_1_0());
@@ -5880,7 +3235,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalHale.g:2178:4: this_IfConditions_2= ruleIfConditions
+                    // InternalHale.g:1154:4: this_IfConditions_2= ruleIfConditions
                     {
 
                     				newCompositeNode(grammarAccess.getIfAccess().getIfConditionsParserRuleCall_1_1());
@@ -5923,7 +3278,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIfLet"
-    // InternalHale.g:2191:1: entryRuleIfLet returns [EObject current=null] : iv_ruleIfLet= ruleIfLet EOF ;
+    // InternalHale.g:1167:1: entryRuleIfLet returns [EObject current=null] : iv_ruleIfLet= ruleIfLet EOF ;
     public final EObject entryRuleIfLet() throws RecognitionException {
         EObject current = null;
 
@@ -5931,8 +3286,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2191:46: (iv_ruleIfLet= ruleIfLet EOF )
-            // InternalHale.g:2192:2: iv_ruleIfLet= ruleIfLet EOF
+            // InternalHale.g:1167:46: (iv_ruleIfLet= ruleIfLet EOF )
+            // InternalHale.g:1168:2: iv_ruleIfLet= ruleIfLet EOF
             {
              newCompositeNode(grammarAccess.getIfLetRule()); 
             pushFollow(FOLLOW_1);
@@ -5959,7 +3314,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIfLet"
-    // InternalHale.g:2198:1: ruleIfLet returns [EObject current=null] : (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )? ) ;
+    // InternalHale.g:1174:1: ruleIfLet returns [EObject current=null] : (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )? ) ;
     public final EObject ruleIfLet() throws RecognitionException {
         EObject current = null;
 
@@ -5982,31 +3337,31 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2204:2: ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )? ) )
-            // InternalHale.g:2205:2: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )? )
+            // InternalHale.g:1180:2: ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )? ) )
+            // InternalHale.g:1181:2: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )? )
             {
-            // InternalHale.g:2205:2: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )? )
-            // InternalHale.g:2206:3: otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )?
+            // InternalHale.g:1181:2: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )? )
+            // InternalHale.g:1182:3: otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? otherlv_4= '=' ( (lv_expression_5_0= ruleExpression ) ) ( (lv_ifBlock_6_0= ruleBracedBlock ) ) (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )?
             {
-            otherlv_0=(Token)match(input,39,FOLLOW_25); 
+            otherlv_0=(Token)match(input,22,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getIfLetAccess().getLetKeyword_0());
             		
-            // InternalHale.g:2210:3: ( (lv_mutable_1_0= 'mut' ) )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // InternalHale.g:1186:3: ( (lv_mutable_1_0= 'mut' ) )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA29_0==40) ) {
-                alt29=1;
+            if ( (LA15_0==23) ) {
+                alt15=1;
             }
-            switch (alt29) {
+            switch (alt15) {
                 case 1 :
-                    // InternalHale.g:2211:4: (lv_mutable_1_0= 'mut' )
+                    // InternalHale.g:1187:4: (lv_mutable_1_0= 'mut' )
                     {
-                    // InternalHale.g:2211:4: (lv_mutable_1_0= 'mut' )
-                    // InternalHale.g:2212:5: lv_mutable_1_0= 'mut'
+                    // InternalHale.g:1187:4: (lv_mutable_1_0= 'mut' )
+                    // InternalHale.g:1188:5: lv_mutable_1_0= 'mut'
                     {
-                    lv_mutable_1_0=(Token)match(input,40,FOLLOW_25); 
+                    lv_mutable_1_0=(Token)match(input,23,FOLLOW_14); 
 
                     					newLeafNode(lv_mutable_1_0, grammarAccess.getIfLetAccess().getMutableMutKeyword_1_0());
                     				
@@ -6025,16 +3380,16 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2224:3: ( (lv_binding_2_0= ruleBinding ) )
-            // InternalHale.g:2225:4: (lv_binding_2_0= ruleBinding )
+            // InternalHale.g:1200:3: ( (lv_binding_2_0= ruleBinding ) )
+            // InternalHale.g:1201:4: (lv_binding_2_0= ruleBinding )
             {
-            // InternalHale.g:2225:4: (lv_binding_2_0= ruleBinding )
-            // InternalHale.g:2226:5: lv_binding_2_0= ruleBinding
+            // InternalHale.g:1201:4: (lv_binding_2_0= ruleBinding )
+            // InternalHale.g:1202:5: lv_binding_2_0= ruleBinding
             {
 
             					newCompositeNode(grammarAccess.getIfLetAccess().getBindingBindingParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_15);
             lv_binding_2_0=ruleBinding();
 
             state._fsp--;
@@ -6056,24 +3411,24 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2243:3: ( (lv_type_3_0= ruleTypeAnnotation ) )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // InternalHale.g:1219:3: ( (lv_type_3_0= ruleTypeAnnotation ) )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA30_0==36) ) {
-                alt30=1;
+            if ( (LA16_0==16) ) {
+                alt16=1;
             }
-            switch (alt30) {
+            switch (alt16) {
                 case 1 :
-                    // InternalHale.g:2244:4: (lv_type_3_0= ruleTypeAnnotation )
+                    // InternalHale.g:1220:4: (lv_type_3_0= ruleTypeAnnotation )
                     {
-                    // InternalHale.g:2244:4: (lv_type_3_0= ruleTypeAnnotation )
-                    // InternalHale.g:2245:5: lv_type_3_0= ruleTypeAnnotation
+                    // InternalHale.g:1220:4: (lv_type_3_0= ruleTypeAnnotation )
+                    // InternalHale.g:1221:5: lv_type_3_0= ruleTypeAnnotation
                     {
 
                     					newCompositeNode(grammarAccess.getIfLetAccess().getTypeTypeAnnotationParserRuleCall_3_0());
                     				
-                    pushFollow(FOLLOW_27);
+                    pushFollow(FOLLOW_16);
                     lv_type_3_0=ruleTypeAnnotation();
 
                     state._fsp--;
@@ -6098,20 +3453,20 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,41,FOLLOW_8); 
+            otherlv_4=(Token)match(input,24,FOLLOW_17); 
 
             			newLeafNode(otherlv_4, grammarAccess.getIfLetAccess().getEqualsSignKeyword_4());
             		
-            // InternalHale.g:2266:3: ( (lv_expression_5_0= ruleExpression ) )
-            // InternalHale.g:2267:4: (lv_expression_5_0= ruleExpression )
+            // InternalHale.g:1242:3: ( (lv_expression_5_0= ruleExpression ) )
+            // InternalHale.g:1243:4: (lv_expression_5_0= ruleExpression )
             {
-            // InternalHale.g:2267:4: (lv_expression_5_0= ruleExpression )
-            // InternalHale.g:2268:5: lv_expression_5_0= ruleExpression
+            // InternalHale.g:1243:4: (lv_expression_5_0= ruleExpression )
+            // InternalHale.g:1244:5: lv_expression_5_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getIfLetAccess().getExpressionExpressionParserRuleCall_5_0());
             				
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_18);
             lv_expression_5_0=ruleExpression();
 
             state._fsp--;
@@ -6133,16 +3488,16 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2285:3: ( (lv_ifBlock_6_0= ruleBracedBlock ) )
-            // InternalHale.g:2286:4: (lv_ifBlock_6_0= ruleBracedBlock )
+            // InternalHale.g:1261:3: ( (lv_ifBlock_6_0= ruleBracedBlock ) )
+            // InternalHale.g:1262:4: (lv_ifBlock_6_0= ruleBracedBlock )
             {
-            // InternalHale.g:2286:4: (lv_ifBlock_6_0= ruleBracedBlock )
-            // InternalHale.g:2287:5: lv_ifBlock_6_0= ruleBracedBlock
+            // InternalHale.g:1262:4: (lv_ifBlock_6_0= ruleBracedBlock )
+            // InternalHale.g:1263:5: lv_ifBlock_6_0= ruleBracedBlock
             {
 
             					newCompositeNode(grammarAccess.getIfLetAccess().getIfBlockBracedBlockParserRuleCall_6_0());
             				
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_19);
             lv_ifBlock_6_0=ruleBracedBlock();
 
             state._fsp--;
@@ -6164,26 +3519,26 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2304:3: (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // InternalHale.g:1280:3: (otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) ) )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA31_0==45) ) {
-                alt31=1;
+            if ( (LA17_0==28) ) {
+                alt17=1;
             }
-            switch (alt31) {
+            switch (alt17) {
                 case 1 :
-                    // InternalHale.g:2305:4: otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) )
+                    // InternalHale.g:1281:4: otherlv_7= 'else' ( (lv_elseLet_8_0= ruleElseLet ) )
                     {
-                    otherlv_7=(Token)match(input,45,FOLLOW_30); 
+                    otherlv_7=(Token)match(input,28,FOLLOW_20); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getIfLetAccess().getElseKeyword_7_0());
                     			
-                    // InternalHale.g:2309:4: ( (lv_elseLet_8_0= ruleElseLet ) )
-                    // InternalHale.g:2310:5: (lv_elseLet_8_0= ruleElseLet )
+                    // InternalHale.g:1285:4: ( (lv_elseLet_8_0= ruleElseLet ) )
+                    // InternalHale.g:1286:5: (lv_elseLet_8_0= ruleElseLet )
                     {
-                    // InternalHale.g:2310:5: (lv_elseLet_8_0= ruleElseLet )
-                    // InternalHale.g:2311:6: lv_elseLet_8_0= ruleElseLet
+                    // InternalHale.g:1286:5: (lv_elseLet_8_0= ruleElseLet )
+                    // InternalHale.g:1287:6: lv_elseLet_8_0= ruleElseLet
                     {
 
                     						newCompositeNode(grammarAccess.getIfLetAccess().getElseLetElseLetParserRuleCall_7_1_0());
@@ -6239,7 +3594,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleElseLet"
-    // InternalHale.g:2333:1: entryRuleElseLet returns [EObject current=null] : iv_ruleElseLet= ruleElseLet EOF ;
+    // InternalHale.g:1309:1: entryRuleElseLet returns [EObject current=null] : iv_ruleElseLet= ruleElseLet EOF ;
     public final EObject entryRuleElseLet() throws RecognitionException {
         EObject current = null;
 
@@ -6247,8 +3602,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2333:48: (iv_ruleElseLet= ruleElseLet EOF )
-            // InternalHale.g:2334:2: iv_ruleElseLet= ruleElseLet EOF
+            // InternalHale.g:1309:48: (iv_ruleElseLet= ruleElseLet EOF )
+            // InternalHale.g:1310:2: iv_ruleElseLet= ruleElseLet EOF
             {
              newCompositeNode(grammarAccess.getElseLetRule()); 
             pushFollow(FOLLOW_1);
@@ -6275,7 +3630,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleElseLet"
-    // InternalHale.g:2340:1: ruleElseLet returns [EObject current=null] : ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) ) ) ;
+    // InternalHale.g:1316:1: ruleElseLet returns [EObject current=null] : ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) ) ) ;
     public final EObject ruleElseLet() throws RecognitionException {
         EObject current = null;
 
@@ -6292,42 +3647,42 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2346:2: ( ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) ) ) )
-            // InternalHale.g:2347:2: ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) ) )
+            // InternalHale.g:1322:2: ( ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) ) ) )
+            // InternalHale.g:1323:2: ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) ) )
             {
-            // InternalHale.g:2347:2: ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) ) )
-            // InternalHale.g:2348:3: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) )
+            // InternalHale.g:1323:2: ( (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) ) )
+            // InternalHale.g:1324:3: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )? ( (lv_elseBlock_4_0= ruleBracedBlock ) )
             {
-            // InternalHale.g:2348:3: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )?
-            int alt34=2;
-            int LA34_0 = input.LA(1);
+            // InternalHale.g:1324:3: (otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )? )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA34_0==39) ) {
-                alt34=1;
+            if ( (LA20_0==22) ) {
+                alt20=1;
             }
-            switch (alt34) {
+            switch (alt20) {
                 case 1 :
-                    // InternalHale.g:2349:4: otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )?
+                    // InternalHale.g:1325:4: otherlv_0= 'let' ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )?
                     {
-                    otherlv_0=(Token)match(input,39,FOLLOW_25); 
+                    otherlv_0=(Token)match(input,22,FOLLOW_14); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getElseLetAccess().getLetKeyword_0_0());
                     			
-                    // InternalHale.g:2353:4: ( (lv_mutable_1_0= 'mut' ) )?
-                    int alt32=2;
-                    int LA32_0 = input.LA(1);
+                    // InternalHale.g:1329:4: ( (lv_mutable_1_0= 'mut' ) )?
+                    int alt18=2;
+                    int LA18_0 = input.LA(1);
 
-                    if ( (LA32_0==40) ) {
-                        alt32=1;
+                    if ( (LA18_0==23) ) {
+                        alt18=1;
                     }
-                    switch (alt32) {
+                    switch (alt18) {
                         case 1 :
-                            // InternalHale.g:2354:5: (lv_mutable_1_0= 'mut' )
+                            // InternalHale.g:1330:5: (lv_mutable_1_0= 'mut' )
                             {
-                            // InternalHale.g:2354:5: (lv_mutable_1_0= 'mut' )
-                            // InternalHale.g:2355:6: lv_mutable_1_0= 'mut'
+                            // InternalHale.g:1330:5: (lv_mutable_1_0= 'mut' )
+                            // InternalHale.g:1331:6: lv_mutable_1_0= 'mut'
                             {
-                            lv_mutable_1_0=(Token)match(input,40,FOLLOW_25); 
+                            lv_mutable_1_0=(Token)match(input,23,FOLLOW_14); 
 
                             						newLeafNode(lv_mutable_1_0, grammarAccess.getElseLetAccess().getMutableMutKeyword_0_1_0());
                             					
@@ -6346,16 +3701,16 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalHale.g:2367:4: ( (lv_binding_2_0= ruleBinding ) )
-                    // InternalHale.g:2368:5: (lv_binding_2_0= ruleBinding )
+                    // InternalHale.g:1343:4: ( (lv_binding_2_0= ruleBinding ) )
+                    // InternalHale.g:1344:5: (lv_binding_2_0= ruleBinding )
                     {
-                    // InternalHale.g:2368:5: (lv_binding_2_0= ruleBinding )
-                    // InternalHale.g:2369:6: lv_binding_2_0= ruleBinding
+                    // InternalHale.g:1344:5: (lv_binding_2_0= ruleBinding )
+                    // InternalHale.g:1345:6: lv_binding_2_0= ruleBinding
                     {
 
                     						newCompositeNode(grammarAccess.getElseLetAccess().getBindingBindingParserRuleCall_0_2_0());
                     					
-                    pushFollow(FOLLOW_31);
+                    pushFollow(FOLLOW_21);
                     lv_binding_2_0=ruleBinding();
 
                     state._fsp--;
@@ -6377,24 +3732,24 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalHale.g:2386:4: ( (lv_type_3_0= ruleTypeAnnotation ) )?
-                    int alt33=2;
-                    int LA33_0 = input.LA(1);
+                    // InternalHale.g:1362:4: ( (lv_type_3_0= ruleTypeAnnotation ) )?
+                    int alt19=2;
+                    int LA19_0 = input.LA(1);
 
-                    if ( (LA33_0==36) ) {
-                        alt33=1;
+                    if ( (LA19_0==16) ) {
+                        alt19=1;
                     }
-                    switch (alt33) {
+                    switch (alt19) {
                         case 1 :
-                            // InternalHale.g:2387:5: (lv_type_3_0= ruleTypeAnnotation )
+                            // InternalHale.g:1363:5: (lv_type_3_0= ruleTypeAnnotation )
                             {
-                            // InternalHale.g:2387:5: (lv_type_3_0= ruleTypeAnnotation )
-                            // InternalHale.g:2388:6: lv_type_3_0= ruleTypeAnnotation
+                            // InternalHale.g:1363:5: (lv_type_3_0= ruleTypeAnnotation )
+                            // InternalHale.g:1364:6: lv_type_3_0= ruleTypeAnnotation
                             {
 
                             						newCompositeNode(grammarAccess.getElseLetAccess().getTypeTypeAnnotationParserRuleCall_0_3_0());
                             					
-                            pushFollow(FOLLOW_28);
+                            pushFollow(FOLLOW_18);
                             lv_type_3_0=ruleTypeAnnotation();
 
                             state._fsp--;
@@ -6425,11 +3780,11 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2406:3: ( (lv_elseBlock_4_0= ruleBracedBlock ) )
-            // InternalHale.g:2407:4: (lv_elseBlock_4_0= ruleBracedBlock )
+            // InternalHale.g:1382:3: ( (lv_elseBlock_4_0= ruleBracedBlock ) )
+            // InternalHale.g:1383:4: (lv_elseBlock_4_0= ruleBracedBlock )
             {
-            // InternalHale.g:2407:4: (lv_elseBlock_4_0= ruleBracedBlock )
-            // InternalHale.g:2408:5: lv_elseBlock_4_0= ruleBracedBlock
+            // InternalHale.g:1383:4: (lv_elseBlock_4_0= ruleBracedBlock )
+            // InternalHale.g:1384:5: lv_elseBlock_4_0= ruleBracedBlock
             {
 
             					newCompositeNode(grammarAccess.getElseLetAccess().getElseBlockBracedBlockParserRuleCall_1_0());
@@ -6479,7 +3834,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIfConditions"
-    // InternalHale.g:2429:1: entryRuleIfConditions returns [EObject current=null] : iv_ruleIfConditions= ruleIfConditions EOF ;
+    // InternalHale.g:1405:1: entryRuleIfConditions returns [EObject current=null] : iv_ruleIfConditions= ruleIfConditions EOF ;
     public final EObject entryRuleIfConditions() throws RecognitionException {
         EObject current = null;
 
@@ -6487,8 +3842,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2429:53: (iv_ruleIfConditions= ruleIfConditions EOF )
-            // InternalHale.g:2430:2: iv_ruleIfConditions= ruleIfConditions EOF
+            // InternalHale.g:1405:53: (iv_ruleIfConditions= ruleIfConditions EOF )
+            // InternalHale.g:1406:2: iv_ruleIfConditions= ruleIfConditions EOF
             {
              newCompositeNode(grammarAccess.getIfConditionsRule()); 
             pushFollow(FOLLOW_1);
@@ -6515,7 +3870,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIfConditions"
-    // InternalHale.g:2436:1: ruleIfConditions returns [EObject current=null] : ( ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )? ) ;
+    // InternalHale.g:1412:1: ruleIfConditions returns [EObject current=null] : ( ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )? ) ;
     public final EObject ruleIfConditions() throws RecognitionException {
         EObject current = null;
 
@@ -6536,22 +3891,22 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2442:2: ( ( ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )? ) )
-            // InternalHale.g:2443:2: ( ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )? )
+            // InternalHale.g:1418:2: ( ( ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )? ) )
+            // InternalHale.g:1419:2: ( ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )? )
             {
-            // InternalHale.g:2443:2: ( ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )? )
-            // InternalHale.g:2444:3: ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )?
+            // InternalHale.g:1419:2: ( ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )? )
+            // InternalHale.g:1420:3: ( (lv_conditions_0_0= ruleExpression ) ) ( (lv_ifBlocks_1_0= ruleBracedBlock ) ) (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )* (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )?
             {
-            // InternalHale.g:2444:3: ( (lv_conditions_0_0= ruleExpression ) )
-            // InternalHale.g:2445:4: (lv_conditions_0_0= ruleExpression )
+            // InternalHale.g:1420:3: ( (lv_conditions_0_0= ruleExpression ) )
+            // InternalHale.g:1421:4: (lv_conditions_0_0= ruleExpression )
             {
-            // InternalHale.g:2445:4: (lv_conditions_0_0= ruleExpression )
-            // InternalHale.g:2446:5: lv_conditions_0_0= ruleExpression
+            // InternalHale.g:1421:4: (lv_conditions_0_0= ruleExpression )
+            // InternalHale.g:1422:5: lv_conditions_0_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getIfConditionsAccess().getConditionsExpressionParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_18);
             lv_conditions_0_0=ruleExpression();
 
             state._fsp--;
@@ -6573,16 +3928,16 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2463:3: ( (lv_ifBlocks_1_0= ruleBracedBlock ) )
-            // InternalHale.g:2464:4: (lv_ifBlocks_1_0= ruleBracedBlock )
+            // InternalHale.g:1439:3: ( (lv_ifBlocks_1_0= ruleBracedBlock ) )
+            // InternalHale.g:1440:4: (lv_ifBlocks_1_0= ruleBracedBlock )
             {
-            // InternalHale.g:2464:4: (lv_ifBlocks_1_0= ruleBracedBlock )
-            // InternalHale.g:2465:5: lv_ifBlocks_1_0= ruleBracedBlock
+            // InternalHale.g:1440:4: (lv_ifBlocks_1_0= ruleBracedBlock )
+            // InternalHale.g:1441:5: lv_ifBlocks_1_0= ruleBracedBlock
             {
 
             					newCompositeNode(grammarAccess.getIfConditionsAccess().getIfBlocksBracedBlockParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_22);
             lv_ifBlocks_1_0=ruleBracedBlock();
 
             state._fsp--;
@@ -6604,35 +3959,35 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2482:3: (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )*
-            loop35:
+            // InternalHale.g:1458:3: (otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) ) )*
+            loop21:
             do {
-                int alt35=2;
-                int LA35_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA35_0==46) ) {
-                    alt35=1;
+                if ( (LA21_0==29) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt35) {
+                switch (alt21) {
             	case 1 :
-            	    // InternalHale.g:2483:4: otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) )
+            	    // InternalHale.g:1459:4: otherlv_2= 'elseif' ( (lv_conditions_3_0= ruleExpression ) ) ( (lv_ifBlocks_4_0= ruleBracedBlock ) )
             	    {
-            	    otherlv_2=(Token)match(input,46,FOLLOW_8); 
+            	    otherlv_2=(Token)match(input,29,FOLLOW_17); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getIfConditionsAccess().getElseifKeyword_2_0());
             	    			
-            	    // InternalHale.g:2487:4: ( (lv_conditions_3_0= ruleExpression ) )
-            	    // InternalHale.g:2488:5: (lv_conditions_3_0= ruleExpression )
+            	    // InternalHale.g:1463:4: ( (lv_conditions_3_0= ruleExpression ) )
+            	    // InternalHale.g:1464:5: (lv_conditions_3_0= ruleExpression )
             	    {
-            	    // InternalHale.g:2488:5: (lv_conditions_3_0= ruleExpression )
-            	    // InternalHale.g:2489:6: lv_conditions_3_0= ruleExpression
+            	    // InternalHale.g:1464:5: (lv_conditions_3_0= ruleExpression )
+            	    // InternalHale.g:1465:6: lv_conditions_3_0= ruleExpression
             	    {
 
             	    						newCompositeNode(grammarAccess.getIfConditionsAccess().getConditionsExpressionParserRuleCall_2_1_0());
             	    					
-            	    pushFollow(FOLLOW_28);
+            	    pushFollow(FOLLOW_18);
             	    lv_conditions_3_0=ruleExpression();
 
             	    state._fsp--;
@@ -6654,16 +4009,16 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalHale.g:2506:4: ( (lv_ifBlocks_4_0= ruleBracedBlock ) )
-            	    // InternalHale.g:2507:5: (lv_ifBlocks_4_0= ruleBracedBlock )
+            	    // InternalHale.g:1482:4: ( (lv_ifBlocks_4_0= ruleBracedBlock ) )
+            	    // InternalHale.g:1483:5: (lv_ifBlocks_4_0= ruleBracedBlock )
             	    {
-            	    // InternalHale.g:2507:5: (lv_ifBlocks_4_0= ruleBracedBlock )
-            	    // InternalHale.g:2508:6: lv_ifBlocks_4_0= ruleBracedBlock
+            	    // InternalHale.g:1483:5: (lv_ifBlocks_4_0= ruleBracedBlock )
+            	    // InternalHale.g:1484:6: lv_ifBlocks_4_0= ruleBracedBlock
             	    {
 
             	    						newCompositeNode(grammarAccess.getIfConditionsAccess().getIfBlocksBracedBlockParserRuleCall_2_2_0());
             	    					
-            	    pushFollow(FOLLOW_32);
+            	    pushFollow(FOLLOW_22);
             	    lv_ifBlocks_4_0=ruleBracedBlock();
 
             	    state._fsp--;
@@ -6690,30 +4045,30 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop35;
+            	    break loop21;
                 }
             } while (true);
 
-            // InternalHale.g:2526:3: (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )?
-            int alt36=2;
-            int LA36_0 = input.LA(1);
+            // InternalHale.g:1502:3: (otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) ) )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA36_0==45) ) {
-                alt36=1;
+            if ( (LA22_0==28) ) {
+                alt22=1;
             }
-            switch (alt36) {
+            switch (alt22) {
                 case 1 :
-                    // InternalHale.g:2527:4: otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) )
+                    // InternalHale.g:1503:4: otherlv_5= 'else' ( (lv_elseBlock_6_0= ruleBracedBlock ) )
                     {
-                    otherlv_5=(Token)match(input,45,FOLLOW_28); 
+                    otherlv_5=(Token)match(input,28,FOLLOW_18); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getIfConditionsAccess().getElseKeyword_3_0());
                     			
-                    // InternalHale.g:2531:4: ( (lv_elseBlock_6_0= ruleBracedBlock ) )
-                    // InternalHale.g:2532:5: (lv_elseBlock_6_0= ruleBracedBlock )
+                    // InternalHale.g:1507:4: ( (lv_elseBlock_6_0= ruleBracedBlock ) )
+                    // InternalHale.g:1508:5: (lv_elseBlock_6_0= ruleBracedBlock )
                     {
-                    // InternalHale.g:2532:5: (lv_elseBlock_6_0= ruleBracedBlock )
-                    // InternalHale.g:2533:6: lv_elseBlock_6_0= ruleBracedBlock
+                    // InternalHale.g:1508:5: (lv_elseBlock_6_0= ruleBracedBlock )
+                    // InternalHale.g:1509:6: lv_elseBlock_6_0= ruleBracedBlock
                     {
 
                     						newCompositeNode(grammarAccess.getIfConditionsAccess().getElseBlockBracedBlockParserRuleCall_3_1_0());
@@ -6769,7 +4124,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWhile"
-    // InternalHale.g:2555:1: entryRuleWhile returns [EObject current=null] : iv_ruleWhile= ruleWhile EOF ;
+    // InternalHale.g:1531:1: entryRuleWhile returns [EObject current=null] : iv_ruleWhile= ruleWhile EOF ;
     public final EObject entryRuleWhile() throws RecognitionException {
         EObject current = null;
 
@@ -6777,8 +4132,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2555:46: (iv_ruleWhile= ruleWhile EOF )
-            // InternalHale.g:2556:2: iv_ruleWhile= ruleWhile EOF
+            // InternalHale.g:1531:46: (iv_ruleWhile= ruleWhile EOF )
+            // InternalHale.g:1532:2: iv_ruleWhile= ruleWhile EOF
             {
              newCompositeNode(grammarAccess.getWhileRule()); 
             pushFollow(FOLLOW_1);
@@ -6805,7 +4160,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWhile"
-    // InternalHale.g:2562:1: ruleWhile returns [EObject current=null] : (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) ) ) ;
+    // InternalHale.g:1538:1: ruleWhile returns [EObject current=null] : (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) ) ) ;
     public final EObject ruleWhile() throws RecognitionException {
         EObject current = null;
 
@@ -6819,26 +4174,26 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2568:2: ( (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) ) ) )
-            // InternalHale.g:2569:2: (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) ) )
+            // InternalHale.g:1544:2: ( (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) ) ) )
+            // InternalHale.g:1545:2: (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) ) )
             {
-            // InternalHale.g:2569:2: (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) ) )
-            // InternalHale.g:2570:3: otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) )
+            // InternalHale.g:1545:2: (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) ) )
+            // InternalHale.g:1546:3: otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) ( (lv_block_2_0= ruleBracedBlock ) )
             {
-            otherlv_0=(Token)match(input,47,FOLLOW_8); 
+            otherlv_0=(Token)match(input,30,FOLLOW_17); 
 
             			newLeafNode(otherlv_0, grammarAccess.getWhileAccess().getWhileKeyword_0());
             		
-            // InternalHale.g:2574:3: ( (lv_condition_1_0= ruleExpression ) )
-            // InternalHale.g:2575:4: (lv_condition_1_0= ruleExpression )
+            // InternalHale.g:1550:3: ( (lv_condition_1_0= ruleExpression ) )
+            // InternalHale.g:1551:4: (lv_condition_1_0= ruleExpression )
             {
-            // InternalHale.g:2575:4: (lv_condition_1_0= ruleExpression )
-            // InternalHale.g:2576:5: lv_condition_1_0= ruleExpression
+            // InternalHale.g:1551:4: (lv_condition_1_0= ruleExpression )
+            // InternalHale.g:1552:5: lv_condition_1_0= ruleExpression
             {
 
             					newCompositeNode(grammarAccess.getWhileAccess().getConditionExpressionParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_18);
             lv_condition_1_0=ruleExpression();
 
             state._fsp--;
@@ -6860,11 +4215,11 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2593:3: ( (lv_block_2_0= ruleBracedBlock ) )
-            // InternalHale.g:2594:4: (lv_block_2_0= ruleBracedBlock )
+            // InternalHale.g:1569:3: ( (lv_block_2_0= ruleBracedBlock ) )
+            // InternalHale.g:1570:4: (lv_block_2_0= ruleBracedBlock )
             {
-            // InternalHale.g:2594:4: (lv_block_2_0= ruleBracedBlock )
-            // InternalHale.g:2595:5: lv_block_2_0= ruleBracedBlock
+            // InternalHale.g:1570:4: (lv_block_2_0= ruleBracedBlock )
+            // InternalHale.g:1571:5: lv_block_2_0= ruleBracedBlock
             {
 
             					newCompositeNode(grammarAccess.getWhileAccess().getBlockBracedBlockParserRuleCall_2_0());
@@ -6914,7 +4269,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBreak"
-    // InternalHale.g:2616:1: entryRuleBreak returns [EObject current=null] : iv_ruleBreak= ruleBreak EOF ;
+    // InternalHale.g:1592:1: entryRuleBreak returns [EObject current=null] : iv_ruleBreak= ruleBreak EOF ;
     public final EObject entryRuleBreak() throws RecognitionException {
         EObject current = null;
 
@@ -6922,8 +4277,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2616:46: (iv_ruleBreak= ruleBreak EOF )
-            // InternalHale.g:2617:2: iv_ruleBreak= ruleBreak EOF
+            // InternalHale.g:1592:46: (iv_ruleBreak= ruleBreak EOF )
+            // InternalHale.g:1593:2: iv_ruleBreak= ruleBreak EOF
             {
              newCompositeNode(grammarAccess.getBreakRule()); 
             pushFollow(FOLLOW_1);
@@ -6950,7 +4305,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBreak"
-    // InternalHale.g:2623:1: ruleBreak returns [EObject current=null] : ( () otherlv_1= 'break' ) ;
+    // InternalHale.g:1599:1: ruleBreak returns [EObject current=null] : ( () otherlv_1= 'break' ) ;
     public final EObject ruleBreak() throws RecognitionException {
         EObject current = null;
 
@@ -6960,14 +4315,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2629:2: ( ( () otherlv_1= 'break' ) )
-            // InternalHale.g:2630:2: ( () otherlv_1= 'break' )
+            // InternalHale.g:1605:2: ( ( () otherlv_1= 'break' ) )
+            // InternalHale.g:1606:2: ( () otherlv_1= 'break' )
             {
-            // InternalHale.g:2630:2: ( () otherlv_1= 'break' )
-            // InternalHale.g:2631:3: () otherlv_1= 'break'
+            // InternalHale.g:1606:2: ( () otherlv_1= 'break' )
+            // InternalHale.g:1607:3: () otherlv_1= 'break'
             {
-            // InternalHale.g:2631:3: ()
-            // InternalHale.g:2632:4: 
+            // InternalHale.g:1607:3: ()
+            // InternalHale.g:1608:4: 
             {
 
             				current = forceCreateModelElement(
@@ -6977,7 +4332,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,48,FOLLOW_2); 
+            otherlv_1=(Token)match(input,31,FOLLOW_2); 
 
             			newLeafNode(otherlv_1, grammarAccess.getBreakAccess().getBreakKeyword_1());
             		
@@ -7004,7 +4359,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFunction"
-    // InternalHale.g:2646:1: entryRuleFunction returns [EObject current=null] : iv_ruleFunction= ruleFunction EOF ;
+    // InternalHale.g:1622:1: entryRuleFunction returns [EObject current=null] : iv_ruleFunction= ruleFunction EOF ;
     public final EObject entryRuleFunction() throws RecognitionException {
         EObject current = null;
 
@@ -7012,8 +4367,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2646:49: (iv_ruleFunction= ruleFunction EOF )
-            // InternalHale.g:2647:2: iv_ruleFunction= ruleFunction EOF
+            // InternalHale.g:1622:49: (iv_ruleFunction= ruleFunction EOF )
+            // InternalHale.g:1623:2: iv_ruleFunction= ruleFunction EOF
             {
              newCompositeNode(grammarAccess.getFunctionRule()); 
             pushFollow(FOLLOW_1);
@@ -7040,7 +4395,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunction"
-    // InternalHale.g:2653:1: ruleFunction returns [EObject current=null] : (otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) ) ) ;
+    // InternalHale.g:1629:1: ruleFunction returns [EObject current=null] : (otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) ) ) ;
     public final EObject ruleFunction() throws RecognitionException {
         EObject current = null;
 
@@ -7064,26 +4419,26 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2659:2: ( (otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) ) ) )
-            // InternalHale.g:2660:2: (otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) ) )
+            // InternalHale.g:1635:2: ( (otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) ) ) )
+            // InternalHale.g:1636:2: (otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) ) )
             {
-            // InternalHale.g:2660:2: (otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) ) )
-            // InternalHale.g:2661:3: otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) )
+            // InternalHale.g:1636:2: (otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) ) )
+            // InternalHale.g:1637:3: otherlv_0= 'function' ( (lv_binding_1_0= ruleBinding ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' ( (lv_returnType_8_0= ruleTypeAnnotation ) )? ( (lv_body_9_0= ruleBracedBlock ) )
             {
-            otherlv_0=(Token)match(input,49,FOLLOW_25); 
+            otherlv_0=(Token)match(input,32,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getFunctionAccess().getFunctionKeyword_0());
             		
-            // InternalHale.g:2665:3: ( (lv_binding_1_0= ruleBinding ) )
-            // InternalHale.g:2666:4: (lv_binding_1_0= ruleBinding )
+            // InternalHale.g:1641:3: ( (lv_binding_1_0= ruleBinding ) )
+            // InternalHale.g:1642:4: (lv_binding_1_0= ruleBinding )
             {
-            // InternalHale.g:2666:4: (lv_binding_1_0= ruleBinding )
-            // InternalHale.g:2667:5: lv_binding_1_0= ruleBinding
+            // InternalHale.g:1642:4: (lv_binding_1_0= ruleBinding )
+            // InternalHale.g:1643:5: lv_binding_1_0= ruleBinding
             {
 
             					newCompositeNode(grammarAccess.getFunctionAccess().getBindingBindingParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_8);
             lv_binding_1_0=ruleBinding();
 
             state._fsp--;
@@ -7105,31 +4460,31 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,32,FOLLOW_33); 
+            otherlv_2=(Token)match(input,18,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_2());
             		
-            // InternalHale.g:2688:3: ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )?
-            int alt39=2;
-            int LA39_0 = input.LA(1);
+            // InternalHale.g:1664:3: ( ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )? )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA39_0==RULE_ID||LA39_0==40) ) {
-                alt39=1;
+            if ( (LA25_0==RULE_ID||LA25_0==23) ) {
+                alt25=1;
             }
-            switch (alt39) {
+            switch (alt25) {
                 case 1 :
-                    // InternalHale.g:2689:4: ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )?
+                    // InternalHale.g:1665:4: ( (lv_parameters_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )* (otherlv_6= ',' )?
                     {
-                    // InternalHale.g:2689:4: ( (lv_parameters_3_0= ruleParameter ) )
-                    // InternalHale.g:2690:5: (lv_parameters_3_0= ruleParameter )
+                    // InternalHale.g:1665:4: ( (lv_parameters_3_0= ruleParameter ) )
+                    // InternalHale.g:1666:5: (lv_parameters_3_0= ruleParameter )
                     {
-                    // InternalHale.g:2690:5: (lv_parameters_3_0= ruleParameter )
-                    // InternalHale.g:2691:6: lv_parameters_3_0= ruleParameter
+                    // InternalHale.g:1666:5: (lv_parameters_3_0= ruleParameter )
+                    // InternalHale.g:1667:6: lv_parameters_3_0= ruleParameter
                     {
 
                     						newCompositeNode(grammarAccess.getFunctionAccess().getParametersParameterParserRuleCall_3_0_0());
                     					
-                    pushFollow(FOLLOW_19);
+                    pushFollow(FOLLOW_10);
                     lv_parameters_3_0=ruleParameter();
 
                     state._fsp--;
@@ -7151,41 +4506,41 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalHale.g:2708:4: (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )*
-                    loop37:
+                    // InternalHale.g:1684:4: (otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) ) )*
+                    loop23:
                     do {
-                        int alt37=2;
-                        int LA37_0 = input.LA(1);
+                        int alt23=2;
+                        int LA23_0 = input.LA(1);
 
-                        if ( (LA37_0==33) ) {
-                            int LA37_1 = input.LA(2);
+                        if ( (LA23_0==19) ) {
+                            int LA23_1 = input.LA(2);
 
-                            if ( (LA37_1==RULE_ID||LA37_1==40) ) {
-                                alt37=1;
+                            if ( (LA23_1==RULE_ID||LA23_1==23) ) {
+                                alt23=1;
                             }
 
 
                         }
 
 
-                        switch (alt37) {
+                        switch (alt23) {
                     	case 1 :
-                    	    // InternalHale.g:2709:5: otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) )
+                    	    // InternalHale.g:1685:5: otherlv_4= ',' ( (lv_parameters_5_0= ruleParameter ) )
                     	    {
-                    	    otherlv_4=(Token)match(input,33,FOLLOW_25); 
+                    	    otherlv_4=(Token)match(input,19,FOLLOW_14); 
 
                     	    					newLeafNode(otherlv_4, grammarAccess.getFunctionAccess().getCommaKeyword_3_1_0());
                     	    				
-                    	    // InternalHale.g:2713:5: ( (lv_parameters_5_0= ruleParameter ) )
-                    	    // InternalHale.g:2714:6: (lv_parameters_5_0= ruleParameter )
+                    	    // InternalHale.g:1689:5: ( (lv_parameters_5_0= ruleParameter ) )
+                    	    // InternalHale.g:1690:6: (lv_parameters_5_0= ruleParameter )
                     	    {
-                    	    // InternalHale.g:2714:6: (lv_parameters_5_0= ruleParameter )
-                    	    // InternalHale.g:2715:7: lv_parameters_5_0= ruleParameter
+                    	    // InternalHale.g:1690:6: (lv_parameters_5_0= ruleParameter )
+                    	    // InternalHale.g:1691:7: lv_parameters_5_0= ruleParameter
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getFunctionAccess().getParametersParameterParserRuleCall_3_1_1_0());
                     	    						
-                    	    pushFollow(FOLLOW_19);
+                    	    pushFollow(FOLLOW_10);
                     	    lv_parameters_5_0=ruleParameter();
 
                     	    state._fsp--;
@@ -7212,22 +4567,22 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop37;
+                    	    break loop23;
                         }
                     } while (true);
 
-                    // InternalHale.g:2733:4: (otherlv_6= ',' )?
-                    int alt38=2;
-                    int LA38_0 = input.LA(1);
+                    // InternalHale.g:1709:4: (otherlv_6= ',' )?
+                    int alt24=2;
+                    int LA24_0 = input.LA(1);
 
-                    if ( (LA38_0==33) ) {
-                        alt38=1;
+                    if ( (LA24_0==19) ) {
+                        alt24=1;
                     }
-                    switch (alt38) {
+                    switch (alt24) {
                         case 1 :
-                            // InternalHale.g:2734:5: otherlv_6= ','
+                            // InternalHale.g:1710:5: otherlv_6= ','
                             {
-                            otherlv_6=(Token)match(input,33,FOLLOW_20); 
+                            otherlv_6=(Token)match(input,19,FOLLOW_11); 
 
                             					newLeafNode(otherlv_6, grammarAccess.getFunctionAccess().getCommaKeyword_3_2());
                             				
@@ -7243,28 +4598,28 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,34,FOLLOW_31); 
+            otherlv_7=(Token)match(input,20,FOLLOW_21); 
 
             			newLeafNode(otherlv_7, grammarAccess.getFunctionAccess().getRightParenthesisKeyword_4());
             		
-            // InternalHale.g:2744:3: ( (lv_returnType_8_0= ruleTypeAnnotation ) )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            // InternalHale.g:1720:3: ( (lv_returnType_8_0= ruleTypeAnnotation ) )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA40_0==36) ) {
-                alt40=1;
+            if ( (LA26_0==16) ) {
+                alt26=1;
             }
-            switch (alt40) {
+            switch (alt26) {
                 case 1 :
-                    // InternalHale.g:2745:4: (lv_returnType_8_0= ruleTypeAnnotation )
+                    // InternalHale.g:1721:4: (lv_returnType_8_0= ruleTypeAnnotation )
                     {
-                    // InternalHale.g:2745:4: (lv_returnType_8_0= ruleTypeAnnotation )
-                    // InternalHale.g:2746:5: lv_returnType_8_0= ruleTypeAnnotation
+                    // InternalHale.g:1721:4: (lv_returnType_8_0= ruleTypeAnnotation )
+                    // InternalHale.g:1722:5: lv_returnType_8_0= ruleTypeAnnotation
                     {
 
                     					newCompositeNode(grammarAccess.getFunctionAccess().getReturnTypeTypeAnnotationParserRuleCall_5_0());
                     				
-                    pushFollow(FOLLOW_28);
+                    pushFollow(FOLLOW_18);
                     lv_returnType_8_0=ruleTypeAnnotation();
 
                     state._fsp--;
@@ -7289,11 +4644,11 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2763:3: ( (lv_body_9_0= ruleBracedBlock ) )
-            // InternalHale.g:2764:4: (lv_body_9_0= ruleBracedBlock )
+            // InternalHale.g:1739:3: ( (lv_body_9_0= ruleBracedBlock ) )
+            // InternalHale.g:1740:4: (lv_body_9_0= ruleBracedBlock )
             {
-            // InternalHale.g:2764:4: (lv_body_9_0= ruleBracedBlock )
-            // InternalHale.g:2765:5: lv_body_9_0= ruleBracedBlock
+            // InternalHale.g:1740:4: (lv_body_9_0= ruleBracedBlock )
+            // InternalHale.g:1741:5: lv_body_9_0= ruleBracedBlock
             {
 
             					newCompositeNode(grammarAccess.getFunctionAccess().getBodyBracedBlockParserRuleCall_6_0());
@@ -7343,7 +4698,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParameter"
-    // InternalHale.g:2786:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
+    // InternalHale.g:1762:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
     public final EObject entryRuleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -7351,8 +4706,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2786:50: (iv_ruleParameter= ruleParameter EOF )
-            // InternalHale.g:2787:2: iv_ruleParameter= ruleParameter EOF
+            // InternalHale.g:1762:50: (iv_ruleParameter= ruleParameter EOF )
+            // InternalHale.g:1763:2: iv_ruleParameter= ruleParameter EOF
             {
              newCompositeNode(grammarAccess.getParameterRule()); 
             pushFollow(FOLLOW_1);
@@ -7379,7 +4734,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParameter"
-    // InternalHale.g:2793:1: ruleParameter returns [EObject current=null] : ( () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) ) ) ;
+    // InternalHale.g:1769:1: ruleParameter returns [EObject current=null] : ( () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) ) ) ;
     public final EObject ruleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -7393,14 +4748,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2799:2: ( ( () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) ) ) )
-            // InternalHale.g:2800:2: ( () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) ) )
+            // InternalHale.g:1775:2: ( ( () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) ) ) )
+            // InternalHale.g:1776:2: ( () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) ) )
             {
-            // InternalHale.g:2800:2: ( () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) ) )
-            // InternalHale.g:2801:3: () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )
+            // InternalHale.g:1776:2: ( () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) ) )
+            // InternalHale.g:1777:3: () ( (lv_mutable_1_0= 'mut' ) )? ( (lv_binding_2_0= ruleBinding ) ) ( (lv_type_3_0= ruleTypeAnnotation ) )
             {
-            // InternalHale.g:2801:3: ()
-            // InternalHale.g:2802:4: 
+            // InternalHale.g:1777:3: ()
+            // InternalHale.g:1778:4: 
             {
 
             				current = forceCreateModelElement(
@@ -7410,21 +4765,21 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2808:3: ( (lv_mutable_1_0= 'mut' ) )?
-            int alt41=2;
-            int LA41_0 = input.LA(1);
+            // InternalHale.g:1784:3: ( (lv_mutable_1_0= 'mut' ) )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA41_0==40) ) {
-                alt41=1;
+            if ( (LA27_0==23) ) {
+                alt27=1;
             }
-            switch (alt41) {
+            switch (alt27) {
                 case 1 :
-                    // InternalHale.g:2809:4: (lv_mutable_1_0= 'mut' )
+                    // InternalHale.g:1785:4: (lv_mutable_1_0= 'mut' )
                     {
-                    // InternalHale.g:2809:4: (lv_mutable_1_0= 'mut' )
-                    // InternalHale.g:2810:5: lv_mutable_1_0= 'mut'
+                    // InternalHale.g:1785:4: (lv_mutable_1_0= 'mut' )
+                    // InternalHale.g:1786:5: lv_mutable_1_0= 'mut'
                     {
-                    lv_mutable_1_0=(Token)match(input,40,FOLLOW_25); 
+                    lv_mutable_1_0=(Token)match(input,23,FOLLOW_14); 
 
                     					newLeafNode(lv_mutable_1_0, grammarAccess.getParameterAccess().getMutableMutKeyword_1_0());
                     				
@@ -7443,16 +4798,16 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2822:3: ( (lv_binding_2_0= ruleBinding ) )
-            // InternalHale.g:2823:4: (lv_binding_2_0= ruleBinding )
+            // InternalHale.g:1798:3: ( (lv_binding_2_0= ruleBinding ) )
+            // InternalHale.g:1799:4: (lv_binding_2_0= ruleBinding )
             {
-            // InternalHale.g:2823:4: (lv_binding_2_0= ruleBinding )
-            // InternalHale.g:2824:5: lv_binding_2_0= ruleBinding
+            // InternalHale.g:1799:4: (lv_binding_2_0= ruleBinding )
+            // InternalHale.g:1800:5: lv_binding_2_0= ruleBinding
             {
 
             					newCompositeNode(grammarAccess.getParameterAccess().getBindingBindingParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_24);
             lv_binding_2_0=ruleBinding();
 
             state._fsp--;
@@ -7474,11 +4829,11 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHale.g:2841:3: ( (lv_type_3_0= ruleTypeAnnotation ) )
-            // InternalHale.g:2842:4: (lv_type_3_0= ruleTypeAnnotation )
+            // InternalHale.g:1817:3: ( (lv_type_3_0= ruleTypeAnnotation ) )
+            // InternalHale.g:1818:4: (lv_type_3_0= ruleTypeAnnotation )
             {
-            // InternalHale.g:2842:4: (lv_type_3_0= ruleTypeAnnotation )
-            // InternalHale.g:2843:5: lv_type_3_0= ruleTypeAnnotation
+            // InternalHale.g:1818:4: (lv_type_3_0= ruleTypeAnnotation )
+            // InternalHale.g:1819:5: lv_type_3_0= ruleTypeAnnotation
             {
 
             					newCompositeNode(grammarAccess.getParameterAccess().getTypeTypeAnnotationParserRuleCall_3_0());
@@ -7528,7 +4883,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleReturn"
-    // InternalHale.g:2864:1: entryRuleReturn returns [EObject current=null] : iv_ruleReturn= ruleReturn EOF ;
+    // InternalHale.g:1840:1: entryRuleReturn returns [EObject current=null] : iv_ruleReturn= ruleReturn EOF ;
     public final EObject entryRuleReturn() throws RecognitionException {
         EObject current = null;
 
@@ -7536,8 +4891,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2864:47: (iv_ruleReturn= ruleReturn EOF )
-            // InternalHale.g:2865:2: iv_ruleReturn= ruleReturn EOF
+            // InternalHale.g:1840:47: (iv_ruleReturn= ruleReturn EOF )
+            // InternalHale.g:1841:2: iv_ruleReturn= ruleReturn EOF
             {
              newCompositeNode(grammarAccess.getReturnRule()); 
             pushFollow(FOLLOW_1);
@@ -7564,7 +4919,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReturn"
-    // InternalHale.g:2871:1: ruleReturn returns [EObject current=null] : ( () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )? ) ;
+    // InternalHale.g:1847:1: ruleReturn returns [EObject current=null] : ( () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )? ) ;
     public final EObject ruleReturn() throws RecognitionException {
         EObject current = null;
 
@@ -7576,14 +4931,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2877:2: ( ( () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )? ) )
-            // InternalHale.g:2878:2: ( () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )? )
+            // InternalHale.g:1853:2: ( ( () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )? ) )
+            // InternalHale.g:1854:2: ( () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )? )
             {
-            // InternalHale.g:2878:2: ( () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )? )
-            // InternalHale.g:2879:3: () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )?
+            // InternalHale.g:1854:2: ( () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )? )
+            // InternalHale.g:1855:3: () otherlv_1= 'return' ( (lv_expression_2_0= ruleExpression ) )?
             {
-            // InternalHale.g:2879:3: ()
-            // InternalHale.g:2880:4: 
+            // InternalHale.g:1855:3: ()
+            // InternalHale.g:1856:4: 
             {
 
             				current = forceCreateModelElement(
@@ -7593,23 +4948,23 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,50,FOLLOW_35); 
+            otherlv_1=(Token)match(input,33,FOLLOW_25); 
 
             			newLeafNode(otherlv_1, grammarAccess.getReturnAccess().getReturnKeyword_1());
             		
-            // InternalHale.g:2890:3: ( (lv_expression_2_0= ruleExpression ) )?
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            // InternalHale.g:1866:3: ( (lv_expression_2_0= ruleExpression ) )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( ((LA42_0>=RULE_BOOLEAN && LA42_0<=RULE_STRING)||LA42_0==RULE_ID||LA42_0==25||(LA42_0>=31 && LA42_0<=32)||LA42_0==35||LA42_0==42) ) {
-                alt42=1;
+            if ( ((LA28_0>=RULE_BOOLEAN && LA28_0<=RULE_STRING)||LA28_0==RULE_ID||LA28_0==15||LA28_0==18||LA28_0==25||LA28_0==45||LA28_0==51) ) {
+                alt28=1;
             }
-            switch (alt42) {
+            switch (alt28) {
                 case 1 :
-                    // InternalHale.g:2891:4: (lv_expression_2_0= ruleExpression )
+                    // InternalHale.g:1867:4: (lv_expression_2_0= ruleExpression )
                     {
-                    // InternalHale.g:2891:4: (lv_expression_2_0= ruleExpression )
-                    // InternalHale.g:2892:5: lv_expression_2_0= ruleExpression
+                    // InternalHale.g:1867:4: (lv_expression_2_0= ruleExpression )
+                    // InternalHale.g:1868:5: lv_expression_2_0= ruleExpression
                     {
 
                     					newCompositeNode(grammarAccess.getReturnAccess().getExpressionExpressionParserRuleCall_2_0());
@@ -7662,7 +5017,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleThrow"
-    // InternalHale.g:2913:1: entryRuleThrow returns [EObject current=null] : iv_ruleThrow= ruleThrow EOF ;
+    // InternalHale.g:1889:1: entryRuleThrow returns [EObject current=null] : iv_ruleThrow= ruleThrow EOF ;
     public final EObject entryRuleThrow() throws RecognitionException {
         EObject current = null;
 
@@ -7670,8 +5025,8 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHale.g:2913:46: (iv_ruleThrow= ruleThrow EOF )
-            // InternalHale.g:2914:2: iv_ruleThrow= ruleThrow EOF
+            // InternalHale.g:1889:46: (iv_ruleThrow= ruleThrow EOF )
+            // InternalHale.g:1890:2: iv_ruleThrow= ruleThrow EOF
             {
              newCompositeNode(grammarAccess.getThrowRule()); 
             pushFollow(FOLLOW_1);
@@ -7698,7 +5053,7 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleThrow"
-    // InternalHale.g:2920:1: ruleThrow returns [EObject current=null] : ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )? ) ;
+    // InternalHale.g:1896:1: ruleThrow returns [EObject current=null] : ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )? ) ;
     public final EObject ruleThrow() throws RecognitionException {
         EObject current = null;
 
@@ -7710,14 +5065,14 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHale.g:2926:2: ( ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )? ) )
-            // InternalHale.g:2927:2: ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )? )
+            // InternalHale.g:1902:2: ( ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )? ) )
+            // InternalHale.g:1903:2: ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )? )
             {
-            // InternalHale.g:2927:2: ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )? )
-            // InternalHale.g:2928:3: () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )?
+            // InternalHale.g:1903:2: ( () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )? )
+            // InternalHale.g:1904:3: () otherlv_1= 'throw' ( (lv_expression_2_0= ruleExpression ) )?
             {
-            // InternalHale.g:2928:3: ()
-            // InternalHale.g:2929:4: 
+            // InternalHale.g:1904:3: ()
+            // InternalHale.g:1905:4: 
             {
 
             				current = forceCreateModelElement(
@@ -7727,23 +5082,23 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,51,FOLLOW_35); 
+            otherlv_1=(Token)match(input,34,FOLLOW_25); 
 
             			newLeafNode(otherlv_1, grammarAccess.getThrowAccess().getThrowKeyword_1());
             		
-            // InternalHale.g:2939:3: ( (lv_expression_2_0= ruleExpression ) )?
-            int alt43=2;
-            int LA43_0 = input.LA(1);
+            // InternalHale.g:1915:3: ( (lv_expression_2_0= ruleExpression ) )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( ((LA43_0>=RULE_BOOLEAN && LA43_0<=RULE_STRING)||LA43_0==RULE_ID||LA43_0==25||(LA43_0>=31 && LA43_0<=32)||LA43_0==35||LA43_0==42) ) {
-                alt43=1;
+            if ( ((LA29_0>=RULE_BOOLEAN && LA29_0<=RULE_STRING)||LA29_0==RULE_ID||LA29_0==15||LA29_0==18||LA29_0==25||LA29_0==45||LA29_0==51) ) {
+                alt29=1;
             }
-            switch (alt43) {
+            switch (alt29) {
                 case 1 :
-                    // InternalHale.g:2940:4: (lv_expression_2_0= ruleExpression )
+                    // InternalHale.g:1916:4: (lv_expression_2_0= ruleExpression )
                     {
-                    // InternalHale.g:2940:4: (lv_expression_2_0= ruleExpression )
-                    // InternalHale.g:2941:5: lv_expression_2_0= ruleExpression
+                    // InternalHale.g:1916:4: (lv_expression_2_0= ruleExpression )
+                    // InternalHale.g:1917:5: lv_expression_2_0= ruleExpression
                     {
 
                     					newCompositeNode(grammarAccess.getThrowAccess().getExpressionExpressionParserRuleCall_2_0());
@@ -7794,6 +5149,2651 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleThrow"
 
+
+    // $ANTLR start "entryRuleExpression"
+    // InternalHale.g:1938:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    public final EObject entryRuleExpression() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression = null;
+
+
+        try {
+            // InternalHale.g:1938:51: (iv_ruleExpression= ruleExpression EOF )
+            // InternalHale.g:1939:2: iv_ruleExpression= ruleExpression EOF
+            {
+             newCompositeNode(grammarAccess.getExpressionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression=ruleExpression();
+
+            state._fsp--;
+
+             current =iv_ruleExpression; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression"
+
+
+    // $ANTLR start "ruleExpression"
+    // InternalHale.g:1945:1: ruleExpression returns [EObject current=null] : this_Expression10_0= ruleExpression10 ;
+    public final EObject ruleExpression() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Expression10_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:1951:2: (this_Expression10_0= ruleExpression10 )
+            // InternalHale.g:1952:2: this_Expression10_0= ruleExpression10
+            {
+
+            		newCompositeNode(grammarAccess.getExpressionAccess().getExpression10ParserRuleCall());
+            	
+            pushFollow(FOLLOW_2);
+            this_Expression10_0=ruleExpression10();
+
+            state._fsp--;
+
+
+            		current = this_Expression10_0;
+            		afterParserOrEnumRuleCall();
+            	
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression"
+
+
+    // $ANTLR start "entryRuleExpression10"
+    // InternalHale.g:1963:1: entryRuleExpression10 returns [EObject current=null] : iv_ruleExpression10= ruleExpression10 EOF ;
+    public final EObject entryRuleExpression10() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression10 = null;
+
+
+        try {
+            // InternalHale.g:1963:53: (iv_ruleExpression10= ruleExpression10 EOF )
+            // InternalHale.g:1964:2: iv_ruleExpression10= ruleExpression10 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression10Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression10=ruleExpression10();
+
+            state._fsp--;
+
+             current =iv_ruleExpression10; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression10"
+
+
+    // $ANTLR start "ruleExpression10"
+    // InternalHale.g:1970:1: ruleExpression10 returns [EObject current=null] : (this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )* ) ;
+    public final EObject ruleExpression10() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_Expression9_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:1976:2: ( (this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )* ) )
+            // InternalHale.g:1977:2: (this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )* )
+            {
+            // InternalHale.g:1977:2: (this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )* )
+            // InternalHale.g:1978:3: this_Expression9_0= ruleExpression9 ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpression10Access().getExpression9ParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_26);
+            this_Expression9_0=ruleExpression9();
+
+            state._fsp--;
+
+
+            			current = this_Expression9_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalHale.g:1986:3: ( () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) ) )*
+            loop30:
+            do {
+                int alt30=2;
+                int LA30_0 = input.LA(1);
+
+                if ( (LA30_0==35) ) {
+                    alt30=1;
+                }
+
+
+                switch (alt30) {
+            	case 1 :
+            	    // InternalHale.g:1987:4: () otherlv_2= '.' ( (lv_right_3_0= ruleExpression9 ) )
+            	    {
+            	    // InternalHale.g:1987:4: ()
+            	    // InternalHale.g:1988:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getExpression10Access().getConcatenationLeftAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,35,FOLLOW_17); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getExpression10Access().getFullStopKeyword_1_1());
+            	    			
+            	    // InternalHale.g:1998:4: ( (lv_right_3_0= ruleExpression9 ) )
+            	    // InternalHale.g:1999:5: (lv_right_3_0= ruleExpression9 )
+            	    {
+            	    // InternalHale.g:1999:5: (lv_right_3_0= ruleExpression9 )
+            	    // InternalHale.g:2000:6: lv_right_3_0= ruleExpression9
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getExpression10Access().getRightExpression9ParserRuleCall_1_2_0());
+            	    					
+            	    pushFollow(FOLLOW_26);
+            	    lv_right_3_0=ruleExpression9();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getExpression10Rule());
+            	    						}
+            	    						set(
+            	    							current,
+            	    							"right",
+            	    							lv_right_3_0,
+            	    							"willburden.hale.Hale.Expression9");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop30;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression10"
+
+
+    // $ANTLR start "entryRuleExpression9"
+    // InternalHale.g:2022:1: entryRuleExpression9 returns [EObject current=null] : iv_ruleExpression9= ruleExpression9 EOF ;
+    public final EObject entryRuleExpression9() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression9 = null;
+
+
+        try {
+            // InternalHale.g:2022:52: (iv_ruleExpression9= ruleExpression9 EOF )
+            // InternalHale.g:2023:2: iv_ruleExpression9= ruleExpression9 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression9Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression9=ruleExpression9();
+
+            state._fsp--;
+
+             current =iv_ruleExpression9; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression9"
+
+
+    // $ANTLR start "ruleExpression9"
+    // InternalHale.g:2029:1: ruleExpression9 returns [EObject current=null] : (this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )* ) ;
+    public final EObject ruleExpression9() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        Token otherlv_5=null;
+        EObject this_Expression8_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+        EObject lv_right_6_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2035:2: ( (this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )* ) )
+            // InternalHale.g:2036:2: (this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )* )
+            {
+            // InternalHale.g:2036:2: (this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )* )
+            // InternalHale.g:2037:3: this_Expression8_0= ruleExpression8 ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpression9Access().getExpression8ParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_27);
+            this_Expression8_0=ruleExpression8();
+
+            state._fsp--;
+
+
+            			current = this_Expression8_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalHale.g:2045:3: ( ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) ) | ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) ) )*
+            loop31:
+            do {
+                int alt31=3;
+                int LA31_0 = input.LA(1);
+
+                if ( (LA31_0==36) ) {
+                    alt31=1;
+                }
+                else if ( (LA31_0==37) ) {
+                    alt31=2;
+                }
+
+
+                switch (alt31) {
+            	case 1 :
+            	    // InternalHale.g:2046:4: ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) )
+            	    {
+            	    // InternalHale.g:2046:4: ( () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) ) )
+            	    // InternalHale.g:2047:5: () otherlv_2= 'and' ( (lv_right_3_0= ruleExpression8 ) )
+            	    {
+            	    // InternalHale.g:2047:5: ()
+            	    // InternalHale.g:2048:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression9Access().getLogicalAndLeftAction_1_0_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,36,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_2, grammarAccess.getExpression9Access().getAndKeyword_1_0_1());
+            	    				
+            	    // InternalHale.g:2058:5: ( (lv_right_3_0= ruleExpression8 ) )
+            	    // InternalHale.g:2059:6: (lv_right_3_0= ruleExpression8 )
+            	    {
+            	    // InternalHale.g:2059:6: (lv_right_3_0= ruleExpression8 )
+            	    // InternalHale.g:2060:7: lv_right_3_0= ruleExpression8
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression9Access().getRightExpression8ParserRuleCall_1_0_2_0());
+            	    						
+            	    pushFollow(FOLLOW_27);
+            	    lv_right_3_0=ruleExpression8();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression9Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_3_0,
+            	    								"willburden.hale.Hale.Expression8");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalHale.g:2079:4: ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) )
+            	    {
+            	    // InternalHale.g:2079:4: ( () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) ) )
+            	    // InternalHale.g:2080:5: () otherlv_5= 'or' ( (lv_right_6_0= ruleExpression8 ) )
+            	    {
+            	    // InternalHale.g:2080:5: ()
+            	    // InternalHale.g:2081:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression9Access().getLogicalOrLeftAction_1_1_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_5=(Token)match(input,37,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_5, grammarAccess.getExpression9Access().getOrKeyword_1_1_1());
+            	    				
+            	    // InternalHale.g:2091:5: ( (lv_right_6_0= ruleExpression8 ) )
+            	    // InternalHale.g:2092:6: (lv_right_6_0= ruleExpression8 )
+            	    {
+            	    // InternalHale.g:2092:6: (lv_right_6_0= ruleExpression8 )
+            	    // InternalHale.g:2093:7: lv_right_6_0= ruleExpression8
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression9Access().getRightExpression8ParserRuleCall_1_1_2_0());
+            	    						
+            	    pushFollow(FOLLOW_27);
+            	    lv_right_6_0=ruleExpression8();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression9Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_6_0,
+            	    								"willburden.hale.Hale.Expression8");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop31;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression9"
+
+
+    // $ANTLR start "entryRuleExpression8"
+    // InternalHale.g:2116:1: entryRuleExpression8 returns [EObject current=null] : iv_ruleExpression8= ruleExpression8 EOF ;
+    public final EObject entryRuleExpression8() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression8 = null;
+
+
+        try {
+            // InternalHale.g:2116:52: (iv_ruleExpression8= ruleExpression8 EOF )
+            // InternalHale.g:2117:2: iv_ruleExpression8= ruleExpression8 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression8Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression8=ruleExpression8();
+
+            state._fsp--;
+
+             current =iv_ruleExpression8; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression8"
+
+
+    // $ANTLR start "ruleExpression8"
+    // InternalHale.g:2123:1: ruleExpression8 returns [EObject current=null] : (this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )* ) ;
+    public final EObject ruleExpression8() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        Token otherlv_5=null;
+        EObject this_Expression7_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+        EObject lv_right_6_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2129:2: ( (this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )* ) )
+            // InternalHale.g:2130:2: (this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )* )
+            {
+            // InternalHale.g:2130:2: (this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )* )
+            // InternalHale.g:2131:3: this_Expression7_0= ruleExpression7 ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpression8Access().getExpression7ParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_28);
+            this_Expression7_0=ruleExpression7();
+
+            state._fsp--;
+
+
+            			current = this_Expression7_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalHale.g:2139:3: ( ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) ) | ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) ) )*
+            loop32:
+            do {
+                int alt32=3;
+                int LA32_0 = input.LA(1);
+
+                if ( (LA32_0==38) ) {
+                    alt32=1;
+                }
+                else if ( (LA32_0==39) ) {
+                    alt32=2;
+                }
+
+
+                switch (alt32) {
+            	case 1 :
+            	    // InternalHale.g:2140:4: ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) )
+            	    {
+            	    // InternalHale.g:2140:4: ( () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) ) )
+            	    // InternalHale.g:2141:5: () otherlv_2= '==' ( (lv_right_3_0= ruleExpression7 ) )
+            	    {
+            	    // InternalHale.g:2141:5: ()
+            	    // InternalHale.g:2142:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression8Access().getEqualityLeftAction_1_0_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,38,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_2, grammarAccess.getExpression8Access().getEqualsSignEqualsSignKeyword_1_0_1());
+            	    				
+            	    // InternalHale.g:2152:5: ( (lv_right_3_0= ruleExpression7 ) )
+            	    // InternalHale.g:2153:6: (lv_right_3_0= ruleExpression7 )
+            	    {
+            	    // InternalHale.g:2153:6: (lv_right_3_0= ruleExpression7 )
+            	    // InternalHale.g:2154:7: lv_right_3_0= ruleExpression7
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression8Access().getRightExpression7ParserRuleCall_1_0_2_0());
+            	    						
+            	    pushFollow(FOLLOW_28);
+            	    lv_right_3_0=ruleExpression7();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression8Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_3_0,
+            	    								"willburden.hale.Hale.Expression7");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalHale.g:2173:4: ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) )
+            	    {
+            	    // InternalHale.g:2173:4: ( () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) ) )
+            	    // InternalHale.g:2174:5: () otherlv_5= '!=' ( (lv_right_6_0= ruleExpression7 ) )
+            	    {
+            	    // InternalHale.g:2174:5: ()
+            	    // InternalHale.g:2175:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression8Access().getInequalityLeftAction_1_1_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_5=(Token)match(input,39,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_5, grammarAccess.getExpression8Access().getExclamationMarkEqualsSignKeyword_1_1_1());
+            	    				
+            	    // InternalHale.g:2185:5: ( (lv_right_6_0= ruleExpression7 ) )
+            	    // InternalHale.g:2186:6: (lv_right_6_0= ruleExpression7 )
+            	    {
+            	    // InternalHale.g:2186:6: (lv_right_6_0= ruleExpression7 )
+            	    // InternalHale.g:2187:7: lv_right_6_0= ruleExpression7
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression8Access().getRightExpression7ParserRuleCall_1_1_2_0());
+            	    						
+            	    pushFollow(FOLLOW_28);
+            	    lv_right_6_0=ruleExpression7();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression8Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_6_0,
+            	    								"willburden.hale.Hale.Expression7");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop32;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression8"
+
+
+    // $ANTLR start "entryRuleExpression7"
+    // InternalHale.g:2210:1: entryRuleExpression7 returns [EObject current=null] : iv_ruleExpression7= ruleExpression7 EOF ;
+    public final EObject entryRuleExpression7() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression7 = null;
+
+
+        try {
+            // InternalHale.g:2210:52: (iv_ruleExpression7= ruleExpression7 EOF )
+            // InternalHale.g:2211:2: iv_ruleExpression7= ruleExpression7 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression7Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression7=ruleExpression7();
+
+            state._fsp--;
+
+             current =iv_ruleExpression7; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression7"
+
+
+    // $ANTLR start "ruleExpression7"
+    // InternalHale.g:2217:1: ruleExpression7 returns [EObject current=null] : (this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )* ) ;
+    public final EObject ruleExpression7() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        Token otherlv_5=null;
+        Token otherlv_8=null;
+        Token otherlv_11=null;
+        EObject this_Expression6_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+        EObject lv_right_6_0 = null;
+
+        EObject lv_right_9_0 = null;
+
+        EObject lv_right_12_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2223:2: ( (this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )* ) )
+            // InternalHale.g:2224:2: (this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )* )
+            {
+            // InternalHale.g:2224:2: (this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )* )
+            // InternalHale.g:2225:3: this_Expression6_0= ruleExpression6 ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpression7Access().getExpression6ParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_29);
+            this_Expression6_0=ruleExpression6();
+
+            state._fsp--;
+
+
+            			current = this_Expression6_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalHale.g:2233:3: ( ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) ) | ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) ) | ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) ) | ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) ) )*
+            loop33:
+            do {
+                int alt33=5;
+                switch ( input.LA(1) ) {
+                case 40:
+                    {
+                    alt33=1;
+                    }
+                    break;
+                case 41:
+                    {
+                    alt33=2;
+                    }
+                    break;
+                case 42:
+                    {
+                    alt33=3;
+                    }
+                    break;
+                case 43:
+                    {
+                    alt33=4;
+                    }
+                    break;
+
+                }
+
+                switch (alt33) {
+            	case 1 :
+            	    // InternalHale.g:2234:4: ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) )
+            	    {
+            	    // InternalHale.g:2234:4: ( () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) ) )
+            	    // InternalHale.g:2235:5: () otherlv_2= '<=' ( (lv_right_3_0= ruleExpression6 ) )
+            	    {
+            	    // InternalHale.g:2235:5: ()
+            	    // InternalHale.g:2236:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression7Access().getLessThanOrEqualLeftAction_1_0_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,40,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_2, grammarAccess.getExpression7Access().getLessThanSignEqualsSignKeyword_1_0_1());
+            	    				
+            	    // InternalHale.g:2246:5: ( (lv_right_3_0= ruleExpression6 ) )
+            	    // InternalHale.g:2247:6: (lv_right_3_0= ruleExpression6 )
+            	    {
+            	    // InternalHale.g:2247:6: (lv_right_3_0= ruleExpression6 )
+            	    // InternalHale.g:2248:7: lv_right_3_0= ruleExpression6
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_0_2_0());
+            	    						
+            	    pushFollow(FOLLOW_29);
+            	    lv_right_3_0=ruleExpression6();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression7Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_3_0,
+            	    								"willburden.hale.Hale.Expression6");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalHale.g:2267:4: ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) )
+            	    {
+            	    // InternalHale.g:2267:4: ( () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) ) )
+            	    // InternalHale.g:2268:5: () otherlv_5= '<' ( (lv_right_6_0= ruleExpression6 ) )
+            	    {
+            	    // InternalHale.g:2268:5: ()
+            	    // InternalHale.g:2269:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression7Access().getLessThanLeftAction_1_1_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_5=(Token)match(input,41,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_5, grammarAccess.getExpression7Access().getLessThanSignKeyword_1_1_1());
+            	    				
+            	    // InternalHale.g:2279:5: ( (lv_right_6_0= ruleExpression6 ) )
+            	    // InternalHale.g:2280:6: (lv_right_6_0= ruleExpression6 )
+            	    {
+            	    // InternalHale.g:2280:6: (lv_right_6_0= ruleExpression6 )
+            	    // InternalHale.g:2281:7: lv_right_6_0= ruleExpression6
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_1_2_0());
+            	    						
+            	    pushFollow(FOLLOW_29);
+            	    lv_right_6_0=ruleExpression6();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression7Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_6_0,
+            	    								"willburden.hale.Hale.Expression6");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 3 :
+            	    // InternalHale.g:2300:4: ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) )
+            	    {
+            	    // InternalHale.g:2300:4: ( () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) ) )
+            	    // InternalHale.g:2301:5: () otherlv_8= '>=' ( (lv_right_9_0= ruleExpression6 ) )
+            	    {
+            	    // InternalHale.g:2301:5: ()
+            	    // InternalHale.g:2302:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression7Access().getGreaterThanOrEqualLeftAction_1_2_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_8=(Token)match(input,42,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_8, grammarAccess.getExpression7Access().getGreaterThanSignEqualsSignKeyword_1_2_1());
+            	    				
+            	    // InternalHale.g:2312:5: ( (lv_right_9_0= ruleExpression6 ) )
+            	    // InternalHale.g:2313:6: (lv_right_9_0= ruleExpression6 )
+            	    {
+            	    // InternalHale.g:2313:6: (lv_right_9_0= ruleExpression6 )
+            	    // InternalHale.g:2314:7: lv_right_9_0= ruleExpression6
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_2_2_0());
+            	    						
+            	    pushFollow(FOLLOW_29);
+            	    lv_right_9_0=ruleExpression6();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression7Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_9_0,
+            	    								"willburden.hale.Hale.Expression6");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 4 :
+            	    // InternalHale.g:2333:4: ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) )
+            	    {
+            	    // InternalHale.g:2333:4: ( () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) ) )
+            	    // InternalHale.g:2334:5: () otherlv_11= '>' ( (lv_right_12_0= ruleExpression6 ) )
+            	    {
+            	    // InternalHale.g:2334:5: ()
+            	    // InternalHale.g:2335:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression7Access().getGreaterThanLeftAction_1_3_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_11=(Token)match(input,43,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_11, grammarAccess.getExpression7Access().getGreaterThanSignKeyword_1_3_1());
+            	    				
+            	    // InternalHale.g:2345:5: ( (lv_right_12_0= ruleExpression6 ) )
+            	    // InternalHale.g:2346:6: (lv_right_12_0= ruleExpression6 )
+            	    {
+            	    // InternalHale.g:2346:6: (lv_right_12_0= ruleExpression6 )
+            	    // InternalHale.g:2347:7: lv_right_12_0= ruleExpression6
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression7Access().getRightExpression6ParserRuleCall_1_3_2_0());
+            	    						
+            	    pushFollow(FOLLOW_29);
+            	    lv_right_12_0=ruleExpression6();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression7Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_12_0,
+            	    								"willburden.hale.Hale.Expression6");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop33;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression7"
+
+
+    // $ANTLR start "entryRuleExpression6"
+    // InternalHale.g:2370:1: entryRuleExpression6 returns [EObject current=null] : iv_ruleExpression6= ruleExpression6 EOF ;
+    public final EObject entryRuleExpression6() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression6 = null;
+
+
+        try {
+            // InternalHale.g:2370:52: (iv_ruleExpression6= ruleExpression6 EOF )
+            // InternalHale.g:2371:2: iv_ruleExpression6= ruleExpression6 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression6Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression6=ruleExpression6();
+
+            state._fsp--;
+
+             current =iv_ruleExpression6; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression6"
+
+
+    // $ANTLR start "ruleExpression6"
+    // InternalHale.g:2377:1: ruleExpression6 returns [EObject current=null] : (this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )* ) ;
+    public final EObject ruleExpression6() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        Token otherlv_5=null;
+        EObject this_Expression5_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+        EObject lv_right_6_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2383:2: ( (this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )* ) )
+            // InternalHale.g:2384:2: (this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )* )
+            {
+            // InternalHale.g:2384:2: (this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )* )
+            // InternalHale.g:2385:3: this_Expression5_0= ruleExpression5 ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpression6Access().getExpression5ParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_30);
+            this_Expression5_0=ruleExpression5();
+
+            state._fsp--;
+
+
+            			current = this_Expression5_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalHale.g:2393:3: ( ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) ) | ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) ) )*
+            loop34:
+            do {
+                int alt34=3;
+                int LA34_0 = input.LA(1);
+
+                if ( (LA34_0==44) ) {
+                    alt34=1;
+                }
+                else if ( (LA34_0==45) ) {
+                    alt34=2;
+                }
+
+
+                switch (alt34) {
+            	case 1 :
+            	    // InternalHale.g:2394:4: ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) )
+            	    {
+            	    // InternalHale.g:2394:4: ( () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) ) )
+            	    // InternalHale.g:2395:5: () otherlv_2= '+' ( (lv_right_3_0= ruleExpression5 ) )
+            	    {
+            	    // InternalHale.g:2395:5: ()
+            	    // InternalHale.g:2396:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression6Access().getAdditionLeftAction_1_0_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,44,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_2, grammarAccess.getExpression6Access().getPlusSignKeyword_1_0_1());
+            	    				
+            	    // InternalHale.g:2406:5: ( (lv_right_3_0= ruleExpression5 ) )
+            	    // InternalHale.g:2407:6: (lv_right_3_0= ruleExpression5 )
+            	    {
+            	    // InternalHale.g:2407:6: (lv_right_3_0= ruleExpression5 )
+            	    // InternalHale.g:2408:7: lv_right_3_0= ruleExpression5
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_0_2_0());
+            	    						
+            	    pushFollow(FOLLOW_30);
+            	    lv_right_3_0=ruleExpression5();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression6Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_3_0,
+            	    								"willburden.hale.Hale.Expression5");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalHale.g:2427:4: ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) )
+            	    {
+            	    // InternalHale.g:2427:4: ( () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) ) )
+            	    // InternalHale.g:2428:5: () otherlv_5= '-' ( (lv_right_6_0= ruleExpression5 ) )
+            	    {
+            	    // InternalHale.g:2428:5: ()
+            	    // InternalHale.g:2429:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression6Access().getSubtractionLeftAction_1_1_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_5=(Token)match(input,45,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_5, grammarAccess.getExpression6Access().getHyphenMinusKeyword_1_1_1());
+            	    				
+            	    // InternalHale.g:2439:5: ( (lv_right_6_0= ruleExpression5 ) )
+            	    // InternalHale.g:2440:6: (lv_right_6_0= ruleExpression5 )
+            	    {
+            	    // InternalHale.g:2440:6: (lv_right_6_0= ruleExpression5 )
+            	    // InternalHale.g:2441:7: lv_right_6_0= ruleExpression5
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression6Access().getRightExpression5ParserRuleCall_1_1_2_0());
+            	    						
+            	    pushFollow(FOLLOW_30);
+            	    lv_right_6_0=ruleExpression5();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression6Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_6_0,
+            	    								"willburden.hale.Hale.Expression5");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop34;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression6"
+
+
+    // $ANTLR start "entryRuleExpression5"
+    // InternalHale.g:2464:1: entryRuleExpression5 returns [EObject current=null] : iv_ruleExpression5= ruleExpression5 EOF ;
+    public final EObject entryRuleExpression5() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression5 = null;
+
+
+        try {
+            // InternalHale.g:2464:52: (iv_ruleExpression5= ruleExpression5 EOF )
+            // InternalHale.g:2465:2: iv_ruleExpression5= ruleExpression5 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression5Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression5=ruleExpression5();
+
+            state._fsp--;
+
+             current =iv_ruleExpression5; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression5"
+
+
+    // $ANTLR start "ruleExpression5"
+    // InternalHale.g:2471:1: ruleExpression5 returns [EObject current=null] : (this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )* ) ;
+    public final EObject ruleExpression5() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        Token otherlv_5=null;
+        Token otherlv_8=null;
+        EObject this_Expression4_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+        EObject lv_right_6_0 = null;
+
+        EObject lv_right_9_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2477:2: ( (this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )* ) )
+            // InternalHale.g:2478:2: (this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )* )
+            {
+            // InternalHale.g:2478:2: (this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )* )
+            // InternalHale.g:2479:3: this_Expression4_0= ruleExpression4 ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpression5Access().getExpression4ParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_31);
+            this_Expression4_0=ruleExpression4();
+
+            state._fsp--;
+
+
+            			current = this_Expression4_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalHale.g:2487:3: ( ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) ) | ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) ) | ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) ) )*
+            loop35:
+            do {
+                int alt35=4;
+                switch ( input.LA(1) ) {
+                case 46:
+                    {
+                    alt35=1;
+                    }
+                    break;
+                case 47:
+                    {
+                    alt35=2;
+                    }
+                    break;
+                case 48:
+                    {
+                    alt35=3;
+                    }
+                    break;
+
+                }
+
+                switch (alt35) {
+            	case 1 :
+            	    // InternalHale.g:2488:4: ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) )
+            	    {
+            	    // InternalHale.g:2488:4: ( () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) ) )
+            	    // InternalHale.g:2489:5: () otherlv_2= '*' ( (lv_right_3_0= ruleExpression4 ) )
+            	    {
+            	    // InternalHale.g:2489:5: ()
+            	    // InternalHale.g:2490:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression5Access().getMultiplicationLeftAction_1_0_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,46,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_2, grammarAccess.getExpression5Access().getAsteriskKeyword_1_0_1());
+            	    				
+            	    // InternalHale.g:2500:5: ( (lv_right_3_0= ruleExpression4 ) )
+            	    // InternalHale.g:2501:6: (lv_right_3_0= ruleExpression4 )
+            	    {
+            	    // InternalHale.g:2501:6: (lv_right_3_0= ruleExpression4 )
+            	    // InternalHale.g:2502:7: lv_right_3_0= ruleExpression4
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_0_2_0());
+            	    						
+            	    pushFollow(FOLLOW_31);
+            	    lv_right_3_0=ruleExpression4();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression5Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_3_0,
+            	    								"willburden.hale.Hale.Expression4");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalHale.g:2521:4: ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) )
+            	    {
+            	    // InternalHale.g:2521:4: ( () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) ) )
+            	    // InternalHale.g:2522:5: () otherlv_5= '/' ( (lv_right_6_0= ruleExpression4 ) )
+            	    {
+            	    // InternalHale.g:2522:5: ()
+            	    // InternalHale.g:2523:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression5Access().getDivisionLeftAction_1_1_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_5=(Token)match(input,47,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_5, grammarAccess.getExpression5Access().getSolidusKeyword_1_1_1());
+            	    				
+            	    // InternalHale.g:2533:5: ( (lv_right_6_0= ruleExpression4 ) )
+            	    // InternalHale.g:2534:6: (lv_right_6_0= ruleExpression4 )
+            	    {
+            	    // InternalHale.g:2534:6: (lv_right_6_0= ruleExpression4 )
+            	    // InternalHale.g:2535:7: lv_right_6_0= ruleExpression4
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_1_2_0());
+            	    						
+            	    pushFollow(FOLLOW_31);
+            	    lv_right_6_0=ruleExpression4();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression5Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_6_0,
+            	    								"willburden.hale.Hale.Expression4");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 3 :
+            	    // InternalHale.g:2554:4: ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) )
+            	    {
+            	    // InternalHale.g:2554:4: ( () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) ) )
+            	    // InternalHale.g:2555:5: () otherlv_8= '%' ( (lv_right_9_0= ruleExpression4 ) )
+            	    {
+            	    // InternalHale.g:2555:5: ()
+            	    // InternalHale.g:2556:6: 
+            	    {
+
+            	    						current = forceCreateModelElementAndSet(
+            	    							grammarAccess.getExpression5Access().getRemainderLeftAction_1_2_0(),
+            	    							current);
+            	    					
+
+            	    }
+
+            	    otherlv_8=(Token)match(input,48,FOLLOW_17); 
+
+            	    					newLeafNode(otherlv_8, grammarAccess.getExpression5Access().getPercentSignKeyword_1_2_1());
+            	    				
+            	    // InternalHale.g:2566:5: ( (lv_right_9_0= ruleExpression4 ) )
+            	    // InternalHale.g:2567:6: (lv_right_9_0= ruleExpression4 )
+            	    {
+            	    // InternalHale.g:2567:6: (lv_right_9_0= ruleExpression4 )
+            	    // InternalHale.g:2568:7: lv_right_9_0= ruleExpression4
+            	    {
+
+            	    							newCompositeNode(grammarAccess.getExpression5Access().getRightExpression4ParserRuleCall_1_2_2_0());
+            	    						
+            	    pushFollow(FOLLOW_31);
+            	    lv_right_9_0=ruleExpression4();
+
+            	    state._fsp--;
+
+
+            	    							if (current==null) {
+            	    								current = createModelElementForParent(grammarAccess.getExpression5Rule());
+            	    							}
+            	    							set(
+            	    								current,
+            	    								"right",
+            	    								lv_right_9_0,
+            	    								"willburden.hale.Hale.Expression4");
+            	    							afterParserOrEnumRuleCall();
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop35;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression5"
+
+
+    // $ANTLR start "entryRuleExpression4"
+    // InternalHale.g:2591:1: entryRuleExpression4 returns [EObject current=null] : iv_ruleExpression4= ruleExpression4 EOF ;
+    public final EObject entryRuleExpression4() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression4 = null;
+
+
+        try {
+            // InternalHale.g:2591:52: (iv_ruleExpression4= ruleExpression4 EOF )
+            // InternalHale.g:2592:2: iv_ruleExpression4= ruleExpression4 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression4Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression4=ruleExpression4();
+
+            state._fsp--;
+
+             current =iv_ruleExpression4; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression4"
+
+
+    // $ANTLR start "ruleExpression4"
+    // InternalHale.g:2598:1: ruleExpression4 returns [EObject current=null] : (this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )* ) ;
+    public final EObject ruleExpression4() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_Expression3_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2604:2: ( (this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )* ) )
+            // InternalHale.g:2605:2: (this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )* )
+            {
+            // InternalHale.g:2605:2: (this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )* )
+            // InternalHale.g:2606:3: this_Expression3_0= ruleExpression3 ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpression4Access().getExpression3ParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_32);
+            this_Expression3_0=ruleExpression3();
+
+            state._fsp--;
+
+
+            			current = this_Expression3_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalHale.g:2614:3: ( () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) ) )*
+            loop36:
+            do {
+                int alt36=2;
+                int LA36_0 = input.LA(1);
+
+                if ( (LA36_0==49) ) {
+                    alt36=1;
+                }
+
+
+                switch (alt36) {
+            	case 1 :
+            	    // InternalHale.g:2615:4: () otherlv_2= '**' ( (lv_right_3_0= ruleExpression3 ) )
+            	    {
+            	    // InternalHale.g:2615:4: ()
+            	    // InternalHale.g:2616:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getExpression4Access().getExponentiationLeftAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,49,FOLLOW_17); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getExpression4Access().getAsteriskAsteriskKeyword_1_1());
+            	    			
+            	    // InternalHale.g:2626:4: ( (lv_right_3_0= ruleExpression3 ) )
+            	    // InternalHale.g:2627:5: (lv_right_3_0= ruleExpression3 )
+            	    {
+            	    // InternalHale.g:2627:5: (lv_right_3_0= ruleExpression3 )
+            	    // InternalHale.g:2628:6: lv_right_3_0= ruleExpression3
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getExpression4Access().getRightExpression3ParserRuleCall_1_2_0());
+            	    					
+            	    pushFollow(FOLLOW_32);
+            	    lv_right_3_0=ruleExpression3();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getExpression4Rule());
+            	    						}
+            	    						set(
+            	    							current,
+            	    							"right",
+            	    							lv_right_3_0,
+            	    							"willburden.hale.Hale.Expression3");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop36;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression4"
+
+
+    // $ANTLR start "entryRuleExpression3"
+    // InternalHale.g:2650:1: entryRuleExpression3 returns [EObject current=null] : iv_ruleExpression3= ruleExpression3 EOF ;
+    public final EObject entryRuleExpression3() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression3 = null;
+
+
+        try {
+            // InternalHale.g:2650:52: (iv_ruleExpression3= ruleExpression3 EOF )
+            // InternalHale.g:2651:2: iv_ruleExpression3= ruleExpression3 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression3Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression3=ruleExpression3();
+
+            state._fsp--;
+
+             current =iv_ruleExpression3; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression3"
+
+
+    // $ANTLR start "ruleExpression3"
+    // InternalHale.g:2657:1: ruleExpression3 returns [EObject current=null] : (this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )* ) ;
+    public final EObject ruleExpression3() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_Expression2_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2663:2: ( (this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )* ) )
+            // InternalHale.g:2664:2: (this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )* )
+            {
+            // InternalHale.g:2664:2: (this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )* )
+            // InternalHale.g:2665:3: this_Expression2_0= ruleExpression2 ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpression3Access().getExpression2ParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_33);
+            this_Expression2_0=ruleExpression2();
+
+            state._fsp--;
+
+
+            			current = this_Expression2_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalHale.g:2673:3: ( () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) ) )*
+            loop37:
+            do {
+                int alt37=2;
+                int LA37_0 = input.LA(1);
+
+                if ( (LA37_0==50) ) {
+                    alt37=1;
+                }
+
+
+                switch (alt37) {
+            	case 1 :
+            	    // InternalHale.g:2674:4: () otherlv_2= 'as' ( (lv_right_3_0= ruleType ) )
+            	    {
+            	    // InternalHale.g:2674:4: ()
+            	    // InternalHale.g:2675:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getExpression3Access().getConversionLeftAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,50,FOLLOW_7); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getExpression3Access().getAsKeyword_1_1());
+            	    			
+            	    // InternalHale.g:2685:4: ( (lv_right_3_0= ruleType ) )
+            	    // InternalHale.g:2686:5: (lv_right_3_0= ruleType )
+            	    {
+            	    // InternalHale.g:2686:5: (lv_right_3_0= ruleType )
+            	    // InternalHale.g:2687:6: lv_right_3_0= ruleType
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getExpression3Access().getRightTypeParserRuleCall_1_2_0());
+            	    					
+            	    pushFollow(FOLLOW_33);
+            	    lv_right_3_0=ruleType();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getExpression3Rule());
+            	    						}
+            	    						set(
+            	    							current,
+            	    							"right",
+            	    							lv_right_3_0,
+            	    							"willburden.hale.Hale.Type");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop37;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression3"
+
+
+    // $ANTLR start "entryRuleExpression2"
+    // InternalHale.g:2709:1: entryRuleExpression2 returns [EObject current=null] : iv_ruleExpression2= ruleExpression2 EOF ;
+    public final EObject entryRuleExpression2() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression2 = null;
+
+
+        try {
+            // InternalHale.g:2709:52: (iv_ruleExpression2= ruleExpression2 EOF )
+            // InternalHale.g:2710:2: iv_ruleExpression2= ruleExpression2 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression2Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression2=ruleExpression2();
+
+            state._fsp--;
+
+             current =iv_ruleExpression2; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression2"
+
+
+    // $ANTLR start "ruleExpression2"
+    // InternalHale.g:2716:1: ruleExpression2 returns [EObject current=null] : ( ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) ) | ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) ) | this_Expression1_6= ruleExpression1 ) ;
+    public final EObject ruleExpression2() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token otherlv_4=null;
+        EObject lv_inner_2_0 = null;
+
+        EObject lv_inner_5_0 = null;
+
+        EObject this_Expression1_6 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2722:2: ( ( ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) ) | ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) ) | this_Expression1_6= ruleExpression1 ) )
+            // InternalHale.g:2723:2: ( ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) ) | ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) ) | this_Expression1_6= ruleExpression1 )
+            {
+            // InternalHale.g:2723:2: ( ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) ) | ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) ) | this_Expression1_6= ruleExpression1 )
+            int alt38=3;
+            switch ( input.LA(1) ) {
+            case 45:
+                {
+                alt38=1;
+                }
+                break;
+            case 51:
+                {
+                alt38=2;
+                }
+                break;
+            case RULE_BOOLEAN:
+            case RULE_DOUBLE:
+            case RULE_STRING:
+            case RULE_ID:
+            case 15:
+            case 18:
+            case 25:
+                {
+                alt38=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 38, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt38) {
+                case 1 :
+                    // InternalHale.g:2724:3: ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) )
+                    {
+                    // InternalHale.g:2724:3: ( () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) ) )
+                    // InternalHale.g:2725:4: () otherlv_1= '-' ( (lv_inner_2_0= ruleExpression2 ) )
+                    {
+                    // InternalHale.g:2725:4: ()
+                    // InternalHale.g:2726:5: 
+                    {
+
+                    					current = forceCreateModelElement(
+                    						grammarAccess.getExpression2Access().getUnaryNegationAction_0_0(),
+                    						current);
+                    				
+
+                    }
+
+                    otherlv_1=(Token)match(input,45,FOLLOW_17); 
+
+                    				newLeafNode(otherlv_1, grammarAccess.getExpression2Access().getHyphenMinusKeyword_0_1());
+                    			
+                    // InternalHale.g:2736:4: ( (lv_inner_2_0= ruleExpression2 ) )
+                    // InternalHale.g:2737:5: (lv_inner_2_0= ruleExpression2 )
+                    {
+                    // InternalHale.g:2737:5: (lv_inner_2_0= ruleExpression2 )
+                    // InternalHale.g:2738:6: lv_inner_2_0= ruleExpression2
+                    {
+
+                    						newCompositeNode(grammarAccess.getExpression2Access().getInnerExpression2ParserRuleCall_0_2_0());
+                    					
+                    pushFollow(FOLLOW_2);
+                    lv_inner_2_0=ruleExpression2();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getExpression2Rule());
+                    						}
+                    						set(
+                    							current,
+                    							"inner",
+                    							lv_inner_2_0,
+                    							"willburden.hale.Hale.Expression2");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalHale.g:2757:3: ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) )
+                    {
+                    // InternalHale.g:2757:3: ( () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) ) )
+                    // InternalHale.g:2758:4: () otherlv_4= 'not' ( (lv_inner_5_0= ruleExpression2 ) )
+                    {
+                    // InternalHale.g:2758:4: ()
+                    // InternalHale.g:2759:5: 
+                    {
+
+                    					current = forceCreateModelElement(
+                    						grammarAccess.getExpression2Access().getLogicalNotAction_1_0(),
+                    						current);
+                    				
+
+                    }
+
+                    otherlv_4=(Token)match(input,51,FOLLOW_17); 
+
+                    				newLeafNode(otherlv_4, grammarAccess.getExpression2Access().getNotKeyword_1_1());
+                    			
+                    // InternalHale.g:2769:4: ( (lv_inner_5_0= ruleExpression2 ) )
+                    // InternalHale.g:2770:5: (lv_inner_5_0= ruleExpression2 )
+                    {
+                    // InternalHale.g:2770:5: (lv_inner_5_0= ruleExpression2 )
+                    // InternalHale.g:2771:6: lv_inner_5_0= ruleExpression2
+                    {
+
+                    						newCompositeNode(grammarAccess.getExpression2Access().getInnerExpression2ParserRuleCall_1_2_0());
+                    					
+                    pushFollow(FOLLOW_2);
+                    lv_inner_5_0=ruleExpression2();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getExpression2Rule());
+                    						}
+                    						set(
+                    							current,
+                    							"inner",
+                    							lv_inner_5_0,
+                    							"willburden.hale.Hale.Expression2");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalHale.g:2790:3: this_Expression1_6= ruleExpression1
+                    {
+
+                    			newCompositeNode(grammarAccess.getExpression2Access().getExpression1ParserRuleCall_2());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Expression1_6=ruleExpression1();
+
+                    state._fsp--;
+
+
+                    			current = this_Expression1_6;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression2"
+
+
+    // $ANTLR start "entryRuleExpression1"
+    // InternalHale.g:2802:1: entryRuleExpression1 returns [EObject current=null] : iv_ruleExpression1= ruleExpression1 EOF ;
+    public final EObject entryRuleExpression1() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression1 = null;
+
+
+        try {
+            // InternalHale.g:2802:52: (iv_ruleExpression1= ruleExpression1 EOF )
+            // InternalHale.g:2803:2: iv_ruleExpression1= ruleExpression1 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression1Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression1=ruleExpression1();
+
+            state._fsp--;
+
+             current =iv_ruleExpression1; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression1"
+
+
+    // $ANTLR start "ruleExpression1"
+    // InternalHale.g:2809:1: ruleExpression1 returns [EObject current=null] : (this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )* ) ;
+    public final EObject ruleExpression1() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        Token otherlv_4=null;
+        Token otherlv_6=null;
+        Token otherlv_7=null;
+        EObject this_Expression0_0 = null;
+
+        EObject lv_arguments_3_0 = null;
+
+        EObject lv_arguments_5_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2815:2: ( (this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )* ) )
+            // InternalHale.g:2816:2: (this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )* )
+            {
+            // InternalHale.g:2816:2: (this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )* )
+            // InternalHale.g:2817:3: this_Expression0_0= ruleExpression0 ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )*
+            {
+
+            			newCompositeNode(grammarAccess.getExpression1Access().getExpression0ParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_34);
+            this_Expression0_0=ruleExpression0();
+
+            state._fsp--;
+
+
+            			current = this_Expression0_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalHale.g:2825:3: ( () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')' )*
+            loop42:
+            do {
+                int alt42=2;
+                int LA42_0 = input.LA(1);
+
+                if ( (LA42_0==18) ) {
+                    alt42=1;
+                }
+
+
+                switch (alt42) {
+            	case 1 :
+            	    // InternalHale.g:2826:4: () otherlv_2= '(' ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )? otherlv_7= ')'
+            	    {
+            	    // InternalHale.g:2826:4: ()
+            	    // InternalHale.g:2827:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getExpression1Access().getApplicationExpressionAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,18,FOLLOW_35); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getExpression1Access().getLeftParenthesisKeyword_1_1());
+            	    			
+            	    // InternalHale.g:2837:4: ( ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )? )?
+            	    int alt41=2;
+            	    int LA41_0 = input.LA(1);
+
+            	    if ( ((LA41_0>=RULE_BOOLEAN && LA41_0<=RULE_STRING)||LA41_0==RULE_ID||LA41_0==15||LA41_0==18||LA41_0==25||LA41_0==45||LA41_0==51) ) {
+            	        alt41=1;
+            	    }
+            	    switch (alt41) {
+            	        case 1 :
+            	            // InternalHale.g:2838:5: ( (lv_arguments_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )* (otherlv_6= ',' )?
+            	            {
+            	            // InternalHale.g:2838:5: ( (lv_arguments_3_0= ruleExpression ) )
+            	            // InternalHale.g:2839:6: (lv_arguments_3_0= ruleExpression )
+            	            {
+            	            // InternalHale.g:2839:6: (lv_arguments_3_0= ruleExpression )
+            	            // InternalHale.g:2840:7: lv_arguments_3_0= ruleExpression
+            	            {
+
+            	            							newCompositeNode(grammarAccess.getExpression1Access().getArgumentsExpressionParserRuleCall_1_2_0_0());
+            	            						
+            	            pushFollow(FOLLOW_10);
+            	            lv_arguments_3_0=ruleExpression();
+
+            	            state._fsp--;
+
+
+            	            							if (current==null) {
+            	            								current = createModelElementForParent(grammarAccess.getExpression1Rule());
+            	            							}
+            	            							add(
+            	            								current,
+            	            								"arguments",
+            	            								lv_arguments_3_0,
+            	            								"willburden.hale.Hale.Expression");
+            	            							afterParserOrEnumRuleCall();
+            	            						
+
+            	            }
+
+
+            	            }
+
+            	            // InternalHale.g:2857:5: (otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) ) )*
+            	            loop39:
+            	            do {
+            	                int alt39=2;
+            	                int LA39_0 = input.LA(1);
+
+            	                if ( (LA39_0==19) ) {
+            	                    int LA39_1 = input.LA(2);
+
+            	                    if ( ((LA39_1>=RULE_BOOLEAN && LA39_1<=RULE_STRING)||LA39_1==RULE_ID||LA39_1==15||LA39_1==18||LA39_1==25||LA39_1==45||LA39_1==51) ) {
+            	                        alt39=1;
+            	                    }
+
+
+            	                }
+
+
+            	                switch (alt39) {
+            	            	case 1 :
+            	            	    // InternalHale.g:2858:6: otherlv_4= ',' ( (lv_arguments_5_0= ruleExpression ) )
+            	            	    {
+            	            	    otherlv_4=(Token)match(input,19,FOLLOW_17); 
+
+            	            	    						newLeafNode(otherlv_4, grammarAccess.getExpression1Access().getCommaKeyword_1_2_1_0());
+            	            	    					
+            	            	    // InternalHale.g:2862:6: ( (lv_arguments_5_0= ruleExpression ) )
+            	            	    // InternalHale.g:2863:7: (lv_arguments_5_0= ruleExpression )
+            	            	    {
+            	            	    // InternalHale.g:2863:7: (lv_arguments_5_0= ruleExpression )
+            	            	    // InternalHale.g:2864:8: lv_arguments_5_0= ruleExpression
+            	            	    {
+
+            	            	    								newCompositeNode(grammarAccess.getExpression1Access().getArgumentsExpressionParserRuleCall_1_2_1_1_0());
+            	            	    							
+            	            	    pushFollow(FOLLOW_10);
+            	            	    lv_arguments_5_0=ruleExpression();
+
+            	            	    state._fsp--;
+
+
+            	            	    								if (current==null) {
+            	            	    									current = createModelElementForParent(grammarAccess.getExpression1Rule());
+            	            	    								}
+            	            	    								add(
+            	            	    									current,
+            	            	    									"arguments",
+            	            	    									lv_arguments_5_0,
+            	            	    									"willburden.hale.Hale.Expression");
+            	            	    								afterParserOrEnumRuleCall();
+            	            	    							
+
+            	            	    }
+
+
+            	            	    }
+
+
+            	            	    }
+            	            	    break;
+
+            	            	default :
+            	            	    break loop39;
+            	                }
+            	            } while (true);
+
+            	            // InternalHale.g:2882:5: (otherlv_6= ',' )?
+            	            int alt40=2;
+            	            int LA40_0 = input.LA(1);
+
+            	            if ( (LA40_0==19) ) {
+            	                alt40=1;
+            	            }
+            	            switch (alt40) {
+            	                case 1 :
+            	                    // InternalHale.g:2883:6: otherlv_6= ','
+            	                    {
+            	                    otherlv_6=(Token)match(input,19,FOLLOW_11); 
+
+            	                    						newLeafNode(otherlv_6, grammarAccess.getExpression1Access().getCommaKeyword_1_2_2());
+            	                    					
+
+            	                    }
+            	                    break;
+
+            	            }
+
+
+            	            }
+            	            break;
+
+            	    }
+
+            	    otherlv_7=(Token)match(input,20,FOLLOW_34); 
+
+            	    				newLeafNode(otherlv_7, grammarAccess.getExpression1Access().getRightParenthesisKeyword_1_3());
+            	    			
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop42;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression1"
+
+
+    // $ANTLR start "entryRuleExpression0"
+    // InternalHale.g:2898:1: entryRuleExpression0 returns [EObject current=null] : iv_ruleExpression0= ruleExpression0 EOF ;
+    public final EObject entryRuleExpression0() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpression0 = null;
+
+
+        try {
+            // InternalHale.g:2898:52: (iv_ruleExpression0= ruleExpression0 EOF )
+            // InternalHale.g:2899:2: iv_ruleExpression0= ruleExpression0 EOF
+            {
+             newCompositeNode(grammarAccess.getExpression0Rule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpression0=ruleExpression0();
+
+            state._fsp--;
+
+             current =iv_ruleExpression0; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpression0"
+
+
+    // $ANTLR start "ruleExpression0"
+    // InternalHale.g:2905:1: ruleExpression0 returns [EObject current=null] : (this_Literal_0= ruleLiteral | this_Input_1= ruleInput | this_BindingReference_2= ruleBindingReference | (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' ) ) ;
+    public final EObject ruleExpression0() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        EObject this_Literal_0 = null;
+
+        EObject this_Input_1 = null;
+
+        EObject this_BindingReference_2 = null;
+
+        EObject this_Expression_4 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalHale.g:2911:2: ( (this_Literal_0= ruleLiteral | this_Input_1= ruleInput | this_BindingReference_2= ruleBindingReference | (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' ) ) )
+            // InternalHale.g:2912:2: (this_Literal_0= ruleLiteral | this_Input_1= ruleInput | this_BindingReference_2= ruleBindingReference | (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' ) )
+            {
+            // InternalHale.g:2912:2: (this_Literal_0= ruleLiteral | this_Input_1= ruleInput | this_BindingReference_2= ruleBindingReference | (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' ) )
+            int alt43=4;
+            switch ( input.LA(1) ) {
+            case RULE_BOOLEAN:
+            case RULE_DOUBLE:
+            case RULE_STRING:
+            case 15:
+                {
+                alt43=1;
+                }
+                break;
+            case 25:
+                {
+                alt43=2;
+                }
+                break;
+            case RULE_ID:
+                {
+                alt43=3;
+                }
+                break;
+            case 18:
+                {
+                alt43=4;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 43, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt43) {
+                case 1 :
+                    // InternalHale.g:2913:3: this_Literal_0= ruleLiteral
+                    {
+
+                    			newCompositeNode(grammarAccess.getExpression0Access().getLiteralParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Literal_0=ruleLiteral();
+
+                    state._fsp--;
+
+
+                    			current = this_Literal_0;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalHale.g:2922:3: this_Input_1= ruleInput
+                    {
+
+                    			newCompositeNode(grammarAccess.getExpression0Access().getInputParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Input_1=ruleInput();
+
+                    state._fsp--;
+
+
+                    			current = this_Input_1;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 3 :
+                    // InternalHale.g:2931:3: this_BindingReference_2= ruleBindingReference
+                    {
+
+                    			newCompositeNode(grammarAccess.getExpression0Access().getBindingReferenceParserRuleCall_2());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_BindingReference_2=ruleBindingReference();
+
+                    state._fsp--;
+
+
+                    			current = this_BindingReference_2;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 4 :
+                    // InternalHale.g:2940:3: (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' )
+                    {
+                    // InternalHale.g:2940:3: (otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')' )
+                    // InternalHale.g:2941:4: otherlv_3= '(' this_Expression_4= ruleExpression otherlv_5= ')'
+                    {
+                    otherlv_3=(Token)match(input,18,FOLLOW_17); 
+
+                    				newLeafNode(otherlv_3, grammarAccess.getExpression0Access().getLeftParenthesisKeyword_3_0());
+                    			
+
+                    				newCompositeNode(grammarAccess.getExpression0Access().getExpressionParserRuleCall_3_1());
+                    			
+                    pushFollow(FOLLOW_11);
+                    this_Expression_4=ruleExpression();
+
+                    state._fsp--;
+
+
+                    				current = this_Expression_4;
+                    				afterParserOrEnumRuleCall();
+                    			
+                    otherlv_5=(Token)match(input,20,FOLLOW_2); 
+
+                    				newLeafNode(otherlv_5, grammarAccess.getExpression0Access().getRightParenthesisKeyword_3_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpression0"
+
     // Delegated rules
 
 
@@ -7801,38 +7801,38 @@ public class InternalHaleParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000F9C8982003172L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00082007CE44B172L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x000F9C8982007170L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00082007CE44F170L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000F9C8982002170L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000030002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000C0002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000F00002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000003000002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x000000001C000002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000040000002L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000002100000080L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000100000002L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x000F9C8D82002170L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000600000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000002500000080L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000004000000002L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000010000000100L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000021000000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000008000002000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000001000002000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000600000000002L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000010400000100L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x000F9C8982002172L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000060080L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000160080L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000180000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000010002L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000800100L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001010000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x00082007CE44A170L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000402000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000012000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000030000002L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000900100L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00082007CE44A172L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000003000000002L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x000000C000000002L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x00000F0000000002L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000300000000002L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0001C00000000002L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0002000000000002L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0004000000000002L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x00082007CE54A170L});
 
 }
